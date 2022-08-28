@@ -1,2 +1,2 @@
-export { default as HomePage } from './HomePage/HomePage.js';
-export { default as About } from './About/About.js';
+export { default as HomeTeacherPage } from './HomePage/HomeTeacherPage.js';
+export { default as LoginPage } from './LoginPage/LoginPage.js';

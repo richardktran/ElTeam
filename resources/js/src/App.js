@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Router from "./router/Router";
 
 function App() {
     return (
-        <HashRouter>
+        <BrowserRouter>
             <div className="nk-app-root">
                 <div className="nk-main">
                     <Sidebar />
@@ -20,7 +20,7 @@ function App() {
                     </div>
                 </div>
             </div>
-        </HashRouter>
+        </BrowserRouter>
     );
 }
 
