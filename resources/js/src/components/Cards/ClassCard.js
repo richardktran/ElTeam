@@ -50,7 +50,7 @@ function ClassCard() {
                             </div>
                             <div className="col-md-6">
                                 <span className="label-tag">
-                                    <em class="text-primary icon ni ni-cards"></em>
+                                    <em className="text-primary icon ni ni-cards"></em>
                                     <span> 4 tín chỉ</span>
                                 </span>
                             </div>
@@ -58,13 +58,13 @@ function ClassCard() {
                         <div className="row my-2">
                             <div className="col-md-6">
                                 <span className="label-tag">
-                                    <em class="text-primary icon ni ni-users"></em>
+                                    <em className="text-primary icon ni ni-users"></em>
                                     <span> 40 sinh viên</span>
                                 </span>
                             </div>
                             <div className="col-md-6">
                                 <span className="label-tag">
-                                    <em class="text-primary icon ni ni-clock-fill"></em>
+                                    <em className="text-primary icon ni ni-clock-fill"></em>
                                     <span> 4h/tuần</span>
                                 </span>
                             </div>

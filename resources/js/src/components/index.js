@@ -1,1 +1,1 @@
-export { default as GuestLayout } from './GuestLayout/GuestLayout'
+export { default as TeacherLayout } from './TeacherLayout/TeacherLayout'
