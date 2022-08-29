@@ -10,14 +10,7 @@ function App() {
         <BrowserRouter>
             <div className="nk-app-root">
                 <div className="nk-main">
-                    <Sidebar />
-                    <div className="nk-wrap">
-                        <Header />
-                        <div className="nk-content">
-                            <Router />
-                        </div>
-
-                    </div>
+                    <Router />
                 </div>
             </div>
         </BrowserRouter>
