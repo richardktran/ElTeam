@@ -287,24 +287,6 @@ var CheckCircleFilled = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 8
 
 /***/ }),
 
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/CheckCircleOutlined.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/CheckCircleOutlined.js ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var CheckCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z" } }, { "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }] }, "name": "check-circle", "theme": "outlined" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CheckCircleOutlined);
-
-
-/***/ }),
-
 /***/ "./node_modules/@ant-design/icons-svg/es/asn/CloseCircleFilled.js":
 /*!************************************************************************!*\
   !*** ./node_modules/@ant-design/icons-svg/es/asn/CloseCircleFilled.js ***!
@@ -323,42 +305,6 @@ var CloseCircleFilled = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 8
 
 /***/ }),
 
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/CloseCircleOutlined.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/CloseCircleOutlined.js ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var CloseCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z" } }, { "tag": "path", "attrs": { "d": "M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }] }, "name": "close-circle", "theme": "outlined" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CloseCircleOutlined);
-
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/CloseOutlined.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/CloseOutlined.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var CloseOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z" } }] }, "name": "close", "theme": "outlined" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CloseOutlined);
-
-
-/***/ }),
-
 /***/ "./node_modules/@ant-design/icons-svg/es/asn/ExclamationCircleFilled.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/@ant-design/icons-svg/es/asn/ExclamationCircleFilled.js ***!
@@ -373,24 +319,6 @@ __webpack_require__.r(__webpack_exports__);
 // This icon file is generated automatically.
 var ExclamationCircleFilled = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z" } }] }, "name": "exclamation-circle", "theme": "filled" };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ExclamationCircleFilled);
-
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/ExclamationCircleOutlined.js":
-/*!********************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/ExclamationCircleOutlined.js ***!
-  \********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var ExclamationCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }, { "tag": "path", "attrs": { "d": "M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z" } }] }, "name": "exclamation-circle", "theme": "outlined" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ExclamationCircleOutlined);
 
 
 /***/ }),
@@ -427,42 +355,6 @@ __webpack_require__.r(__webpack_exports__);
 // This icon file is generated automatically.
 var EyeOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z" } }] }, "name": "eye", "theme": "outlined" };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EyeOutlined);
-
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/InfoCircleFilled.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/InfoCircleFilled.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var InfoCircleFilled = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z" } }] }, "name": "info-circle", "theme": "filled" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InfoCircleFilled);
-
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/InfoCircleOutlined.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/InfoCircleOutlined.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var InfoCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }, { "tag": "path", "attrs": { "d": "M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z" } }] }, "name": "info-circle", "theme": "outlined" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InfoCircleOutlined);
 
 
 /***/ }),
@@ -793,40 +685,6 @@ CheckCircleFilled.displayName = 'CheckCircleFilled';
 
 /***/ }),
 
-/***/ "./node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _ant_design_icons_svg_es_asn_CheckCircleOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/CheckCircleOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/CheckCircleOutlined.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-
-var CheckCircleOutlined = function CheckCircleOutlined(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_CheckCircleOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-
-CheckCircleOutlined.displayName = 'CheckCircleOutlined';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(CheckCircleOutlined));
-
-/***/ }),
-
 /***/ "./node_modules/@ant-design/icons/es/icons/CloseCircleFilled.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@ant-design/icons/es/icons/CloseCircleFilled.js ***!
@@ -861,74 +719,6 @@ CloseCircleFilled.displayName = 'CloseCircleFilled';
 
 /***/ }),
 
-/***/ "./node_modules/@ant-design/icons/es/icons/CloseCircleOutlined.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/CloseCircleOutlined.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _ant_design_icons_svg_es_asn_CloseCircleOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/CloseCircleOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/CloseCircleOutlined.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-
-var CloseCircleOutlined = function CloseCircleOutlined(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_CloseCircleOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-
-CloseCircleOutlined.displayName = 'CloseCircleOutlined';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(CloseCircleOutlined));
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons/es/icons/CloseOutlined.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/CloseOutlined.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _ant_design_icons_svg_es_asn_CloseOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/CloseOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/CloseOutlined.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-
-var CloseOutlined = function CloseOutlined(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_CloseOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-
-CloseOutlined.displayName = 'CloseOutlined';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(CloseOutlined));
-
-/***/ }),
-
 /***/ "./node_modules/@ant-design/icons/es/icons/ExclamationCircleFilled.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/@ant-design/icons/es/icons/ExclamationCircleFilled.js ***!
@@ -960,40 +750,6 @@ var ExclamationCircleFilled = function ExclamationCircleFilled(props, ref) {
 
 ExclamationCircleFilled.displayName = 'ExclamationCircleFilled';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(ExclamationCircleFilled));
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons/es/icons/ExclamationCircleOutlined.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/ExclamationCircleOutlined.js ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _ant_design_icons_svg_es_asn_ExclamationCircleOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/ExclamationCircleOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/ExclamationCircleOutlined.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-
-var ExclamationCircleOutlined = function ExclamationCircleOutlined(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_ExclamationCircleOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-
-ExclamationCircleOutlined.displayName = 'ExclamationCircleOutlined';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(ExclamationCircleOutlined));
 
 /***/ }),
 
@@ -1062,74 +818,6 @@ var EyeOutlined = function EyeOutlined(props, ref) {
 
 EyeOutlined.displayName = 'EyeOutlined';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(EyeOutlined));
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons/es/icons/InfoCircleFilled.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/InfoCircleFilled.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _ant_design_icons_svg_es_asn_InfoCircleFilled__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/InfoCircleFilled */ "./node_modules/@ant-design/icons-svg/es/asn/InfoCircleFilled.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-
-var InfoCircleFilled = function InfoCircleFilled(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_InfoCircleFilled__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-
-InfoCircleFilled.displayName = 'InfoCircleFilled';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(InfoCircleFilled));
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _ant_design_icons_svg_es_asn_InfoCircleOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/InfoCircleOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/InfoCircleOutlined.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-
-var InfoCircleOutlined = function InfoCircleOutlined(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_InfoCircleOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-
-InfoCircleOutlined.displayName = 'InfoCircleOutlined';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(InfoCircleOutlined));
 
 /***/ }),
 
@@ -1972,517 +1660,6 @@ function stringInputToObject(color) {
  */
 function isValidCSSUnit(color) {
     return Boolean(matchers.CSS_UNIT.exec(String(color)));
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@ctrl/tinycolor/dist/module/index.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@ctrl/tinycolor/dist/module/index.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "TinyColor": () => (/* binding */ TinyColor),
-/* harmony export */   "tinycolor": () => (/* binding */ tinycolor)
-/* harmony export */ });
-/* harmony import */ var _conversion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./conversion */ "./node_modules/@ctrl/tinycolor/dist/module/conversion.js");
-/* harmony import */ var _css_color_names__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./css-color-names */ "./node_modules/@ctrl/tinycolor/dist/module/css-color-names.js");
-/* harmony import */ var _format_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./format-input */ "./node_modules/@ctrl/tinycolor/dist/module/format-input.js");
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util */ "./node_modules/@ctrl/tinycolor/dist/module/util.js");
-
-
-
-
-var TinyColor = /** @class */ (function () {
-    function TinyColor(color, opts) {
-        if (color === void 0) { color = ''; }
-        if (opts === void 0) { opts = {}; }
-        var _a;
-        // If input is already a tinycolor, return itself
-        if (color instanceof TinyColor) {
-            // eslint-disable-next-line no-constructor-return
-            return color;
-        }
-        if (typeof color === 'number') {
-            color = (0,_conversion__WEBPACK_IMPORTED_MODULE_0__.numberInputToObject)(color);
-        }
-        this.originalInput = color;
-        var rgb = (0,_format_input__WEBPACK_IMPORTED_MODULE_1__.inputToRGB)(color);
-        this.originalInput = color;
-        this.r = rgb.r;
-        this.g = rgb.g;
-        this.b = rgb.b;
-        this.a = rgb.a;
-        this.roundA = Math.round(100 * this.a) / 100;
-        this.format = (_a = opts.format) !== null && _a !== void 0 ? _a : rgb.format;
-        this.gradientType = opts.gradientType;
-        // Don't let the range of [0,255] come back in [0,1].
-        // Potentially lose a little bit of precision here, but will fix issues where
-        // .5 gets interpreted as half of the total, instead of half of 1
-        // If it was supposed to be 128, this was already taken care of by `inputToRgb`
-        if (this.r < 1) {
-            this.r = Math.round(this.r);
-        }
-        if (this.g < 1) {
-            this.g = Math.round(this.g);
-        }
-        if (this.b < 1) {
-            this.b = Math.round(this.b);
-        }
-        this.isValid = rgb.ok;
-    }
-    TinyColor.prototype.isDark = function () {
-        return this.getBrightness() < 128;
-    };
-    TinyColor.prototype.isLight = function () {
-        return !this.isDark();
-    };
-    /**
-     * Returns the perceived brightness of the color, from 0-255.
-     */
-    TinyColor.prototype.getBrightness = function () {
-        // http://www.w3.org/TR/AERT#color-contrast
-        var rgb = this.toRgb();
-        return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
-    };
-    /**
-     * Returns the perceived luminance of a color, from 0-1.
-     */
-    TinyColor.prototype.getLuminance = function () {
-        // http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
-        var rgb = this.toRgb();
-        var R;
-        var G;
-        var B;
-        var RsRGB = rgb.r / 255;
-        var GsRGB = rgb.g / 255;
-        var BsRGB = rgb.b / 255;
-        if (RsRGB <= 0.03928) {
-            R = RsRGB / 12.92;
-        }
-        else {
-            // eslint-disable-next-line prefer-exponentiation-operator
-            R = Math.pow((RsRGB + 0.055) / 1.055, 2.4);
-        }
-        if (GsRGB <= 0.03928) {
-            G = GsRGB / 12.92;
-        }
-        else {
-            // eslint-disable-next-line prefer-exponentiation-operator
-            G = Math.pow((GsRGB + 0.055) / 1.055, 2.4);
-        }
-        if (BsRGB <= 0.03928) {
-            B = BsRGB / 12.92;
-        }
-        else {
-            // eslint-disable-next-line prefer-exponentiation-operator
-            B = Math.pow((BsRGB + 0.055) / 1.055, 2.4);
-        }
-        return 0.2126 * R + 0.7152 * G + 0.0722 * B;
-    };
-    /**
-     * Returns the alpha value of a color, from 0-1.
-     */
-    TinyColor.prototype.getAlpha = function () {
-        return this.a;
-    };
-    /**
-     * Sets the alpha value on the current color.
-     *
-     * @param alpha - The new alpha value. The accepted range is 0-1.
-     */
-    TinyColor.prototype.setAlpha = function (alpha) {
-        this.a = (0,_util__WEBPACK_IMPORTED_MODULE_2__.boundAlpha)(alpha);
-        this.roundA = Math.round(100 * this.a) / 100;
-        return this;
-    };
-    /**
-     * Returns the object as a HSVA object.
-     */
-    TinyColor.prototype.toHsv = function () {
-        var hsv = (0,_conversion__WEBPACK_IMPORTED_MODULE_0__.rgbToHsv)(this.r, this.g, this.b);
-        return { h: hsv.h * 360, s: hsv.s, v: hsv.v, a: this.a };
-    };
-    /**
-     * Returns the hsva values interpolated into a string with the following format:
-     * "hsva(xxx, xxx, xxx, xx)".
-     */
-    TinyColor.prototype.toHsvString = function () {
-        var hsv = (0,_conversion__WEBPACK_IMPORTED_MODULE_0__.rgbToHsv)(this.r, this.g, this.b);
-        var h = Math.round(hsv.h * 360);
-        var s = Math.round(hsv.s * 100);
-        var v = Math.round(hsv.v * 100);
-        return this.a === 1 ? "hsv(".concat(h, ", ").concat(s, "%, ").concat(v, "%)") : "hsva(".concat(h, ", ").concat(s, "%, ").concat(v, "%, ").concat(this.roundA, ")");
-    };
-    /**
-     * Returns the object as a HSLA object.
-     */
-    TinyColor.prototype.toHsl = function () {
-        var hsl = (0,_conversion__WEBPACK_IMPORTED_MODULE_0__.rgbToHsl)(this.r, this.g, this.b);
-        return { h: hsl.h * 360, s: hsl.s, l: hsl.l, a: this.a };
-    };
-    /**
-     * Returns the hsla values interpolated into a string with the following format:
-     * "hsla(xxx, xxx, xxx, xx)".
-     */
-    TinyColor.prototype.toHslString = function () {
-        var hsl = (0,_conversion__WEBPACK_IMPORTED_MODULE_0__.rgbToHsl)(this.r, this.g, this.b);
-        var h = Math.round(hsl.h * 360);
-        var s = Math.round(hsl.s * 100);
-        var l = Math.round(hsl.l * 100);
-        return this.a === 1 ? "hsl(".concat(h, ", ").concat(s, "%, ").concat(l, "%)") : "hsla(".concat(h, ", ").concat(s, "%, ").concat(l, "%, ").concat(this.roundA, ")");
-    };
-    /**
-     * Returns the hex value of the color.
-     * @param allow3Char will shorten hex value to 3 char if possible
-     */
-    TinyColor.prototype.toHex = function (allow3Char) {
-        if (allow3Char === void 0) { allow3Char = false; }
-        return (0,_conversion__WEBPACK_IMPORTED_MODULE_0__.rgbToHex)(this.r, this.g, this.b, allow3Char);
-    };
-    /**
-     * Returns the hex value of the color -with a # appened.
-     * @param allow3Char will shorten hex value to 3 char if possible
-     */
-    TinyColor.prototype.toHexString = function (allow3Char) {
-        if (allow3Char === void 0) { allow3Char = false; }
-        return '#' + this.toHex(allow3Char);
-    };
-    /**
-     * Returns the hex 8 value of the color.
-     * @param allow4Char will shorten hex value to 4 char if possible
-     */
-    TinyColor.prototype.toHex8 = function (allow4Char) {
-        if (allow4Char === void 0) { allow4Char = false; }
-        return (0,_conversion__WEBPACK_IMPORTED_MODULE_0__.rgbaToHex)(this.r, this.g, this.b, this.a, allow4Char);
-    };
-    /**
-     * Returns the hex 8 value of the color -with a # appened.
-     * @param allow4Char will shorten hex value to 4 char if possible
-     */
-    TinyColor.prototype.toHex8String = function (allow4Char) {
-        if (allow4Char === void 0) { allow4Char = false; }
-        return '#' + this.toHex8(allow4Char);
-    };
-    /**
-     * Returns the object as a RGBA object.
-     */
-    TinyColor.prototype.toRgb = function () {
-        return {
-            r: Math.round(this.r),
-            g: Math.round(this.g),
-            b: Math.round(this.b),
-            a: this.a,
-        };
-    };
-    /**
-     * Returns the RGBA values interpolated into a string with the following format:
-     * "RGBA(xxx, xxx, xxx, xx)".
-     */
-    TinyColor.prototype.toRgbString = function () {
-        var r = Math.round(this.r);
-        var g = Math.round(this.g);
-        var b = Math.round(this.b);
-        return this.a === 1 ? "rgb(".concat(r, ", ").concat(g, ", ").concat(b, ")") : "rgba(".concat(r, ", ").concat(g, ", ").concat(b, ", ").concat(this.roundA, ")");
-    };
-    /**
-     * Returns the object as a RGBA object.
-     */
-    TinyColor.prototype.toPercentageRgb = function () {
-        var fmt = function (x) { return "".concat(Math.round((0,_util__WEBPACK_IMPORTED_MODULE_2__.bound01)(x, 255) * 100), "%"); };
-        return {
-            r: fmt(this.r),
-            g: fmt(this.g),
-            b: fmt(this.b),
-            a: this.a,
-        };
-    };
-    /**
-     * Returns the RGBA relative values interpolated into a string
-     */
-    TinyColor.prototype.toPercentageRgbString = function () {
-        var rnd = function (x) { return Math.round((0,_util__WEBPACK_IMPORTED_MODULE_2__.bound01)(x, 255) * 100); };
-        return this.a === 1
-            ? "rgb(".concat(rnd(this.r), "%, ").concat(rnd(this.g), "%, ").concat(rnd(this.b), "%)")
-            : "rgba(".concat(rnd(this.r), "%, ").concat(rnd(this.g), "%, ").concat(rnd(this.b), "%, ").concat(this.roundA, ")");
-    };
-    /**
-     * The 'real' name of the color -if there is one.
-     */
-    TinyColor.prototype.toName = function () {
-        if (this.a === 0) {
-            return 'transparent';
-        }
-        if (this.a < 1) {
-            return false;
-        }
-        var hex = '#' + (0,_conversion__WEBPACK_IMPORTED_MODULE_0__.rgbToHex)(this.r, this.g, this.b, false);
-        for (var _i = 0, _a = Object.entries(_css_color_names__WEBPACK_IMPORTED_MODULE_3__.names); _i < _a.length; _i++) {
-            var _b = _a[_i], key = _b[0], value = _b[1];
-            if (hex === value) {
-                return key;
-            }
-        }
-        return false;
-    };
-    TinyColor.prototype.toString = function (format) {
-        var formatSet = Boolean(format);
-        format = format !== null && format !== void 0 ? format : this.format;
-        var formattedString = false;
-        var hasAlpha = this.a < 1 && this.a >= 0;
-        var needsAlphaFormat = !formatSet && hasAlpha && (format.startsWith('hex') || format === 'name');
-        if (needsAlphaFormat) {
-            // Special case for "transparent", all other non-alpha formats
-            // will return rgba when there is transparency.
-            if (format === 'name' && this.a === 0) {
-                return this.toName();
-            }
-            return this.toRgbString();
-        }
-        if (format === 'rgb') {
-            formattedString = this.toRgbString();
-        }
-        if (format === 'prgb') {
-            formattedString = this.toPercentageRgbString();
-        }
-        if (format === 'hex' || format === 'hex6') {
-            formattedString = this.toHexString();
-        }
-        if (format === 'hex3') {
-            formattedString = this.toHexString(true);
-        }
-        if (format === 'hex4') {
-            formattedString = this.toHex8String(true);
-        }
-        if (format === 'hex8') {
-            formattedString = this.toHex8String();
-        }
-        if (format === 'name') {
-            formattedString = this.toName();
-        }
-        if (format === 'hsl') {
-            formattedString = this.toHslString();
-        }
-        if (format === 'hsv') {
-            formattedString = this.toHsvString();
-        }
-        return formattedString || this.toHexString();
-    };
-    TinyColor.prototype.toNumber = function () {
-        return (Math.round(this.r) << 16) + (Math.round(this.g) << 8) + Math.round(this.b);
-    };
-    TinyColor.prototype.clone = function () {
-        return new TinyColor(this.toString());
-    };
-    /**
-     * Lighten the color a given amount. Providing 100 will always return white.
-     * @param amount - valid between 1-100
-     */
-    TinyColor.prototype.lighten = function (amount) {
-        if (amount === void 0) { amount = 10; }
-        var hsl = this.toHsl();
-        hsl.l += amount / 100;
-        hsl.l = (0,_util__WEBPACK_IMPORTED_MODULE_2__.clamp01)(hsl.l);
-        return new TinyColor(hsl);
-    };
-    /**
-     * Brighten the color a given amount, from 0 to 100.
-     * @param amount - valid between 1-100
-     */
-    TinyColor.prototype.brighten = function (amount) {
-        if (amount === void 0) { amount = 10; }
-        var rgb = this.toRgb();
-        rgb.r = Math.max(0, Math.min(255, rgb.r - Math.round(255 * -(amount / 100))));
-        rgb.g = Math.max(0, Math.min(255, rgb.g - Math.round(255 * -(amount / 100))));
-        rgb.b = Math.max(0, Math.min(255, rgb.b - Math.round(255 * -(amount / 100))));
-        return new TinyColor(rgb);
-    };
-    /**
-     * Darken the color a given amount, from 0 to 100.
-     * Providing 100 will always return black.
-     * @param amount - valid between 1-100
-     */
-    TinyColor.prototype.darken = function (amount) {
-        if (amount === void 0) { amount = 10; }
-        var hsl = this.toHsl();
-        hsl.l -= amount / 100;
-        hsl.l = (0,_util__WEBPACK_IMPORTED_MODULE_2__.clamp01)(hsl.l);
-        return new TinyColor(hsl);
-    };
-    /**
-     * Mix the color with pure white, from 0 to 100.
-     * Providing 0 will do nothing, providing 100 will always return white.
-     * @param amount - valid between 1-100
-     */
-    TinyColor.prototype.tint = function (amount) {
-        if (amount === void 0) { amount = 10; }
-        return this.mix('white', amount);
-    };
-    /**
-     * Mix the color with pure black, from 0 to 100.
-     * Providing 0 will do nothing, providing 100 will always return black.
-     * @param amount - valid between 1-100
-     */
-    TinyColor.prototype.shade = function (amount) {
-        if (amount === void 0) { amount = 10; }
-        return this.mix('black', amount);
-    };
-    /**
-     * Desaturate the color a given amount, from 0 to 100.
-     * Providing 100 will is the same as calling greyscale
-     * @param amount - valid between 1-100
-     */
-    TinyColor.prototype.desaturate = function (amount) {
-        if (amount === void 0) { amount = 10; }
-        var hsl = this.toHsl();
-        hsl.s -= amount / 100;
-        hsl.s = (0,_util__WEBPACK_IMPORTED_MODULE_2__.clamp01)(hsl.s);
-        return new TinyColor(hsl);
-    };
-    /**
-     * Saturate the color a given amount, from 0 to 100.
-     * @param amount - valid between 1-100
-     */
-    TinyColor.prototype.saturate = function (amount) {
-        if (amount === void 0) { amount = 10; }
-        var hsl = this.toHsl();
-        hsl.s += amount / 100;
-        hsl.s = (0,_util__WEBPACK_IMPORTED_MODULE_2__.clamp01)(hsl.s);
-        return new TinyColor(hsl);
-    };
-    /**
-     * Completely desaturates a color into greyscale.
-     * Same as calling `desaturate(100)`
-     */
-    TinyColor.prototype.greyscale = function () {
-        return this.desaturate(100);
-    };
-    /**
-     * Spin takes a positive or negative amount within [-360, 360] indicating the change of hue.
-     * Values outside of this range will be wrapped into this range.
-     */
-    TinyColor.prototype.spin = function (amount) {
-        var hsl = this.toHsl();
-        var hue = (hsl.h + amount) % 360;
-        hsl.h = hue < 0 ? 360 + hue : hue;
-        return new TinyColor(hsl);
-    };
-    /**
-     * Mix the current color a given amount with another color, from 0 to 100.
-     * 0 means no mixing (return current color).
-     */
-    TinyColor.prototype.mix = function (color, amount) {
-        if (amount === void 0) { amount = 50; }
-        var rgb1 = this.toRgb();
-        var rgb2 = new TinyColor(color).toRgb();
-        var p = amount / 100;
-        var rgba = {
-            r: (rgb2.r - rgb1.r) * p + rgb1.r,
-            g: (rgb2.g - rgb1.g) * p + rgb1.g,
-            b: (rgb2.b - rgb1.b) * p + rgb1.b,
-            a: (rgb2.a - rgb1.a) * p + rgb1.a,
-        };
-        return new TinyColor(rgba);
-    };
-    TinyColor.prototype.analogous = function (results, slices) {
-        if (results === void 0) { results = 6; }
-        if (slices === void 0) { slices = 30; }
-        var hsl = this.toHsl();
-        var part = 360 / slices;
-        var ret = [this];
-        for (hsl.h = (hsl.h - ((part * results) >> 1) + 720) % 360; --results;) {
-            hsl.h = (hsl.h + part) % 360;
-            ret.push(new TinyColor(hsl));
-        }
-        return ret;
-    };
-    /**
-     * taken from https://github.com/infusion/jQuery-xcolor/blob/master/jquery.xcolor.js
-     */
-    TinyColor.prototype.complement = function () {
-        var hsl = this.toHsl();
-        hsl.h = (hsl.h + 180) % 360;
-        return new TinyColor(hsl);
-    };
-    TinyColor.prototype.monochromatic = function (results) {
-        if (results === void 0) { results = 6; }
-        var hsv = this.toHsv();
-        var h = hsv.h;
-        var s = hsv.s;
-        var v = hsv.v;
-        var res = [];
-        var modification = 1 / results;
-        while (results--) {
-            res.push(new TinyColor({ h: h, s: s, v: v }));
-            v = (v + modification) % 1;
-        }
-        return res;
-    };
-    TinyColor.prototype.splitcomplement = function () {
-        var hsl = this.toHsl();
-        var h = hsl.h;
-        return [
-            this,
-            new TinyColor({ h: (h + 72) % 360, s: hsl.s, l: hsl.l }),
-            new TinyColor({ h: (h + 216) % 360, s: hsl.s, l: hsl.l }),
-        ];
-    };
-    /**
-     * Compute how the color would appear on a background
-     */
-    TinyColor.prototype.onBackground = function (background) {
-        var fg = this.toRgb();
-        var bg = new TinyColor(background).toRgb();
-        return new TinyColor({
-            r: bg.r + (fg.r - bg.r) * fg.a,
-            g: bg.g + (fg.g - bg.g) * fg.a,
-            b: bg.b + (fg.b - bg.b) * fg.a,
-        });
-    };
-    /**
-     * Alias for `polyad(3)`
-     */
-    TinyColor.prototype.triad = function () {
-        return this.polyad(3);
-    };
-    /**
-     * Alias for `polyad(4)`
-     */
-    TinyColor.prototype.tetrad = function () {
-        return this.polyad(4);
-    };
-    /**
-     * Get polyad colors, like (for 1, 2, 3, 4, 5, 6, 7, 8, etc...)
-     * monad, dyad, triad, tetrad, pentad, hexad, heptad, octad, etc...
-     */
-    TinyColor.prototype.polyad = function (n) {
-        var hsl = this.toHsl();
-        var h = hsl.h;
-        var result = [this];
-        var increment = 360 / n;
-        for (var i = 1; i < n; i++) {
-            result.push(new TinyColor({ h: (h + i * increment) % 360, s: hsl.s, l: hsl.l }));
-        }
-        return result;
-    };
-    /**
-     * compare color vs current color
-     */
-    TinyColor.prototype.equals = function (color) {
-        return this.toRgbString() === new TinyColor(color).toRgbString();
-    };
-    return TinyColor;
-}());
-
-// kept for backwards compatability with v1
-function tinycolor(color, opts) {
-    if (color === void 0) { color = ''; }
-    if (opts === void 0) { opts = {}; }
-    return new TinyColor(color, opts);
 }
 
 
@@ -7252,370 +6429,6 @@ function withConfigConsumer(config) {
 
 /***/ }),
 
-/***/ "./node_modules/antd/es/config-provider/cssVariables.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/antd/es/config-provider/cssVariables.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getStyle": () => (/* binding */ getStyle),
-/* harmony export */   "registerTheme": () => (/* binding */ registerTheme)
-/* harmony export */ });
-/* harmony import */ var _ant_design_colors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ant-design/colors */ "./node_modules/@ant-design/colors/dist/index.esm.js");
-/* harmony import */ var _ctrl_tinycolor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ctrl/tinycolor */ "./node_modules/@ctrl/tinycolor/dist/module/index.js");
-/* harmony import */ var rc_util_es_Dom_canUseDom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rc-util/es/Dom/canUseDom */ "./node_modules/rc-util/es/Dom/canUseDom.js");
-/* harmony import */ var rc_util_es_Dom_dynamicCSS__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rc-util/es/Dom/dynamicCSS */ "./node_modules/rc-util/es/Dom/dynamicCSS.js");
-/* harmony import */ var _util_warning__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_util/warning */ "./node_modules/antd/es/_util/warning.js");
-/* eslint-disable import/prefer-default-export, prefer-destructuring */
-
-
-
-
-
-var dynamicStyleMark = "-ant-".concat(Date.now(), "-").concat(Math.random());
-function getStyle(globalPrefixCls, theme) {
-  var variables = {};
-
-  var formatColor = function formatColor(color, updater) {
-    var clone = color.clone();
-    clone = (updater === null || updater === void 0 ? void 0 : updater(clone)) || clone;
-    return clone.toRgbString();
-  };
-
-  var fillColor = function fillColor(colorVal, type) {
-    var baseColor = new _ctrl_tinycolor__WEBPACK_IMPORTED_MODULE_3__.TinyColor(colorVal);
-    var colorPalettes = (0,_ant_design_colors__WEBPACK_IMPORTED_MODULE_0__.generate)(baseColor.toRgbString());
-    variables["".concat(type, "-color")] = formatColor(baseColor);
-    variables["".concat(type, "-color-disabled")] = colorPalettes[1];
-    variables["".concat(type, "-color-hover")] = colorPalettes[4];
-    variables["".concat(type, "-color-active")] = colorPalettes[7];
-    variables["".concat(type, "-color-outline")] = baseColor.clone().setAlpha(0.2).toRgbString();
-    variables["".concat(type, "-color-deprecated-bg")] = colorPalettes[1];
-    variables["".concat(type, "-color-deprecated-border")] = colorPalettes[3];
-  }; // ================ Primary Color ================
-
-
-  if (theme.primaryColor) {
-    fillColor(theme.primaryColor, 'primary');
-    var primaryColor = new _ctrl_tinycolor__WEBPACK_IMPORTED_MODULE_3__.TinyColor(theme.primaryColor);
-    var primaryColors = (0,_ant_design_colors__WEBPACK_IMPORTED_MODULE_0__.generate)(primaryColor.toRgbString()); // Legacy - We should use semantic naming standard
-
-    primaryColors.forEach(function (color, index) {
-      variables["primary-".concat(index + 1)] = color;
-    }); // Deprecated
-
-    variables['primary-color-deprecated-l-35'] = formatColor(primaryColor, function (c) {
-      return c.lighten(35);
-    });
-    variables['primary-color-deprecated-l-20'] = formatColor(primaryColor, function (c) {
-      return c.lighten(20);
-    });
-    variables['primary-color-deprecated-t-20'] = formatColor(primaryColor, function (c) {
-      return c.tint(20);
-    });
-    variables['primary-color-deprecated-t-50'] = formatColor(primaryColor, function (c) {
-      return c.tint(50);
-    });
-    variables['primary-color-deprecated-f-12'] = formatColor(primaryColor, function (c) {
-      return c.setAlpha(c.getAlpha() * 0.12);
-    });
-    var primaryActiveColor = new _ctrl_tinycolor__WEBPACK_IMPORTED_MODULE_3__.TinyColor(primaryColors[0]);
-    variables['primary-color-active-deprecated-f-30'] = formatColor(primaryActiveColor, function (c) {
-      return c.setAlpha(c.getAlpha() * 0.3);
-    });
-    variables['primary-color-active-deprecated-d-02'] = formatColor(primaryActiveColor, function (c) {
-      return c.darken(2);
-    });
-  } // ================ Success Color ================
-
-
-  if (theme.successColor) {
-    fillColor(theme.successColor, 'success');
-  } // ================ Warning Color ================
-
-
-  if (theme.warningColor) {
-    fillColor(theme.warningColor, 'warning');
-  } // ================= Error Color =================
-
-
-  if (theme.errorColor) {
-    fillColor(theme.errorColor, 'error');
-  } // ================= Info Color ==================
-
-
-  if (theme.infoColor) {
-    fillColor(theme.infoColor, 'info');
-  } // Convert to css variables
-
-
-  var cssList = Object.keys(variables).map(function (key) {
-    return "--".concat(globalPrefixCls, "-").concat(key, ": ").concat(variables[key], ";");
-  });
-  return "\n  :root {\n    ".concat(cssList.join('\n'), "\n  }\n  ").trim();
-}
-function registerTheme(globalPrefixCls, theme) {
-  var style = getStyle(globalPrefixCls, theme);
-
-  if ((0,rc_util_es_Dom_canUseDom__WEBPACK_IMPORTED_MODULE_1__["default"])()) {
-    (0,rc_util_es_Dom_dynamicCSS__WEBPACK_IMPORTED_MODULE_2__.updateCSS)(style, "".concat(dynamicStyleMark, "-dynamic-theme"));
-  } else {
-     true ? (0,_util_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(false, 'ConfigProvider', 'SSR do not support dynamic theme with css variables.') : 0;
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/config-provider/index.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/antd/es/config-provider/index.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ConfigConsumer": () => (/* reexport safe */ _context__WEBPACK_IMPORTED_MODULE_4__.ConfigConsumer),
-/* harmony export */   "ConfigContext": () => (/* reexport safe */ _context__WEBPACK_IMPORTED_MODULE_4__.ConfigContext),
-/* harmony export */   "configConsumerProps": () => (/* binding */ configConsumerProps),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "defaultIconPrefixCls": () => (/* binding */ defaultIconPrefixCls),
-/* harmony export */   "defaultPrefixCls": () => (/* binding */ defaultPrefixCls),
-/* harmony export */   "globalConfig": () => (/* binding */ globalConfig)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _ant_design_icons_es_components_Context__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ant-design/icons/es/components/Context */ "./node_modules/@ant-design/icons/es/components/Context.js");
-/* harmony import */ var rc_field_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rc-field-form */ "./node_modules/rc-field-form/es/index.js");
-/* harmony import */ var rc_util_es_hooks_useMemo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rc-util/es/hooks/useMemo */ "./node_modules/rc-util/es/hooks/useMemo.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _locale_provider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../locale-provider */ "./node_modules/antd/es/locale-provider/index.js");
-/* harmony import */ var _locale_provider_LocaleReceiver__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../locale-provider/LocaleReceiver */ "./node_modules/antd/es/locale-provider/LocaleReceiver.js");
-/* harmony import */ var _locale_default__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../locale/default */ "./node_modules/antd/es/locale/default.js");
-/* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../message */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var _notification__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../notification */ "./node_modules/antd/es/notification/index.js");
-/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./context */ "./node_modules/antd/es/config-provider/context.js");
-/* harmony import */ var _cssVariables__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cssVariables */ "./node_modules/antd/es/config-provider/cssVariables.js");
-/* harmony import */ var _DisabledContext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./DisabledContext */ "./node_modules/antd/es/config-provider/DisabledContext.js");
-/* harmony import */ var _SizeContext__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./SizeContext */ "./node_modules/antd/es/config-provider/SizeContext.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var configConsumerProps = ['getTargetContainer', 'getPopupContainer', 'rootPrefixCls', 'getPrefixCls', 'renderEmpty', 'csp', 'autoInsertSpaceInButton', 'locale', 'pageHeader']; // These props is used by `useContext` directly in sub component
-
-var PASSED_PROPS = ['getTargetContainer', 'getPopupContainer', 'renderEmpty', 'pageHeader', 'input', 'pagination', 'form'];
-var defaultPrefixCls = 'ant';
-var defaultIconPrefixCls = 'anticon';
-var globalPrefixCls;
-var globalIconPrefixCls;
-
-function getGlobalPrefixCls() {
-  return globalPrefixCls || defaultPrefixCls;
-}
-
-function getGlobalIconPrefixCls() {
-  return globalIconPrefixCls || defaultIconPrefixCls;
-}
-
-var setGlobalConfig = function setGlobalConfig(_ref) {
-  var prefixCls = _ref.prefixCls,
-      iconPrefixCls = _ref.iconPrefixCls,
-      theme = _ref.theme;
-
-  if (prefixCls !== undefined) {
-    globalPrefixCls = prefixCls;
-  }
-
-  if (iconPrefixCls !== undefined) {
-    globalIconPrefixCls = iconPrefixCls;
-  }
-
-  if (theme) {
-    (0,_cssVariables__WEBPACK_IMPORTED_MODULE_5__.registerTheme)(getGlobalPrefixCls(), theme);
-  }
-};
-
-var globalConfig = function globalConfig() {
-  return {
-    getPrefixCls: function getPrefixCls(suffixCls, customizePrefixCls) {
-      if (customizePrefixCls) return customizePrefixCls;
-      return suffixCls ? "".concat(getGlobalPrefixCls(), "-").concat(suffixCls) : getGlobalPrefixCls();
-    },
-    getIconPrefixCls: getGlobalIconPrefixCls,
-    getRootPrefixCls: function getRootPrefixCls(rootPrefixCls, customizePrefixCls) {
-      // Customize rootPrefixCls is first priority
-      if (rootPrefixCls) {
-        return rootPrefixCls;
-      } // If Global prefixCls provided, use this
-
-
-      if (globalPrefixCls) {
-        return globalPrefixCls;
-      } // [Legacy] If customize prefixCls provided, we cut it to get the prefixCls
-
-
-      if (customizePrefixCls && customizePrefixCls.includes('-')) {
-        return customizePrefixCls.replace(/^(.*)-[^-]*$/, '$1');
-      } // Fallback to default prefixCls
-
-
-      return getGlobalPrefixCls();
-    }
-  };
-};
-
-var ProviderChildren = function ProviderChildren(props) {
-  var _a, _b;
-
-  var children = props.children,
-      csp = props.csp,
-      autoInsertSpaceInButton = props.autoInsertSpaceInButton,
-      form = props.form,
-      locale = props.locale,
-      componentSize = props.componentSize,
-      direction = props.direction,
-      space = props.space,
-      virtual = props.virtual,
-      dropdownMatchSelectWidth = props.dropdownMatchSelectWidth,
-      legacyLocale = props.legacyLocale,
-      parentContext = props.parentContext,
-      iconPrefixCls = props.iconPrefixCls,
-      componentDisabled = props.componentDisabled;
-  var getPrefixCls = react__WEBPACK_IMPORTED_MODULE_3__.useCallback(function (suffixCls, customizePrefixCls) {
-    var prefixCls = props.prefixCls;
-    if (customizePrefixCls) return customizePrefixCls;
-    var mergedPrefixCls = prefixCls || parentContext.getPrefixCls('');
-    return suffixCls ? "".concat(mergedPrefixCls, "-").concat(suffixCls) : mergedPrefixCls;
-  }, [parentContext.getPrefixCls, props.prefixCls]);
-
-  var config = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, parentContext), {
-    csp: csp,
-    autoInsertSpaceInButton: autoInsertSpaceInButton,
-    locale: locale || legacyLocale,
-    direction: direction,
-    space: space,
-    virtual: virtual,
-    dropdownMatchSelectWidth: dropdownMatchSelectWidth,
-    getPrefixCls: getPrefixCls
-  }); // Pass the props used by `useContext` directly with child component.
-  // These props should merged into `config`.
-
-
-  PASSED_PROPS.forEach(function (propName) {
-    var propValue = props[propName];
-
-    if (propValue) {
-      config[propName] = propValue;
-    }
-  }); // https://github.com/ant-design/ant-design/issues/27617
-
-  var memoedConfig = (0,rc_util_es_hooks_useMemo__WEBPACK_IMPORTED_MODULE_2__["default"])(function () {
-    return config;
-  }, config, function (prevConfig, currentConfig) {
-    var prevKeys = Object.keys(prevConfig);
-    var currentKeys = Object.keys(currentConfig);
-    return prevKeys.length !== currentKeys.length || prevKeys.some(function (key) {
-      return prevConfig[key] !== currentConfig[key];
-    });
-  });
-  var memoIconContextValue = react__WEBPACK_IMPORTED_MODULE_3__.useMemo(function () {
-    return {
-      prefixCls: iconPrefixCls,
-      csp: csp
-    };
-  }, [iconPrefixCls, csp]);
-  var childNode = children; // Additional Form provider
-
-  var validateMessages = {};
-
-  if (locale) {
-    validateMessages = ((_a = locale.Form) === null || _a === void 0 ? void 0 : _a.defaultValidateMessages) || ((_b = _locale_default__WEBPACK_IMPORTED_MODULE_6__["default"].Form) === null || _b === void 0 ? void 0 : _b.defaultValidateMessages) || {};
-  }
-
-  if (form && form.validateMessages) {
-    validateMessages = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, validateMessages), form.validateMessages);
-  }
-
-  if (Object.keys(validateMessages).length > 0) {
-    childNode = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(rc_field_form__WEBPACK_IMPORTED_MODULE_1__.FormProvider, {
-      validateMessages: validateMessages
-    }, children);
-  }
-
-  if (locale) {
-    childNode = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_locale_provider__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      locale: locale,
-      _ANT_MARK__: _locale_provider__WEBPACK_IMPORTED_MODULE_7__.ANT_MARK
-    }, childNode);
-  }
-
-  if (iconPrefixCls || csp) {
-    childNode = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ant_design_icons_es_components_Context__WEBPACK_IMPORTED_MODULE_8__["default"].Provider, {
-      value: memoIconContextValue
-    }, childNode);
-  }
-
-  if (componentSize) {
-    childNode = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_SizeContext__WEBPACK_IMPORTED_MODULE_9__.SizeContextProvider, {
-      size: componentSize
-    }, childNode);
-  }
-
-  if (componentDisabled !== undefined) {
-    childNode = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_DisabledContext__WEBPACK_IMPORTED_MODULE_10__.DisabledContextProvider, {
-      disabled: componentDisabled
-    }, childNode);
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_context__WEBPACK_IMPORTED_MODULE_4__.ConfigContext.Provider, {
-    value: memoedConfig
-  }, childNode);
-};
-
-var ConfigProvider = function ConfigProvider(props) {
-  react__WEBPACK_IMPORTED_MODULE_3__.useEffect(function () {
-    if (props.direction) {
-      _message__WEBPACK_IMPORTED_MODULE_11__["default"].config({
-        rtl: props.direction === 'rtl'
-      });
-      _notification__WEBPACK_IMPORTED_MODULE_12__["default"].config({
-        rtl: props.direction === 'rtl'
-      });
-    }
-  }, [props.direction]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_locale_provider_LocaleReceiver__WEBPACK_IMPORTED_MODULE_13__["default"], null, function (_, __, legacyLocale) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_context__WEBPACK_IMPORTED_MODULE_4__.ConfigConsumer, null, function (context) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ProviderChildren, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-        parentContext: context,
-        legacyLocale: legacyLocale
-      }, props));
-    });
-  });
-};
-/** @private internal Usage. do not use in your production */
-
-
-ConfigProvider.ConfigContext = _context__WEBPACK_IMPORTED_MODULE_4__.ConfigContext;
-ConfigProvider.SizeContext = _SizeContext__WEBPACK_IMPORTED_MODULE_9__["default"];
-ConfigProvider.config = setGlobalConfig;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ConfigProvider);
-
-/***/ }),
-
 /***/ "./node_modules/antd/es/date-picker/locale/en_US.js":
 /*!**********************************************************!*\
   !*** ./node_modules/antd/es/date-picker/locale/en_US.js ***!
@@ -10717,103 +9530,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/antd/es/locale-provider/index.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/antd/es/locale-provider/index.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ANT_MARK": () => (/* binding */ ANT_MARK),
-/* harmony export */   "default": () => (/* binding */ LocaleProvider)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
-/* harmony import */ var memoize_one__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! memoize-one */ "./node_modules/memoize-one/dist/memoize-one.esm.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _util_warning__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../_util/warning */ "./node_modules/antd/es/_util/warning.js");
-/* harmony import */ var _modal_locale__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../modal/locale */ "./node_modules/antd/es/modal/locale.js");
-/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./context */ "./node_modules/antd/es/locale-provider/context.js");
-
-
-
-
-
-
-
-
-
-
-var ANT_MARK = 'internalMark';
-
-var LocaleProvider = /*#__PURE__*/function (_React$Component) {
-  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(LocaleProvider, _React$Component);
-
-  var _super = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_4__["default"])(LocaleProvider);
-
-  function LocaleProvider(props) {
-    var _this;
-
-    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, LocaleProvider);
-
-    _this = _super.call(this, props);
-    _this.getMemoizedContextValue = (0,memoize_one__WEBPACK_IMPORTED_MODULE_6__["default"])(function (localeValue) {
-      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, localeValue), {
-        exist: true
-      });
-    });
-    (0,_modal_locale__WEBPACK_IMPORTED_MODULE_7__.changeConfirmLocale)(props.locale && props.locale.Modal);
-     true ? (0,_util_warning__WEBPACK_IMPORTED_MODULE_8__["default"])(props._ANT_MARK__ === ANT_MARK, 'LocaleProvider', '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale') : 0;
-    return _this;
-  }
-
-  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(LocaleProvider, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      (0,_modal_locale__WEBPACK_IMPORTED_MODULE_7__.changeConfirmLocale)(this.props.locale && this.props.locale.Modal);
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      var locale = this.props.locale;
-
-      if (prevProps.locale !== locale) {
-        (0,_modal_locale__WEBPACK_IMPORTED_MODULE_7__.changeConfirmLocale)(locale && locale.Modal);
-      }
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      (0,_modal_locale__WEBPACK_IMPORTED_MODULE_7__.changeConfirmLocale)();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          locale = _this$props.locale,
-          children = _this$props.children;
-      var contextValue = this.getMemoizedContextValue(locale);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_context__WEBPACK_IMPORTED_MODULE_9__["default"].Provider, {
-        value: contextValue
-      }, children);
-    }
-  }]);
-
-  return LocaleProvider;
-}(react__WEBPACK_IMPORTED_MODULE_5__.Component);
-
-
-LocaleProvider.defaultProps = {
-  locale: {}
-};
-
-/***/ }),
-
 /***/ "./node_modules/antd/es/locale/default.js":
 /*!************************************************!*\
   !*** ./node_modules/antd/es/locale/default.js ***!
@@ -10961,851 +9677,6 @@ var localeValues = {
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (localeValues);
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/message/hooks/useMessage.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/antd/es/message/hooks/useMessage.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ createUseMessage)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var rc_notification_es_useNotification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rc-notification/es/useNotification */ "./node_modules/rc-notification/es/useNotification.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! .. */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../config-provider */ "./node_modules/antd/es/config-provider/context.js");
-
-
-
-
-
-
-function createUseMessage(getRcNotificationInstance, getRCNoticeProps) {
-  var useMessage = function useMessage() {
-    // We can only get content by render
-    var getPrefixCls;
-    var getPopupContainer; // We create a proxy to handle delay created instance
-
-    var innerInstance = null;
-    var proxy = {
-      add: function add(noticeProps, holderCallback) {
-        innerInstance === null || innerInstance === void 0 ? void 0 : innerInstance.component.add(noticeProps, holderCallback);
-      }
-    };
-
-    var _useRCNotification = (0,rc_notification_es_useNotification__WEBPACK_IMPORTED_MODULE_2__["default"])(proxy),
-        _useRCNotification2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useRCNotification, 2),
-        hookNotify = _useRCNotification2[0],
-        holder = _useRCNotification2[1];
-
-    function notify(args) {
-      var customizePrefixCls = args.prefixCls;
-      var mergedPrefixCls = getPrefixCls('message', customizePrefixCls);
-      var rootPrefixCls = getPrefixCls();
-      var target = args.key || (0,___WEBPACK_IMPORTED_MODULE_4__.getKeyThenIncreaseKey)();
-      var closePromise = new Promise(function (resolve) {
-        var callback = function callback() {
-          if (typeof args.onClose === 'function') {
-            args.onClose();
-          }
-
-          return resolve(true);
-        };
-
-        getRcNotificationInstance((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, args), {
-          prefixCls: mergedPrefixCls,
-          rootPrefixCls: rootPrefixCls,
-          getPopupContainer: getPopupContainer
-        }), function (_ref) {
-          var prefixCls = _ref.prefixCls,
-              instance = _ref.instance;
-          innerInstance = instance;
-          hookNotify(getRCNoticeProps((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, args), {
-            key: target,
-            onClose: callback
-          }), prefixCls));
-        });
-      });
-
-      var result = function result() {
-        if (innerInstance) {
-          innerInstance.removeNotice(target);
-        }
-      };
-
-      result.then = function (filled, rejected) {
-        return closePromise.then(filled, rejected);
-      };
-
-      result.promise = closePromise;
-      return result;
-    } // Fill functions
-
-
-    var hookApiRef = react__WEBPACK_IMPORTED_MODULE_3__.useRef({});
-    hookApiRef.current.open = notify;
-    ___WEBPACK_IMPORTED_MODULE_4__.typeList.forEach(function (type) {
-      return (0,___WEBPACK_IMPORTED_MODULE_4__.attachTypeApi)(hookApiRef.current, type);
-    });
-    return [hookApiRef.current, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_config_provider__WEBPACK_IMPORTED_MODULE_5__.ConfigConsumer, {
-      key: "holder"
-    }, function (context) {
-      getPrefixCls = context.getPrefixCls;
-      getPopupContainer = context.getPopupContainer;
-      return holder;
-    })];
-  };
-
-  return useMessage;
-}
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/message/index.js":
-/*!***********************************************!*\
-  !*** ./node_modules/antd/es/message/index.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "attachTypeApi": () => (/* binding */ attachTypeApi),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "getInstance": () => (/* binding */ getInstance),
-/* harmony export */   "getKeyThenIncreaseKey": () => (/* binding */ getKeyThenIncreaseKey),
-/* harmony export */   "typeList": () => (/* binding */ typeList)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _ant_design_icons_es_icons_CheckCircleFilled__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ant-design/icons/es/icons/CheckCircleFilled */ "./node_modules/@ant-design/icons/es/icons/CheckCircleFilled.js");
-/* harmony import */ var _ant_design_icons_es_icons_CloseCircleFilled__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ant-design/icons/es/icons/CloseCircleFilled */ "./node_modules/@ant-design/icons/es/icons/CloseCircleFilled.js");
-/* harmony import */ var _ant_design_icons_es_icons_ExclamationCircleFilled__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ant-design/icons/es/icons/ExclamationCircleFilled */ "./node_modules/@ant-design/icons/es/icons/ExclamationCircleFilled.js");
-/* harmony import */ var _ant_design_icons_es_icons_InfoCircleFilled__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ant-design/icons/es/icons/InfoCircleFilled */ "./node_modules/@ant-design/icons/es/icons/InfoCircleFilled.js");
-/* harmony import */ var _ant_design_icons_es_icons_LoadingOutlined__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ant-design/icons/es/icons/LoadingOutlined */ "./node_modules/@ant-design/icons/es/icons/LoadingOutlined.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var rc_notification__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rc-notification */ "./node_modules/rc-notification/es/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/index.js");
-/* harmony import */ var _hooks_useMessage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./hooks/useMessage */ "./node_modules/antd/es/message/hooks/useMessage.js");
-
-
-
-
-
-
-
-
-
-
-
-
-var messageInstance;
-var defaultDuration = 3;
-var defaultTop;
-var key = 1;
-var localPrefixCls = '';
-var transitionName = 'move-up';
-var hasTransitionName = false;
-var getContainer;
-var maxCount;
-var rtl = false;
-function getKeyThenIncreaseKey() {
-  return key++;
-}
-
-function setMessageConfig(options) {
-  if (options.top !== undefined) {
-    defaultTop = options.top;
-    messageInstance = null; // delete messageInstance for new defaultTop
-  }
-
-  if (options.duration !== undefined) {
-    defaultDuration = options.duration;
-  }
-
-  if (options.prefixCls !== undefined) {
-    localPrefixCls = options.prefixCls;
-  }
-
-  if (options.getContainer !== undefined) {
-    getContainer = options.getContainer;
-    messageInstance = null; // delete messageInstance for new getContainer
-  }
-
-  if (options.transitionName !== undefined) {
-    transitionName = options.transitionName;
-    messageInstance = null; // delete messageInstance for new transitionName
-
-    hasTransitionName = true;
-  }
-
-  if (options.maxCount !== undefined) {
-    maxCount = options.maxCount;
-    messageInstance = null;
-  }
-
-  if (options.rtl !== undefined) {
-    rtl = options.rtl;
-  }
-}
-
-function getRCNotificationInstance(args, callback) {
-  var customizePrefixCls = args.prefixCls,
-      getContextPopupContainer = args.getPopupContainer;
-
-  var _globalConfig = (0,_config_provider__WEBPACK_IMPORTED_MODULE_5__.globalConfig)(),
-      getPrefixCls = _globalConfig.getPrefixCls,
-      getRootPrefixCls = _globalConfig.getRootPrefixCls,
-      getIconPrefixCls = _globalConfig.getIconPrefixCls;
-
-  var prefixCls = getPrefixCls('message', customizePrefixCls || localPrefixCls);
-  var rootPrefixCls = getRootPrefixCls(args.rootPrefixCls, prefixCls);
-  var iconPrefixCls = getIconPrefixCls();
-
-  if (messageInstance) {
-    callback({
-      prefixCls: prefixCls,
-      rootPrefixCls: rootPrefixCls,
-      iconPrefixCls: iconPrefixCls,
-      instance: messageInstance
-    });
-    return;
-  }
-
-  var instanceConfig = {
-    prefixCls: prefixCls,
-    transitionName: hasTransitionName ? transitionName : "".concat(rootPrefixCls, "-").concat(transitionName),
-    style: {
-      top: defaultTop
-    },
-    getContainer: getContainer || getContextPopupContainer,
-    maxCount: maxCount
-  };
-  rc_notification__WEBPACK_IMPORTED_MODULE_3__["default"].newInstance(instanceConfig, function (instance) {
-    if (messageInstance) {
-      callback({
-        prefixCls: prefixCls,
-        rootPrefixCls: rootPrefixCls,
-        iconPrefixCls: iconPrefixCls,
-        instance: messageInstance
-      });
-      return;
-    }
-
-    messageInstance = instance;
-
-    if (false) {}
-
-    callback({
-      prefixCls: prefixCls,
-      rootPrefixCls: rootPrefixCls,
-      iconPrefixCls: iconPrefixCls,
-      instance: instance
-    });
-  });
-}
-
-var typeToIcon = {
-  info: _ant_design_icons_es_icons_InfoCircleFilled__WEBPACK_IMPORTED_MODULE_6__["default"],
-  success: _ant_design_icons_es_icons_CheckCircleFilled__WEBPACK_IMPORTED_MODULE_7__["default"],
-  error: _ant_design_icons_es_icons_CloseCircleFilled__WEBPACK_IMPORTED_MODULE_8__["default"],
-  warning: _ant_design_icons_es_icons_ExclamationCircleFilled__WEBPACK_IMPORTED_MODULE_9__["default"],
-  loading: _ant_design_icons_es_icons_LoadingOutlined__WEBPACK_IMPORTED_MODULE_10__["default"]
-};
-var typeList = Object.keys(typeToIcon);
-
-function getRCNoticeProps(args, prefixCls, iconPrefixCls) {
-  var _classNames;
-
-  var duration = args.duration !== undefined ? args.duration : defaultDuration;
-  var IconComponent = typeToIcon[args.type];
-  var messageClass = classnames__WEBPACK_IMPORTED_MODULE_2___default()("".concat(prefixCls, "-custom-content"), (_classNames = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, "".concat(prefixCls, "-").concat(args.type), args.type), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, "".concat(prefixCls, "-rtl"), rtl === true), _classNames));
-  return {
-    key: args.key,
-    duration: duration,
-    style: args.style || {},
-    className: args.className,
-    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_config_provider__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      iconPrefixCls: iconPrefixCls
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("div", {
-      className: messageClass
-    }, args.icon || IconComponent && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(IconComponent, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("span", null, args.content))),
-    onClose: args.onClose,
-    onClick: args.onClick
-  };
-}
-
-function notice(args) {
-  var target = args.key || getKeyThenIncreaseKey();
-  var closePromise = new Promise(function (resolve) {
-    var callback = function callback() {
-      if (typeof args.onClose === 'function') {
-        args.onClose();
-      }
-
-      return resolve(true);
-    };
-
-    getRCNotificationInstance(args, function (_ref) {
-      var prefixCls = _ref.prefixCls,
-          iconPrefixCls = _ref.iconPrefixCls,
-          instance = _ref.instance;
-      instance.notice(getRCNoticeProps((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, args), {
-        key: target,
-        onClose: callback
-      }), prefixCls, iconPrefixCls));
-    });
-  });
-
-  var result = function result() {
-    if (messageInstance) {
-      messageInstance.removeNotice(target);
-    }
-  };
-
-  result.then = function (filled, rejected) {
-    return closePromise.then(filled, rejected);
-  };
-
-  result.promise = closePromise;
-  return result;
-}
-
-function isArgsProps(content) {
-  return Object.prototype.toString.call(content) === '[object Object]' && !!content.content;
-}
-
-var api = {
-  open: notice,
-  config: setMessageConfig,
-  destroy: function destroy(messageKey) {
-    if (messageInstance) {
-      if (messageKey) {
-        var _messageInstance = messageInstance,
-            removeNotice = _messageInstance.removeNotice;
-        removeNotice(messageKey);
-      } else {
-        var _messageInstance2 = messageInstance,
-            destroy = _messageInstance2.destroy;
-        destroy();
-        messageInstance = null;
-      }
-    }
-  }
-};
-function attachTypeApi(originalApi, type) {
-  originalApi[type] = function (content, duration, onClose) {
-    if (isArgsProps(content)) {
-      return originalApi.open((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, content), {
-        type: type
-      }));
-    }
-
-    if (typeof duration === 'function') {
-      onClose = duration;
-      duration = undefined;
-    }
-
-    return originalApi.open({
-      content: content,
-      duration: duration,
-      type: type,
-      onClose: onClose
-    });
-  };
-}
-typeList.forEach(function (type) {
-  return attachTypeApi(api, type);
-});
-api.warn = api.warning;
-api.useMessage = (0,_hooks_useMessage__WEBPACK_IMPORTED_MODULE_11__["default"])(getRCNotificationInstance, getRCNoticeProps);
-/** @private test Only function. Not work on production */
-
-var getInstance = function getInstance() {
-  return  false ? 0 : null;
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (api);
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/modal/locale.js":
-/*!**********************************************!*\
-  !*** ./node_modules/antd/es/modal/locale.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "changeConfirmLocale": () => (/* binding */ changeConfirmLocale),
-/* harmony export */   "getConfirmLocale": () => (/* binding */ getConfirmLocale)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _locale_default__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../locale/default */ "./node_modules/antd/es/locale/default.js");
-
-
-
-var runtimeLocale = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _locale_default__WEBPACK_IMPORTED_MODULE_1__["default"].Modal);
-
-function changeConfirmLocale(newLocale) {
-  if (newLocale) {
-    runtimeLocale = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, runtimeLocale), newLocale);
-  } else {
-    runtimeLocale = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _locale_default__WEBPACK_IMPORTED_MODULE_1__["default"].Modal);
-  }
-}
-function getConfirmLocale() {
-  return runtimeLocale;
-}
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/notification/hooks/useNotification.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/antd/es/notification/hooks/useNotification.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ createUseNotification)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var rc_notification_es_useNotification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rc-notification/es/useNotification */ "./node_modules/rc-notification/es/useNotification.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config-provider */ "./node_modules/antd/es/config-provider/context.js");
-
-
-
-
-
-function createUseNotification(getNotificationInstance, getRCNoticeProps) {
-  var useNotification = function useNotification() {
-    // We can only get content by render
-    var getPrefixCls; // We create a proxy to handle delay created instance
-
-    var innerInstance = null;
-    var proxy = {
-      add: function add(noticeProps, holderCallback) {
-        innerInstance === null || innerInstance === void 0 ? void 0 : innerInstance.component.add(noticeProps, holderCallback);
-      }
-    };
-
-    var _useRCNotification = (0,rc_notification_es_useNotification__WEBPACK_IMPORTED_MODULE_2__["default"])(proxy),
-        _useRCNotification2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useRCNotification, 2),
-        hookNotify = _useRCNotification2[0],
-        holder = _useRCNotification2[1];
-
-    function notify(args) {
-      var customizePrefixCls = args.prefixCls;
-      var mergedPrefixCls = getPrefixCls('notification', customizePrefixCls);
-      getNotificationInstance((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, args), {
-        prefixCls: mergedPrefixCls
-      }), function (_ref) {
-        var prefixCls = _ref.prefixCls,
-            instance = _ref.instance;
-        innerInstance = instance;
-        hookNotify(getRCNoticeProps(args, prefixCls));
-      });
-    } // Fill functions
-
-
-    var hookApiRef = react__WEBPACK_IMPORTED_MODULE_3__.useRef({});
-    hookApiRef.current.open = notify;
-    ['success', 'info', 'warning', 'error'].forEach(function (type) {
-      hookApiRef.current[type] = function (args) {
-        return hookApiRef.current.open((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, args), {
-          type: type
-        }));
-      };
-    });
-    return [hookApiRef.current, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_config_provider__WEBPACK_IMPORTED_MODULE_4__.ConfigConsumer, {
-      key: "holder"
-    }, function (context) {
-      getPrefixCls = context.getPrefixCls;
-      return holder;
-    })];
-  };
-
-  return useNotification;
-}
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/notification/index.js":
-/*!****************************************************!*\
-  !*** ./node_modules/antd/es/notification/index.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "getInstance": () => (/* binding */ getInstance)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/regeneratorRuntime */ "./node_modules/@babel/runtime/helpers/esm/regeneratorRuntime.js");
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _ant_design_icons_es_icons_CheckCircleOutlined__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ant-design/icons/es/icons/CheckCircleOutlined */ "./node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js");
-/* harmony import */ var _ant_design_icons_es_icons_CloseCircleOutlined__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ant-design/icons/es/icons/CloseCircleOutlined */ "./node_modules/@ant-design/icons/es/icons/CloseCircleOutlined.js");
-/* harmony import */ var _ant_design_icons_es_icons_CloseOutlined__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ant-design/icons/es/icons/CloseOutlined */ "./node_modules/@ant-design/icons/es/icons/CloseOutlined.js");
-/* harmony import */ var _ant_design_icons_es_icons_ExclamationCircleOutlined__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ant-design/icons/es/icons/ExclamationCircleOutlined */ "./node_modules/@ant-design/icons/es/icons/ExclamationCircleOutlined.js");
-/* harmony import */ var _ant_design_icons_es_icons_InfoCircleOutlined__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ant-design/icons/es/icons/InfoCircleOutlined */ "./node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var rc_notification__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rc-notification */ "./node_modules/rc-notification/es/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/index.js");
-/* harmony import */ var _hooks_useNotification__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./hooks/useNotification */ "./node_modules/antd/es/notification/hooks/useNotification.js");
-
-
-
-
-var __awaiter = undefined && undefined.__awaiter || function (thisArg, _arguments, P, generator) {
-  function adopt(value) {
-    return value instanceof P ? value : new P(function (resolve) {
-      resolve(value);
-    });
-  }
-
-  return new (P || (P = Promise))(function (resolve, reject) {
-    function fulfilled(value) {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-
-    function rejected(value) {
-      try {
-        step(generator["throw"](value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-
-    function step(result) {
-      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-    }
-
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
-  });
-};
-
-
-
-
-
-
-
-
-
-
-
-var notificationInstance = {};
-var defaultDuration = 4.5;
-var defaultTop = 24;
-var defaultBottom = 24;
-var defaultPrefixCls = '';
-var defaultPlacement = 'topRight';
-var defaultGetContainer;
-var defaultCloseIcon;
-var rtl = false;
-var maxCount;
-
-function setNotificationConfig(options) {
-  var duration = options.duration,
-      placement = options.placement,
-      bottom = options.bottom,
-      top = options.top,
-      getContainer = options.getContainer,
-      closeIcon = options.closeIcon,
-      prefixCls = options.prefixCls;
-
-  if (prefixCls !== undefined) {
-    defaultPrefixCls = prefixCls;
-  }
-
-  if (duration !== undefined) {
-    defaultDuration = duration;
-  }
-
-  if (placement !== undefined) {
-    defaultPlacement = placement;
-  } else if (options.rtl) {
-    defaultPlacement = 'topLeft';
-  }
-
-  if (bottom !== undefined) {
-    defaultBottom = bottom;
-  }
-
-  if (top !== undefined) {
-    defaultTop = top;
-  }
-
-  if (getContainer !== undefined) {
-    defaultGetContainer = getContainer;
-  }
-
-  if (closeIcon !== undefined) {
-    defaultCloseIcon = closeIcon;
-  }
-
-  if (options.rtl !== undefined) {
-    rtl = options.rtl;
-  }
-
-  if (options.maxCount !== undefined) {
-    maxCount = options.maxCount;
-  }
-}
-
-function getPlacementStyle(placement) {
-  var top = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultTop;
-  var bottom = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : defaultBottom;
-  var style;
-
-  switch (placement) {
-    case 'top':
-      style = {
-        left: '50%',
-        transform: 'translateX(-50%)',
-        right: 'auto',
-        top: top,
-        bottom: 'auto'
-      };
-      break;
-
-    case 'topLeft':
-      style = {
-        left: 0,
-        top: top,
-        bottom: 'auto'
-      };
-      break;
-
-    case 'topRight':
-      style = {
-        right: 0,
-        top: top,
-        bottom: 'auto'
-      };
-      break;
-
-    case 'bottom':
-      style = {
-        left: '50%',
-        transform: 'translateX(-50%)',
-        right: 'auto',
-        top: 'auto',
-        bottom: bottom
-      };
-      break;
-
-    case 'bottomLeft':
-      style = {
-        left: 0,
-        top: 'auto',
-        bottom: bottom
-      };
-      break;
-
-    default:
-      style = {
-        right: 0,
-        top: 'auto',
-        bottom: bottom
-      };
-      break;
-  }
-
-  return style;
-}
-
-function getNotificationInstance(args, callback) {
-  var _args$placement = args.placement,
-      placement = _args$placement === void 0 ? defaultPlacement : _args$placement,
-      top = args.top,
-      bottom = args.bottom,
-      _args$getContainer = args.getContainer,
-      getContainer = _args$getContainer === void 0 ? defaultGetContainer : _args$getContainer,
-      customizePrefixCls = args.prefixCls;
-
-  var _globalConfig = (0,_config_provider__WEBPACK_IMPORTED_MODULE_6__.globalConfig)(),
-      getPrefixCls = _globalConfig.getPrefixCls,
-      getIconPrefixCls = _globalConfig.getIconPrefixCls;
-
-  var prefixCls = getPrefixCls('notification', customizePrefixCls || defaultPrefixCls);
-  var iconPrefixCls = getIconPrefixCls();
-  var cacheKey = "".concat(prefixCls, "-").concat(placement);
-  var cacheInstance = notificationInstance[cacheKey];
-
-  if (cacheInstance) {
-    Promise.resolve(cacheInstance).then(function (instance) {
-      callback({
-        prefixCls: "".concat(prefixCls, "-notice"),
-        iconPrefixCls: iconPrefixCls,
-        instance: instance
-      });
-    });
-    return;
-  }
-
-  var notificationClass = classnames__WEBPACK_IMPORTED_MODULE_3___default()("".concat(prefixCls, "-").concat(placement), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, "".concat(prefixCls, "-rtl"), rtl === true));
-  notificationInstance[cacheKey] = new Promise(function (resolve) {
-    rc_notification__WEBPACK_IMPORTED_MODULE_4__["default"].newInstance({
-      prefixCls: prefixCls,
-      className: notificationClass,
-      style: getPlacementStyle(placement, top, bottom),
-      getContainer: getContainer,
-      maxCount: maxCount
-    }, function (notification) {
-      resolve(notification);
-      callback({
-        prefixCls: "".concat(prefixCls, "-notice"),
-        iconPrefixCls: iconPrefixCls,
-        instance: notification
-      });
-    });
-  });
-}
-
-var typeToIcon = {
-  success: _ant_design_icons_es_icons_CheckCircleOutlined__WEBPACK_IMPORTED_MODULE_7__["default"],
-  info: _ant_design_icons_es_icons_InfoCircleOutlined__WEBPACK_IMPORTED_MODULE_8__["default"],
-  error: _ant_design_icons_es_icons_CloseCircleOutlined__WEBPACK_IMPORTED_MODULE_9__["default"],
-  warning: _ant_design_icons_es_icons_ExclamationCircleOutlined__WEBPACK_IMPORTED_MODULE_10__["default"]
-};
-
-function getRCNoticeProps(args, prefixCls, iconPrefixCls) {
-  var durationArg = args.duration,
-      icon = args.icon,
-      type = args.type,
-      description = args.description,
-      message = args.message,
-      btn = args.btn,
-      onClose = args.onClose,
-      onClick = args.onClick,
-      key = args.key,
-      style = args.style,
-      className = args.className,
-      _args$closeIcon = args.closeIcon,
-      closeIcon = _args$closeIcon === void 0 ? defaultCloseIcon : _args$closeIcon;
-  var duration = durationArg === undefined ? defaultDuration : durationArg;
-  var iconNode = null;
-
-  if (icon) {
-    iconNode = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", {
-      className: "".concat(prefixCls, "-icon")
-    }, args.icon);
-  } else if (type) {
-    iconNode = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(typeToIcon[type] || null, {
-      className: "".concat(prefixCls, "-icon ").concat(prefixCls, "-icon-").concat(type)
-    });
-  }
-
-  var closeIconToRender = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", {
-    className: "".concat(prefixCls, "-close-x")
-  }, closeIcon || /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_ant_design_icons_es_icons_CloseOutlined__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    className: "".concat(prefixCls, "-close-icon")
-  }));
-  var autoMarginTag = !description && iconNode ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", {
-    className: "".concat(prefixCls, "-message-single-line-auto-margin")
-  }) : null;
-  return {
-    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_config_provider__WEBPACK_IMPORTED_MODULE_6__["default"], {
-      iconPrefixCls: iconPrefixCls
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
-      className: iconNode ? "".concat(prefixCls, "-with-icon") : '',
-      role: "alert"
-    }, iconNode, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
-      className: "".concat(prefixCls, "-message")
-    }, autoMarginTag, message), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
-      className: "".concat(prefixCls, "-description")
-    }, description), btn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", {
-      className: "".concat(prefixCls, "-btn")
-    }, btn) : null)),
-    duration: duration,
-    closable: true,
-    closeIcon: closeIconToRender,
-    onClose: onClose,
-    onClick: onClick,
-    key: key,
-    style: style || {},
-    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()(className, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, "".concat(prefixCls, "-").concat(type), !!type))
-  };
-}
-
-function notice(args) {
-  getNotificationInstance(args, function (_ref) {
-    var prefixCls = _ref.prefixCls,
-        iconPrefixCls = _ref.iconPrefixCls,
-        instance = _ref.instance;
-    instance.notice(getRCNoticeProps(args, prefixCls, iconPrefixCls));
-  });
-}
-
-var api = {
-  open: notice,
-  close: function close(key) {
-    Object.keys(notificationInstance).forEach(function (cacheKey) {
-      return Promise.resolve(notificationInstance[cacheKey]).then(function (instance) {
-        instance.removeNotice(key);
-      });
-    });
-  },
-  config: setNotificationConfig,
-  destroy: function destroy() {
-    Object.keys(notificationInstance).forEach(function (cacheKey) {
-      Promise.resolve(notificationInstance[cacheKey]).then(function (instance) {
-        instance.destroy();
-      });
-      delete notificationInstance[cacheKey]; // lgtm[js/missing-await]
-    });
-  }
-};
-['success', 'info', 'warning', 'error'].forEach(function (type) {
-  api[type] = function (args) {
-    return api.open((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, args), {
-      type: type
-    }));
-  };
-});
-api.warn = api.warning;
-api.useNotification = (0,_hooks_useNotification__WEBPACK_IMPORTED_MODULE_12__["default"])(getNotificationInstance, getRCNoticeProps);
-/** @private test Only function. Not work on production */
-
-var getInstance = function getInstance(cacheKey) {
-  return __awaiter(void 0, void 0, void 0, /*#__PURE__*/(0,_babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_0__["default"])().mark(function _callee() {
-    return (0,_babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_0__["default"])().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            return _context.abrupt("return",  false ? 0 : null);
-
-          case 1:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (api);
 
 /***/ }),
 
@@ -15599,6 +13470,95 @@ if (document.getElementById("app")) {
 
 /***/ }),
 
+/***/ "./resources/js/src/api/authApi.js":
+/*!*****************************************!*\
+  !*** ./resources/js/src/api/authApi.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/src/api/axiosInstance.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var authApi = {
+  login: function login(user) {
+    return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__.axiosInstance.post('/login', {
+      email: user.email,
+      password: user.password
+    });
+  },
+  logout: function () {
+    var _logout = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      var config;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return (0,_axiosInstance__WEBPACK_IMPORTED_MODULE_0__.bearerConfig)();
+
+            case 2:
+              config = _context.sent;
+              return _context.abrupt("return", _axiosInstance__WEBPACK_IMPORTED_MODULE_0__.axiosInstance.post('/logout', {}, config));
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    function logout() {
+      return _logout.apply(this, arguments);
+    }
+
+    return logout;
+  }(),
+  me: function () {
+    var _me = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var config;
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return (0,_axiosInstance__WEBPACK_IMPORTED_MODULE_0__.bearerConfig)();
+
+            case 2:
+              config = _context2.sent;
+              return _context2.abrupt("return", _axiosInstance__WEBPACK_IMPORTED_MODULE_0__.axiosInstance.get('/me', config));
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    function me() {
+      return _me.apply(this, arguments);
+    }
+
+    return me;
+  }()
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (authApi);
+
+/***/ }),
+
 /***/ "./resources/js/src/api/axiosInstance.js":
 /*!***********************************************!*\
   !*** ./resources/js/src/api/axiosInstance.js ***!
@@ -15608,13 +13568,50 @@ if (document.getElementById("app")) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "axiosInstance": () => (/* binding */ axiosInstance)
+/* harmony export */   "axiosInstance": () => (/* binding */ axiosInstance),
+/* harmony export */   "bearerConfig": () => (/* binding */ bearerConfig)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 var BASE_DOMAIN = 'http://127.0.0.1:8000/api/';
 var baseURL = BASE_DOMAIN;
+var bearerConfig = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+    var _localStorage$getItem;
+
+    var token;
+    return _regeneratorRuntime().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            token = (_localStorage$getItem = localStorage.getItem('token')) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : "";
+            return _context.abrupt("return", {
+              headers: {
+                Authorization: "Bearer ".concat(token)
+              }
+            });
+
+          case 2:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function bearerConfig() {
+    return _ref.apply(this, arguments);
+  };
+}();
 var axiosInstance = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
   baseURL: baseURL
 });
@@ -15630,36 +13627,11 @@ var axiosInstance = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "loginApi": () => (/* reexport safe */ _loginApi__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "authApi": () => (/* reexport safe */ _authApi__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _loginApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loginApi */ "./resources/js/src/api/loginApi.js");
+/* harmony import */ var _authApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./authApi */ "./resources/js/src/api/authApi.js");
 
 
-
-/***/ }),
-
-/***/ "./resources/js/src/api/loginApi.js":
-/*!******************************************!*\
-  !*** ./resources/js/src/api/loginApi.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/src/api/axiosInstance.js");
-
-var loginApi = {
-  login: function login(user) {
-    return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__.axiosInstance.post('/login', {
-      email: user.email,
-      password: user.password
-    });
-  }
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loginApi);
 
 /***/ }),
 
@@ -15890,6 +13862,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var LoginForm = function LoginForm(_ref) {
   var onFinish = _ref.onFinish,
+      loginFailed = _ref.loginFailed,
       onFinishFailed = _ref.onFinishFailed,
       loadingButton = _ref.loadingButton;
   var layout = {
@@ -15987,15 +13960,12 @@ var LoginForm = function LoginForm(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
           name: "email",
           className: "form-group",
-          rules: [{
-            required: true,
-            message: "Please input your Email!"
-          }],
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
             placeholder: "Please enter your email",
             autoComplete: "off",
-            type: "text",
+            type: "email",
             className: "form-control form-control-lg",
+            required: true,
             id: "email-address"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -16013,10 +13983,6 @@ var LoginForm = function LoginForm(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
           name: "password",
           className: "form-group",
-          rules: [{
-            required: true,
-            message: "Please input your Email!"
-          }],
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "form-control-wrap",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
@@ -16038,6 +14004,13 @@ var LoginForm = function LoginForm(_ref) {
               id: "password"
             })]
           })
+        }), loginFailed && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "alert alert-danger alert-icon",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+            className: "icon ni ni-cross-circle"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+            children: "Your email or password is invalid!!!"
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
           className: "form-group",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -16111,296 +14084,298 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _UserControl_UserControl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UserControl/UserControl */ "./resources/js/src/components/UserControl/UserControl.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 function Header() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "nk-header nk-header-fixed is-light",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "container-fluid",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "nk-header-wrap",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "nk-menu-trigger d-xl-none ml-n1",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
             href: "#",
             className: "nk-nav-toggle nk-quick-nav-icon",
             "data-target": "sidebarMenu",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
               className: "icon ni ni-menu"
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "nk-header-brand d-xl-none",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
             href: "html/index.html",
             className: "logo-link",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
               className: "logo-light logo-img",
               src: "./images/logo.png",
               srcSet: "./images/logo2x.png 2x",
               alt: "logo"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
               className: "logo-dark logo-img",
               src: "./images/logo-dark.png",
               srcSet: "./images/logo-dark2x.png 2x",
               alt: "logo-dark"
             })]
           })
-        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "nk-header-search ml-3 ml-xl-0",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
             className: "icon ni ni-search"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             type: "text",
             className: "form-control border-transparent form-focus-none",
             placeholder: "Search anything"
           })]
-        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "nk-header-tools",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
             className: "nk-quick-nav",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
               className: "dropdown chats-dropdown hide-mb-xs",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                 href: "#",
                 className: "dropdown-toggle nk-quick-nav-icon",
                 "data-toggle": "dropdown",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "icon-status icon-status-na",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                     className: "icon ni ni-comments"
                   })
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "dropdown-menu dropdown-menu-xl dropdown-menu-right",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "dropdown-head",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     className: "sub-title nk-dropdown-title",
                     children: "Recent Chats"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                     href: "#",
                     children: "Setting"
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "dropdown-body",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
                     className: "chat-list",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                       className: "chat-item",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
                         className: "chat-link",
                         href: "html/apps-chats.html",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "chat-media user-avatar",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             children: "IH"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             className: "status dot dot-lg dot-gray"
                           })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "chat-info",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                             className: "chat-from",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "name",
                               children: "Iliash Hossain"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                               className: "time",
                               children: "Now"
                             })]
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                             className: "chat-context",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "text",
                               children: "You: Please confrim if you got my last messages."
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "status delivered",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                                 className: "icon ni ni-check-circle-fill"
                               })
                             })]
                           })]
                         })]
                       })
-                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                       className: "chat-item is-unread",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
                         className: "chat-link",
                         href: "html/apps-chats.html",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "chat-media user-avatar bg-pink",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             children: "AB"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             className: "status dot dot-lg dot-success"
                           })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "chat-info",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                             className: "chat-from",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "name",
                               children: "Abu Bin Ishtiyak"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                               className: "time",
                               children: "4:49 AM"
                             })]
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                             className: "chat-context",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "text",
                               children: "Hi, I am Ishtiyak, can you help me with this problem ?"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "status unread",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                                 className: "icon ni ni-bullet-fill"
                               })
                             })]
                           })]
                         })]
                       })
-                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                       className: "chat-item",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
                         className: "chat-link",
                         href: "html/apps-chats.html",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                           className: "chat-media user-avatar",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                             src: "./images/avatar/b-sm.jpg",
                             alt: ""
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "chat-info",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                             className: "chat-from",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "name",
                               children: "George Philips"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                               className: "time",
                               children: "6 Apr"
                             })]
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                             className: "chat-context",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "text",
                               children: "Have you seens the claim from Rose?"
                             })
                           })]
                         })]
                       })
-                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                       className: "chat-item",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
                         className: "chat-link",
                         href: "html/apps-chats.html",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "chat-media user-avatar user-avatar-multiple",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                             className: "user-avatar",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                               src: "./images/avatar/c-sm.jpg",
                               alt: ""
                             })
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                             className: "user-avatar",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                               children: "AB"
                             })
                           })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "chat-info",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                             className: "chat-from",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "name",
                               children: "Softnio Group"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                               className: "time",
                               children: "27 Mar"
                             })]
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                             className: "chat-context",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "text",
                               children: "You: I just bought a new computer but i am having some problem"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "status sent",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                                 className: "icon ni ni-check-circle"
                               })
                             })]
                           })]
                         })]
                       })
-                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                       className: "chat-item",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
                         className: "chat-link",
                         href: "html/apps-chats.html",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "chat-media user-avatar",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                             src: "./images/avatar/a-sm.jpg",
                             alt: ""
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             className: "status dot dot-lg dot-success"
                           })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "chat-info",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                             className: "chat-from",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "name",
                               children: "Larry Hughes"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                               className: "time",
                               children: "3 Apr"
                             })]
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                             className: "chat-context",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "text",
                               children: "Hi Frank! How is you doing?"
                             })
                           })]
                         })]
                       })
-                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                       className: "chat-item",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
                         className: "chat-link",
                         href: "html/apps-chats.html",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                           className: "chat-media user-avatar bg-purple",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             children: "TW"
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "chat-info",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                             className: "chat-from",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "name",
                               children: "Tammy Wilson"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                               className: "time",
                               children: "27 Mar"
                             })]
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                             className: "chat-context",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "text",
                               children: "You: I just bought a new computer but i am having some problem"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                               className: "status sent",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                                 className: "icon ni ni-check-circle"
                               })
                             })]
@@ -16409,271 +14384,168 @@ function Header() {
                       })
                     })]
                   })
-                }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "dropdown-foot center",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                     href: "html/apps-chats.html",
                     children: "View All"
                   })
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
               className: "dropdown notification-dropdown",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                 href: "#",
                 className: "dropdown-toggle nk-quick-nav-icon",
                 "data-toggle": "dropdown",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "icon-status icon-status-info",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                     className: "icon ni ni-bell"
                   })
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "dropdown-menu dropdown-menu-xl dropdown-menu-right",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "dropdown-head",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     className: "sub-title nk-dropdown-title",
                     children: "Notifications"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                     href: "#",
                     children: "Mark All as Read"
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "dropdown-body",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                     className: "nk-notification",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                       className: "nk-notification-item dropdown-inner",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                         className: "nk-notification-icon",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                           className: "icon icon-circle bg-warning-dim ni ni-curve-down-right"
                         })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                         className: "nk-notification-content",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "nk-notification-text",
-                          children: ["You have requested to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          children: ["You have requested to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             children: "Widthdrawl"
                           })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                           className: "nk-notification-time",
                           children: "2 hrs ago"
                         })]
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                       className: "nk-notification-item dropdown-inner",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                         className: "nk-notification-icon",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                           className: "icon icon-circle bg-success-dim ni ni-curve-down-left"
                         })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                         className: "nk-notification-content",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "nk-notification-text",
-                          children: ["Your ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          children: ["Your ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             children: "Deposit Order"
                           }), " is placed "]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                           className: "nk-notification-time",
                           children: "2 hrs ago"
                         })]
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                       className: "nk-notification-item dropdown-inner",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                         className: "nk-notification-icon",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                           className: "icon icon-circle bg-warning-dim ni ni-curve-down-right"
                         })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                         className: "nk-notification-content",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "nk-notification-text",
-                          children: ["You have requested to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          children: ["You have requested to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             children: "Widthdrawl"
                           })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                           className: "nk-notification-time",
                           children: "2 hrs ago"
                         })]
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                       className: "nk-notification-item dropdown-inner",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                         className: "nk-notification-icon",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                           className: "icon icon-circle bg-success-dim ni ni-curve-down-left"
                         })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                         className: "nk-notification-content",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "nk-notification-text",
-                          children: ["Your ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          children: ["Your ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             children: "Deposit Order"
                           }), " is placed "]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                           className: "nk-notification-time",
                           children: "2 hrs ago"
                         })]
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                       className: "nk-notification-item dropdown-inner",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                         className: "nk-notification-icon",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                           className: "icon icon-circle bg-warning-dim ni ni-curve-down-right"
                         })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                         className: "nk-notification-content",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "nk-notification-text",
-                          children: ["You have requested to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          children: ["You have requested to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             children: "Widthdrawl"
                           })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                           className: "nk-notification-time",
                           children: "2 hrs ago"
                         })]
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                       className: "nk-notification-item dropdown-inner",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                         className: "nk-notification-icon",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
                           className: "icon icon-circle bg-success-dim ni ni-curve-down-left"
                         })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                         className: "nk-notification-content",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                           className: "nk-notification-text",
-                          children: ["Your ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                          children: ["Your ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                             children: "Deposit Order"
                           }), " is placed "]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                           className: "nk-notification-time",
                           children: "2 hrs ago"
                         })]
                       })]
                     })]
                   })
-                }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "dropdown-foot center",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                     href: "#",
                     children: "View All"
                   })
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
               className: "dropdown user-dropdown",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                href: "#",
-                className: "dropdown-toggle mr-n1",
-                "data-toggle": "dropdown",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                  className: "user-toggle",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                    className: "user-avatar sm",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
-                      className: "icon ni ni-user-alt"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                    className: "user-info d-none d-xl-block",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                      className: "user-status user-status-unverified",
-                      children: "Unverified"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                      className: "user-name dropdown-indicator",
-                      children: "Abu Bin Ishityak"
-                    })]
-                  })]
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "dropdown-menu dropdown-menu-md dropdown-menu-right",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "dropdown-inner user-card-wrap bg-lighter d-none d-md-block",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                    className: "user-card",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                      className: "user-avatar",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        children: "AB"
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                      className: "user-info",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        className: "lead-text",
-                        children: "Abu Bin Ishtiyak"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                        className: "sub-text",
-                        children: "info@softnio.com"
-                      })]
-                    })]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "dropdown-inner",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-                    className: "link-list",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-                        href: "html/user-profile-regular.html",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
-                          className: "icon ni ni-user-alt"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                          children: "View Profile"
-                        })]
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-                        href: "html/user-profile-setting.html",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
-                          className: "icon ni ni-setting-alt"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                          children: "Account Setting"
-                        })]
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-                        href: "html/user-profile-activity.html",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
-                          className: "icon ni ni-activity-alt"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                          children: "Login Activity"
-                        })]
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-                        className: "dark-switch",
-                        href: "#",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
-                          className: "icon ni ni-moon"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                          children: "Dark Mode"
-                        })]
-                      })
-                    })]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "dropdown-inner",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
-                    className: "link-list",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-                        href: "#",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
-                          className: "icon ni ni-signout"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                          children: "Sign out"
-                        })]
-                      })
-                    })
-                  })
-                })]
-              })]
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_UserControl_UserControl__WEBPACK_IMPORTED_MODULE_1__["default"], {})
             })]
           })
         })]
@@ -18890,10 +16762,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _Header_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Header/Header */ "./resources/js/src/components/Header/Header.js");
 /* harmony import */ var _Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Sidebar/Sidebar */ "./resources/js/src/components/Sidebar/Sidebar.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _utils_constant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/constant */ "./resources/js/src/utils/constant.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -18905,25 +16779,246 @@ __webpack_require__.r(__webpack_exports__);
 var TeacherLayout = function TeacherLayout() {
   var role = window.localStorage.getItem('role');
 
-  if (role !== 'teacher') {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Navigate, {
+  if (role !== _utils_constant__WEBPACK_IMPORTED_MODULE_3__.ROLE_TEACHER) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Navigate, {
       to: "/",
       replace: true
     });
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "nk-wrap",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Header_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Header_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "nk-content",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Outlet, {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Outlet, {})
       })]
     })]
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TeacherLayout);
+
+/***/ }),
+
+/***/ "./resources/js/src/components/UserControl/UserControl.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/src/components/UserControl/UserControl.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./resources/js/src/api/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+var UserControl = function UserControl() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(window.localStorage.getItem('userData'))),
+      _useState2 = _slicedToArray(_useState, 2),
+      userData = _useState2[0],
+      setUserData = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var getProfile = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var _yield$authApi$me, data;
+
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _api__WEBPACK_IMPORTED_MODULE_1__.authApi.me();
+
+              case 2:
+                _yield$authApi$me = _context.sent;
+                data = _yield$authApi$me.data;
+                data && setUserData(data.data);
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function getProfile() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
+    getProfile();
+  }, []);
+
+  var logout = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var response;
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _api__WEBPACK_IMPORTED_MODULE_1__.authApi.logout();
+
+            case 2:
+              response = _context2.sent;
+              console.log(response);
+              location.reload();
+              window.localStorage.clear();
+
+            case 6:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function logout() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+      href: "#",
+      className: "dropdown-toggle mr-n1",
+      "data-toggle": "dropdown",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "user-toggle",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "user-avatar sm",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
+            className: "icon ni ni-user-alt"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "user-info d-none d-xl-block",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "user-status user-status-unverified",
+            children: "Unverified"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "user-name dropdown-indicator",
+            children: userData.name
+          })]
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "dropdown-menu dropdown-menu-md dropdown-menu-right",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "dropdown-inner user-card-wrap bg-lighter d-none d-md-block",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "user-card",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "user-avatar",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: "AB"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "user-info",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "lead-text",
+              children: userData.name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "sub-text",
+              children: userData.email
+            })]
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "dropdown-inner",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+          className: "link-list",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+              href: "html/user-profile-regular.html",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
+                className: "icon ni ni-user-alt"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                children: "View Profile"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+              href: "html/user-profile-setting.html",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
+                className: "icon ni ni-setting-alt"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                children: "Account Setting"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+              href: "html/user-profile-activity.html",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
+                className: "icon ni ni-activity-alt"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                children: "Login Activity"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+              className: "dark-switch",
+              href: "#",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
+                className: "icon ni ni-moon"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                children: "Dark Mode"
+              })]
+            })
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "dropdown-inner",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+          className: "link-list",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+              href: "#",
+              onClick: logout,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("em", {
+                className: "icon ni ni-signout"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                children: "Sign out"
+              })]
+            })
+          })
+        })
+      })]
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserControl);
 
 /***/ }),
 
@@ -19128,13 +17223,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var react_router_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-loading */ "./node_modules/react-router-loading/dist/react-router-loading.es.js");
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api */ "./resources/js/src/api/index.js");
 /* harmony import */ var _components_Form_LoginForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Form/LoginForm */ "./resources/js/src/components/Form/LoginForm.js");
 /* harmony import */ var _components_Slider_AuthSlider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Slider/AuthSlider */ "./resources/js/src/components/Slider/AuthSlider.js");
-/* harmony import */ var _api_axiosInstance__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../api/axiosInstance */ "./resources/js/src/api/axiosInstance.js");
+/* harmony import */ var _utils_constant__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/constant */ "./resources/js/src/utils/constant.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -19175,6 +17269,11 @@ function LoginPage() {
       loadingButton = _useState2[0],
       setLoadingButton = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loginFailed = _useState4[0],
+      setLoginFailed = _useState4[1];
+
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useNavigate)();
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useLocation)();
 
@@ -19187,7 +17286,7 @@ function LoginPage() {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return _api__WEBPACK_IMPORTED_MODULE_2__.loginApi.login({
+              return _api__WEBPACK_IMPORTED_MODULE_2__.authApi.login({
                 email: values.email,
                 password: values.password
               });
@@ -19197,39 +17296,43 @@ function LoginPage() {
               status = response.status;
               data = response.data;
 
-              if (status === 200) {
-                role = data.data.user.role;
-                token = data.data.token;
-                localStorage.setItem('userData', JSON.stringify(data.data));
-                localStorage.setItem('token', token);
-                localStorage.setItem('role', role);
-                setLoadingButton(false);
-
-                if (role === 'admin') {
-                  console.log('Redirect to admin');
-                } else if (role === 'ROLE_USER' || role === 'ROLE_ADMIN') {
-                  console.log('Redirect to home');
-                }
-
-                antd__WEBPACK_IMPORTED_MODULE_8__["default"].success('Login successfully');
-              } else {
-                antd__WEBPACK_IMPORTED_MODULE_8__["default"].error('Login failed');
+              if (!(status !== _utils_constant__WEBPACK_IMPORTED_MODULE_5__.HTTP_OK)) {
+                _context.next = 9;
+                break;
               }
 
-              _context.next = 12;
-              break;
+              setLoginFailed(true);
+              return _context.abrupt("return");
 
             case 9:
-              _context.prev = 9;
-              _context.t0 = _context["catch"](0);
-              antd__WEBPACK_IMPORTED_MODULE_8__["default"].error('Email and password is invalid!!!' + _context.t0.message);
+              role = data.data.user.role;
+              token = data.data.token;
+              localStorage.setItem('userData', JSON.stringify(data.data.user));
+              localStorage.setItem('token', token);
+              localStorage.setItem('role', role);
 
-            case 12:
+              if (role === _utils_constant__WEBPACK_IMPORTED_MODULE_5__.ROLE_TEACHER) {
+                navigate('/teacher');
+              } else if (role === _utils_constant__WEBPACK_IMPORTED_MODULE_5__.ROLE_ADMIN) {
+                navigate('/admin');
+              } else {
+                navigate('/');
+              }
+
+              _context.next = 20;
+              break;
+
+            case 17:
+              _context.prev = 17;
+              _context.t0 = _context["catch"](0);
+              setLoginFailed(true);
+
+            case 20:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[0, 9]]);
+      }, _callee, null, [[0, 17]]);
     }));
 
     return function onFinish(_x) {
@@ -19238,7 +17341,7 @@ function LoginPage() {
   }();
 
   var onFinishFailed = function onFinishFailed() {
-    console.log('something went wrong');
+    setLoginFailed(true);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -19247,6 +17350,7 @@ function LoginPage() {
       className: "nk-split nk-split-page nk-split-md",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Form_LoginForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
         onFinish: onFinish,
+        loginFailed: loginFailed,
         onFinishFailed: onFinishFailed,
         loadingButton: loadingButton
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Slider_AuthSlider__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
@@ -19310,6 +17414,37 @@ var Router = function Router() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Router);
+
+/***/ }),
+
+/***/ "./resources/js/src/utils/constant.js":
+/*!********************************************!*\
+  !*** ./resources/js/src/utils/constant.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "HTTP_FORBIDDEN": () => (/* binding */ HTTP_FORBIDDEN),
+/* harmony export */   "HTTP_INTERNAL_SERVER_ERROR": () => (/* binding */ HTTP_INTERNAL_SERVER_ERROR),
+/* harmony export */   "HTTP_NOT_FOUND": () => (/* binding */ HTTP_NOT_FOUND),
+/* harmony export */   "HTTP_OK": () => (/* binding */ HTTP_OK),
+/* harmony export */   "HTTP_UNAUTHORIZED": () => (/* binding */ HTTP_UNAUTHORIZED),
+/* harmony export */   "ROLE_ADMIN": () => (/* binding */ ROLE_ADMIN),
+/* harmony export */   "ROLE_STUDENT": () => (/* binding */ ROLE_STUDENT),
+/* harmony export */   "ROLE_TEACHER": () => (/* binding */ ROLE_TEACHER)
+/* harmony export */ });
+// HTTP RESPONSE
+var HTTP_OK = 200;
+var HTTP_UNAUTHORIZED = 401;
+var HTTP_FORBIDDEN = 403;
+var HTTP_NOT_FOUND = 404;
+var HTTP_INTERNAL_SERVER_ERROR = 500; // ROLE
+
+var ROLE_ADMIN = 'admin';
+var ROLE_TEACHER = 'teacher';
+var ROLE_STUDENT = 'student';
 
 /***/ }),
 
@@ -47206,72 +45341,6 @@ module.exports = stubFalse;
 
 /***/ }),
 
-/***/ "./node_modules/memoize-one/dist/memoize-one.esm.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/memoize-one/dist/memoize-one.esm.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ memoizeOne)
-/* harmony export */ });
-var safeIsNaN = Number.isNaN ||
-    function ponyfill(value) {
-        return typeof value === 'number' && value !== value;
-    };
-function isEqual(first, second) {
-    if (first === second) {
-        return true;
-    }
-    if (safeIsNaN(first) && safeIsNaN(second)) {
-        return true;
-    }
-    return false;
-}
-function areInputsEqual(newInputs, lastInputs) {
-    if (newInputs.length !== lastInputs.length) {
-        return false;
-    }
-    for (var i = 0; i < newInputs.length; i++) {
-        if (!isEqual(newInputs[i], lastInputs[i])) {
-            return false;
-        }
-    }
-    return true;
-}
-
-function memoizeOne(resultFn, isEqual) {
-    if (isEqual === void 0) { isEqual = areInputsEqual; }
-    var cache = null;
-    function memoized() {
-        var newArgs = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            newArgs[_i] = arguments[_i];
-        }
-        if (cache && cache.lastThis === this && isEqual(newArgs, cache.lastArgs)) {
-            return cache.lastResult;
-        }
-        var lastResult = resultFn.apply(this, newArgs);
-        cache = {
-            lastResult: lastResult,
-            lastArgs: newArgs,
-            lastThis: this,
-        };
-        return lastResult;
-    }
-    memoized.clear = function clear() {
-        cache = null;
-    };
-    return memoized;
-}
-
-
-
-
-/***/ }),
-
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -52733,569 +50802,6 @@ function getTransitionName(transitionName, transitionType) {
 
 /***/ }),
 
-/***/ "./node_modules/rc-notification/es/Notice.js":
-/*!***************************************************!*\
-  !*** ./node_modules/rc-notification/es/Notice.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Notice)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_8__);
-
-
-
-
-
-
-
-
-
-
-
-var Notice = /*#__PURE__*/function (_Component) {
-  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(Notice, _Component);
-
-  var _super = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_5__["default"])(Notice);
-
-  function Notice() {
-    var _this;
-
-    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Notice);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-    _this.closeTimer = null;
-
-    _this.close = function (e) {
-      if (e) {
-        e.stopPropagation();
-      }
-
-      _this.clearCloseTimer();
-
-      var _this$props = _this.props,
-          onClose = _this$props.onClose,
-          noticeKey = _this$props.noticeKey;
-
-      if (onClose) {
-        onClose(noticeKey);
-      }
-    };
-
-    _this.startCloseTimer = function () {
-      if (_this.props.duration) {
-        _this.closeTimer = window.setTimeout(function () {
-          _this.close();
-        }, _this.props.duration * 1000);
-      }
-    };
-
-    _this.clearCloseTimer = function () {
-      if (_this.closeTimer) {
-        clearTimeout(_this.closeTimer);
-        _this.closeTimer = null;
-      }
-    };
-
-    return _this;
-  }
-
-  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(Notice, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.startCloseTimer();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      if (this.props.duration !== prevProps.duration || this.props.updateMark !== prevProps.updateMark || // Visible again need reset timer
-      this.props.visible !== prevProps.visible && this.props.visible) {
-        this.restartCloseTimer();
-      }
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.clearCloseTimer();
-    }
-  }, {
-    key: "restartCloseTimer",
-    value: function restartCloseTimer() {
-      this.clearCloseTimer();
-      this.startCloseTimer();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _this$props2 = this.props,
-          prefixCls = _this$props2.prefixCls,
-          className = _this$props2.className,
-          closable = _this$props2.closable,
-          closeIcon = _this$props2.closeIcon,
-          style = _this$props2.style,
-          onClick = _this$props2.onClick,
-          children = _this$props2.children,
-          holder = _this$props2.holder;
-      var componentClass = "".concat(prefixCls, "-notice");
-      var dataOrAriaAttributeProps = Object.keys(this.props).reduce(function (acc, key) {
-        if (key.substr(0, 5) === 'data-' || key.substr(0, 5) === 'aria-' || key === 'role') {
-          acc[key] = _this2.props[key];
-        }
-
-        return acc;
-      }, {});
-      var node = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement("div", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-        className: classnames__WEBPACK_IMPORTED_MODULE_8___default()(componentClass, className, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])({}, "".concat(componentClass, "-closable"), closable)),
-        style: style,
-        onMouseEnter: this.clearCloseTimer,
-        onMouseLeave: this.startCloseTimer,
-        onClick: onClick
-      }, dataOrAriaAttributeProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement("div", {
-        className: "".concat(componentClass, "-content")
-      }, children), closable ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement("a", {
-        tabIndex: 0,
-        onClick: this.close,
-        className: "".concat(componentClass, "-close")
-      }, closeIcon || /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement("span", {
-        className: "".concat(componentClass, "-close-x")
-      })) : null);
-
-      if (holder) {
-        return /*#__PURE__*/react_dom__WEBPACK_IMPORTED_MODULE_7__.createPortal(node, holder);
-      }
-
-      return node;
-    }
-  }]);
-
-  return Notice;
-}(react__WEBPACK_IMPORTED_MODULE_6__.Component);
-
-Notice.defaultProps = {
-  onClose: function onClose() {},
-  duration: 1.5
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/rc-notification/es/Notification.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/rc-notification/es/Notification.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var rc_util_es_React_render__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rc-util/es/React/render */ "./node_modules/rc-util/es/React/render.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var rc_motion__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rc-motion */ "./node_modules/rc-motion/es/index.js");
-/* harmony import */ var _Notice__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Notice */ "./node_modules/rc-notification/es/Notice.js");
-/* harmony import */ var _useNotification__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./useNotification */ "./node_modules/rc-notification/es/useNotification.js");
-
-
-
-
-
-
-
-var _excluded = ["getContainer"];
-
-
-
-
-
-
-
-var seed = 0;
-var now = Date.now();
-
-function getUuid() {
-  var id = seed;
-  seed += 1;
-  return "rcNotification_".concat(now, "_").concat(id);
-}
-
-var Notification = /*#__PURE__*/function (_Component) {
-  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Notification, _Component);
-
-  var _super = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_6__["default"])(Notification);
-
-  function Notification() {
-    var _this;
-
-    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Notification);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-    _this.state = {
-      notices: []
-    };
-    _this.hookRefs = new Map();
-
-    _this.add = function (originNotice, holderCallback) {
-      var key = originNotice.key || getUuid();
-
-      var notice = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__["default"])({}, originNotice), {}, {
-        key: key
-      });
-
-      var maxCount = _this.props.maxCount;
-
-      _this.setState(function (previousState) {
-        var notices = previousState.notices;
-        var noticeIndex = notices.map(function (v) {
-          return v.notice.key;
-        }).indexOf(key);
-        var updatedNotices = notices.concat();
-
-        if (noticeIndex !== -1) {
-          updatedNotices.splice(noticeIndex, 1, {
-            notice: notice,
-            holderCallback: holderCallback
-          });
-        } else {
-          if (maxCount && notices.length >= maxCount) {
-            // XXX, use key of first item to update new added (let React to move exsiting
-            // instead of remove and mount). Same key was used before for both a) external
-            // manual control and b) internal react 'key' prop , which is not that good.
-            // eslint-disable-next-line no-param-reassign
-            // zombieJ: Not know why use `updateKey`. This makes Notice infinite loop in jest.
-            // Change to `updateMark` for compare instead.
-            // https://github.com/react-component/notification/commit/32299e6be396f94040bfa82517eea940db947ece
-            notice.key = updatedNotices[0].notice.key;
-            notice.updateMark = getUuid(); // zombieJ: That's why. User may close by key directly.
-            // We need record this but not re-render to avoid upper issue
-            // https://github.com/react-component/notification/issues/129
-
-            notice.userPassKey = key;
-            updatedNotices.shift();
-          }
-
-          updatedNotices.push({
-            notice: notice,
-            holderCallback: holderCallback
-          });
-        }
-
-        return {
-          notices: updatedNotices
-        };
-      });
-    };
-
-    _this.remove = function (removeKey) {
-      _this.setState(function (_ref) {
-        var notices = _ref.notices;
-        return {
-          notices: notices.filter(function (_ref2) {
-            var _ref2$notice = _ref2.notice,
-                key = _ref2$notice.key,
-                userPassKey = _ref2$notice.userPassKey;
-            var mergedKey = userPassKey || key;
-            return mergedKey !== removeKey;
-          })
-        };
-      });
-    };
-
-    _this.noticePropsMap = {};
-    return _this;
-  }
-
-  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Notification, [{
-    key: "getTransitionName",
-    value: function getTransitionName() {
-      var _this$props = this.props,
-          prefixCls = _this$props.prefixCls,
-          animation = _this$props.animation;
-      var transitionName = this.props.transitionName;
-
-      if (!transitionName && animation) {
-        transitionName = "".concat(prefixCls, "-").concat(animation);
-      }
-
-      return transitionName;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var notices = this.state.notices;
-      var _this$props2 = this.props,
-          prefixCls = _this$props2.prefixCls,
-          className = _this$props2.className,
-          closeIcon = _this$props2.closeIcon,
-          style = _this$props2.style;
-      var noticeKeys = [];
-      notices.forEach(function (_ref3, index) {
-        var notice = _ref3.notice,
-            holderCallback = _ref3.holderCallback;
-        var updateMark = index === notices.length - 1 ? notice.updateMark : undefined;
-        var key = notice.key,
-            userPassKey = notice.userPassKey;
-
-        var noticeProps = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__["default"])({
-          prefixCls: prefixCls,
-          closeIcon: closeIcon
-        }, notice), notice.props), {}, {
-          key: key,
-          noticeKey: userPassKey || key,
-          updateMark: updateMark,
-          onClose: function onClose(noticeKey) {
-            var _notice$onClose;
-
-            _this2.remove(noticeKey);
-
-            (_notice$onClose = notice.onClose) === null || _notice$onClose === void 0 ? void 0 : _notice$onClose.call(notice);
-          },
-          onClick: notice.onClick,
-          children: notice.content
-        }); // Give to motion
-
-
-        noticeKeys.push(key);
-        _this2.noticePropsMap[key] = {
-          props: noticeProps,
-          holderCallback: holderCallback
-        };
-      });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
-        className: classnames__WEBPACK_IMPORTED_MODULE_9___default()(prefixCls, className),
-        style: style
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement(rc_motion__WEBPACK_IMPORTED_MODULE_10__.CSSMotionList, {
-        keys: noticeKeys,
-        motionName: this.getTransitionName(),
-        onVisibleChanged: function onVisibleChanged(changedVisible, _ref4) {
-          var key = _ref4.key;
-
-          if (!changedVisible) {
-            delete _this2.noticePropsMap[key];
-          }
-        }
-      }, function (_ref5) {
-        var key = _ref5.key,
-            motionClassName = _ref5.className,
-            motionStyle = _ref5.style,
-            visible = _ref5.visible;
-        var _this2$noticePropsMap = _this2.noticePropsMap[key],
-            noticeProps = _this2$noticePropsMap.props,
-            holderCallback = _this2$noticePropsMap.holderCallback;
-
-        if (holderCallback) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("div", {
-            key: key,
-            className: classnames__WEBPACK_IMPORTED_MODULE_9___default()(motionClassName, "".concat(prefixCls, "-hook-holder")),
-            style: (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__["default"])({}, motionStyle),
-            ref: function ref(div) {
-              if (typeof key === 'undefined') {
-                return;
-              }
-
-              if (div) {
-                _this2.hookRefs.set(key, div);
-
-                holderCallback(div, noticeProps);
-              } else {
-                _this2.hookRefs.delete(key);
-              }
-            }
-          });
-        }
-
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement(_Notice__WEBPACK_IMPORTED_MODULE_11__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, noticeProps, {
-          className: classnames__WEBPACK_IMPORTED_MODULE_9___default()(motionClassName, noticeProps === null || noticeProps === void 0 ? void 0 : noticeProps.className),
-          style: (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__["default"])({}, motionStyle), noticeProps === null || noticeProps === void 0 ? void 0 : noticeProps.style),
-          visible: visible
-        }));
-      }));
-    }
-  }]);
-
-  return Notification;
-}(react__WEBPACK_IMPORTED_MODULE_7__.Component);
-
-Notification.newInstance = void 0;
-Notification.defaultProps = {
-  prefixCls: 'rc-notification',
-  animation: 'fade',
-  style: {
-    top: 65,
-    left: '50%'
-  }
-};
-
-Notification.newInstance = function newNotificationInstance(properties, callback) {
-  var _ref6 = properties || {},
-      getContainer = _ref6.getContainer,
-      props = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(_ref6, _excluded);
-
-  var div = document.createElement('div');
-
-  if (getContainer) {
-    var root = getContainer();
-    root.appendChild(div);
-  } else {
-    document.body.appendChild(div);
-  }
-
-  var called = false;
-
-  function ref(notification) {
-    if (called) {
-      return;
-    }
-
-    called = true;
-    callback({
-      notice: function notice(noticeProps) {
-        notification.add(noticeProps);
-      },
-      removeNotice: function removeNotice(key) {
-        notification.remove(key);
-      },
-      component: notification,
-      destroy: function destroy() {
-        (0,rc_util_es_React_render__WEBPACK_IMPORTED_MODULE_8__.unmount)(div);
-
-        if (div.parentNode) {
-          div.parentNode.removeChild(div);
-        }
-      },
-      // Hooks
-      useNotification: function useNotification() {
-        return (0,_useNotification__WEBPACK_IMPORTED_MODULE_12__["default"])(notification);
-      }
-    });
-  } // Only used for test case usage
-
-
-  if (false) {}
-
-  (0,rc_util_es_React_render__WEBPACK_IMPORTED_MODULE_8__.render)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement(Notification, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
-    ref: ref
-  })), div);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Notification);
-
-/***/ }),
-
-/***/ "./node_modules/rc-notification/es/index.js":
-/*!**************************************************!*\
-  !*** ./node_modules/rc-notification/es/index.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Notification__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Notification */ "./node_modules/rc-notification/es/Notification.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Notification__WEBPACK_IMPORTED_MODULE_0__["default"]);
-
-/***/ }),
-
-/***/ "./node_modules/rc-notification/es/useNotification.js":
-/*!************************************************************!*\
-  !*** ./node_modules/rc-notification/es/useNotification.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ useNotification)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Notice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Notice */ "./node_modules/rc-notification/es/Notice.js");
-
-
-
-
-
-function useNotification(notificationInstance) {
-  var createdRef = react__WEBPACK_IMPORTED_MODULE_3__.useRef({});
-
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_3__.useState([]),
-      _React$useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_React$useState, 2),
-      elements = _React$useState2[0],
-      setElements = _React$useState2[1];
-
-  function notify(noticeProps) {
-    var firstMount = true;
-    notificationInstance.add(noticeProps, function (div, props) {
-      var key = props.key;
-
-      if (div && (!createdRef.current[key] || firstMount)) {
-        var noticeEle = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_Notice__WEBPACK_IMPORTED_MODULE_4__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
-          holder: div
-        }));
-        createdRef.current[key] = noticeEle;
-        setElements(function (originElements) {
-          var index = originElements.findIndex(function (ele) {
-            return ele.key === props.key;
-          });
-
-          if (index === -1) {
-            return [].concat((0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(originElements), [noticeEle]);
-          }
-
-          var cloneList = (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(originElements);
-
-          cloneList[index] = noticeEle;
-          return cloneList;
-        });
-      }
-
-      firstMount = false;
-    });
-  }
-
-  return [notify, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(react__WEBPACK_IMPORTED_MODULE_3__.Fragment, null, elements)];
-}
-
-/***/ }),
-
 /***/ "./node_modules/rc-pagination/es/locale/en_US.js":
 /*!*******************************************************!*\
   !*** ./node_modules/rc-pagination/es/locale/en_US.js ***!
@@ -56437,156 +53943,6 @@ var Portal = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(func
   return containerRef.current ? /*#__PURE__*/react_dom__WEBPACK_IMPORTED_MODULE_1__.createPortal(children, containerRef.current) : null;
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Portal);
-
-/***/ }),
-
-/***/ "./node_modules/rc-util/es/React/render.js":
-/*!*************************************************!*\
-  !*** ./node_modules/rc-util/es/React/render.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-var react_dom__WEBPACK_IMPORTED_MODULE_4___namespace_cache;
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "_r": () => (/* binding */ _r),
-/* harmony export */   "_u": () => (/* binding */ _u),
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "unmount": () => (/* binding */ unmount)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/regeneratorRuntime */ "./node_modules/@babel/runtime/helpers/esm/regeneratorRuntime.js");
-/* harmony import */ var _babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-
-
-
-
- // Let compiler not to search module usage
-
-var fullClone = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, /*#__PURE__*/ (react_dom__WEBPACK_IMPORTED_MODULE_4___namespace_cache || (react_dom__WEBPACK_IMPORTED_MODULE_4___namespace_cache = __webpack_require__.t(react_dom__WEBPACK_IMPORTED_MODULE_4__, 2))));
-
-var version = fullClone.version,
-    reactRender = fullClone.render,
-    unmountComponentAtNode = fullClone.unmountComponentAtNode;
-var createRoot;
-
-try {
-  var mainVersion = Number((version || '').split('.')[0]);
-
-  if (mainVersion >= 18) {
-    createRoot = fullClone.createRoot;
-  }
-} catch (e) {// Do nothing;
-}
-
-function toggleWarning(skip) {
-  var __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = fullClone.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-
-  if (__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED && (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_2__["default"])(__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED) === 'object') {
-    __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.usingClientEntryPoint = skip;
-  }
-}
-
-var MARK = '__rc_react_root__';
-
-function modernRender(node, container) {
-  toggleWarning(true);
-  var root = container[MARK] || createRoot(container);
-  toggleWarning(false);
-  root.render(node);
-  container[MARK] = root;
-}
-
-function legacyRender(node, container) {
-  reactRender(node, container);
-}
-/** @private Test usage. Not work in prod */
-
-
-function _r(node, container) {
-  if (true) {
-    return legacyRender(node, container);
-  }
-}
-function render(node, container) {
-  if (createRoot) {
-    modernRender(node, container);
-    return;
-  }
-
-  legacyRender(node, container);
-} // ========================= Unmount ==========================
-
-function modernUnmount(_x) {
-  return _modernUnmount.apply(this, arguments);
-}
-
-function _modernUnmount() {
-  _modernUnmount = (0,_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])( /*#__PURE__*/(0,_babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_0__["default"])().mark(function _callee(container) {
-    return (0,_babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_0__["default"])().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            return _context.abrupt("return", Promise.resolve().then(function () {
-              var _container$MARK;
-
-              (_container$MARK = container[MARK]) === null || _container$MARK === void 0 ? void 0 : _container$MARK.unmount();
-              delete container[MARK];
-            }));
-
-          case 1:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-  return _modernUnmount.apply(this, arguments);
-}
-
-function legacyUnmount(container) {
-  unmountComponentAtNode(container);
-}
-/** @private Test usage. Not work in prod */
-
-
-function _u(container) {
-  if (true) {
-    return legacyUnmount(container);
-  }
-}
-function unmount(_x2) {
-  return _unmount.apply(this, arguments);
-}
-
-function _unmount() {
-  _unmount = (0,_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])( /*#__PURE__*/(0,_babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_0__["default"])().mark(function _callee2(container) {
-    return (0,_babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_0__["default"])().wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            if (!(createRoot !== undefined)) {
-              _context2.next = 2;
-              break;
-            }
-
-            return _context2.abrupt("return", modernUnmount(container));
-
-          case 2:
-            legacyUnmount(container);
-
-          case 3:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2);
-  }));
-  return _unmount.apply(this, arguments);
-}
 
 /***/ }),
 
@@ -92365,36 +89721,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/create fake namespace object */
-/******/ 	(() => {
-/******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
-/******/ 		var leafPrototypes;
-/******/ 		// create a fake namespace object
-/******/ 		// mode & 1: value is a module id, require it
-/******/ 		// mode & 2: merge all properties of value into the ns
-/******/ 		// mode & 4: return value when already ns object
-/******/ 		// mode & 16: return value when it's Promise-like
-/******/ 		// mode & 8|1: behave like require
-/******/ 		__webpack_require__.t = function(value, mode) {
-/******/ 			if(mode & 1) value = this(value);
-/******/ 			if(mode & 8) return value;
-/******/ 			if(typeof value === 'object' && value) {
-/******/ 				if((mode & 4) && value.__esModule) return value;
-/******/ 				if((mode & 16) && typeof value.then === 'function') return value;
-/******/ 			}
-/******/ 			var ns = Object.create(null);
-/******/ 			__webpack_require__.r(ns);
-/******/ 			var def = {};
-/******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
-/******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
-/******/ 				Object.getOwnPropertyNames(current).forEach((key) => (def[key] = () => (value[key])));
-/******/ 			}
-/******/ 			def['default'] = () => (value);
-/******/ 			__webpack_require__.d(ns, def);
-/******/ 			return ns;
 /******/ 		};
 /******/ 	})();
 /******/ 	

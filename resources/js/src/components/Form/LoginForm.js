@@ -2,7 +2,7 @@ import { Button, Form, Input } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const LoginForm = ({ onFinish, onFinishFailed, loadingButton }) => {
+const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => {
 
     const layout = {
         labelCol: { span: { sm: 24, md: 8, lg: 6 } },
@@ -36,6 +36,7 @@ const LoginForm = ({ onFinish, onFinishFailed, loadingButton }) => {
                         </div>
                     </div>
                 </div>{/* .nk-block-head */}
+
                 <Form
                     labelCol={layout.labelCol}
                     wrapperCol={layout.wrapperCol}
@@ -58,18 +59,13 @@ const LoginForm = ({ onFinish, onFinishFailed, loadingButton }) => {
                     <Form.Item
                         name="email"
                         className="form-group"
-                        rules={[
-                            {
-                                required: true,
-                                message: "Please input your Email!"
-                            }
-                        ]}
                     >
                         <Input
                             placeholder={"Please enter your email"}
                             autoComplete="off"
-                            type="text"
+                            type="email"
                             className="form-control form-control-lg"
+                            required
                             id="email-address"
                         />
                     </Form.Item>
@@ -81,12 +77,6 @@ const LoginForm = ({ onFinish, onFinishFailed, loadingButton }) => {
                     <Form.Item
                         name="password"
                         className="form-group"
-                        rules={[
-                            {
-                                required: true,
-                                message: "Please input your Email!"
-                            }
-                        ]}
                     >
                         <div className="form-control-wrap">
                             <a tabIndex={-1} href="#" className="form-icon form-icon-right passcode-switch lg" data-target="password">
@@ -104,6 +94,12 @@ const LoginForm = ({ onFinish, onFinishFailed, loadingButton }) => {
                         </div>
 
                     </Form.Item>
+                    {loginFailed &&
+                        <div className="alert alert-danger alert-icon">
+                            <em className="icon ni ni-cross-circle"></em>
+                            <strong>Your email or password is invalid!!!</strong>
+                        </div>
+                    }
                     <Form.Item className="form-group">
                         <Button
                             htmlType="submit"

@@ -2,50 +2,53 @@ import React, { useState } from 'react'
 import { message } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLoadingContext } from 'react-router-loading';
-import { loginApi } from '../../api';
+import { authApi } from '../../api';
 import LoginForm from '../../components/Form/LoginForm'
 import AuthSlider from '../../components/Slider/AuthSlider'
-import { axiosInstance } from '../../api/axiosInstance';
+import { HTTP_OK, ROLE_ADMIN, ROLE_TEACHER } from '../../utils/constant';
 
 function LoginPage() {
     const loadingContext = useLoadingContext();
     const [loadingButton, setLoadingButton] = useState(false);
+    const [loginFailed, setLoginFailed] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
     const onFinish = async (values) => {
         // await axiosInstance.get('/sanctum/csrf-cookie');
         try {
-            const response = await loginApi.login({
+            const response = await authApi.login({
                 email: values.email,
                 password: values.password
             });
             const status = response.status;
             const data = response.data;
 
-            if (status === 200) {
-                const role = data.data.user.role;
-                const token = data.data.token;
-                localStorage.setItem('userData', JSON.stringify(data.data));
-                localStorage.setItem('token', token);
-                localStorage.setItem('role', role);
-                setLoadingButton(false);
-                if (role === 'admin') {
-                    console.log('Redirect to admin')
-                } else if (role === 'ROLE_USER' || role === 'ROLE_ADMIN') {
-                    console.log('Redirect to home');
-                }
-                message.success('Login successfully');
+            if (status !== HTTP_OK) {
+                setLoginFailed(true);
+                return;
+            }
+
+            const role = data.data.user.role;
+            const token = data.data.token;
+            localStorage.setItem('userData', JSON.stringify(data.data.user));
+            localStorage.setItem('token', token);
+            localStorage.setItem('role', role);
+
+            if (role === ROLE_TEACHER) {
+                navigate('/teacher');
+            } else if (role === ROLE_ADMIN) {
+                navigate('/admin');
             } else {
-                message.error('Login failed');
+                navigate('/');
             }
         } catch (e) {
-            message.error('Email and password is invalid!!!' + e.message);
+            setLoginFailed(true);
         }
     };
 
     const onFinishFailed = () => {
-        console.log('something went wrong');
+        setLoginFailed(true);
     };
 
     return (
@@ -53,6 +56,7 @@ function LoginPage() {
             <div className="nk-split nk-split-page nk-split-md">
                 <LoginForm
                     onFinish={onFinish}
+                    loginFailed={loginFailed}
                     onFinishFailed={onFinishFailed}
                     loadingButton={loadingButton}
                 />

@@ -1,3 +1,3 @@
-import loginApi from './loginApi';
+import authApi from './authApi';
 
-export { loginApi };
+export { authApi };
