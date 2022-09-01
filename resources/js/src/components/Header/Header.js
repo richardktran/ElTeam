@@ -1,4 +1,5 @@
 import React from 'react'
+import UserControl from '../UserControl/UserControl'
 
 function Header() {
   return (
@@ -227,68 +228,7 @@ function Header() {
                 </div>
               </li>
               <li className="dropdown user-dropdown">
-                <a href="#" className="dropdown-toggle mr-n1" data-toggle="dropdown">
-                  <div className="user-toggle">
-                    <div className="user-avatar sm">
-                      <em className="icon ni ni-user-alt" />
-                    </div>
-                    <div className="user-info d-none d-xl-block">
-                      <div className="user-status user-status-unverified">Unverified</div>
-                      <div className="user-name dropdown-indicator">Abu Bin Ishityak</div>
-                    </div>
-                  </div>
-                </a>
-                <div className="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                  <div className="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
-                    <div className="user-card">
-                      <div className="user-avatar">
-                        <span>AB</span>
-                      </div>
-                      <div className="user-info">
-                        <span className="lead-text">Abu Bin Ishtiyak</span>
-                        <span className="sub-text">info@softnio.com</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="dropdown-inner">
-                    <ul className="link-list">
-                      <li>
-                        <a href="html/user-profile-regular.html">
-                          <em className="icon ni ni-user-alt" />
-                          <span>View Profile</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="html/user-profile-setting.html">
-                          <em className="icon ni ni-setting-alt" />
-                          <span>Account Setting</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="html/user-profile-activity.html">
-                          <em className="icon ni ni-activity-alt" />
-                          <span>Login Activity</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dark-switch" href="#">
-                          <em className="icon ni ni-moon" />
-                          <span>Dark Mode</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="dropdown-inner">
-                    <ul className="link-list">
-                      <li>
-                        <a href="#">
-                          <em className="icon ni ni-signout" />
-                          <span>Sign out</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                <UserControl />
               </li>
             </ul>
           </div>

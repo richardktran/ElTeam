@@ -12,6 +12,11 @@ use Symfony\Component\Routing\Exception\InvalidParameterException;
 
 class AuthController extends Controller
 {
+    public function me(Request $request)
+    {
+        return $this->response(new UserResource(Auth::user()));
+    }
+
     public function login(Request $request)
     {
         $request->validate([
@@ -31,5 +36,11 @@ class AuthController extends Controller
             'user' => new UserResource($user),
             'token' => $token,
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return $this->response([]);
     }
 }
