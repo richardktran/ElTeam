@@ -63,7 +63,22 @@ function HomeTeacherPage() {
             </div>{/* .nk-block-head */} <div className="nk-block">
                 <div className="row g-gs">
                     <div className="col-sm-6 col-lg-4 col-xxl-3">
-                        <ClassCard />
+                        <ClassCard
+                            name="Luận văn tốt nghiệp"
+                            code="CT240"
+                            credit="3"
+                            location="A203"
+                            hours="4"
+                        />
+                    </div>
+                    <div className="col-sm-6 col-lg-4 col-xxl-3">
+                        <ClassCard
+                            name="Luận văn tốt nghiệp"
+                            code="CT240"
+                            credit="3"
+                            location="A203"
+                            hours="4"
+                        />
                     </div>
                 </div>
             </div>{/* .nk-block */}

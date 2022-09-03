@@ -13652,8 +13652,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function ClassCard() {
+var ClassCard = function ClassCard(props) {
+  var id = props.id,
+      name = props.name,
+      code = props.code,
+      credit = props.credit,
+      location = props.location,
+      hours = props.hours;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    id: id,
     className: "card h-100",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "card-inner",
@@ -13666,9 +13673,9 @@ function ClassCard() {
             className: "project-title",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
               className: "project-info",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h6", {
                 className: "title",
-                children: "CT240 - Lu\u1EADn v\u0103n t\u1ED1t nghi\u1EC7p"
+                children: [code, " - ", name]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
                 className: "sub-text",
                 children: "10 nh\xF3m"
@@ -13728,8 +13735,8 @@ function ClassCard() {
                 className: "label-tag ",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
                   className: "text-primary icon ni ni-map-pin-fill"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  children: " 301/C1"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+                  children: [" ", location]
                 })]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -13738,8 +13745,8 @@ function ClassCard() {
                 className: "label-tag",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
                   className: "text-primary icon ni ni-cards"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  children: " 4 t\xEDn ch\u1EC9"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+                  children: [" ", credit, " t\xEDn ch\u1EC9"]
                 })]
               })
             })]
@@ -13761,8 +13768,8 @@ function ClassCard() {
                 className: "label-tag",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
                   className: "text-primary icon ni ni-clock-fill"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  children: " 4h/tu\u1EA7n"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+                  children: [" ", hours, "h/tu\u1EA7n"]
                 })]
               })
             })]
@@ -13831,7 +13838,7 @@ function ClassCard() {
       })
     })
   });
-}
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ClassCard);
 
@@ -17156,12 +17163,27 @@ function HomeTeacherPage() {
       })
     }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "nk-block",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "row g-gs",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "col-sm-6 col-lg-4 col-xxl-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Cards_ClassCard__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-        })
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Cards_ClassCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            name: "Lu\u1EADn v\u0103n t\u1ED1t nghi\u1EC7p",
+            code: "CT240",
+            credit: "3",
+            location: "A203",
+            hours: "4"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "col-sm-6 col-lg-4 col-xxl-3",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Cards_ClassCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            name: "Lu\u1EADn v\u0103n t\u1ED1t nghi\u1EC7p",
+            code: "CT240",
+            credit: "3",
+            location: "A203",
+            hours: "4"
+          })
+        })]
       })
     })]
   });
