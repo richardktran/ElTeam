@@ -9,6 +9,7 @@ function SplashPage() {
         <div className="nk-content-body">
             <h2>This is home page</h2>
             <Link to="/login" className="btn btn-primary">Login</Link>
+            <Link to="/teacher" className="btn btn-primary ml-3">Go to Teacher Page</Link>
         </div>
     );
 }
