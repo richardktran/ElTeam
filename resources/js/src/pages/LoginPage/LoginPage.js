@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { message } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLoadingContext } from 'react-router-loading';
@@ -8,11 +8,15 @@ import AuthSlider from '../../components/Slider/AuthSlider'
 import { HTTP_OK, ROLE_ADMIN, ROLE_TEACHER } from '../../utils/constant';
 
 function LoginPage() {
-    const loadingContext = useLoadingContext();
     const [loadingButton, setLoadingButton] = useState(false);
     const [loginFailed, setLoginFailed] = useState(false);
     const navigate = useNavigate();
-    const location = useLocation();
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            navigate('/');
+        }
+    })
 
     const onFinish = async (values) => {
         // await axiosInstance.get('/sanctum/csrf-cookie');

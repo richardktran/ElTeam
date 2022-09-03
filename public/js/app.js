@@ -17262,8 +17262,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function LoginPage() {
-  var loadingContext = (0,react_router_loading__WEBPACK_IMPORTED_MODULE_1__.useLoadingContext)();
-
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       loadingButton = _useState2[0],
@@ -17275,7 +17273,11 @@ function LoginPage() {
       setLoginFailed = _useState4[1];
 
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useNavigate)();
-  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useLocation)();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (localStorage.getItem('token')) {
+      navigate('/');
+    }
+  });
 
   var onFinish = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(values) {
