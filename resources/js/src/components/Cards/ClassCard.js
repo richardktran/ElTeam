@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ClassCard = (props) => {
-    const { id, name, code, credit, location, hours } = props;
+    const { id, name, code, credit, location, hours_per_week } = props;
     return (
         <div id={id} className="card h-100">
             <div className="card-inner">
@@ -66,7 +66,7 @@ const ClassCard = (props) => {
                             <div className="col-md-6">
                                 <span className="label-tag">
                                     <em className="text-primary icon ni ni-clock-fill"></em>
-                                    <span> {hours}h/tuần</span>
+                                    <span> {hours_per_week}h/tuần</span>
                                 </span>
                             </div>
                         </div>

@@ -1,20 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { courseApi } from "../../api/courseApi";
 import ClassCard from "../../components/Cards/ClassCard";
+import AddCoursesModal from "../../components/Modal/AddCoursesModal";
+import { HTTP_OK } from '../../utils/constant';
+import moment from 'moment';
 
 function HomeTeacherPage() {
     const navigate = useNavigate();
+
+    const [coursesData, setCoursesData] = useState([]);
+
+    const fetchCourses = async () => {
+        let result = await courseApi.getAll();
+        if (result.status === HTTP_OK) {
+            const { data } = result.data;
+            setCoursesData(data);
+        }
+    }
+
+    useEffect(() => {
+        fetchCourses();
+    }, []);
+
+    const addCourse = (values) => {
+        const startDate = moment(values.start_date).format('YYYY-MM-DD');
+        const endDate = moment(values.end_date).format('YYYY-MM-DD');
+    }
 
     return (
         <div className="nk-content-body">
             <div className="nk-block-head nk-block-head-sm">
                 <div className="nk-block-between">
                     <div className="nk-block-head-content">
-                        <h3 className="nk-block-title page-title">Classes</h3>
+                        <h3 className="nk-block-title page-title">Các khóa học</h3>
                         <div className="nk-block-des text-soft">
-                            <p>You have total 10 class.</p>
+                            <p>Bạn có 10 khóa học.</p>
                         </div>
-                    </div>{/* .nk-block-head-content */} <div className="nk-block-head-content">
+                    </div>
+                    {/* .nk-block-head-content */}
+                    <div className="nk-block-head-content">
                         <div className="toggle-wrap nk-block-tools-toggle">
                             <a href="#" className="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu">
                                 <em className="icon ni ni-menu-alt-r" />
@@ -25,7 +50,7 @@ function HomeTeacherPage() {
                                         <div className="drodown">
                                             <a href="#" className="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-toggle="dropdown">
                                                 <em className="d-none d-sm-inline icon ni ni-filter-alt" />
-                                                <span>Filtered By</span>
+                                                <span>Bộ lọc</span>
                                                 <em className="dd-indc icon ni ni-chevron-right" />
                                             </a>
                                             <div className="dropdown-menu dropdown-menu-right">
@@ -50,9 +75,9 @@ function HomeTeacherPage() {
                                         </div>
                                     </li>
                                     <li className="nk-block-tools-opt">
-                                        <a href="#" className="btn btn-primary">
+                                        <a href="#" className="btn btn-primary" data-toggle="modal" data-target="#createCoursesModal">
                                             <em className="icon ni ni-plus" />
-                                            <span>Add Project</span>
+                                            <span>Thêm khóa học</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -60,28 +85,24 @@ function HomeTeacherPage() {
                         </div>{/* .toggle-wrap */}
                     </div>{/* .nk-block-head-content */}
                 </div>{/* .nk-block-between */}
-            </div>{/* .nk-block-head */} <div className="nk-block">
+            </div>{/* .nk-block-head */}
+            <div className="nk-block">
                 <div className="row g-gs">
-                    <div className="col-sm-6 col-lg-4 col-xxl-3">
-                        <ClassCard
-                            name="Luận văn tốt nghiệp"
-                            code="CT240"
-                            credit="3"
-                            location="A203"
-                            hours="4"
-                        />
-                    </div>
-                    <div className="col-sm-6 col-lg-4 col-xxl-3">
-                        <ClassCard
-                            name="Luận văn tốt nghiệp"
-                            code="CT240"
-                            credit="3"
-                            location="A203"
-                            hours="4"
-                        />
-                    </div>
+                    {coursesData && coursesData.map((course, index) => {
+                        return (
+                            <div key={index} className="col-sm-6 col-lg-4 col-xxl-3">
+                                <ClassCard {...course} />
+                            </div>
+                        )
+                    })}
                 </div>
-            </div>{/* .nk-block */}
+            </div>
+            {/* .nk-block */}
+            <AddCoursesModal
+                modalId="createCoursesModal"
+                modalName="Thêm khóa học"
+                onFinish={addCourse}
+            />
         </div>
     );
 }
