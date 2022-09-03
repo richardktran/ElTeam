@@ -17203,6 +17203,10 @@ function SplashPage() {
       to: "/login",
       className: "btn btn-primary",
       children: "Login"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+      to: "/teacher",
+      className: "btn btn-primary ml-3",
+      children: "Go to Teacher Page"
     })]
   });
 }
