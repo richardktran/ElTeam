@@ -6,9 +6,9 @@ use App\Models\Course;
 
 class CourseService
 {
-    public function getAllCourses(array $conditions=[])
+    public function getAllCourses($teacherId, array $conditions=[])
     {
-        $courses = Course::all();
+        $courses = Course::all()->where('teacher_id', $teacherId);
 
         return $courses;
     }

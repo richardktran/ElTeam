@@ -21,7 +21,8 @@ class CourseController extends Controller
 
     public function index(Request $request)
     {
-        $courses = $this->courseService->getAllCourses();
+        $teacherId = Auth::user()->id;
+        $courses = $this->courseService->getAllCourses($teacherId);
 
         return $this->response(CourseResource::collection($courses));
     }
