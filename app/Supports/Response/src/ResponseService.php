@@ -51,6 +51,7 @@ class ResponseService
         ];
 
         if ($data instanceof ValidationException) {
+            $code = Response::HTTP_BAD_REQUEST;
             $listMsgCode = ValidationUtil::convertToListMessageCode($data);
             foreach ($listMsgCode as $msgCode) {
                 $result['messages'][] = [

@@ -1,14 +1,15 @@
 import React from 'react'
 
-function ClassCard() {
+const ClassCard = (props) => {
+    const { id, name, code, credit, location, hours_per_week } = props;
     return (
-        <div className="card h-100">
+        <div id={id} className="card h-100">
             <div className="card-inner">
                 <div className="project">
                     <div className="project-head">
                         <a href="html/apps-kanban.html" className="project-title">
                             <div className="project-info">
-                                <h6 className="title">CT240 - Luận văn tốt nghiệp</h6>
+                                <h6 className="title">{code} - {name}</h6>
                                 <span className="sub-text">10 nhóm</span>
                             </div>
                         </a>
@@ -45,13 +46,13 @@ function ClassCard() {
                             <div className="col-md-6">
                                 <span className="label-tag ">
                                     <em className="text-primary icon ni ni-map-pin-fill"></em>
-                                    <span> 301/C1</span>
+                                    <span> {location}</span>
                                 </span>
                             </div>
                             <div className="col-md-6">
                                 <span className="label-tag">
                                     <em className="text-primary icon ni ni-cards"></em>
-                                    <span> 4 tín chỉ</span>
+                                    <span> {credit} tín chỉ</span>
                                 </span>
                             </div>
                         </div>
@@ -65,7 +66,7 @@ function ClassCard() {
                             <div className="col-md-6">
                                 <span className="label-tag">
                                     <em className="text-primary icon ni ni-clock-fill"></em>
-                                    <span> 4h/tuần</span>
+                                    <span> {hours_per_week}h/tuần</span>
                                 </span>
                             </div>
                         </div>
