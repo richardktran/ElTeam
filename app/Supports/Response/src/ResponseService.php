@@ -96,12 +96,18 @@ class ResponseService
         return response()->json($result, $code);
     }
 
-    public function pagination(LengthAwarePaginator $data)
+    public function pagination(LengthAwarePaginator $data, $resource=null)
     {
         $meta = PaginationUtil::getMetaPagination($data);
 
+        if ($resource) {
+            $data = $resource::collection($data->items());
+        } else {
+            $data = $data->items();
+        }
+
         return $this->send(
-            $data->items(),
+            $data,
             Response::HTTP_OK,
             null,
             [

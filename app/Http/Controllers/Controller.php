@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Supports\Response\ResponseFacade;
 use App\Supports\Utils\ValidationUtil;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
@@ -80,5 +82,15 @@ class Controller extends BaseController
         }
 
         return response()->json($result, $code);
+    }
+
+    /**
+     * @param LengthAwarePaginator $data
+     * @param string|null $classTransformer
+     * @return mixed
+     */
+    protected function pagination(LengthAwarePaginator $data, $resource=null)
+    {
+        return ResponseFacade::pagination($data,$resource);
     }
 }

@@ -3,12 +3,21 @@
 namespace App\Services;
 
 use App\Models\Course;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class CourseService
 {
-    public function getAllCourses($teacherId, array $conditions=[])
+    /**
+     * @param mixed $teacherId
+     * @param array $params
+     * @return LengthAwarePaginator
+     */
+    public function getAllCourses($teacherId, array $params=[]): LengthAwarePaginator
     {
-        $courses = Course::where('teacher_id', $teacherId)->orderBy('created_at','desc')->get();
+        $pageSize = $params['pageSize'] ?? config('services.pagination.items_per_page');
+        $courses = Course::where('teacher_id', $teacherId)
+            ->orderBy('created_at','desc')
+            ->paginate($pageSize);
 
         return $courses;
     }

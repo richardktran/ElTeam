@@ -21,10 +21,11 @@ class CourseController extends Controller
 
     public function index(Request $request)
     {
+        $params = $request->all();
         $teacherId = Auth::user()->id;
-        $courses = $this->courseService->getAllCourses($teacherId);
+        $courses = $this->courseService->getAllCourses($teacherId,$params);
 
-        return $this->response(CourseResource::collection($courses));
+        return $this->pagination($courses, CourseResource::class);
     }
 
     public function create(Request $request, CreateCourseValidator $validator)
