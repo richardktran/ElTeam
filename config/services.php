@@ -31,7 +31,7 @@ return [
     ],
 
     'pagination' => [
-        'items_per_page' => 3,
+        'items_per_page' => 8,
     ],
 
 ];
