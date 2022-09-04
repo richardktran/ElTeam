@@ -12,12 +12,15 @@ function HomeTeacherPage() {
 
     const [coursesData, setCoursesData] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [totalCourses, setTotalCourses] = useState(0);
 
     const fetchCourses = async () => {
         let result = await courseApi.getAll();
         if (result.status === HTTP_OK) {
-            const { data } = result.data;
+            const { data, meta } = result.data;
+            const { total } = meta.pagination;
             setCoursesData(data);
+            setTotalCourses(total);
         }
     }
 
@@ -66,7 +69,7 @@ function HomeTeacherPage() {
                     <div className="nk-block-head-content">
                         <h3 className="nk-block-title page-title">Các khóa học</h3>
                         <div className="nk-block-des text-soft">
-                            <p>Bạn có 10 khóa học.</p>
+                            <p>Bạn có {totalCourses} khóa học.</p>
                         </div>
                     </div>
                     {/* .nk-block-head-content */}
