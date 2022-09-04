@@ -1,23 +1,17 @@
 import React from 'react'
+import { Modal } from 'react-bootstrap';
 
 const BaseModal = (props) => {
-    const { children, modalId, modalName } = props;
+    const { children, modalName, isShow } = props;
     return (
-        <div className="modal fade" tabIndex={-1} id={modalId}>
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <a href="#" className="close" data-dismiss="modal" aria-label="Close">
-                        <em className="icon ni ni-cross" />
-                    </a>
-                    <div className="modal-header">
-                        <h5 className="modal-title">{modalName}</h5>
-                    </div>
-                    <div className="modal-body">
-                        {children}
-                    </div>
-                </div>
+        <Modal show={isShow} className="fade" tabIndex={-1}>
+            <Modal.Header closeButton>
+                <Modal.Title>{modalName}</Modal.Title>
+            </Modal.Header>
+            <div className="modal-body">
+                {children}
             </div>
-        </div>
+        </Modal>
     )
 }
 

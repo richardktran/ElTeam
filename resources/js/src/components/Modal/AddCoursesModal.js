@@ -4,14 +4,10 @@ import moment from 'moment';
 import BaseModal from './BaseModal'
 
 const AddCoursesModal = (props) => {
-    const { modalId, modalName, onFinish } = props
-
-    const [startDate, setStartDate] = useState(new Date());
-    const dateFormat = 'YYYY-MM-DD';
-
+    const { isShow, modalName, onFinish } = props
 
     return (
-        <BaseModal modalId={modalId} modalName={modalName}>
+        <BaseModal modalName={modalName} isShow={isShow}>
             <Form action="#" className="form-validate is-alter" onFinish={onFinish} novalidate="novalidate">
                 <label className="form-label" htmlFor="code">Mã học phần</label>
                 <Form.Item className="form-group" name="code">

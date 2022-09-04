@@ -5,11 +5,13 @@ import ClassCard from "../../components/Cards/ClassCard";
 import AddCoursesModal from "../../components/Modal/AddCoursesModal";
 import { HTTP_OK } from '../../utils/constant';
 import moment from 'moment';
+import toast from "react-hot-toast";
 
 function HomeTeacherPage() {
     const navigate = useNavigate();
 
     const [coursesData, setCoursesData] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
     const fetchCourses = async () => {
         let result = await courseApi.getAll();
@@ -23,9 +25,38 @@ function HomeTeacherPage() {
         fetchCourses();
     }, []);
 
-    const addCourse = (values) => {
-        const startDate = moment(values.start_date).format('YYYY-MM-DD');
-        const endDate = moment(values.end_date).format('YYYY-MM-DD');
+    const addCourse = async (values) => {
+        try {
+            const startDate = moment(values.start_date).format('YYYY-MM-DD');
+            const endDate = moment(values.end_date).format('YYYY-MM-DD');
+            const data = {
+                name: values.name,
+                code: values.code,
+                start_date: startDate,
+                end_date: endDate,
+                credit: values.credit,
+                location: values.location,
+                hours_per_week: values.hours_per_week,
+            }
+
+            const response = await courseApi.create(data);
+            if (response.status === HTTP_OK) {
+                toast.success('Thêm khóa học thành công!');
+                fetchCourses();
+                setShowModal(false);
+            } else {
+                console.log(response);
+                toast.error("Thêm khóa học thất bại!!!");
+                setShowModal(true);
+            }
+        } catch (e) {
+            const messages = e.response.data.messages;
+            messages.forEach(message => {
+                toast.error(message.message);
+            });
+            setShowModal(true);
+        }
+
     }
 
     return (
@@ -75,7 +106,7 @@ function HomeTeacherPage() {
                                         </div>
                                     </li>
                                     <li className="nk-block-tools-opt">
-                                        <a href="#" className="btn btn-primary" data-toggle="modal" data-target="#createCoursesModal">
+                                        <a href="#" className="btn btn-primary" onClick={() => setShowModal(true)} data-toggle="modal" data-target="#createCoursesModal">
                                             <em className="icon ni ni-plus" />
                                             <span>Thêm khóa học</span>
                                         </a>
@@ -99,9 +130,9 @@ function HomeTeacherPage() {
             </div>
             {/* .nk-block */}
             <AddCoursesModal
-                modalId="createCoursesModal"
                 modalName="Thêm khóa học"
                 onFinish={addCourse}
+                isShow={showModal}
             />
         </div>
     );
