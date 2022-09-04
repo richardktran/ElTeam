@@ -133,6 +133,7 @@ function HomeTeacherPage() {
                 modalName="Thêm khóa học"
                 onFinish={addCourse}
                 isShow={showModal}
+                handleCloseModal={() => setShowModal(false)}
             />
         </div>
     );

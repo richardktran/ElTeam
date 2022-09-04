@@ -107,7 +107,7 @@ return [
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => ':attribute không được để trống.',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
@@ -161,6 +161,8 @@ return [
     'attributes' => [
         'credit' => "Số tín chỉ",
         'hours_per_week' => 'Số giờ học trong tuần',
+        'name' => 'Tên',
+        'code' => 'Mã học phần'
     ],
 
 ];
