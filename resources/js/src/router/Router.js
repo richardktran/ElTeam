@@ -1,8 +1,8 @@
 import { createBrowserHistory } from 'history';
 import React from 'react';
 import { Route, Routes } from 'react-router-loading';
-import { TeacherLayout } from '../components';
-import HomeTeacherPage from '../pages/HomePage/HomeTeacherPage';
+import CoursePage from '../pages/CoursePage/CoursePage';
+import HomePage from '../pages/HomePage/HomePage';
 import SplashPage from '../pages/HomePage/SplashPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 
@@ -13,9 +13,8 @@ const Router = () => {
     return (
         <Routes history={hist}>
             <Route path="/" element={<SplashPage />} />
-            <Route path="teacher" element={<TeacherLayout />}>
-                <Route index element={<HomeTeacherPage />} />
-            </Route>
+            <Route path="/courses" element={<HomePage />} />
+            <Route path="/courses/:id" element={<CoursePage />} />
             <Route exact path="/login" element={<LoginPage />} />
         </Routes>
     );
