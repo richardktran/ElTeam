@@ -5,7 +5,6 @@ ARG UID=1000
 ARG GID=1000
 
 
-
 # Copy composer.lock and composer.json into the working directory
 COPY composer.lock composer.json /var/www/html/
 
@@ -43,7 +42,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Copy existing application directory contents to the working directory
 COPY . /var/www/html
 #Copy existing application directory permissions
-COPY --chown=khoatran:khoatran . /var/www
+# COPY --chown=khoatran:khoatran . /var/www/html
 
 # Assign permissions of the working directory to the www-data user
 RUN chown -R www-data:www-data \
