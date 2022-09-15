@@ -40,11 +40,9 @@ function LoginPage() {
             localStorage.setItem('role', role);
 
             if (role === ROLE_TEACHER) {
-                navigate('/teacher');
+                navigate('/courses');
             } else if (role === ROLE_ADMIN) {
                 navigate('/admin');
-            } else {
-                navigate('/');
             }
         } catch (e) {
             setLoginFailed(true);

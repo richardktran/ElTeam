@@ -1,13 +1,20 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const ClassCard = (props) => {
+    const navigate = useNavigate();
+
+    const goToCourse = (courseId) => {
+        navigate(`${courseId}`);
+    }
+
     const { id, name, code, credit, location, hours_per_week } = props;
     return (
         <div id={id} className="card h-100">
             <div className="card-inner">
                 <div className="project">
                     <div className="project-head">
-                        <a href="html/apps-kanban.html" className="project-title">
+                        <a onClick={() => goToCourse(id)} className="project-title">
                             <div className="project-info">
                                 <h6 className="title">{code} - {name}</h6>
                                 <span className="sub-text">10 nhóm</span>
