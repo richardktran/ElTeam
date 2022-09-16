@@ -36,8 +36,13 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd
 
 
+
 # Install composer (php package manager)
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install Node.js
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash
+RUN apt-get install --yes nodejs
 
 # Copy existing application directory contents to the working directory
 COPY . /var/www/html
@@ -49,6 +54,7 @@ RUN chown -R www-data:www-data \
         /var/www/html/storage \
         /var/www/html/bootstrap/cache
 
+
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 9000
 
@@ -57,8 +63,14 @@ RUN groupadd -g $GID -o $UNAME
 
 RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
 
+RUN addgroup $UNAME root
+RUN addgroup $UNAME adm
+RUN addgroup $UNAME sudo
+
 RUN chown -R $UNAME:$UNAME /var/www/html
 
 USER $UNAME
 
+
 CMD ["php-fpm"]
+
