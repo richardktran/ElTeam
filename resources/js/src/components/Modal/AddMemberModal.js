@@ -6,59 +6,28 @@ import BaseModal from './BaseModal'
 const AddMemberModal = (props) => {
     const { isShow, modalName, onFinish, handleCloseModal } = props
 
-    const { Step } = Steps;
-
-    const steps = [
-        {
-            title: 'First',
-            content: 'First-content',
-        },
-        {
-            title: 'Second',
-            content: 'Second-content',
-        },
-        {
-            title: 'Last',
-            content: 'Last-content',
-        },
-    ];
-
-    const [current, setCurrent] = useState(0);
-
-    const next = () => {
-        setCurrent(current + 1);
-    };
-
-    const prev = () => {
-        setCurrent(current - 1);
-    };
-
     return (
         <BaseModal modalName={modalName} handleCloseModal={handleCloseModal} isShow={isShow}>
-            <Steps current={current}>
-                {steps.map(item => (
-                    <Step key={item.title} title={item.title} />
-                ))}
-            </Steps>
-            <div className="steps-content">{steps[current].content}</div>
-            <div className="steps-action">
-                {current > 0 && (
-                    <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-                        Previous
-                    </Button>
-                )}
-                {current === steps.length - 1 && (
-                    <Button type="primary" onClick={() => message.success('Processing complete!')}>
-                        Done
-                    </Button>
-                )}
-
-                {current < steps.length - 1 && (
-                    <Button type="primary" onClick={() => next()}>
-                        Next
-                    </Button>
-                )}
-            </div>
+            <Form action="#" className="form-validate is-alter" onFinish={onFinish}>
+                <label className="form-label" htmlFor="email">Email học viên</label>
+                <Form.Item
+                    className="form-group mb-3"
+                    name="email"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Email không được để trống!',
+                        },
+                    ]}
+                >
+                    <div className="form-control-wrap mb-2">
+                        <Input type="email" placeholder='Nhập email của học viên' className="form-control" id="email" />
+                    </div>
+                </Form.Item>
+                <Form.Item className="form-group">
+                    <button type="submit" className="btn btn-lg btn-primary">Thêm học viên</button>
+                </Form.Item>
+            </Form>
         </BaseModal>
     )
 }

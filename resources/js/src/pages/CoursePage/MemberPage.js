@@ -9,9 +9,11 @@ const MemberPage = () => {
 
   const [showMemberModal, setShowMemberModal] = useState(false);
 
-  const addMember = () => {
-    //
+  const addMember = async (value) => {
+    const email = value.email;
+    console.log(email);
   }
+
 
   return (
     <Layout>
