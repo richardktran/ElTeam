@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 import { Link, useParams } from 'react-router-dom';
+import { userApi } from '../../api/userApi';
 import Layout from '../../components/Layout/Layout';
 import AddMemberModal from '../../components/Modal/AddMemberModal';
 import TeamList from '../../components/TeamList/TeamList';
+import { HTTP_OK } from '../../utils/constant';
 
 const MemberPage = () => {
   let { id } = useParams(); //get id from url
@@ -10,8 +13,18 @@ const MemberPage = () => {
   const [showMemberModal, setShowMemberModal] = useState(false);
 
   const addMember = async (value) => {
-    const email = value.email;
-    console.log(email);
+    try {
+      const response = await userApi.findByEmail(value.email);
+      toast.success('Lời mời tham gia khóa học đã được gởi đến ' + value.email);
+      setShowMemberModal(false);
+    } catch (e) {
+      const messages = e.response.data.messages;
+      messages.forEach(message => {
+        console.log(message.message);
+      });
+      toast.success('Lời mời tham gia khóa học đã được gởi đến ' + value.email);
+      setShowMemberModal(false);
+    }
   }
 
 
