@@ -25,6 +25,7 @@ const MemberPage = () => {
       toast.success('Lời mời tham gia khóa học đã được gởi đến ' + value.email);
       setShowMemberModal(false);
     }
+    //TODO: send email to user with course id
   }
 
 
