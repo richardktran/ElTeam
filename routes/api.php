@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,10 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 Route::group(['prefix' => 'courses','middleware' => ['auth:sanctum', 'role:teacher,admin']], function () {
     Route::get('/', [CourseController::class, 'index']);
     Route::post('/', [CourseController::class, 'create']);
+});
+
+Route::group(['prefix' => 'users','middleware' => ['auth:sanctum']], function () {
+    Route::get('/', [UserController::class, 'index']);
+    Route::get('/{id:[0-9]+}', [UserController::class, 'show']);
+    Route::get('/get-by-email', [UserController::class, 'getByEmail']);
 });
