@@ -11,12 +11,28 @@ function LoginPage() {
     const [loadingButton, setLoadingButton] = useState(false);
     const [loginFailed, setLoginFailed] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
             navigate('/');
         }
     })
+
+
+    const saveUserData = async (data) => {
+        const role = data.user.role;
+        const token = data.token;
+        localStorage.setItem('userData', JSON.stringify(data.user));
+        localStorage.setItem('token', token);
+        localStorage.setItem('role', role);
+
+        if (role === ROLE_ADMIN) {
+            navigate('/admin');
+        } else {
+            navigate('/courses');
+        }
+    }
 
     const onFinish = async (values) => {
         // await axiosInstance.get('/sanctum/csrf-cookie');
@@ -28,22 +44,13 @@ function LoginPage() {
             const status = response.status;
             const data = response.data;
 
+
             if (status !== HTTP_OK) {
                 setLoginFailed(true);
                 return;
             }
-
-            const role = data.data.user.role;
-            const token = data.data.token;
-            localStorage.setItem('userData', JSON.stringify(data.data.user));
-            localStorage.setItem('token', token);
-            localStorage.setItem('role', role);
-
-            if (role === ROLE_TEACHER) {
-                navigate('/courses');
-            } else if (role === ROLE_ADMIN) {
-                navigate('/admin');
-            }
+            console.log(data);
+            await saveUserData(data.data);
         } catch (e) {
             setLoginFailed(true);
         }
