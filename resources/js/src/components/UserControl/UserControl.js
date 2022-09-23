@@ -25,7 +25,11 @@ const UserControl = () => {
             <a href="#" className="dropdown-toggle mr-n1" data-toggle="dropdown">
                 <div className="user-toggle">
                     <div className="user-avatar sm">
-                        <em className="icon ni ni-user-alt" />
+                        {userData && userData.avatar ?
+                            <img src={userData.avatar} alt="" />
+                            :
+                            <em className="icon ni ni-user-alt" />
+                        }
                     </div>
                     <div className="user-info d-none d-xl-block">
                         <div className="user-status user-status-unverified">Unverified</div>
@@ -37,7 +41,11 @@ const UserControl = () => {
                 <div className="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                     <div className="user-card">
                         <div className="user-avatar">
-                            <span>AB</span>
+                            {userData && userData.avatar ?
+                                <img src={userData.avatar} alt="" />
+                                :
+                                <span>AB</span>
+                            }
                         </div>
                         <div className="user-info">
                             <span className="lead-text">{userData.name}</span>
