@@ -65,6 +65,12 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'socialite' => [
+            'drivers' => [
+                'google',
+            ],
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

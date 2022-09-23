@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +19,22 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/auth/google/url', [GoogleController::class, 'loginUrl']);
+Route::get('/auth/google/callback', [GoogleController::class, 'loginCallback']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/me', [AuthController::class, 'me']);
     Route::post('/logout', [AuthController::class, 'logout']);
+});
+
+
+Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
+    Route::get('/', [CourseController::class, 'index']);
+    Route::post('/', [CourseController::class, 'create']);
+});
+
+Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('/', [UserController::class, 'index']);
+    Route::get('/{id:[0-9]+}', [UserController::class, 'show']);
+    Route::get('/get-by-email', [UserController::class, 'getByEmail']);
 });

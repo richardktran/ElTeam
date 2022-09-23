@@ -16,10 +16,12 @@ function Header() {
               <img className="logo-light logo-img" src="./images/logo.png" srcSet="./images/logo2x.png 2x" alt="logo" />
               <img className="logo-dark logo-img" src="./images/logo-dark.png" srcSet="./images/logo-dark2x.png 2x" alt="logo-dark" />
             </a>
-          </div>{/* .nk-header-brand */} <div className="nk-header-search ml-3 ml-xl-0">
+          </div>{/* .nk-header-brand */}
+          <div className="nk-header-search ml-3 ml-xl-0">
             <em className="icon ni ni-search" />
             <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search anything" />
-          </div>{/* .nk-header-news */} <div className="nk-header-tools">
+          </div>{/* .nk-header-news */}
+          <div className="nk-header-tools">
             <ul className="nk-quick-nav">
               <li className="dropdown chats-dropdown hide-mb-xs">
                 <a href="#" className="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">

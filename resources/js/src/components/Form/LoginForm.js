@@ -1,8 +1,24 @@
 import { Button, Form, Input } from 'antd'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import authApi from '../../api/authApi';
+import { HTTP_OK } from '../../utils/constant';
 
 const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => {
+
+    const [googleLoginUrl, setGoogleLoginUrl] = useState(null);
+
+    const fetchGoogleUrl = async () => {
+        let result = await authApi.googleUrl();
+        if (result.status === HTTP_OK) {
+            const { data } = result.data;
+            setGoogleLoginUrl(data.url);
+        }
+    }
+
+    useEffect(() => {
+        fetchGoogleUrl();
+    }, []);
 
     const layout = {
         labelCol: { span: { sm: 24, md: 8, lg: 6 } },
@@ -124,7 +140,7 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                                 <Link className="nav-link" to="#">Facebook</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="#">Google</Link>
+                                <a className="nav-link" href={googleLoginUrl}>Google</a>
                             </li>
                         </ul>
                         <div className="text-center mt-5">

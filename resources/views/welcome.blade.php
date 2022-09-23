@@ -7,6 +7,7 @@
     <title>Laravel</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.22.8/antd.min.css" integrity="sha512-iOT5HSqFWSZXl9hh4FR611IAgH2waKnC4EZWS0qG9eLnEVbgLfLRKyFnEPg87hijj6Ae/xWpRbX69syPz0yDcg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- All Generated styles form dashlite -->
     <link rel="stylesheet" href="{{ asset('assets/css/dashlite.css') }}">
     <!-- This file is for you to include your own styles -->
@@ -25,6 +26,9 @@
     <script src="{{ asset('assets/js/bundle.js') }}"></script>
     <!-- Init Code for plugins and custom sctipts -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/4.22.8/antd.min.js" integrity="sha512-dtQXhvIEnL0GDESCQv3IangKrqVgXaDptZyosKYHMNo2Up/yeiPQCIECPfnQnuhW+y8KYFRO/L2+nfIXU0X4qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- Chart init For General Dashboard -->
     <script src="{{ asset('assets/js/charts/gd-default.js') }}"></script>
     <script src="{{ asset('assets/js/charts/gd-analytics.js') }}"></script>

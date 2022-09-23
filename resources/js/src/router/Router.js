@@ -1,8 +1,10 @@
 import { createBrowserHistory } from 'history';
 import React from 'react';
 import { Route, Routes } from 'react-router-loading';
-import { TeacherLayout } from '../components';
-import HomeTeacherPage from '../pages/HomePage/HomeTeacherPage';
+import GoogleCallback from '../components/Form/GoogleCallback';
+import CoursePage from '../pages/CoursePage/CoursePage';
+import MemberPage from '../pages/CoursePage/MemberPage';
+import HomePage from '../pages/HomePage/HomePage';
 import SplashPage from '../pages/HomePage/SplashPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 
@@ -13,10 +15,11 @@ const Router = () => {
     return (
         <Routes history={hist}>
             <Route path="/" element={<SplashPage />} />
-            <Route path="teacher" element={<TeacherLayout />}>
-                <Route index element={<HomeTeacherPage />} />
-            </Route>
+            <Route path="/courses" element={<HomePage />} />
+            <Route path="/courses/:id" element={<CoursePage />} />
+            <Route path="/courses/:id/members" element={<MemberPage />} />
             <Route exact path="/login" element={<LoginPage />} />
+            <Route exact path="/auth/google" element={<GoogleCallback />} />
         </Routes>
     );
 }

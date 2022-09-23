@@ -11,6 +11,12 @@ const authApi = {
         const config = await bearerConfig();
         return axiosInstance.post('/logout', {}, config);
     },
+    googleUrl: () => {
+        return axiosInstance.get('/auth/google/url');
+    },
+    googleCallback: (searchParam) => {
+        return axiosInstance.get(`/auth/google/callback${searchParam}`);
+    },
     me: async () => {
         const config = await bearerConfig();
         return axiosInstance.get('/me', config);
