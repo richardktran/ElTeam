@@ -12,11 +12,11 @@ class CourseService
      * @param array $params
      * @return LengthAwarePaginator
      */
-    public function getAllCourses($teacherId, array $params=[]): LengthAwarePaginator
+    public function getAllCourses($teacherId, array $params = []): LengthAwarePaginator
     {
         $pageSize = $params['pageSize'] ?? config('services.pagination.items_per_page');
         $courses = Course::where('teacher_id', $teacherId)
-            ->orderBy('created_at','desc')
+            ->orderBy('created_at', 'desc')
             ->paginate($pageSize);
 
         return $courses;
@@ -25,6 +25,14 @@ class CourseService
     public function createCourse(array $data)
     {
         $course = Course::create($data);
+
+        return $course;
+    }
+
+    public function inviteStudents(Course $course, array $data)
+    {
+        $students = $data['students'];
+        dd($students);
 
         return $course;
     }

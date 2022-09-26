@@ -6,7 +6,7 @@ ARG GID=1000
 
 
 # Copy composer.lock and composer.json into the working directory
-COPY composer.lock composer.json /var/www/html/
+COPY composer.json /var/www/html/
 
 # Set working directory
 WORKDIR /var/www/html/
@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install extensions for php
-RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
+RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl sockets bcmath
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd
 

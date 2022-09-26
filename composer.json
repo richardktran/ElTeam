@@ -12,7 +12,8 @@
         "laravel/sanctum": "^2.11",
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "*"
+        "laravel/ui": "*",
+        "vladimir-yuldashev/laravel-queue-rabbitmq": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -47,7 +48,8 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "start-worker": "php artisan queue:work rabbitmq --sleep=3 --tries=3 --backoff=5 --max-jobs=1000 --max-time=3600"
     },
     "extra": {
         "laravel": {

@@ -23,7 +23,7 @@ class CourseController extends Controller
     {
         $params = $request->all();
         $teacherId = Auth::user()->id;
-        $courses = $this->courseService->getAllCourses($teacherId,$params);
+        $courses = $this->courseService->getAllCourses($teacherId, $params);
 
         return $this->pagination($courses, CourseResource::class);
     }
@@ -54,6 +54,20 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         //
+    }
+
+    /**
+     * Invite member to a course
+     * @param Request $request
+     * @param Course $course
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function invite(Request $request, Course $course)
+    {
+        $request = $request->all();
+        $this->courseService->inviteStudents($course, $request);
+
+        return $this->response(['message' => 'Invitation sent']);
     }
 
     public function destroy(Course $course)
