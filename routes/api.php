@@ -18,23 +18,25 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::post('/login', [AuthController::class, 'login']);
-Route::get('/auth/google/url', [GoogleController::class, 'loginUrl']);
-Route::get('/auth/google/callback', [GoogleController::class, 'loginCallback']);
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/auth/google/url', [GoogleController::class, 'loginUrl'])->name('login.google.url');
+Route::get('/auth/google/callback', [GoogleController::class, 'loginCallback'])->name('login.google.callback');
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::get('/me', [AuthController::class, 'me']);
-    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/me', [AuthController::class, 'me'])->name('me');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 
 Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
-    Route::get('/', [CourseController::class, 'index']);
-    Route::post('/', [CourseController::class, 'create']);
+    Route::get('/', [CourseController::class, 'index'])->name('courses.index');
+    Route::post('/', [CourseController::class, 'create'])->name('courses.create');
+    Route::post('/{course}/invite', [CourseController::class, 'invite'])->name('course.invite');
 });
 
 Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function () {
-    Route::get('/', [UserController::class, 'index']);
-    Route::get('/{id:[0-9]+}', [UserController::class, 'show']);
-    Route::get('/get-by-email', [UserController::class, 'getByEmail']);
+    Route::get('/', [UserController::class, 'index'])->name('users.index');
+    Route::get('/{id:[0-9]+}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/get-by-email', [UserController::class, 'getByEmail'])->name('users.get-by-email');
 });
