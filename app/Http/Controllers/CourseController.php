@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Courses\InviteStudentsValidator;
 use App\Http\Requests\CreateCourseRequest;
 use App\Http\Resources\CourseResource;
 use App\Models\Course;
@@ -62,12 +63,14 @@ class CourseController extends Controller
      * @param Course $course
      * @return \Illuminate\Http\JsonResponse
      */
-    public function invite(Request $request, Course $course)
+    public function invite(Request $request, Course $course, InviteStudentsValidator $validator)
     {
         $request = $request->all();
-        $this->courseService->inviteStudents($course, $request);
+        $validator->validate($request);
 
-        return $this->response(['message' => 'Invitation sent']);
+        $course = $this->courseService->inviteStudents($course, $request);
+
+        return $this->response(['message' => 'Lời mời tham gia lớp học đã được gửi', 'data' => $course]);
     }
 
     public function destroy(Course $course)
