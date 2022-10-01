@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Events\CourseInvitationEvent;
 use App\Mail\CourseInvitationMail;
 use App\Models\Course;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -34,17 +35,7 @@ class CourseService
     public function inviteStudents(Course $course, array $data)
     {
         $students = $data['students'];
-
-        $emailData = [
-            "course_name" => "$course->code $course->name",
-            "owner_name" => $course->teacher->name,
-            "owner_email" => $course->teacher->email,
-            "course_url" => config('app.url') . "/courses/$course->id",
-        ];
-
-        Mail::to($students)->send(new CourseInvitationMail($emailData));
-
-
+        CourseInvitationEvent::dispatch($course, $students);
         return $course;
     }
 }
