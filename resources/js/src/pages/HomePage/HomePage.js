@@ -7,9 +7,13 @@ import { HTTP_OK } from '../../utils/constant';
 import moment from 'moment';
 import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
+import { useDispatch, useSelector } from 'react-redux';
+import { homeItems } from "./sidebars/home";
+import { changePage } from "../../app/reducers/sideBarReducer";
 
 function HomePage() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [coursesData, setCoursesData] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -25,7 +29,13 @@ function HomePage() {
         }
     }
 
+    const loadSidebarItems = () => {
+        const action = changePage(homeItems);
+        dispatch(action);
+    }
+
     useEffect(() => {
+        loadSidebarItems();
         fetchCourses();
     }, []);
 

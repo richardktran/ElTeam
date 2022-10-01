@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
+import store from "./app/store";
+import { Provider } from 'react-redux';
 import Router from "./router/Router";
 
 function App() {
@@ -26,7 +26,9 @@ export default App;
 
 if (document.getElementById("app")) {
     ReactDOM.render(
-        <App />,
+        <Provider store={store}>
+            <App />
+        </Provider>,
         document.getElementById("app")
     );
 }

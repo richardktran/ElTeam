@@ -1,6 +1,20 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { changeActiveItem } from '../../app/reducers/sideBarReducer';
 
-function Sidebar() {
+function Sidebar({ props }) {
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const sidebarItems = useSelector(state => state.sidebar);
+
+  const changeItem = (path) => {
+    const newPath = location.pathname.split('/').slice(0, -1).join('/') + '/' + path;
+    const action = changeActiveItem(path);
+    dispatch(action);
+    navigate(newPath);
+  }
+
   return (
     <div className="nk-sidebar nk-sidebar-fixed is-light" data-content="sidebarMenu">
       <div className="nk-sidebar-element nk-sidebar-head">
@@ -32,39 +46,18 @@ function Sidebar() {
                     <div className="simplebar-content" style={{ padding: '16px 0px 40px' }}>
                       <ul className="nk-menu">
                         <li className="nk-menu-heading">
-                          <h6 className="overline-title text-primary-alt">Use-Case Preview</h6>
-                        </li> {/* .nk-menu-item */} <li className="nk-menu-item">
-                          <a href="html/ecommerce/index.html" className="nk-menu-link" data-original-title title>
-                            <span className="nk-menu-icon">
-                              <em className="icon ni ni-bag" />
-                            </span>
-                            <span className="nk-menu-text">E-Commerce Panel</span>
-                            <span className="nk-menu-badge">HOT</span>
-                          </a>
-                        </li> {/* .nk-menu-item */} <li className="nk-menu-heading">
                           <h6 className="overline-title text-primary-alt">Dashboards</h6>
-                        </li> {/* .nk-menu-item */} <li className="nk-menu-item">
-                          <a href="html/index.html" className="nk-menu-link" data-original-title title>
-                            <span className="nk-menu-icon">
-                              <em className="icon ni ni-cart-fill" />
-                            </span>
-                            <span className="nk-menu-text">Default</span>
-                          </a>
-                        </li> {/* .nk-menu-item */} <li className="nk-menu-item">
-                          <a href="html/index-sales.html" className="nk-menu-link" data-original-title title>
-                            <span className="nk-menu-icon">
-                              <em className="icon ni ni-activity-round-fill" />
-                            </span>
-                            <span className="nk-menu-text">Sales</span>
-                          </a>
-                        </li> {/* .nk-menu-item */} <li className="nk-menu-item active current-page">
-                          <a href="html/index-analytics.html" className="nk-menu-link" data-original-title title>
-                            <span className="nk-menu-icon">
-                              <em className="icon ni ni-growth-fill" />
-                            </span>
-                            <span className="nk-menu-text">Analytics</span>
-                          </a>
-                        </li> {/* .nk-menu-item */}
+                        </li>
+                        {sidebarItems.map((item, index) => (
+                          <li className={`nk-menu-item ${item.active ? "active current-page" : ""}`} key={index}>
+                            <a onClick={() => changeItem(item.path)} className="nk-menu-link" data-original-title title>
+                              <span className="nk-menu-icon">
+                                <em className={item.icon} />
+                              </span>
+                              <span className="nk-menu-text">{item.title}</span>
+                            </a>
+                          </li>
+                        ))}
                       </ul> {/* .nk-menu */}
                     </div>
                   </div>

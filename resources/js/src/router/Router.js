@@ -5,7 +5,7 @@ import GoogleCallback from '../components/Form/GoogleCallback';
 import Course from '../pages/CoursePage';
 import CourseDetailPage from '../pages/CoursePage/CourseDetailPage';
 import MemberPage from '../pages/CoursePage/MemberPage';
-import HomePage from '../pages/CoursePage/HomePage';
+import HomePage from '../pages/HomePage/HomePage';
 import SplashPage from '../pages/HomePage/SplashPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 

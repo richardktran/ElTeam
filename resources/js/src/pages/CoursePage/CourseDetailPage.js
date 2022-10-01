@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
-import TeamList from '../../components/TeamList/TeamList';
+import { useDispatch, useSelector } from 'react-redux';
+import { changePage } from '../../app/reducers/sideBarReducer';
+import { courseDetailItems } from './sidebars/courseDetail';
 
 const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const action = changePage(courseDetailItems);
+    dispatch(action);
+  }, []);
 
   return (
     <Layout>
