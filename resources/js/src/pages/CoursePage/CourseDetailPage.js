@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import TeamList from '../../components/TeamList/TeamList';
 
-const CoursePage = () => {
+const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
 
   return (
@@ -65,4 +65,4 @@ const CoursePage = () => {
   );
 }
 
-export default CoursePage
+export default CourseDetailPage
