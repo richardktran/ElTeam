@@ -1,44 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import toast from 'react-hot-toast';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import { userApi } from '../../api/userApi';
-import { changePage } from '../../app/reducers/sideBarReducer';
 import Layout from '../../components/Layout/Layout';
-import AddMemberModal from '../../components/Modal/AddMemberModal';
-import TeamList from '../../components/TeamList/TeamList';
-import { HTTP_OK } from '../../utils/constant';
+import { useDispatch, useSelector } from 'react-redux';
+import { changePage } from '../../app/reducers/sideBarReducer';
 import { courseDetailItems } from './sidebars/courseDetail';
 
-const MemberPage = () => {
+const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
 
   const dispatch = useDispatch();
-  const sidebarItems = useSelector(state => state.sidebar);
 
   useEffect(() => {
-    const action = changePage(sidebarItems.length === 0 ? courseDetailItems : sidebarItems);
+    const action = changePage(courseDetailItems);
     dispatch(action);
   }, []);
-
-  const [showMemberModal, setShowMemberModal] = useState(false);
-
-  const addMember = async (value) => {
-    try {
-      const response = await userApi.findByEmail(value.email);
-      toast.success('Lời mời tham gia khóa học đã được gởi đến ' + value.email);
-      setShowMemberModal(false);
-    } catch (e) {
-      const messages = e.response.data.messages;
-      messages.forEach(message => {
-        console.log(message.message);
-      });
-      toast.success('Lời mời tham gia khóa học đã được gởi đến ' + value.email);
-      setShowMemberModal(false);
-    }
-    //TODO: send email to user with course id
-  }
-
 
   return (
     <div className="container-fluid">
@@ -53,7 +28,7 @@ const MemberPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                <h3 className="nk-block-title page-title">Thành viên - Luận văn tốt nghiệp</h3>
+                <h3 className="nk-block-title page-title">CT240 - Luận văn tốt nghiệp</h3>
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content">
                 <div className="nk-block-head-sub mb-2"></div>
@@ -67,12 +42,14 @@ const MemberPage = () => {
                           <div className="dropdown-menu dropdown-menu-right">
                             <ul className="link-list-opt no-bdr">
                               <li><a href="#"><span>Last 30 Days</span></a></li>
+                              <li><a href="#"><span>Last 6 Months</span></a></li>
+                              <li><a href="#"><span>Last 1 Years</span></a></li>
                             </ul>
                           </div>
                         </div>
                       </li>
                       <li className="nk-block-tools-opt">
-                        <a href="#" onClick={() => setShowMemberModal(true)} className="btn btn-primary">
+                        <a href="#" className="btn btn-primary">
                           <em className="icon ni ni-reports" />
                           <span>Thêm thành viên</span>
                         </a>
@@ -84,18 +61,15 @@ const MemberPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <TeamList />
+            <Link to={"members"} className="btn btn-primary">
+              <em className="icon ni ni-reports" />
+              <span>Danh sách thành viên</span>
+            </Link>
           </div>
-          <AddMemberModal
-            modalName="Thêm thành viên"
-            onFinish={addMember}
-            isShow={showMemberModal}
-            handleCloseModal={() => setShowMemberModal(false)}
-          />
         </div>
       </div>
     </div>
   );
 }
 
-export default MemberPage
+export default CourseDetailPage

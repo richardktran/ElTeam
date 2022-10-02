@@ -5,7 +5,7 @@ const ClassCard = (props) => {
     const navigate = useNavigate();
 
     const goToCourse = (courseId) => {
-        navigate(`${courseId}`);
+        navigate(`${courseId}/info`);
     }
 
     const { id, name, code, credit, location, hours_per_week } = props;

@@ -29,10 +29,12 @@
         "sass-loader": "^13.0.2"
     },
     "dependencies": {
+        "@reduxjs/toolkit": "^1.8.5",
         "antd": "^4.22.8",
         "react-bootstrap": "^2.5.0",
         "react-datepicker": "^4.8.0",
         "react-hot-toast": "^2.3.0",
+        "react-redux": "^8.0.4",
         "react-router-dom": "^6.3.0",
         "react-router-loading": "^1.0.0"
     }
