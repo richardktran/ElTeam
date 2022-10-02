@@ -70,7 +70,13 @@ class CourseController extends Controller
 
         $course = $this->courseService->inviteStudents($course, $request);
 
-        return $this->response(['message' => 'Lời mời tham gia lớp học đã được gửi', 'data' => $course]);
+        return $this->response([
+            'message' => 'Lời mời tham gia lớp học đã được gửi',
+            'data' => [
+                'course' => new CourseResource($course),
+                'students' =>  $request['students']
+            ]
+        ]);
     }
 
     public function destroy(Course $course)

@@ -5,6 +5,8 @@ namespace App\Services;
 use App\Events\CourseInvitationEvent;
 use App\Mail\CourseInvitationMail;
 use App\Models\Course;
+use App\Models\CourseStudent;
+use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Mail;
 
@@ -35,7 +37,19 @@ class CourseService
     public function inviteStudents(Course $course, array $data)
     {
         $students = $data['students'];
-        CourseInvitationEvent::dispatch($course, $students);
+        // CourseInvitationEvent::dispatch($course, $students);
+
+        // Add students email to Database
+        foreach ($students as $student) {
+            $student = User::firstOrCreate([
+                'email' => $student
+            ]);
+
+            $course->students()->attach($student, [
+                'status' => CourseStudent::STATUS_PENDING
+            ]);
+        }
+
         return $course;
     }
 }

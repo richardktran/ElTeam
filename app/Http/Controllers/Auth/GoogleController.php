@@ -39,17 +39,33 @@ class GoogleController extends Controller
             );
 
             if (!($user = $socialAccount->user)) {
-                $user = User::create([
-                    'email' => $googleUser->getEmail(),
-                    'name' => $googleUser->getName(),
-                    'role_id' => Role::STUDENT,
-                    'email_verified_at' => now(),
-                    'avatar' => $googleUser->getAvatar(),
-                ]);
+                // Find user by email
+                $user = User::where('email', $googleUser->getEmail())->first();  
+
+                if(!$user){
+                    $user = User::create([
+                        'email' => $googleUser->getEmail(),
+                        'name' => $googleUser->getName(),
+                        'role_id' => Role::STUDENT,
+                        'email_verified_at' => now(),
+                        'avatar' => $googleUser->getAvatar(),
+                        'status' => true
+                    ]);
+                } else{
+                    User::where('email', $googleUser->getEmail())->update([
+                        'name' => $googleUser->getName(),
+                        'email_verified_at' => now(),
+                        'avatar' => $googleUser->getAvatar(),
+                        'status' => true
+                    ]);
+
+                    $user = User::where('email', $googleUser->getEmail())->first();
+                }
+
                 $socialAccount->fill(['user_id' => $user->id])->save();
             }
         });
-
+        
         $token = $user->createToken('google-token')->plainTextToken;
 
         return $this->response([

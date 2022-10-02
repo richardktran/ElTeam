@@ -25,6 +25,7 @@ class User extends Authenticatable
         'role_id',
         'avatar',
         'password',
+        'status'
     ];
 
     /**
@@ -49,6 +50,11 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class, 'course_student', 'user_id', 'course_id')->withPivot('status');
     }
 
     public function getIsAdminAttribute()
