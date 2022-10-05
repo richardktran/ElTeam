@@ -16,11 +16,12 @@ function HomePage() {
     const dispatch = useDispatch();
 
     const [coursesData, setCoursesData] = useState([]);
-    const [showModal, setShowModal] = useState(false);
     const [totalCourses, setTotalCourses] = useState(0);
 
-    const fetchCourses = async () => {
-        let result = await courseApi.getAll();
+
+
+    const fetchLearningCourses = async () => {
+        let result = await courseApi.getLearningCourses();
         if (result.status === HTTP_OK) {
             const { data, meta } = result.data;
             const { total } = meta.pagination;
@@ -36,42 +37,10 @@ function HomePage() {
 
     useEffect(() => {
         loadSidebarItems();
-        fetchCourses();
+        fetchLearningCourses();
     }, []);
 
-    const addCourse = async (values) => {
-        try {
-            const startDate = moment(values.start_date).format('YYYY-MM-DD');
-            const endDate = moment(values.end_date).format('YYYY-MM-DD');
-            const data = {
-                name: values.name,
-                code: values.code,
-                start_date: startDate,
-                end_date: endDate,
-                credit: values.credit,
-                location: values.location,
-                hours_per_week: values.hours_per_week,
-            }
 
-            const response = await courseApi.create(data);
-            if (response.status === HTTP_OK) {
-                toast.success('Thêm khóa học thành công!');
-                fetchCourses();
-                setShowModal(false);
-            } else {
-                console.log(response);
-                toast.error("Thêm khóa học thất bại!!!");
-                setShowModal(true);
-            }
-        } catch (e) {
-            const messages = e.response.data.messages;
-            messages.forEach(message => {
-                toast.error(message.message);
-            });
-            setShowModal(true);
-        }
-
-    }
 
     return (
         <div className="nk-content-body">
@@ -122,7 +91,7 @@ function HomePage() {
                                     <li className="nk-block-tools-opt">
                                         <a href="#" className="btn btn-primary" onClick={() => setShowModal(true)} data-toggle="modal" data-target="#createCoursesModal">
                                             <em className="icon ni ni-plus" />
-                                            <span>Thêm khóa học</span>
+                                            <span>Tham gia tất cả</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -143,12 +112,6 @@ function HomePage() {
                 </div>
             </div>
             {/* .nk-block */}
-            <AddCoursesModal
-                modalName="Thêm khóa học"
-                onFinish={addCourse}
-                isShow={showModal}
-                handleCloseModal={() => setShowModal(false)}
-            />
         </div>
     );
 }

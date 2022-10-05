@@ -17,10 +17,22 @@ class CourseService
      * @param array $params
      * @return LengthAwarePaginator
      */
-    public function getAllCourses($teacherId, array $params = []): LengthAwarePaginator
+    public function getAllOwnCourses($teacherId, array $params = []): LengthAwarePaginator
     {
         $pageSize = $params['pageSize'] ?? config('services.pagination.items_per_page');
         $courses = Course::where('teacher_id', $teacherId)
+            ->orderBy('created_at', 'desc')
+            ->paginate($pageSize);
+
+        return $courses;
+    }
+
+    public function getAllLearningCourses($userId, array $params = []): LengthAwarePaginator
+    {
+        $pageSize = $params['pageSize'] ?? config('services.pagination.items_per_page');
+        $courses = Course::whereHas('students', function ($q) use ($userId) {
+            $q->where('user_id', $userId);
+        })
             ->orderBy('created_at', 'desc')
             ->paginate($pageSize);
 

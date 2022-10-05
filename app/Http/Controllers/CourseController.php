@@ -20,11 +20,30 @@ class CourseController extends Controller
         $this->courseService = $courseService;
     }
 
-    public function index(Request $request)
+    /**
+     * Get the courses that is made by current user
+     * @param Request $request
+     * @return mixed
+     */
+    public function getOwnCourses(Request $request)
     {
         $params = $request->all();
         $teacherId = Auth::user()->id;
-        $courses = $this->courseService->getAllCourses($teacherId, $params);
+        $courses = $this->courseService->getAllOwnCourses($teacherId, $params);
+
+        return $this->pagination($courses, CourseResource::class);
+    }
+
+    /**
+     * Get the courses that the user is learning
+     * @param Request $request
+     * @return mixed
+     */
+    public function getLearningCourses(Request $request)
+    {
+        $params = $request->all();
+        $userId = Auth::user()->id;
+        $courses = $this->courseService->getAllLearningCourses($userId, $params);
 
         return $this->pagination($courses, CourseResource::class);
     }
