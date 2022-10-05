@@ -37,7 +37,6 @@ class CourseService
     public function inviteStudents(Course $course, array $data)
     {
         $students = $data['students'];
-        // CourseInvitationEvent::dispatch($course, $students);
 
         // Add students email to Database
         foreach ($students as $student) {
@@ -45,10 +44,18 @@ class CourseService
                 'email' => $student
             ]);
 
-            $course->students()->attach($student, [
-                'status' => CourseStudent::STATUS_PENDING
-            ]);
+            $existingStudent = CourseStudent::where('course_id', $course->id)
+                ->where('user_id', $student->id)
+                ->first();
+
+            if (!$existingStudent) {
+                $course->students()->attach($student, [
+                    'status' => CourseStudent::STATUS_PENDING
+                ]);
+            }
         }
+
+        // CourseInvitationEvent::dispatch($course, $students);
 
         return $course;
     }
