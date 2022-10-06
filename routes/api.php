@@ -34,6 +34,8 @@ Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:stud
     Route::get('/', [CourseController::class, 'getLearningCourses'])->name('courses.learn-courses');
     Route::post('/', [CourseController::class, 'create'])->name('courses.create');
     Route::post('/{course}/invite', [CourseController::class, 'invite'])->name('course.invite');
+    Route::post('/{course}/accept', [CourseController::class, 'accept'])->name('course.accept');
+    Route::post('/{course}/decline', [CourseController::class, 'decline'])->name('course.decline');
 });
 
 Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function () {

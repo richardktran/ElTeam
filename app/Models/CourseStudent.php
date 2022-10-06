@@ -10,8 +10,8 @@ class CourseStudent extends Model
     use HasFactory;
 
     const STATUS_PENDING = 'pending';
-    const STATUS_APPROVED = 'approved';
-    const STATUS_REJECTED = 'rejected';
+    const STATUS_ACCEPTED = 'accepted';
+    const STATUS_DECLINED = 'declined';
 
     protected $table = 'course_student';
 }

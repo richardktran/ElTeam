@@ -30,8 +30,9 @@ class CourseService
     public function getAllLearningCourses($userId, array $params = []): LengthAwarePaginator
     {
         $pageSize = $params['pageSize'] ?? config('services.pagination.items_per_page');
-        $courses = Course::whereHas('students', function ($q) use ($userId) {
-            $q->where('user_id', $userId);
+        $courses = Course::whereHas('students', function ($student) use ($userId) {
+            $student->where('user_id', $userId)
+                ->whereNotIn('course_student.status', [CourseStudent::STATUS_DECLINED]);
         })
             ->orderBy('created_at', 'desc')
             ->paginate($pageSize);
@@ -68,6 +69,34 @@ class CourseService
         }
 
         // CourseInvitationEvent::dispatch($course, $students);
+
+        return $course;
+    }
+
+    public function acceptCourse(Course $course, $user)
+    {
+        $courseStudent = CourseStudent::where('course_id', $course->id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        if ($courseStudent) {
+            $courseStudent->status = CourseStudent::STATUS_ACCEPTED;
+            $courseStudent->save();
+        }
+
+        return $course;
+    }
+
+    public function declineCourse(Course $course, $user)
+    {
+        $courseStudent = CourseStudent::where('course_id', $course->id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        if ($courseStudent) {
+            $courseStudent->status = CourseStudent::STATUS_DECLINED;
+            $courseStudent->save();
+        }
 
         return $course;
     }

@@ -60,14 +60,20 @@ class CourseController extends Controller
         return $this->response(new CourseResource($course));
     }
 
-    public function show(Course $course)
+    public function accept(Course $course)
     {
-        //
+        $currentUser = Auth::user();
+        $this->courseService->acceptCourse($course, $currentUser);
+
+        return $this->response('Accepted');
     }
 
-    public function edit(Course $course)
+    public function decline(Course $course)
     {
-        //
+        $currentUser = Auth::user();
+        $this->courseService->declineCourse($course, $currentUser);
+
+        return $this->response('Declined');
     }
 
 
