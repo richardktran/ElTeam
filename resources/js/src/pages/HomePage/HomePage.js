@@ -10,21 +10,39 @@ import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from 'react-redux';
 import { homeItems } from "./sidebars/home";
 import { changePage } from "../../app/reducers/sideBarReducer";
+import useUser from "../../hooks/useUser";
 
 function HomePage() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const userData = useUser();
 
     const [coursesData, setCoursesData] = useState([]);
-    const [showModal, setShowModal] = useState(false);
     const [totalCourses, setTotalCourses] = useState(0);
 
-    const fetchCourses = async () => {
-        let result = await courseApi.getAll();
+
+    const getStatusFromData = (data) => {
+        const status = data.map((course) => {
+            const currentStudent = course.students.filter((item) => {
+                return item.id === userData.id;
+            })
+            return currentStudent[0].pivot.status;
+        });
+
+        data = data.map((course, index) => {
+            course.status = status[index];
+            return course;
+        });
+
+        return data;
+    }
+
+    const fetchLearningCourses = async () => {
+        let result = await courseApi.getLearningCourses();
         if (result.status === HTTP_OK) {
             const { data, meta } = result.data;
             const { total } = meta.pagination;
-            setCoursesData(data);
+            setCoursesData(getStatusFromData(data));
             setTotalCourses(total);
         }
     }
@@ -36,41 +54,23 @@ function HomePage() {
 
     useEffect(() => {
         loadSidebarItems();
-        fetchCourses();
+        fetchLearningCourses();
     }, []);
 
-    const addCourse = async (values) => {
-        try {
-            const startDate = moment(values.start_date).format('YYYY-MM-DD');
-            const endDate = moment(values.end_date).format('YYYY-MM-DD');
-            const data = {
-                name: values.name,
-                code: values.code,
-                start_date: startDate,
-                end_date: endDate,
-                credit: values.credit,
-                location: values.location,
-                hours_per_week: values.hours_per_week,
-            }
-
-            const response = await courseApi.create(data);
-            if (response.status === HTTP_OK) {
-                toast.success('Thêm khóa học thành công!');
-                fetchCourses();
-                setShowModal(false);
-            } else {
-                console.log(response);
-                toast.error("Thêm khóa học thất bại!!!");
-                setShowModal(true);
-            }
-        } catch (e) {
-            const messages = e.response.data.messages;
-            messages.forEach(message => {
-                toast.error(message.message);
-            });
-            setShowModal(true);
+    const handleAccept = async (courseId) => {
+        const result = await courseApi.accept(courseId);
+        if (result.status === HTTP_OK) {
+            toast.success("Đã chấp nhận yêu cầu tham gia khóa học");
+            fetchLearningCourses();
         }
+    }
 
+    const handleDecline = async (courseId) => {
+        const result = await courseApi.decline(courseId);
+        if (result.status === HTTP_OK) {
+            toast.success("Đã từ chối yêu cầu tham gia khóa học");
+            fetchLearningCourses();
+        }
     }
 
     return (
@@ -122,7 +122,7 @@ function HomePage() {
                                     <li className="nk-block-tools-opt">
                                         <a href="#" className="btn btn-primary" onClick={() => setShowModal(true)} data-toggle="modal" data-target="#createCoursesModal">
                                             <em className="icon ni ni-plus" />
-                                            <span>Thêm khóa học</span>
+                                            <span>Tham gia tất cả</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -136,19 +136,17 @@ function HomePage() {
                     {coursesData && coursesData.map((course, index) => {
                         return (
                             <div key={index} className="col-sm-6 col-lg-4 col-xxl-3">
-                                <ClassCard {...course} />
+                                <ClassCard
+                                    {...course}
+                                    handleAccept={handleAccept}
+                                    handleDecline={handleDecline}
+                                />
                             </div>
                         )
                     })}
                 </div>
             </div>
             {/* .nk-block */}
-            <AddCoursesModal
-                modalName="Thêm khóa học"
-                onFinish={addCourse}
-                isShow={showModal}
-                handleCloseModal={() => setShowModal(false)}
-            />
         </div>
     );
 }

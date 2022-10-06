@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { courseApi } from '../../api/courseApi';
 import { userApi } from '../../api/userApi';
 import { changePage } from '../../app/reducers/sideBarReducer';
 import Layout from '../../components/Layout/Layout';
@@ -23,20 +24,23 @@ const MemberPage = () => {
 
   const [showMemberModal, setShowMemberModal] = useState(false);
 
-  const addMember = async (value) => {
+  const addMember = async (values) => {
+
     try {
-      const response = await userApi.findByEmail(value.email);
-      toast.success('Lời mời tham gia khóa học đã được gởi đến ' + value.email);
+      const data = {
+        students: [values.email]
+      }
+      const response = await courseApi.invite(id, data);
+      toast.success('Lời mời tham gia khóa học đã được gởi đến ' + values.email);
       setShowMemberModal(false);
     } catch (e) {
       const messages = e.response.data.messages;
       messages.forEach(message => {
         console.log(message.message);
       });
-      toast.success('Lời mời tham gia khóa học đã được gởi đến ' + value.email);
+      toast.success('Lời mời tham gia khóa học đã được gởi đến ' + values.email);
       setShowMemberModal(false);
     }
-    //TODO: send email to user with course id
   }
 
 

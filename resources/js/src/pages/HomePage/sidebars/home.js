@@ -7,8 +7,8 @@ export const homeItems = [
   },
   {
     icon: "icon ni ni-growth-fill",
-    path: 'calendar',
-    title: 'Lịch',
+    path: 'my-courses',
+    title: 'Khóa học của tôi',
     active: false,
   },
   {
