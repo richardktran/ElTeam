@@ -57,7 +57,21 @@ function HomePage() {
         fetchLearningCourses();
     }, []);
 
+    const handleAccept = async (courseId) => {
+        const result = await courseApi.accept(courseId);
+        if (result.status === HTTP_OK) {
+            toast.success("Đã chấp nhận yêu cầu tham gia khóa học");
+            fetchLearningCourses();
+        }
+    }
 
+    const handleDecline = async (courseId) => {
+        const result = await courseApi.decline(courseId);
+        if (result.status === HTTP_OK) {
+            toast.success("Đã từ chối yêu cầu tham gia khóa học");
+            fetchLearningCourses();
+        }
+    }
 
     return (
         <div className="nk-content-body">
@@ -122,7 +136,11 @@ function HomePage() {
                     {coursesData && coursesData.map((course, index) => {
                         return (
                             <div key={index} className="col-sm-6 col-lg-4 col-xxl-3">
-                                <ClassCard {...course} />
+                                <ClassCard
+                                    {...course}
+                                    handleAccept={handleAccept}
+                                    handleDecline={handleDecline}
+                                />
                             </div>
                         )
                     })}

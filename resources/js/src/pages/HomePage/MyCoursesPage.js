@@ -138,7 +138,7 @@ function MyCoursesPage() {
                         {OwnCoursesData && OwnCoursesData.map((course, index) => {
                             return (
                                 <div key={index} className="col-sm-6 col-lg-4 col-xxl-3">
-                                    <ClassCard {...course} />
+                                    <ClassCard {...course} isMyCourse={true} />
                                 </div>
                             )
                         })}

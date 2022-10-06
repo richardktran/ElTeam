@@ -22,5 +22,15 @@ export const courseApi = {
         const url = DEFAULT_URL + '/' + id + '/invite';
         const config = await bearerConfig();
         return axiosInstance.post(url, data, config);
+    },
+    accept: async (id) => {
+        const url = DEFAULT_URL + '/' + id + '/accept';
+        const config = await bearerConfig();
+        return axiosInstance.post(url, {}, config);
+    },
+    decline: async (id) => {
+        const url = DEFAULT_URL + '/' + id + '/decline';
+        const config = await bearerConfig();
+        return axiosInstance.post(url, {}, config);
     }
 }

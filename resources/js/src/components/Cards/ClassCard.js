@@ -2,13 +2,17 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const ClassCard = (props) => {
+  const { id, name, code, credit, location, hours_per_week, status, handleAccept, handleDecline, isMyCourse = false } = props;
+
   const navigate = useNavigate();
 
   const goToCourse = (courseId) => {
-    navigate(`${courseId}/info`);
+    if (status === 'pending') {
+      return;
+    }
+    navigate(`${isMyCourse ? '/courses/' : ''}${courseId}/info`);
   }
 
-  const { id, name, code, credit, location, hours_per_week, status } = props;
   return (
     <div id={id} className="card h-100">
       <div className="card-inner">
@@ -117,16 +121,16 @@ const ClassCard = (props) => {
             <div class="col-12 mt-3">
               <ul class="align-center flex-wrap flex-sm-nowrap gx-5 gy-2">
                 <li>
-                  <a href="#" class="btn btn-danger">Từ chối</a>
+                  <div onClick={() => handleDecline(id)} class="btn btn-danger">Từ chối</div>
                 </li>
                 <li>
-                  <a href="#" class="btn btn-primary">Tham gia</a>
+                  <div onClick={() => handleAccept(id)} class="btn btn-primary">Tham gia</div>
                 </li>
               </ul>
             </div>
           ) : (
             <div class="col-12 mt-3">
-              <a href="#" class="btn btn-primary btn-block">Vào lớp học</a>
+              <div onClick={() => goToCourse(id)} class="btn btn-primary btn-block">Vào lớp học</div>
             </div>
           )}
         </div>
