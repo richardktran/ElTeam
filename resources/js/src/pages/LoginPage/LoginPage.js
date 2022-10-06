@@ -26,6 +26,7 @@ function LoginPage() {
         localStorage.setItem('userData', JSON.stringify(data.user));
         localStorage.setItem('token', token);
         localStorage.setItem('role', role);
+        localStorage.setItem('status', data.user.status);
 
         if (role === ROLE_ADMIN) {
             navigate('/admin');

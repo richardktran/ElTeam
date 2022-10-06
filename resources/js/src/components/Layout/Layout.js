@@ -3,12 +3,16 @@ import { Navigate } from 'react-router-dom';
 import { ROLE_ADMIN, ROLE_TEACHER } from '../../utils/constant';
 import CustomerLayout from './CustomerLayout';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, items }) => {
   const role = window.localStorage.getItem('role');
 
   return (
     <>
-      {role && role !== ROLE_ADMIN ? <CustomerLayout>{children}</CustomerLayout> : <Navigate to="/" replace />}
+      {role && role !== ROLE_ADMIN ?
+        <CustomerLayout items={items}>{children}</CustomerLayout>
+        :
+        <Navigate to="/" replace />
+      }
     </>
   );
 };

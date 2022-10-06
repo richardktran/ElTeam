@@ -32,7 +32,9 @@ const UserControl = () => {
                         }
                     </div>
                     <div className="user-info d-none d-xl-block">
-                        <div className="user-status user-status-unverified">Unverified</div>
+                        <div className={`user-status user-status-${userData.status === 1 ? "active" : "unverified"}`}>
+                            {userData.status === 1 ? "Active" : "Unverified"}
+                        </div>
                         <div className="user-name dropdown-indicator">{userData.name}</div>
                     </div>
                 </div>
