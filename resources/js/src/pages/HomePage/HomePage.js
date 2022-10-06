@@ -10,22 +10,39 @@ import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from 'react-redux';
 import { homeItems } from "./sidebars/home";
 import { changePage } from "../../app/reducers/sideBarReducer";
+import useUser from "../../hooks/useUser";
 
 function HomePage() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const userData = useUser();
 
     const [coursesData, setCoursesData] = useState([]);
     const [totalCourses, setTotalCourses] = useState(0);
 
 
+    const getStatusFromData = (data) => {
+        const status = data.map((course) => {
+            const currentStudent = course.students.filter((item) => {
+                return item.id === userData.id;
+            })
+            return currentStudent[0].pivot.status;
+        });
+
+        data = data.map((course, index) => {
+            course.status = status[index];
+            return course;
+        });
+
+        return data;
+    }
 
     const fetchLearningCourses = async () => {
         let result = await courseApi.getLearningCourses();
         if (result.status === HTTP_OK) {
             const { data, meta } = result.data;
             const { total } = meta.pagination;
-            setCoursesData(data);
+            setCoursesData(getStatusFromData(data));
             setTotalCourses(total);
         }
     }
