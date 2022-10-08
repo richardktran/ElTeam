@@ -32,6 +32,9 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
     Route::get('/own', [CourseController::class, 'getOwnCourses'])->name('courses.own');
     Route::get('/', [CourseController::class, 'getLearningCourses'])->name('courses.learn-courses');
+    Route::get('/{course}', [CourseController::class, 'detail'])->name('course.detail');
+    Route::get('/{course}/members', [CourseController::class, 'membersList'])->name('course.members');
+
     Route::post('/', [CourseController::class, 'create'])->name('courses.create');
     Route::post('/{course}/invite', [CourseController::class, 'invite'])->name('course.invite');
     Route::post('/{course}/accept', [CourseController::class, 'accept'])->name('course.accept');

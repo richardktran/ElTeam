@@ -13,6 +13,16 @@ export const courseApi = {
         const config = await bearerConfig();
         return axiosInstance.get(url, config);
     },
+    getDetail: async (id) => {
+        const url = DEFAULT_URL + '/' + id;
+        const config = await bearerConfig();
+        return axiosInstance.get(url, config);
+    },
+    getMembers: async (id) => {
+        const url = DEFAULT_URL + '/' + id + '/members';
+        const config = await bearerConfig();
+        return axiosInstance.get(url, config);
+    },
     create: async (data) => {
         const url = DEFAULT_URL;
         const config = await bearerConfig();

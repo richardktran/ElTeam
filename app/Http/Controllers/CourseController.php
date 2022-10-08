@@ -9,6 +9,7 @@ use App\Models\Course;
 use App\Services\CourseService;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCourseValidator;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
@@ -46,6 +47,21 @@ class CourseController extends Controller
         $courses = $this->courseService->getAllLearningCourses($userId, $params);
 
         return $this->pagination($courses, CourseResource::class);
+    }
+
+    public function membersList(Request $request, $courseId)
+    {
+        $course = Course::findOrFail($courseId);
+        $members = $course->students;
+
+        return $this->response($members);
+    }
+
+    public function detail(Request $request, $courseId)
+    {
+        $course = Course::findOrFail($courseId);
+
+        return $this->response(new CourseResource($course));
     }
 
     public function create(Request $request, CreateCourseValidator $validator)
