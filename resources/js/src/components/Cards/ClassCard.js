@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const ClassCard = (props) => {
   const { id, name, code, credit, location, hours_per_week, status, handleAccept, handleDecline, isMyCourse = false } = props;
@@ -8,6 +9,7 @@ const ClassCard = (props) => {
 
   const goToCourse = (courseId) => {
     if (status === 'pending') {
+      toast.error('Bạn chưa đăng ký tham gia vào khóa học này');
       return;
     }
     navigate(`${isMyCourse ? '/courses/' : ''}${courseId}/info`);

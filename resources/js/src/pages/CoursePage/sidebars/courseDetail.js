@@ -13,13 +13,13 @@ export const courseDetailItems = [
   },
   {
     icon: "icon ni ni-activity-round-fill",
-    path: '/teams',
+    path: 'teams',
     title: 'Danh sách nhóm',
     active: false,
   },
   {
     icon: "icon ni ni-users-fill",
-    path: '/settings',
+    path: 'settings',
     title: 'Cài đặt',
     active: false,
   },
