@@ -4,6 +4,7 @@ import Layout from '../../components/Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePage } from '../../app/reducers/sideBarReducer';
 import { courseDetailItems } from './sidebars/courseDetail';
+import Curriculum from './Components/Curriculum';
 
 const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
@@ -61,10 +62,7 @@ const CourseDetailPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Link to={"members"} className="btn btn-primary">
-              <em className="icon ni ni-reports" />
-              <span>Danh sách thành viên</span>
-            </Link>
+            <Curriculum id={id} />
           </div>
         </div>
       </div>
