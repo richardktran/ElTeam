@@ -5,16 +5,63 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import "../../../components/Editable/style.css";
 import usePrevious from "../../../hooks/usePrevious";
 import { setCaretToEnd } from "../../../utils";
+import { courseApi } from "../../../api/courseApi";
+import { HTTP_OK } from "../../../utils/constant";
 
 
 function Curriculum(props) {
   const { id } = props;
   const initialBlock = { id: uuidv4(), html: "", tag: "p" };
 
-  const [blocks, setBlocks] = useState([initialBlock]);
+  const [blocks, setBlocks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentBlockId, setCurrentBlockId] = useState(null);
 
   const prevBlocks = usePrevious(blocks);
+
+  const fetchCurriculum = async () => {
+    let result = await courseApi.getCurriculum(id);
+    if (result.status === HTTP_OK) {
+      const { data } = result.data;
+      if (data !== null && data.isArray && data.length == 0) {
+        data = null;
+      }
+
+      if (data !== null) {
+        setBlocks(data);
+      } else {
+        setBlocks([initialBlock]);
+      }
+    }
+  }
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetchCurriculum();
+    setIsLoading(false);
+    console.log(blocks);
+  }, []);
+
+  useEffect(() => {
+    const updatePageOnServer = async (blocks) => {
+      try {
+        const data = {
+          curriculum: blocks
+        }
+        await courseApi.updateCurriculum(id, data);
+
+      } catch (e) {
+        const messages = e.response.data.messages;
+        messages.forEach(message => {
+          console.log(message.message);
+        });
+      }
+    };
+
+    if (prevBlocks && prevBlocks !== blocks) {
+      updatePageOnServer(blocks);
+    }
+  }, [blocks, prevBlocks]);
 
   // Handling the cursor and focus on adding and deleting blocks
   useEffect(() => {
@@ -102,32 +149,36 @@ function Curriculum(props) {
   };
 
   return (
-    <DragDropContext onDragEnd={onDragEndHandler}>
-      <Droppable droppableId={id}>
-        {(provided) => (
-          <div ref={provided.innerRef} {...provided.droppableProps}>
-            {blocks.map((block) => {
-              const position =
-                blocks.map((b) => b._id).indexOf(block._id) + 1;
-              return (
-                <EditableBlock
-                  key={block._id}
-                  position={position}
-                  id={block._id}
-                  tag={block.tag}
-                  html={block.html}
-                  pageId={id}
-                  addBlock={addBlockHandler}
-                  deleteBlock={deleteBlockHandler}
-                  updateBlock={updateBlockHandler}
-                />
-              );
-            })}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
+    <>
+      {isLoading && (<div>Loading...</div>)}
+      {!isLoading && (
+        <DragDropContext onDragEnd={onDragEndHandler}>
+          <Droppable droppableId={id}>
+            {(provided) => (
+              <div ref={provided.innerRef} {...provided.droppableProps}>
+                {blocks.map((block, i) => {
+                  const position = blocks.map((b) => b._id).indexOf(block._id) + 1;
+                  return (
+                    <EditableBlock
+                      key={block._id}
+                      position={position}
+                      id={block._id}
+                      tag={block.tag}
+                      html={block.html}
+                      pageId={id}
+                      addBlock={addBlockHandler}
+                      deleteBlock={deleteBlockHandler}
+                      updateBlock={updateBlockHandler}
+                    />
+                  );
+                })}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+      )}
+    </>
   );
 }
 

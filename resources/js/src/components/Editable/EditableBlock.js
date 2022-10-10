@@ -67,7 +67,7 @@ class EditableBlock extends React.Component {
     const hasPlaceholder = this.addPlaceholder({
       block: this.contentEditable.current,
       position: this.props.position,
-      content: this.props.html || this.props.imageUrl,
+      content: this.props.html,
     });
     if (!hasPlaceholder) {
       this.setState({
@@ -83,21 +83,20 @@ class EditableBlock extends React.Component {
     // 1. user stopped typing and the html content has changed & no placeholder set
     // 2. user changed the tag & no placeholder set
     // 3. user changed the image & no placeholder set
-    // const stoppedTyping = prevState.isTyping && !this.state.isTyping;
-    // const hasNoPlaceholder = !this.state.placeholder;
-    // const htmlChanged = this.props.html !== this.state.html;
-    // const tagChanged = this.props.tag !== this.state.tag;
-    // const imageChanged = this.props.imageUrl !== this.state.imageUrl;
-    // if (
-    //   ((stoppedTyping && htmlChanged) || tagChanged || imageChanged) &&
-    //   hasNoPlaceholder
-    // ) {
-    //   this.props.updateBlock({
-    //     id: this.props.id,
-    //     html: this.state.html,
-    //     tag: this.state.tag,
-    //   });
-    // }
+    const stoppedTyping = prevState.isTyping && !this.state.isTyping;
+    const hasNoPlaceholder = !this.state.placeholder;
+    const htmlChanged = this.props.html !== this.state.html;
+    const tagChanged = this.props.tag !== this.state.tag;
+    if (
+      ((stoppedTyping && htmlChanged) || tagChanged) &&
+      hasNoPlaceholder
+    ) {
+      this.props.updateBlock({
+        id: this.props.id,
+        html: this.state.html,
+        tag: this.state.tag,
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -301,7 +300,7 @@ class EditableBlock extends React.Component {
   addPlaceholder({ block, position, content }) {
     const isFirstBlockWithoutHtml = position === 1 && !content;
     const isFirstBlockWithoutSibling = !block.parentElement.nextElementSibling;
-    if (isFirstBlockWithoutHtml && isFirstBlockWithoutSibling) {
+    if (isFirstBlockWithoutHtml) {
       this.setState({
         ...this.state,
         html: "Type a page title...",

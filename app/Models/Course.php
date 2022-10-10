@@ -31,4 +31,9 @@ class Course extends Model
     {
         return $this->belongsToMany(User::class, 'course_student', 'course_id', 'user_id')->withPivot('status');
     }
+
+    public function curriculum()
+    {
+        return $this->belongsTo(Curriculum::class);
+    }
 }
