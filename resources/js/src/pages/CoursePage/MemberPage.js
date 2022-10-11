@@ -84,10 +84,18 @@ const MemberPage = () => {
                     <ul className="nk-block-tools g-3">
                       <li>
                         <div className="drodown">
-                          <a href="#" className="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-toggle="dropdown"><em className="d-none d-sm-inline icon ni ni-calender-date" /><span><span className="d-none d-md-inline">Last</span> 30 Days</span><em className="dd-indc icon ni ni-chevron-right" /></a>
+                          <a href="#" className="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-toggle="dropdown">
+                            <em className="d-none d-sm-inline icon ni ni-calender-date" />
+                            <span>
+                              Phân nhóm
+                            </span>
+                            <em className="dd-indc icon ni ni-chevron-right" />
+                          </a>
                           <div className="dropdown-menu dropdown-menu-right">
                             <ul className="link-list-opt no-bdr">
-                              <li><a href="#"><span>Last 30 Days</span></a></li>
+                              <li><a href="#"><span>Phân nhóm ngẫu nhiên</span></a></li>
+                              <li><a href="#"><span>Sinh viên chọn nhóm</span></a></li>
+                              <li><a href="#"><span>Chốt nhóm</span></a></li>
                             </ul>
                           </div>
                         </div>
