@@ -7,10 +7,11 @@ import usePrevious from "../../../hooks/usePrevious";
 import { setCaretToEnd } from "../../../utils";
 import { courseApi } from "../../../api/courseApi";
 import { HTTP_OK } from "../../../utils/constant";
+import ContentBlock from "./ContentBlock";
 
 
 function Curriculum(props) {
-  const { id } = props;
+  const { id, isEditable } = props;
   const initialBlock = { id: uuidv4(), html: "", tag: "p" };
 
   const [blocks, setBlocks] = useState([]);
@@ -158,19 +159,30 @@ function Curriculum(props) {
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {blocks.map((block, i) => {
                   const position = blocks.map((b) => b._id).indexOf(block._id) + 1;
-                  return (
-                    <EditableBlock
-                      key={block._id}
-                      position={position}
-                      id={block._id}
-                      tag={block.tag}
-                      html={block.html}
-                      pageId={id}
-                      addBlock={addBlockHandler}
-                      deleteBlock={deleteBlockHandler}
-                      updateBlock={updateBlockHandler}
-                    />
-                  );
+                  if (isEditable) {
+                    return (
+                      <EditableBlock
+                        key={block._id}
+                        position={position}
+                        id={block._id}
+                        tag={block.tag}
+                        html={block.html}
+                        pageId={id}
+                        addBlock={addBlockHandler}
+                        deleteBlock={deleteBlockHandler}
+                        updateBlock={updateBlockHandler}
+                      />
+                    );
+                  } else {
+                    return (
+                      <ContentBlock
+                        key={block._id}
+                        tag={block.tag}
+                        html={block.html}
+                        pageId={id}
+                      />
+                    );
+                  }
                 })}
                 {provided.placeholder}
               </div>
