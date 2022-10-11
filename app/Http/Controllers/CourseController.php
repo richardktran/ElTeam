@@ -9,6 +9,8 @@ use App\Models\Course;
 use App\Services\CourseService;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCourseValidator;
+use App\Http\Resources\UserResource;
+use App\Models\Curriculum;
 use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
@@ -46,6 +48,29 @@ class CourseController extends Controller
         $courses = $this->courseService->getAllLearningCourses($userId, $params);
 
         return $this->pagination($courses, CourseResource::class);
+    }
+
+    public function membersList(Request $request, $courseId)
+    {
+        $course = Course::findOrFail($courseId);
+        $members = $course->students;
+
+        return $this->response($members);
+    }
+
+    public function detail(Request $request, $courseId)
+    {
+        $course = Course::findOrFail($courseId);
+
+        return $this->response(new CourseResource($course));
+    }
+
+    public function getcurriculum(Request $request, Course $course)
+    {
+        $curriculum = Curriculum::where('course_id', $course->id)->first();
+        $contents = json_decode(optional($curriculum)->contents,1);
+
+        return $this->response($contents);
     }
 
     public function create(Request $request, CreateCourseValidator $validator)
@@ -102,6 +127,14 @@ class CourseController extends Controller
                 'students' =>  $request['students']
             ]
         ]);
+    }
+
+    public function createOrUpdateCurriculum(Request $request, Course $course)
+    {
+        $request = $request->all();
+        $curriculum = $this->courseService->createOrUpdateCurriculum($course, $request);
+
+        return $this->response($curriculum);
     }
 
     public function destroy(Course $course)

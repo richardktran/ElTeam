@@ -7,20 +7,37 @@ import { userApi } from '../../api/userApi';
 import { changePage } from '../../app/reducers/sideBarReducer';
 import Layout from '../../components/Layout/Layout';
 import AddMemberModal from '../../components/Modal/AddMemberModal';
-import TeamList from '../../components/TeamList/TeamList';
+import MemberList from '../../components/MemberList/MemberList';
 import { HTTP_OK } from '../../utils/constant';
 import { courseDetailItems } from './sidebars/courseDetail';
+import isCourseOwner from '../../hooks/isCourseOwner';
 
 const MemberPage = () => {
   let { id } = useParams(); //get id from url
+  const isOwner = isCourseOwner(id);
 
   const dispatch = useDispatch();
   const sidebarItems = useSelector(state => state.sidebar);
 
+  const [members, setMembers] = useState([]);
+
+  const fetchMembers = async () => {
+    let result = await courseApi.getMembers(id);
+    if (result.status === HTTP_OK) {
+      const { data } = result.data;
+      console.log(data);
+      setMembers(data);
+    }
+  }
+
+
   useEffect(() => {
     const action = changePage(sidebarItems.length === 0 ? courseDetailItems : sidebarItems);
     dispatch(action);
+    fetchMembers();
   }, []);
+
+
 
   const [showMemberModal, setShowMemberModal] = useState(false);
 
@@ -31,16 +48,16 @@ const MemberPage = () => {
         students: [values.email]
       }
       const response = await courseApi.invite(id, data);
-      toast.success('Lời mời tham gia khóa học đã được gởi đến ' + values.email);
-      setShowMemberModal(false);
+
     } catch (e) {
       const messages = e.response.data.messages;
       messages.forEach(message => {
         console.log(message.message);
       });
-      toast.success('Lời mời tham gia khóa học đã được gởi đến ' + values.email);
-      setShowMemberModal(false);
     }
+    fetchMembers();
+    toast.success('Lời mời tham gia khóa học đã được gởi đến ' + values.email);
+    setShowMemberModal(false);
   }
 
 
@@ -75,12 +92,14 @@ const MemberPage = () => {
                           </div>
                         </div>
                       </li>
-                      <li className="nk-block-tools-opt">
-                        <a href="#" onClick={() => setShowMemberModal(true)} className="btn btn-primary">
-                          <em className="icon ni ni-reports" />
-                          <span>Thêm thành viên</span>
-                        </a>
-                      </li>
+                      {isOwner &&
+                        <li className="nk-block-tools-opt">
+                          <a href="#" onClick={() => setShowMemberModal(true)} className="btn btn-primary">
+                            <em className="icon ni ni-reports" />
+                            <span>Thêm thành viên</span>
+                          </a>
+                        </li>
+                      }
                     </ul>
                   </div>
                 </div>
@@ -88,7 +107,7 @@ const MemberPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <TeamList />
+            <MemberList members={members} isOwner={isOwner} />
           </div>
           <AddMemberModal
             modalName="Thêm thành viên"
