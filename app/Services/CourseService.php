@@ -6,6 +6,7 @@ use App\Events\CourseInvitationEvent;
 use App\Mail\CourseInvitationMail;
 use App\Models\Course;
 use App\Models\CourseStudent;
+use App\Models\Curriculum;
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Mail;
@@ -97,6 +98,20 @@ class CourseService
             $courseStudent->status = CourseStudent::STATUS_DECLINED;
             $courseStudent->save();
         }
+
+        return $course;
+    }
+
+    public function createOrUpdateCurriculum(Course $course, array $data)
+    {
+        $course->curriculum()->delete();
+
+        $curriculum = $data['curriculum'];
+
+        Curriculum::updateOrCreate(
+            ['course_id' => $course->id],
+            ['contents' => json_encode($curriculum)]
+        );
 
         return $course;
     }

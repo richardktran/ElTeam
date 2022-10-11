@@ -1,14 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePage } from '../../app/reducers/sideBarReducer';
 import { courseDetailItems } from './sidebars/courseDetail';
+import Curriculum from './Components/Curriculum';
+import isCourseOwner from '../../hooks/isCourseOwner';
 
 const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
 
+  const isOwner = isCourseOwner(id);
+
   const dispatch = useDispatch();
+
+  const [isEditable, setIsEditable] = useState(false);
+
+  const toggleEditable = () => {
+    setIsEditable(!isEditable);
+  }
 
   useEffect(() => {
     const action = changePage(courseDetailItems);
@@ -48,12 +58,14 @@ const CourseDetailPage = () => {
                           </div>
                         </div>
                       </li>
-                      <li className="nk-block-tools-opt">
-                        <a href="#" className="btn btn-primary">
-                          <em className="icon ni ni-reports" />
-                          <span>Thêm thành viên</span>
-                        </a>
-                      </li>
+                      {isOwner &&
+                        <li className="nk-block-tools-opt">
+                          <div onClick={toggleEditable} className="btn btn-primary">
+                            <em className="icon ni ni-reports" />
+                            <span>{!isEditable ? "Chỉnh sửa" : "Lưu"}</span>
+                          </div>
+                        </li>
+                      }
                     </ul>
                   </div>
                 </div>
@@ -61,10 +73,7 @@ const CourseDetailPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Link to={"members"} className="btn btn-primary">
-              <em className="icon ni ni-reports" />
-              <span>Danh sách thành viên</span>
-            </Link>
+            <Curriculum id={id} isEditable={isEditable} />
           </div>
         </div>
       </div>
