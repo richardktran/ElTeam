@@ -25,4 +25,9 @@ class Group extends Model
     {
         return $this->belongsToMany(User::class, 'group_student', 'group_id', 'student_id');
     }
+
+    public function isLeader()
+    {
+        return $this->belongsToMany(User::class, 'group_student', 'group_id', 'student_id')->where('is_leader', true);
+    }
 }

@@ -54,19 +54,9 @@ class CourseController extends Controller
     public function membersList(Request $request, $courseId)
     {
         $course = Course::findOrFail($courseId);
-        $members = $course->students;
 
-        // Sort member with order status ACCEPTED, PENDING, DECLINED
-        $members = $members->sortBy(function ($member) {
-            return $member->pivot->status;
-        });
-
-        // Sort member collection with DECLINED status to the end of collection
-        $members = $members->filter(function ($member) {
-            return $member->pivot->status !== CourseStudent::STATUS_DECLINED;
-        })->merge($members->filter(function ($member) {
-            return $member->pivot->status === CourseStudent::STATUS_DECLINED;
-        }));
+        $members = $this->courseService->memberList($course);
+        
 
         return $this->response($members);
     }

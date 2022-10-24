@@ -47,6 +47,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //----------Relationships----------//
+
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -56,6 +58,13 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Course::class, 'course_student', 'user_id', 'course_id')->withPivot('status');
     }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'group_student', 'student_id', 'group_id')->withPivot('is_leader');
+    }
+
+    //----------Accessor/Mutator----------//
 
     public function getIsAdminAttribute()
     {

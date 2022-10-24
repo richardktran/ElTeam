@@ -7,6 +7,7 @@ use App\Mail\CourseInvitationMail;
 use App\Models\Course;
 use App\Models\CourseStudent;
 use App\Models\Curriculum;
+use App\Models\Group;
 use App\Models\User;
 use App\Supports\Utils\Math;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -40,6 +41,33 @@ class CourseService
             ->paginate($pageSize);
 
         return $courses;
+    }
+
+    public function memberList(Course $course)
+    {
+        $members = $course->students;
+
+        // Sort member with order status ACCEPTED, PENDING, DECLINED
+        $members = $members->sortBy(function ($member) {
+            return $member->pivot->status;
+        });
+
+        // Sort member collection with DECLINED status to the end of collection
+        $members = $members->filter(function ($member) {
+            return $member->pivot->status !== CourseStudent::STATUS_DECLINED;
+        })->merge($members->filter(function ($member) {
+            return $member->pivot->status === CourseStudent::STATUS_DECLINED;
+        }));
+
+        // Get group name of each member
+        $members = $members->map(function ($member) use ($course) {
+            $group = $member->groups()->where('course_id', $course->id)
+                ->first(['groups.id', 'number', 'name', 'is_leader']);
+            $member->group = $group ?? null;
+            return $member;
+        });
+
+        return $members;
     }
 
     public function createCourse(array $data)
@@ -119,6 +147,7 @@ class CourseService
 
     public function divideStudentToGroups(Course $course, array $data = null)
     {
+        $this->removeGroups($course);
         $groups = [];
         $students = $course->students()->wherePivot('status','=', CourseStudent::STATUS_ACCEPTED)->get();
         if(array_key_exists('number_of_groups', $data) &&  $data['number_of_groups']) {
@@ -127,20 +156,32 @@ class CourseService
             $groups = Math::dividePeopleToGroupsWithSize($students->count(), $data['group_size']);
         }
 
-        dd($groups);
-
         // Create a function to distribute randomly students to groups
         $students = $students->shuffle();
-        $groupIndex = 0;
-        foreach ($students as $student) {
-            $student->pivot->group = $groupIndex;
-            $student->pivot->save();
-            $groupIndex++;
-            if ($groupIndex >= count($groups)) {
-                $groupIndex = 0;
+
+        foreach($groups as $number => $groupSize) {
+            $group = Group::create([
+                'name' => 'Group ' . ($number+1),
+                'number' => ($number+1),
+                'course_id' => $course->id
+            ]);
+
+            foreach($students->take($groupSize) as $student) {
+                $group->students()->attach($student);
             }
+            $students = $students->slice($groupSize);
         }
 
-        return $groups;
+        return $this->memberList($course);
+    }
+
+    // Create a function to remove all groups of a course
+    public function removeGroups(Course $course)
+    {
+        $groups = $course->groups;
+        foreach($groups as $group) {
+            $group->students()->detach();
+            $group->delete();
+        }
     }
 }
