@@ -150,6 +150,14 @@ class CourseController extends Controller
         return $this->response($curriculum);
     }
 
+    public function divideStudentToGroups(Request $request, Course $course)
+    {
+        $request = $request->all();
+        $groups = $this->courseService->divideStudentToGroups($course, $request);
+
+        return $this->response($groups);
+    }
+
     public function destroy(Course $course)
     {
         //

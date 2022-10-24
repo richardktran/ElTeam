@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\CourseStudent;
 use App\Models\Curriculum;
 use App\Models\User;
+use App\Supports\Utils\Math;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Mail;
 
@@ -114,5 +115,32 @@ class CourseService
         );
 
         return $course;
+    }
+
+    public function divideStudentToGroups(Course $course, array $data = null)
+    {
+        $groups = [];
+        $students = $course->students()->wherePivot('status','=', CourseStudent::STATUS_ACCEPTED)->get();
+        if(array_key_exists('number_of_groups', $data) &&  $data['number_of_groups']) {
+            $groups = Math::dividePeopleToNoGroups($students->count(), $data['number_of_groups']);
+        } else {
+            $groups = Math::dividePeopleToGroupsWithSize($students->count(), $data['group_size']);
+        }
+
+        dd($groups);
+
+        // Create a function to distribute randomly students to groups
+        $students = $students->shuffle();
+        $groupIndex = 0;
+        foreach ($students as $student) {
+            $student->pivot->group = $groupIndex;
+            $student->pivot->save();
+            $groupIndex++;
+            if ($groupIndex >= count($groups)) {
+                $groupIndex = 0;
+            }
+        }
+
+        return $groups;
     }
 }
