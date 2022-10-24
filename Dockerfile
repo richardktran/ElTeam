@@ -1,4 +1,4 @@
-FROM php:8.1-fpm
+FROM arm64v8/php:8.1-fpm
 
 ARG UNAME=khoatran
 ARG UID=1000
