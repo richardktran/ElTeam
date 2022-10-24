@@ -47,6 +47,14 @@ class CourseService
     {
         $members = $course->students;
 
+        // Get group name of each member
+        $members = $members->map(function ($member) use ($course) {
+            $group = $member->groups()->where('course_id', $course->id)
+                ->first(['groups.id', 'number', 'name', 'is_leader']);
+            $member->group = $group ?? null;
+            return $member;
+        })->sortBy('group.number');
+
         // Sort member with order status ACCEPTED, PENDING, DECLINED
         $members = $members->sortBy(function ($member) {
             return $member->pivot->status;
@@ -59,13 +67,6 @@ class CourseService
             return $member->pivot->status === CourseStudent::STATUS_DECLINED;
         }));
 
-        // Get group name of each member
-        $members = $members->map(function ($member) use ($course) {
-            $group = $member->groups()->where('course_id', $course->id)
-                ->first(['groups.id', 'number', 'name', 'is_leader']);
-            $member->group = $group ?? null;
-            return $member;
-        });
 
         return $members;
     }

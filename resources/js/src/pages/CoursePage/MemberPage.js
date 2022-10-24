@@ -25,7 +25,6 @@ const MemberPage = () => {
     let result = await courseApi.getMembers(id);
     if (result.status === HTTP_OK) {
       const { data } = result.data;
-      console.log(data);
       setMembers(data);
     }
   }

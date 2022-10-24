@@ -89,6 +89,7 @@ const MemberList = (props) => {
       {members.map((member, index) => {
         const status = member.pivot.status;
         const email = member.email;
+        const group = member.group;
         const name = getNameFromEmail(email);
         const prefixName = getAvatarName(name);
         return (
@@ -127,7 +128,7 @@ const MemberList = (props) => {
               </span>
             </div>
             <div className="nk-tb-col tb-col-md">
-              <span>Chưa phân nhóm</span>
+              <span>{group ? (group.name ?? group.number) : "Chưa phân nhóm"}</span>
             </div>
             <div className="nk-tb-col tb-col-lg">
               <span>10 Feb 2020</span>
