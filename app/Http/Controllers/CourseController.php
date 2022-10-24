@@ -10,6 +10,7 @@ use App\Services\CourseService;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCourseValidator;
 use App\Http\Resources\UserResource;
+use App\Models\CourseStudent;
 use App\Models\Curriculum;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,6 +55,18 @@ class CourseController extends Controller
     {
         $course = Course::findOrFail($courseId);
         $members = $course->students;
+
+        // Sort member with order status ACCEPTED, PENDING, DECLINED
+        $members = $members->sortBy(function ($member) {
+            return $member->pivot->status;
+        });
+
+        // Sort member collection with DECLINED status to the end of collection
+        $members = $members->filter(function ($member) {
+            return $member->pivot->status !== CourseStudent::STATUS_DECLINED;
+        })->merge($members->filter(function ($member) {
+            return $member->pivot->status === CourseStudent::STATUS_DECLINED;
+        }));
 
         return $this->response($members);
     }
