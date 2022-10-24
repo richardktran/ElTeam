@@ -52,5 +52,10 @@ export const courseApi = {
         const url = DEFAULT_URL + '/' + id + '/curriculum';
         const config = await bearerConfig();
         return axiosInstance.post(url, data, config);
+    },
+    randomDivideGroup: async (id, data) => {
+        const url = DEFAULT_URL + '/' + id + '/divide-random-groups';
+        const config = await bearerConfig();
+        return axiosInstance.post(url, data, config);
     }
 }

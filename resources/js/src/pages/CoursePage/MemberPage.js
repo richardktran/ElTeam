@@ -59,6 +59,21 @@ const MemberPage = () => {
     setShowMemberModal(false);
   }
 
+  const handleRandomDivideGroup = async (groupSize) => {
+    try {
+      const data = {
+        "group_size": groupSize
+      }
+      const response = await courseApi.randomDivideGroup(id, data);
+      fetchMembers();
+    } catch (e) {
+      const messages = e.response.data.messages;
+      messages.forEach(message => {
+        console.log(message.message);
+      });
+    }
+  }
+
 
   return (
     <div className="container-fluid">
@@ -114,7 +129,11 @@ const MemberPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <MemberList members={members} isOwner={isOwner} />
+            <MemberList
+              members={members}
+              isOwner={isOwner}
+              handleRandomDivide={handleRandomDivideGroup}
+            />
           </div>
           <AddMemberModal
             modalName="Thêm thành viên"
