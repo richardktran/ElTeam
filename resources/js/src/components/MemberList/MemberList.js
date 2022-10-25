@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import toast from 'react-hot-toast';
+import RandomDivideGroupModel from '../Modal/RandomDivideGroupModel';
 
 const MemberList = (props) => {
-  const { members, isOwner } = props;
+  const { members, isOwner, handleRandomDivide } = props;
+  const [showRandomFormModel, setShowRandomFormModel] = useState(false);
 
   const getAvatarName = (name) => {
     var matches = name.match(/\b(\w)/g);
@@ -19,6 +22,14 @@ const MemberList = (props) => {
     name = name[0].toUpperCase() + name.slice(1);
 
     return name;
+  }
+
+  const handleRandomDivideGroup = async (values) => {
+    await handleRandomDivide(values.groupSize);
+
+    toast.success('Phân nhóm thành công');
+    setShowRandomFormModel(false);
+
   }
 
   return (
@@ -55,12 +66,14 @@ const MemberList = (props) => {
                 </a>
                 <div className="dropdown-menu dropdown-menu-right" style={{}}>
                   <ul className="link-list-opt no-bdr">
-                    <li>
-                      <a href="#">
-                        <em className="icon ni ni-mail" />
-                        <span>Gửi email cho mọi người</span>
-                      </a>
-                    </li>
+                    {isOwner && (
+                      <li>
+                        <a href="#" onClick={() => setShowRandomFormModel(true)}>
+                          <em className="icon ni ni-mail" />
+                          <span>Phân nhóm ngẫu nhiên</span>
+                        </a>
+                      </li>
+                    )}
                     <li>
                       <a href="#">
                         <em className="icon ni ni-na" />
@@ -89,6 +102,7 @@ const MemberList = (props) => {
       {members.map((member, index) => {
         const status = member.pivot.status;
         const email = member.email;
+        const group = member.group;
         const name = getNameFromEmail(email);
         const prefixName = getAvatarName(name);
         return (
@@ -127,7 +141,7 @@ const MemberList = (props) => {
               </span>
             </div>
             <div className="nk-tb-col tb-col-md">
-              <span>Chưa phân nhóm</span>
+              <span>{group ? (group.name ?? group.number) : "Chưa phân nhóm"}</span>
             </div>
             <div className="nk-tb-col tb-col-lg">
               <span>10 Feb 2020</span>
@@ -155,14 +169,14 @@ const MemberList = (props) => {
                             <span>Chi tiết</span>
                           </a>
                         </li>
+                        <li>
+                          <a href="#">
+                            <em className="icon ni ni-repeat" />
+                            <span>Mời đổi nhóm</span>
+                          </a>
+                        </li>
                         {isOwner && (
                           <>
-                            <li>
-                              <a href="#">
-                                <em className="icon ni ni-repeat" />
-                                <span>Xếp nhóm</span>
-                              </a>
-                            </li>
                             <li className="divider" />
                             <li>
                               <a href="#">
@@ -188,7 +202,12 @@ const MemberList = (props) => {
         );
       })}
 
-
+      <RandomDivideGroupModel
+        modalName="Phân nhóm ngẫu nhiên"
+        onFinish={handleRandomDivideGroup}
+        isShow={showRandomFormModel}
+        handleCloseModal={() => setShowRandomFormModel(false)}
+      />
     </div>
 
   );

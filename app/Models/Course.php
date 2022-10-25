@@ -36,4 +36,9 @@ class Course extends Model
     {
         return $this->belongsTo(Curriculum::class);
     }
+
+    public function groups()
+    {
+        return $this->hasMany(Group::class);
+    }
 }

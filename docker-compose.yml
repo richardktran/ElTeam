@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   nginx:
-    image: 'nginx:stable-alpine'
+    image: 'arm64v8/nginx:stable-alpine'
     container_name: elteam_nginx
     ports:
       - '8000:80'
@@ -13,10 +13,10 @@ services:
       - elteam_network
 
   db:
-    image: mysql:latest
+    image: 'arm64v8/mysql:latest'
     container_name: elteam_db
     ports:
-      - '3306:3306'
+      - '3336:3306'
     environment:
       MYSQL_DATABASE: elteam
       MYSQL_ROOT_PASSWORD: secret
@@ -39,18 +39,18 @@ services:
       - elteam_network
 
   redis:
-    image: redis:alpine
+    image: 'arm64v8/redis:alpine'
     container_name: elteam_redis
     networks:
       - elteam_network
 
   rabbitmq:
     hostname: 'elteam-rabbitmq'
-    image: rabbitmq:3-management-alpine
+    image: 'arm64v8/rabbitmq:3-management-alpine'
     container_name: rabbitmq
     ports:
-      - 5672:5672
-      - 15672:15672
+      - 5673:5672
+      - 15673:15672
     volumes:
       - ./docker/rabbitmq/data/:/var/lib/rabbitmq/
     networks:

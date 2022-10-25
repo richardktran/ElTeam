@@ -10,6 +10,7 @@ use App\Services\CourseService;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCourseValidator;
 use App\Http\Resources\UserResource;
+use App\Models\CourseStudent;
 use App\Models\Curriculum;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,7 +54,9 @@ class CourseController extends Controller
     public function membersList(Request $request, $courseId)
     {
         $course = Course::findOrFail($courseId);
-        $members = $course->students;
+
+        $members = $this->courseService->memberList($course);
+        
 
         return $this->response($members);
     }
@@ -135,6 +138,14 @@ class CourseController extends Controller
         $curriculum = $this->courseService->createOrUpdateCurriculum($course, $request);
 
         return $this->response($curriculum);
+    }
+
+    public function divideStudentToGroups(Request $request, Course $course)
+    {
+        $request = $request->all();
+        $groups = $this->courseService->divideStudentToGroups($course, $request);
+
+        return $this->response($groups);
     }
 
     public function destroy(Course $course)
