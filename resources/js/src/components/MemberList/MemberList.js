@@ -66,12 +66,14 @@ const MemberList = (props) => {
                 </a>
                 <div className="dropdown-menu dropdown-menu-right" style={{}}>
                   <ul className="link-list-opt no-bdr">
-                    <li>
-                      <a href="#" onClick={() => setShowRandomFormModel(true)}>
-                        <em className="icon ni ni-mail" />
-                        <span>Phân nhóm ngẫu nhiên</span>
-                      </a>
-                    </li>
+                    {isOwner && (
+                      <li>
+                        <a href="#" onClick={() => setShowRandomFormModel(true)}>
+                          <em className="icon ni ni-mail" />
+                          <span>Phân nhóm ngẫu nhiên</span>
+                        </a>
+                      </li>
+                    )}
                     <li>
                       <a href="#">
                         <em className="icon ni ni-na" />
@@ -167,14 +169,14 @@ const MemberList = (props) => {
                             <span>Chi tiết</span>
                           </a>
                         </li>
+                        <li>
+                          <a href="#">
+                            <em className="icon ni ni-repeat" />
+                            <span>Mời đổi nhóm</span>
+                          </a>
+                        </li>
                         {isOwner && (
                           <>
-                            <li>
-                              <a href="#">
-                                <em className="icon ni ni-repeat" />
-                                <span>Xếp nhóm</span>
-                              </a>
-                            </li>
                             <li className="divider" />
                             <li>
                               <a href="#">
