@@ -438,7 +438,9 @@ class EditableBlock extends React.Component {
                 </div>
               )}
               {this.state.tag === "divider" && (
-                <div className="notion-cursor-default" style={{ display: 'inline-block', alignItems: 'center', justifyContent: 'center', pointerEvents: 'auto', width: '80%', height: '13px', flex: '0 0 auto', color: 'rgba(55, 53, 47, 0.16)' }}><div style={{ width: '100%', height: '1px', visibility: 'visible', borderBottom: '1px solid rgba(55, 53, 47, 0.16)' }} /></div>
+                <div className="notion-cursor-default" style={{ display: 'inline-block', alignItems: 'center', justifyContent: 'center', pointerEvents: 'auto', width: '80%', height: '13px', flex: '0 0 auto', color: 'rgba(55, 53, 47, 0.16)' }}>
+                  <div style={{ width: '100%', height: '1px', visibility: 'visible', borderBottom: '1px solid rgba(55, 53, 47, 0.16)' }} />
+                </div>
               )}
               <span
                 role="button"
