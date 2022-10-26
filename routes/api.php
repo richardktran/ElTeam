@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -35,6 +36,9 @@ Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:stud
     Route::get('/{course}', [CourseController::class, 'detail'])->name('course.detail');
     Route::get('/{course}/members', [CourseController::class, 'membersList'])->name('course.members');
     Route::get('/{course}/curriculum', [CourseController::class, 'getcurriculum'])->name('course.get-curriculum');
+
+    //GET: Group
+    Route::get('/{course}/groups/my-group', [GroupController::class, 'getMyGroup'])->name('course.get-my-group');
 
     Route::post('/', [CourseController::class, 'create'])->name('courses.create');
     Route::post('/{course}/invite', [CourseController::class, 'invite'])->name('course.invite');
