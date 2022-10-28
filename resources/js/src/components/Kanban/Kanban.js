@@ -4,7 +4,8 @@ import mockData from './mockData'
 import { useState } from 'react'
 import KanbanCard from '../Cards/KanbanCard'
 
-const Kanban = () => {
+const Kanban = (props) => {
+  const { boardData } = props;
   const [data, setData] = useState(mockData)
 
   const onDragEnd = result => {
@@ -94,6 +95,12 @@ const Kanban = () => {
                       ))
                     }
                     {provided.placeholder}
+                    <footer>
+                      <button className="kanban-add-task btn btn-block">
+                        <em className="icon ni ni-plus-sm" />
+                        <span>Add another task</span>
+                      </button>
+                    </footer>
                   </div>
                 </div>
               )}
