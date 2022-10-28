@@ -3,8 +3,12 @@ import mockData from './mockData'
 import { useEffect, useState } from 'react'
 import KanbanCard from '../Cards/KanbanCard'
 import './kanban.scss'
+import { updateTasks } from '../../store/Tasks/Reducer'
+import { useDispatch } from 'react-redux'
 
 const Kanban = (props) => {
+  const dispatch = useDispatch();
+
   const { boardData, groupId } = props;
   const [data, setData] = useState(boardData);
 
@@ -13,11 +17,12 @@ const Kanban = (props) => {
     const { source, destination } = result
 
     if (source.droppableId !== destination.droppableId) {
-      const sourceColIndex = data.findIndex(e => e.id === source.droppableId)
-      const destinationColIndex = data.findIndex(e => e.id === destination.droppableId)
+      let dataModify = [...data];
+      const sourceColIndex = dataModify.findIndex(e => e.id === source.droppableId)
+      const destinationColIndex = dataModify.findIndex(e => e.id === destination.droppableId)
 
-      const sourceCol = data[sourceColIndex]
-      const destinationCol = data[destinationColIndex]
+      const sourceCol = dataModify[sourceColIndex]
+      const destinationCol = dataModify[destinationColIndex]
 
       const sourceTask = [...sourceCol.tasks]
       const destinationTask = [...destinationCol.tasks]
@@ -25,10 +30,12 @@ const Kanban = (props) => {
       const [removed] = sourceTask.splice(source.index, 1)
       destinationTask.splice(destination.index, 0, removed)
 
-      data[sourceColIndex].tasks = sourceTask
-      data[destinationColIndex].tasks = destinationTask
+      dataModify[sourceColIndex] = { ...dataModify[sourceColIndex], tasks: sourceTask }
+      dataModify[destinationColIndex] = { ...dataModify[destinationColIndex], tasks: destinationTask }
 
-      setData(data)
+      setData(dataModify);
+      const action = updateTasks(dataModify);
+      dispatch(action);
     }
   }
 
