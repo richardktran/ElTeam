@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { groupApi } from '../../api/groupApi';
 import { changePage } from '../../app/reducers/sideBarReducer';
+import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
 import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
@@ -81,6 +82,9 @@ const MyGroupPage = () => {
                 </div>
               </div>{/* .nk-block-head-content */}
             </div>{/* .nk-block-between */}
+          </div>
+          <div className="nk-block">
+            <Kanban />
           </div>
         </div>
       </div>
