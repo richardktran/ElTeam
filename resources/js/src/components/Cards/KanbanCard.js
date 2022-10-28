@@ -1,4 +1,3 @@
-import './kanbanCard.scss'
 
 const KanbanCard = props => {
   return (

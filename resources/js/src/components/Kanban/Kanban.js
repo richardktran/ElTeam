@@ -1,12 +1,12 @@
-import './kanban.scss'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import mockData from './mockData'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import KanbanCard from '../Cards/KanbanCard'
+import './kanban.scss'
 
 const Kanban = (props) => {
-  const { boardData } = props;
-  const [data, setData] = useState(mockData)
+  const { boardData, groupId } = props;
+  const [data, setData] = useState(boardData);
 
   const onDragEnd = result => {
     if (!result.destination) return

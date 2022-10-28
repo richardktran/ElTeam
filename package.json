@@ -40,6 +40,8 @@
         "react-redux": "^8.0.4",
         "react-router-dom": "^6.3.0",
         "react-router-loading": "^1.0.0",
+        "redux-saga": "^1.2.1",
+        "reduxsauce": "^1.2.1",
         "uuid": "^9.0.0"
     }
 }

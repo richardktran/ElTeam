@@ -14,8 +14,11 @@ const MyGroupPage = () => {
   const isOwner = isCourseOwner(courseId);
 
   const dispatch = useDispatch();
+  const tasks = useSelector(state => state.groupTasks);
   const sidebarItems = useSelector(state => state.sidebar);
   const [groupInfo, setGroupInfo] = useState({});
+
+  const [boardData, setBoardData] = useState(tasks);
 
   const fetchGroupInfo = async () => {
     let result = await groupApi.getMyGroupInfo(courseId);
@@ -84,7 +87,7 @@ const MyGroupPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Kanban />
+            <Kanban boardData={boardData} groupId={groupInfo.id} />
           </div>
         </div>
       </div>
