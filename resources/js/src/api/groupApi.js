@@ -8,4 +8,10 @@ export const groupApi = {
         const config = await bearerConfig();
         return axiosInstance.get(url, config);
     },
+
+    getTasks: async (groupId) => {
+        const url = 'groups' + '/' + groupId + '/tasks';
+        const config = await bearerConfig();
+        return axiosInstance.get(url, config);
+    }
 }

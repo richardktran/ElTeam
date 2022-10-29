@@ -12,6 +12,10 @@ const Kanban = (props) => {
   const { boardData, groupId } = props;
   const [data, setData] = useState(boardData);
 
+  useEffect(() => {
+    console.log(boardData);
+  }, [boardData]);
+
   const onDragEnd = result => {
     if (!result.destination) return
     const { source, destination } = result
@@ -34,8 +38,6 @@ const Kanban = (props) => {
       dataModify[destinationColIndex] = { ...dataModify[destinationColIndex], tasks: destinationTask }
 
       setData(dataModify);
-      const action = updateTasks(dataModify);
-      dispatch(action);
     }
   }
 

@@ -8,13 +8,14 @@ import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
 import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
+import { requestTasks } from '../../store/Tasks/Reducer';
 
 const MyGroupPage = () => {
   let { courseId } = useParams(); //get id from url
   const isOwner = isCourseOwner(courseId);
 
   const dispatch = useDispatch();
-  const tasks = useSelector(state => state.groupTasks);
+  const tasks = useSelector(state => state.groupTasks.sections);
   const sidebarItems = useSelector(state => state.sidebar);
   const [groupInfo, setGroupInfo] = useState({});
 
@@ -25,8 +26,15 @@ const MyGroupPage = () => {
     if (result.status === HTTP_OK) {
       const { data } = result.data;
       setGroupInfo(data);
+
+      const fetchTasksAction = requestTasks(data.id);
+      dispatch(fetchTasksAction);
     }
   }
+
+  useEffect(() => {
+    setBoardData(tasks);
+  }, [tasks]);
 
   useEffect(() => {
     const items = isOwner ? courseDetailItems : courseMembersItems;

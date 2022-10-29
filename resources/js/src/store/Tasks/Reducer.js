@@ -1,63 +1,52 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid'
 
-const initialItems = [
-  {
-    id: uuidv4(),
-    title: ' 📃 To do',
-    tasks: [
-      {
-        id: uuidv4(),
-        title: 'Learn JavaScript 1'
-      },
-      {
-        id: uuidv4(),
-        title: 'Learn Git'
-      },
-      {
-        id: uuidv4(),
-        title: 'Learn Python'
-      },
-    ]
-  },
-  {
-    id: uuidv4(),
-    title: ' ✏️ In progress',
-    tasks: [
-      {
-        id: uuidv4(),
-        title: 'Learn CSS'
-      },
-      {
-        id: uuidv4(),
-        title: 'Learn Golang'
-      }
-    ]
-  },
-  {
-    id: uuidv4(),
-    title: ' ✔️ Completed',
-    tasks: [
-      {
-        id: uuidv4(),
-        title: 'Learn HTML'
-      }
-    ]
-  }
-];
+const initialItems = {
+  group_id: 107,
+  submitting: false,
+  sections: [
+    {
+      id: uuidv4(),
+      title: ' 📃 To do',
+      tasks: []
+    },
+    {
+      id: uuidv4(),
+      title: ' ✏️ In progress',
+      tasks: []
+    },
+    {
+      id: uuidv4(),
+      title: ' ✔️ Completed',
+      tasks: []
+    }
+  ]
+};
 
 const groupTasks = createSlice({
   name: 'groupTasks',
   initialState: initialItems,
   reducers: {
-    updateTasks: (state, action) => {
-      const newItems = action.payload;
-      return newItems;
+    requestTasks: (state, action) => {
+      const group_id = action.payload;
+      return {
+        ...state,
+        submitting: true,
+        group_id
+      }
+    },
+    getTasks: (state, action) => {
+      const newSections = action.payload;
+      return {
+        ...state,
+        submitting: false,
+        sections: newSections
+      }
     },
   }
 });
 
 const { reducer, actions } = groupTasks;
-export const { updateTasks } = actions;
+export const { getTasks, requestTasks } = actions;
 
 export default reducer;
