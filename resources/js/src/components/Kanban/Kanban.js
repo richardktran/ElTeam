@@ -13,7 +13,7 @@ const Kanban = (props) => {
   const [data, setData] = useState(boardData);
 
   useEffect(() => {
-    console.log(boardData);
+    setData(boardData);
   }, [boardData]);
 
   const onDragEnd = result => {
@@ -22,8 +22,8 @@ const Kanban = (props) => {
 
     if (source.droppableId !== destination.droppableId) {
       let dataModify = [...data];
-      const sourceColIndex = dataModify.findIndex(e => e.id === source.droppableId)
-      const destinationColIndex = dataModify.findIndex(e => e.id === destination.droppableId)
+      const sourceColIndex = dataModify.findIndex(e => e.id == source.droppableId)
+      const destinationColIndex = dataModify.findIndex(e => e.id == destination.droppableId)
 
       const sourceCol = dataModify[sourceColIndex]
       const destinationCol = dataModify[destinationColIndex]
@@ -48,7 +48,7 @@ const Kanban = (props) => {
           data.map(section => (
             <Droppable
               key={section.id}
-              droppableId={section.id}
+              droppableId={section.id.toString()}
             >
               {(provided) => (
                 <div
@@ -82,7 +82,7 @@ const Kanban = (props) => {
                       section.tasks.map((task, index) => (
                         <Draggable
                           key={task.id}
-                          draggableId={task.id}
+                          draggableId={task.id.toString()}
                           index={index}
                         >
                           {(provided, snapshot) => (
