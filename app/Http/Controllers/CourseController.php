@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\GenerateGroupsEvent;
 use App\Http\Requests\Courses\InviteStudentsValidator;
 use App\Http\Requests\CreateCourseRequest;
 use App\Http\Resources\CourseResource;
@@ -71,7 +72,7 @@ class CourseController extends Controller
     public function getcurriculum(Request $request, Course $course)
     {
         $curriculum = Curriculum::where('course_id', $course->id)->first();
-        $contents = json_decode(optional($curriculum)->contents,1);
+        $contents = json_decode(optional($curriculum)->contents, 1);
 
         return $this->response($contents);
     }
@@ -145,6 +146,7 @@ class CourseController extends Controller
         $request = $request->all();
         $groups = $this->courseService->divideStudentToGroups($course, $request);
 
+        event(new GenerateGroupsEvent($course));
         return $this->response($groups);
     }
 
