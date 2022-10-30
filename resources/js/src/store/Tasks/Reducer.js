@@ -43,10 +43,19 @@ const groupTasks = createSlice({
         sections: newSections
       }
     },
+    updateTaskPosition: (state, action) => {
+      console.log(action.payload);
+      const { groupId, sections } = action.payload;
+      return {
+        ...state,
+        submitting: false,
+        sections: sections
+      }
+    },
   }
 });
 
 const { reducer, actions } = groupTasks;
-export const { getTasks, requestTasks } = actions;
+export const { getTasks, requestTasks, updateTaskPosition } = actions;
 
 export default reducer;

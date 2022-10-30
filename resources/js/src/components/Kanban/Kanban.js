@@ -3,8 +3,8 @@ import mockData from './mockData'
 import { useEffect, useState } from 'react'
 import KanbanCard from '../Cards/KanbanCard'
 import './kanban.scss'
-import { updateTasks } from '../../store/Tasks/Reducer'
 import { useDispatch } from 'react-redux'
+import { updateTaskPosition } from '../../store/Tasks/Reducer'
 
 const Kanban = (props) => {
   const dispatch = useDispatch();
@@ -17,28 +17,60 @@ const Kanban = (props) => {
   }, [boardData]);
 
   const onDragEnd = result => {
-    if (!result.destination) return
-    const { source, destination } = result
-    console.log(result);
+    if (!result.destination) return;
+    const { source, destination } = result;
+    let dataModify = [...data];
+    const sourceColIndex = dataModify.findIndex(e => e.id == source.droppableId)
+    const destinationColIndex = dataModify.findIndex(e => e.id == destination.droppableId)
+
+    const sourceCol = dataModify[sourceColIndex]
+    const destinationCol = dataModify[destinationColIndex]
+
+    const sourceTask = [...sourceCol.tasks]
+    const destinationTask = [...destinationCol.tasks]
     if (source.droppableId !== destination.droppableId) {
-      let dataModify = [...data];
-      const sourceColIndex = dataModify.findIndex(e => e.id == source.droppableId)
-      const destinationColIndex = dataModify.findIndex(e => e.id == destination.droppableId)
-
-      const sourceCol = dataModify[sourceColIndex]
-      const destinationCol = dataModify[destinationColIndex]
-
-      const sourceTask = [...sourceCol.tasks]
-      const destinationTask = [...destinationCol.tasks]
-
       const [removed] = sourceTask.splice(source.index, 1)
       destinationTask.splice(destination.index, 0, removed)
 
-      dataModify[sourceColIndex] = { ...dataModify[sourceColIndex], tasks: sourceTask }
-      dataModify[destinationColIndex] = { ...dataModify[destinationColIndex], tasks: destinationTask }
+      //update all position of source tasks equal index
+      const newSourceTask = [];
+      sourceTask.forEach((task, index) => {
+        task = { ...task, position: index }
+        newSourceTask.push(task);
+      })
 
-      setData(dataModify);
+      const newDestinationTask = [];
+      destinationTask.forEach((task, index) => {
+        task = { ...task, position: index }
+        newDestinationTask.push(task);
+      })
+
+      dataModify[destinationColIndex] = { ...dataModify[destinationColIndex], tasks: newDestinationTask }
+      dataModify[sourceColIndex] = { ...dataModify[sourceColIndex], tasks: newSourceTask }
+    } else {
+      const [removed] = destinationTask.splice(source.index, 1);
+      destinationTask.splice(destination.index, 0, removed);
+
+      //update all position of source tasks equal index
+      const newSourceTask = [];
+      sourceTask.forEach((task, index) => {
+        task = { ...task, position: index }
+        newSourceTask.push(task);
+      })
+
+      const newDestinationTask = [];
+      destinationTask.forEach((task, index) => {
+        task = { ...task, position: index }
+        newDestinationTask.push(task);
+      })
+
+      dataModify[destinationColIndex] = { ...dataModify[destinationColIndex], tasks: newDestinationTask }
     }
+    setData(dataModify);
+    dispatch(updateTaskPosition({
+      sections: dataModify,
+      groupId: groupId
+    }));
   }
 
   return (

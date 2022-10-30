@@ -1,18 +1,23 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
-import { getTasks, requestTasks as requestTaskAction } from './Reducer';
+import {
+  getTasks,
+  requestTasks as requestTaskAction,
+  updateTaskPosition as updateTaskPositionAction
+} from './Reducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { groupApi } from '../../api/groupApi';
 
-// const group_id = useSelector(state => state.groupTasks.group_id);
-
-// export function* updateTasks() {
-//   try {
-//     const [tasks] = yield call(groupApi.getTasks, groupId);
-//     yield put(updateTasksAction(tasks));
-//   } catch (e) {
-//     const err = _get(e, 'response.data', {});
-//   }
-// }
+export function* updateTaskPosition({ payload }) {
+  try {
+    const { sections, groupId } = payload;
+    const data = {
+      sections: sections
+    }
+    yield call(groupApi.updateTaskPosition, groupId, data);
+  } catch (e) {
+    const err = _get(e, 'response.data', {});
+  }
+}
 
 export function* requestTasks({ payload }) {
   try {
@@ -34,6 +39,7 @@ export function* requestTasks({ payload }) {
 
 function* tasksSaga() {
   yield takeLatest(requestTaskAction, requestTasks);
+  yield takeLatest(updateTaskPositionAction, updateTaskPosition);
 
 }
 export default tasksSaga;

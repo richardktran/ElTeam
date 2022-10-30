@@ -17,4 +17,22 @@ class TaskController extends Controller
 
         return $this->response($sections);
     }
+
+    public function updatePositionTask(Request $request, Group $group)
+    {
+        $params = $request->all();
+        $sections = $params['sections'];
+
+        foreach ($sections as $section) {
+            $tasks = $section['tasks'];
+            foreach ($tasks as $task) {
+                $taskModel = Task::find($task['id']);
+                $taskModel->position = $task['position'];
+                $taskModel->section_id = $section['id'];
+                $taskModel->save();
+            }
+        }
+
+        $this->response(['message' => 'Update position successfully']);
+    }
 }
