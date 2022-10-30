@@ -16,6 +16,7 @@ class TaskSeeder extends Seeder
     {
         DB::table('tasks')->insert([
             [
+                'position' => 0,
                 'title' => 'Learn JavaScript',
                 'content' => 'Update the new UI design for @dashlite template with based on feedback.',
                 'assignees' => json_encode(['1', '4']),
@@ -23,6 +24,7 @@ class TaskSeeder extends Seeder
                 'group_id' => 107,
             ],
             [
+                'position' => 1,
                 'title' => 'Learn Git',
                 'content' => 'Update the new UI design for @dashlite template with based on feedback.',
                 'assignees' => json_encode(['1', '4']),
@@ -30,6 +32,7 @@ class TaskSeeder extends Seeder
                 'group_id' => 107,
             ],
             [
+                'position' => 2,
                 'title' => 'Learn Python',
                 'content' => 'Update the new UI design for @dashlite template with based on feedback.',
                 'assignees' => json_encode(['1', '4']),
@@ -37,6 +40,7 @@ class TaskSeeder extends Seeder
                 'group_id' => 107,
             ],
             [
+                'position' => 0,
                 'title' => 'Learn Golang',
                 'content' => 'Update the new UI design for @dashlite template with based on feedback.',
                 'assignees' => json_encode(['1', '4']),
@@ -44,6 +48,7 @@ class TaskSeeder extends Seeder
                 'group_id' => 107,
             ],
             [
+                'position' => 1,
                 'title' => 'Learn CSS',
                 'content' => 'Update the new UI design for @dashlite template with based on feedback.',
                 'assignees' => json_encode(['1', '4']),
@@ -51,6 +56,7 @@ class TaskSeeder extends Seeder
                 'group_id' => 107,
             ],
             [
+                'position' => 0,
                 'title' => 'Learn HTML',
                 'content' => 'Update the new UI design for @dashlite template with based on feedback.',
                 'assignees' => json_encode(['1', '4']),
@@ -58,6 +64,7 @@ class TaskSeeder extends Seeder
                 'group_id' => 107,
             ],
             [
+                'position' => 1,
                 'title' => 'Learn NodeJS',
                 'content' => 'Update the new UI design for @dashlite template with based on feedback.',
                 'assignees' => json_encode(['1', '4']),

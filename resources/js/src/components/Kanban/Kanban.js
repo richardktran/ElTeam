@@ -19,7 +19,7 @@ const Kanban = (props) => {
   const onDragEnd = result => {
     if (!result.destination) return
     const { source, destination } = result
-
+    console.log(result);
     if (source.droppableId !== destination.droppableId) {
       let dataModify = [...data];
       const sourceColIndex = dataModify.findIndex(e => e.id == source.droppableId)
