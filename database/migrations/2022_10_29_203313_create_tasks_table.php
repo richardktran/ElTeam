@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->string('title');
             $table->text('content')->nullable();
             $table->json('assignees')->nullable();
+            $table->dateTime('deadline')->nullable();
             $table->unsignedBigInteger('section_id')->constrained();
             $table->unsignedBigInteger('group_id')->constrained();
 

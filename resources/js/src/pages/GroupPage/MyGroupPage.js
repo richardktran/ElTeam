@@ -65,25 +65,26 @@ const MyGroupPage = () => {
         title: values.title,
         content: values.content,
         deadline: deadline,
+        section_id: sectionId,
       }
-      console.log(data);
 
-      // const response = await courseApi.create(data);
-      // if (response.status === HTTP_OK) {
-      //   toast.success('Thêm khóa học thành công!');
-      //   fetchOwnCourses();
-      //   setShowModal(false);
-      // } else {
-      //   console.log(response);
-      //   toast.error("Thêm khóa học thất bại!!!");
-      //   setShowModal(true);
-      // }
+      const response = await groupApi.create(groupInfo.id, data);
+      if (response.status === HTTP_OK) {
+        toast.success('Thêm nhiệm vụ thành công!');
+        dispatch(requestTasks(groupInfo.id));
+        setShowAddTaskModal(false);
+      } else {
+        console.log(response);
+        toast.error("Thêm nhiệm vụ thất bại!!!");
+        setShowAddTaskModal(true);
+      }
     } catch (e) {
+      console.log(e);
       const messages = e.response.data.messages;
       messages.forEach(message => {
         toast.error(message.message);
       });
-      setShowModal(true);
+      setShowAddTaskModal(true);
     }
   }
 
