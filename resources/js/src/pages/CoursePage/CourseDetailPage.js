@@ -3,15 +3,13 @@ import { Link, useParams } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePage } from '../../app/reducers/sideBarReducer';
-import { courseDetailItems } from './sidebars/courseDetail';
+import { courseDetailItems, courseMembersItems } from './sidebars/courseDetail';
 import Curriculum from './Components/Curriculum';
 import isCourseOwner from '../../hooks/isCourseOwner';
 
 const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
-
   const isOwner = isCourseOwner(id);
-
   const dispatch = useDispatch();
 
   const [isEditable, setIsEditable] = useState(false);
@@ -21,7 +19,14 @@ const CourseDetailPage = () => {
   }
 
   useEffect(() => {
-    const action = changePage(courseDetailItems);
+    const items = isOwner ? courseDetailItems : courseMembersItems;
+    const action = changePage(items);
+    dispatch(action);
+  }, [isOwner]);
+
+  useEffect(() => {
+    const items = isOwner ? courseDetailItems : courseMembersItems;
+    const action = changePage(items);
     dispatch(action);
   }, []);
 

@@ -2,9 +2,9 @@ import React from 'react'
 import { Modal } from 'react-bootstrap';
 
 const BaseModal = (props) => {
-    const { children, modalName, isShow, handleCloseModal } = props;
+    const { children, modalName, isShow, handleCloseModal, modalSize = 'xs' } = props;
     return (
-        <Modal show={isShow} className="fade" tabIndex={-1}>
+        <Modal show={isShow} className="fade" size={modalSize} tabIndex={-1}>
             <a href="#" onClick={handleCloseModal} className="close" data-dismiss="modal" aria-label="Close">
                 <em className="icon ni ni-cross" />
             </a>

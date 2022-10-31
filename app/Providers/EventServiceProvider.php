@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Events\CourseInvitationEvent;
+use App\Events\GenerateGroupsEvent;
+use App\Listeners\CreateKanbanListener;
 use App\Listeners\EmailCourseInvitationListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         CourseInvitationEvent::class => [
             EmailCourseInvitationListener::class,
+        ],
+        GenerateGroupsEvent::class => [
+            CreateKanbanListener::class,
         ],
     ];
 

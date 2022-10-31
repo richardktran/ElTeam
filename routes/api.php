@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -36,12 +38,22 @@ Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:stud
     Route::get('/{course}/members', [CourseController::class, 'membersList'])->name('course.members');
     Route::get('/{course}/curriculum', [CourseController::class, 'getcurriculum'])->name('course.get-curriculum');
 
+    //GET: Group
+    Route::get('/{course}/groups/my-group', [GroupController::class, 'getMyGroup'])->name('course.get-my-group');
+
     Route::post('/', [CourseController::class, 'create'])->name('courses.create');
     Route::post('/{course}/invite', [CourseController::class, 'invite'])->name('course.invite');
     Route::post('/{course}/accept', [CourseController::class, 'accept'])->name('course.accept');
     Route::post('/{course}/decline', [CourseController::class, 'decline'])->name('course.decline');
     Route::post('/{course}/curriculum', [CourseController::class, 'createOrUpdateCurriculum'])->name('course.update-curriculum');
     Route::post('/{course}/divide-random-groups', [CourseController::class, 'divideStudentToGroups'])->name('course.divideStudentToGroups');
+});
+
+Route::group(['prefix' => 'groups', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
+    Route::get('/{group}/tasks', [TaskController::class, 'getTasksForGroup'])->name('groups.task.get');
+
+    Route::post('/{group}/tasks', [TaskController::class, 'createTask'])->name('groups.task.create');
+    Route::post('/{group}/update-task-position', [TaskController::class, 'updatePositionTask'])->name('groups.task.update-position');
 });
 
 Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function () {
