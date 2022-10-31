@@ -2,31 +2,43 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { courseApi } from '../../api/courseApi';
-import { userApi } from '../../api/userApi';
+import moment from 'moment';
+import { groupApi } from '../../api/groupApi';
 import { changePage } from '../../app/reducers/sideBarReducer';
-import Layout from '../../components/Layout/Layout';
-import AddMemberModal from '../../components/Modal/AddMemberModal';
-import MemberList from '../../components/MemberList/MemberList';
-import { HTTP_OK } from '../../utils/constant';
-import { courseDetailItems, courseMembersItems } from './sidebars/courseDetail';
+import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
+import { HTTP_OK } from '../../utils/constant';
+import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
+import { requestTasks } from '../../store/Tasks/Reducer';
+import AddTaskModal from '../../components/Modal/AddTaskModal';
 
-const MemberPage = () => {
-  let { id } = useParams(); //get id from url
-  const isOwner = isCourseOwner(id);
+const MyGroupPage = () => {
+  let { courseId } = useParams(); //get id from url
+  const isOwner = isCourseOwner(courseId);
 
   const dispatch = useDispatch();
+  const tasks = useSelector(state => state.groupTasks.sections);
   const sidebarItems = useSelector(state => state.sidebar);
+  const [groupInfo, setGroupInfo] = useState({});
 
-  const [members, setMembers] = useState([]);
-  const fetchMembers = async () => {
-    let result = await courseApi.getMembers(id);
+  const [boardData, setBoardData] = useState(tasks);
+  const [sectionId, setSectionId] = useState(0);
+  const [showAddTaskModal, setShowAddTaskModal] = useState(false);
+
+  const fetchGroupInfo = async () => {
+    let result = await groupApi.getMyGroupInfo(courseId);
     if (result.status === HTTP_OK) {
       const { data } = result.data;
-      setMembers(data);
+      setGroupInfo(data);
+
+      const fetchTasksAction = requestTasks(data.id);
+      dispatch(fetchTasksAction);
     }
   }
+
+  useEffect(() => {
+    setBoardData(tasks);
+  }, [tasks]);
 
   useEffect(() => {
     const items = isOwner ? courseDetailItems : courseMembersItems;
@@ -38,47 +50,43 @@ const MemberPage = () => {
     const items = isOwner ? courseDetailItems : courseMembersItems;
     const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
     dispatch(action);
-    fetchMembers();
+    fetchGroupInfo();
   }, []);
 
-
-
-  const [showMemberModal, setShowMemberModal] = useState(false);
-
-  const addMember = async (values) => {
-
-    try {
-      const data = {
-        students: [values.email]
-      }
-      const response = await courseApi.invite(id, data);
-
-    } catch (e) {
-      const messages = e.response.data.messages;
-      messages.forEach(message => {
-        console.log(message.message);
-      });
-    }
-    fetchMembers();
-    toast.success('Lời mời tham gia khóa học đã được gởi đến ' + values.email);
-    setShowMemberModal(false);
+  const openAddTaskModal = (sectionId) => {
+    setShowAddTaskModal(true);
+    setSectionId(sectionId);
   }
 
-  const handleRandomDivideGroup = async (groupSize) => {
+  const addTask = async (values) => {
     try {
+      const deadline = moment(values.deadline).format('YYYY-MM-DD') ?? null;
       const data = {
-        "group_size": groupSize
+        title: values.title,
+        content: values.content,
+        deadline: deadline,
+        section_id: sectionId,
       }
-      const response = await courseApi.randomDivideGroup(id, data);
-      fetchMembers();
+
+      const response = await groupApi.create(groupInfo.id, data);
+      if (response.status === HTTP_OK) {
+        toast.success('Thêm nhiệm vụ thành công!');
+        dispatch(requestTasks(groupInfo.id));
+        setShowAddTaskModal(false);
+      } else {
+        console.log(response);
+        toast.error("Thêm nhiệm vụ thất bại!!!");
+        setShowAddTaskModal(true);
+      }
     } catch (e) {
+      console.log(e);
       const messages = e.response.data.messages;
       messages.forEach(message => {
-        console.log(message.message);
+        toast.error(message.message);
       });
+      setShowAddTaskModal(true);
     }
   }
-
 
   return (
     <div className="container-fluid">
@@ -93,7 +101,7 @@ const MemberPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                <h3 className="nk-block-title page-title">Thành viên - Luận văn tốt nghiệp</h3>
+                <h3 className="nk-block-title page-title">Nhóm {groupInfo.number} - {groupInfo.name}</h3>
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content">
                 <div className="nk-block-head-sub mb-2"></div>
@@ -119,14 +127,6 @@ const MemberPage = () => {
                           </div>
                         </div>
                       </li>
-                      {isOwner &&
-                        <li className="nk-block-tools-opt">
-                          <a href="#" onClick={() => setShowMemberModal(true)} className="btn btn-primary">
-                            <em className="icon ni ni-reports" />
-                            <span>Thêm thành viên</span>
-                          </a>
-                        </li>
-                      }
                     </ul>
                   </div>
                 </div>
@@ -134,17 +134,18 @@ const MemberPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <MemberList
-              members={members}
-              isOwner={isOwner}
-              handleRandomDivide={handleRandomDivideGroup}
+            <Kanban
+              boardData={boardData}
+              openAddTaskModal={openAddTaskModal}
+              groupId={groupInfo.id}
             />
           </div>
-          <AddMemberModal
-            modalName="Thêm thành viên"
-            onFinish={addMember}
-            isShow={showMemberModal}
-            handleCloseModal={() => setShowMemberModal(false)}
+          <AddTaskModal
+            modalName="Thêm công việc"
+            modalSize='lg'
+            onFinish={addTask}
+            isShow={showAddTaskModal}
+            handleCloseModal={() => setShowAddTaskModal(false)}
           />
         </div>
       </div>
@@ -152,4 +153,4 @@ const MemberPage = () => {
   );
 }
 
-export default MemberPage
+export default MyGroupPage
