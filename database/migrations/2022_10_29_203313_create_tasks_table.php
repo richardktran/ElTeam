@@ -17,8 +17,8 @@ class CreateTasksTable extends Migration
             $table->id();
             $table->integer('position');
             $table->string('title');
-            $table->text('content');
-            $table->json('assignees');
+            $table->text('content')->nullable();
+            $table->json('assignees')->nullable();
             $table->unsignedBigInteger('section_id')->constrained();
             $table->unsignedBigInteger('group_id')->constrained();
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import moment from 'moment';
 import { groupApi } from '../../api/groupApi';
 import { changePage } from '../../app/reducers/sideBarReducer';
 import Kanban from '../../components/Kanban/Kanban';
@@ -9,6 +10,7 @@ import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
 import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
 import { requestTasks } from '../../store/Tasks/Reducer';
+import AddTaskModal from '../../components/Modal/AddTaskModal';
 
 const MyGroupPage = () => {
   let { courseId } = useParams(); //get id from url
@@ -20,6 +22,8 @@ const MyGroupPage = () => {
   const [groupInfo, setGroupInfo] = useState({});
 
   const [boardData, setBoardData] = useState(tasks);
+  const [sectionId, setSectionId] = useState(0);
+  const [showAddTaskModal, setShowAddTaskModal] = useState(false);
 
   const fetchGroupInfo = async () => {
     let result = await groupApi.getMyGroupInfo(courseId);
@@ -48,6 +52,40 @@ const MyGroupPage = () => {
     dispatch(action);
     fetchGroupInfo();
   }, []);
+
+  const openAddTaskModal = (sectionId) => {
+    setShowAddTaskModal(true);
+    setSectionId(sectionId);
+  }
+
+  const addTask = async (values) => {
+    try {
+      const deadline = moment(values.deadline).format('YYYY-MM-DD') ?? null;
+      const data = {
+        title: values.title,
+        content: values.content,
+        deadline: deadline,
+      }
+      console.log(data);
+
+      // const response = await courseApi.create(data);
+      // if (response.status === HTTP_OK) {
+      //   toast.success('Thêm khóa học thành công!');
+      //   fetchOwnCourses();
+      //   setShowModal(false);
+      // } else {
+      //   console.log(response);
+      //   toast.error("Thêm khóa học thất bại!!!");
+      //   setShowModal(true);
+      // }
+    } catch (e) {
+      const messages = e.response.data.messages;
+      messages.forEach(message => {
+        toast.error(message.message);
+      });
+      setShowModal(true);
+    }
+  }
 
   return (
     <div className="container-fluid">
@@ -95,8 +133,19 @@ const MyGroupPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Kanban boardData={boardData} groupId={groupInfo.id} />
+            <Kanban
+              boardData={boardData}
+              openAddTaskModal={openAddTaskModal}
+              groupId={groupInfo.id}
+            />
           </div>
+          <AddTaskModal
+            modalName="Thêm công việc"
+            modalSize='lg'
+            onFinish={addTask}
+            isShow={showAddTaskModal}
+            handleCloseModal={() => setShowAddTaskModal(false)}
+          />
         </div>
       </div>
     </div>

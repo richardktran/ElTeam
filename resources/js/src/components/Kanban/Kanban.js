@@ -9,7 +9,7 @@ import { updateTaskPosition } from '../../store/Tasks/Reducer'
 const Kanban = (props) => {
   const dispatch = useDispatch();
 
-  const { boardData, groupId } = props;
+  const { boardData, groupId, openAddTaskModal } = props;
   const [data, setData] = useState(boardData);
 
   useEffect(() => {
@@ -137,7 +137,7 @@ const Kanban = (props) => {
                     }
                     {provided.placeholder}
                     <footer>
-                      <button className="kanban-add-task btn btn-block">
+                      <button onClick={() => openAddTaskModal(section.id)} className="kanban-add-task btn btn-block">
                         <em className="icon ni ni-plus-sm" />
                         <span>Add another task</span>
                       </button>

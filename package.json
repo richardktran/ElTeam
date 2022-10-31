@@ -37,6 +37,7 @@
         "react-contenteditable": "^3.3.6",
         "react-datepicker": "^4.8.0",
         "react-hot-toast": "^2.3.0",
+        "react-quill": "^2.0.0",
         "react-redux": "^8.0.4",
         "react-router-dom": "^6.3.0",
         "react-router-loading": "^1.0.0",
