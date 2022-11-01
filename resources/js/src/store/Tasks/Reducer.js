@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 const initialItems = {
   group_id: 107,
   submitting: false,
+  currentTask: {},
   sections: [
     {
       id: uuidv4(),
@@ -27,12 +28,31 @@ const groupTasks = createSlice({
   name: 'groupTasks',
   initialState: initialItems,
   reducers: {
+    requestTask: (state, action) => {
+      const task_id = action.payload;
+      return {
+        ...state,
+        submitting: true,
+        currentTask: {
+          ...state.currentTask,
+          id: task_id
+        }
+      }
+    },
     requestTasks: (state, action) => {
       const group_id = action.payload;
       return {
         ...state,
         submitting: true,
         group_id
+      }
+    },
+    getTask: (state, action) => {
+      const task = action.payload;
+      return {
+        ...state,
+        submitting: false,
+        currentTask: task
       }
     },
     getTasks: (state, action) => {
@@ -56,6 +76,12 @@ const groupTasks = createSlice({
 });
 
 const { reducer, actions } = groupTasks;
-export const { getTasks, requestTasks, updateTaskPosition } = actions;
+export const {
+  getTask,
+  getTasks,
+  requestTask,
+  requestTasks,
+  updateTaskPosition
+} = actions;
 
 export default reducer;

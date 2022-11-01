@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    public function getTask(Request $request, Task $task)
+    {
+        return $this->response($task);
+    }
     public function getTasksForGroup(Request $request, Group $group)
     {
         $sections = $group->course->sections->load(['tasks' => function ($query) use ($group) {

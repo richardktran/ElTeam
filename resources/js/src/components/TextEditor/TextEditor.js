@@ -32,17 +32,19 @@ const formats = [
   'code',
 ];
 
-const TextEditor = ({ value, onChange, placeholder }) => {
+const TextEditor = (props) => {
+  const { value, onChange, placeholder, readOnly = false } = props;
   return (
     <>
       <ReactQuill
-        theme="snow"
+        theme={readOnly ? 'bubble' : 'snow'}
         value={value || ''}
         modules={modules}
         formats={formats}
         onChange={onChange}
         placeholder={placeholder}
-        style={{ height: "150px", marginBottom: "40px" }}
+        readOnly={readOnly}
+        style={{ height: "140px", marginBottom: "40px" }}
       />
     </>
   );

@@ -9,8 +9,9 @@ import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
 import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
-import { requestTasks } from '../../store/Tasks/Reducer';
-import AddTaskModal from '../../components/Modal/AddTaskModal';
+import { requestTask, requestTasks } from '../../store/Tasks/Reducer';
+import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
+import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
 
 const MyGroupPage = () => {
   let { courseId } = useParams(); //get id from url
@@ -23,7 +24,9 @@ const MyGroupPage = () => {
 
   const [boardData, setBoardData] = useState(tasks);
   const [sectionId, setSectionId] = useState(0);
+  const [taskId, setTaskId] = useState(0);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
+  const [showDetailTaskModal, setShowDetailTaskModal] = useState(false);
 
   const fetchGroupInfo = async () => {
     let result = await groupApi.getMyGroupInfo(courseId);
@@ -56,6 +59,12 @@ const MyGroupPage = () => {
   const openAddTaskModal = (sectionId) => {
     setShowAddTaskModal(true);
     setSectionId(sectionId);
+  }
+
+  const openDetailTaskModal = (taskId) => {
+    setShowDetailTaskModal(true);
+    dispatch(requestTask(taskId));
+    setTaskId(taskId);
   }
 
   const addTask = async (values) => {
@@ -137,15 +146,25 @@ const MyGroupPage = () => {
             <Kanban
               boardData={boardData}
               openAddTaskModal={openAddTaskModal}
+              openDetailTaskModal={openDetailTaskModal}
               groupId={groupInfo.id}
             />
           </div>
           <AddTaskModal
             modalName="Thêm công việc"
-            modalSize='lg'
+            modalSize='xl'
             onFinish={addTask}
             isShow={showAddTaskModal}
             handleCloseModal={() => setShowAddTaskModal(false)}
+          />
+
+          <DetailTaskModal
+            modalName="Chi tiết công việc"
+            taskId={taskId}
+            modalSize='xl'
+            onFinish={addTask}
+            isShow={showDetailTaskModal}
+            handleCloseModal={() => setShowDetailTaskModal(false)}
           />
         </div>
       </div>
