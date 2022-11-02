@@ -9,7 +9,7 @@ import { updateTaskPosition } from '../../store/Tasks/Reducer'
 const Kanban = (props) => {
   const dispatch = useDispatch();
 
-  const { boardData, groupId, openAddTaskModal } = props;
+  const { boardData, groupId, openAddTaskModal, openDetailTaskModal } = props;
   const [data, setData] = useState(boardData);
 
   useEffect(() => {
@@ -116,9 +116,11 @@ const Kanban = (props) => {
                           key={task.id}
                           draggableId={task.id.toString()}
                           index={index}
+
                         >
                           {(provided, snapshot) => (
                             <div
+                              onClick={() => openDetailTaskModal(task.id)}
                               ref={provided.innerRef}
                               {...provided.draggableProps}
                               {...provided.dragHandleProps}
@@ -127,7 +129,7 @@ const Kanban = (props) => {
                                 opacity: snapshot.isDragging ? '0.5' : '1'
                               }}
                             >
-                              <KanbanCard>
+                              <KanbanCard description={task.content}>
                                 {task.title}
                               </KanbanCard>
                             </div>

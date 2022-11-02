@@ -29,6 +29,9 @@
         "sass-loader": "^13.0.2"
     },
     "dependencies": {
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
+        "@mui/material": "^5.10.12",
         "@reduxjs/toolkit": "^1.8.5",
         "antd": "^4.22.8",
         "match-sorter": "^6.3.1",

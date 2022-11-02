@@ -1,0 +1,15 @@
+input, textarea {
+  background-color: transparent;
+  border: 0;
+  padding: 8px 16px;
+  border-radius: 3px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #D8DEE9;
+  border: 2px solid #161822;
+}
+
+input:hover {
+  background-color: #161822;
+  cursor: pointer;
+}

@@ -1,5 +1,20 @@
+import { useEffect, useState } from "react";
+import { cutStringShorter } from "../../utils/stringUtils";
 
 const KanbanCard = props => {
+  const { description } = props;
+  const [content, setContent] = useState(description);
+
+  useEffect(() => {
+    function getText(html) {
+      var divContainer = document.createElement("div");
+      divContainer.innerHTML = html;
+      return cutStringShorter(divContainer.textContent || divContainer.innerText || "", 100);
+    }
+    setContent(getText(description));
+  }, [description]);
+
+
   return (
     <div className="kanban-item">
       <div className="kanban-item-title">
@@ -27,7 +42,7 @@ const KanbanCard = props => {
         </div>
       </div>
       <div className="kanban-item-text">
-        <p>Update the new UI design for @dashlite template with based on feedback.</p>
+        <p>{content}</p>
       </div>
       <ul className="kanban-item-tags">
         <li><span className="badge badge-info">Dashlite</span></li>
