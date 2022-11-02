@@ -1,10 +1,12 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
+import { TextField } from '@mui/material'
 import {
   getTask,
   getTasks,
   requestTask as requestTaskInfoAction,
   requestTasks as requestTaskAction,
-  updateTaskPosition as updateTaskPositionAction
+  updateTaskPosition as updateTaskPositionAction,
+  updateContentTask as updateContentTaskAction,
 } from './Reducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { groupApi } from '../../api/groupApi';
@@ -39,6 +41,20 @@ export function* updateTaskPosition({ payload }) {
   }
 }
 
+export function* updateContentTask({ payload }) {
+  try {
+    const { content, taskId } = payload;
+    const data = {
+      content: content
+    }
+    yield call(groupApi.updateContentTask, taskId, data);
+    yield put(requestTaskInfoAction(taskId));
+  } catch (e) {
+    console.log(e);
+    const err = _get(e, 'response.data', {});
+  }
+}
+
 export function* requestTasks({ payload }) {
   try {
     const groupId = payload;
@@ -61,6 +77,7 @@ function* tasksSaga() {
   yield takeLatest(requestTaskInfoAction, requestTask);
   yield takeLatest(requestTaskAction, requestTasks);
   yield takeLatest(updateTaskPositionAction, updateTaskPosition);
+  yield takeLatest(updateContentTaskAction, updateContentTask);
 
 }
 export default tasksSaga;

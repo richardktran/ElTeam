@@ -61,4 +61,15 @@ class TaskController extends Controller
 
         return $this->response($task);
     }
+
+    public function updateTask(Request $request, Task $task)
+    {
+        $params = $request->all();
+
+        Task::where('id', $task->id)
+            ->update($params);
+        $task = Task::find($task->id);
+
+        return $this->response($task);
+    }
 }

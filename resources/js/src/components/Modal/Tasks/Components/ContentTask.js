@@ -1,16 +1,26 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { updateContentTask } from '../../../../store/Tasks/Reducer';
 import TextEditor from '../../../TextEditor/TextEditor';
 
 function ContentTask(props) {
-  const { children } = props;
+  const { children, id } = props;
+  const dispatch = useDispatch();
   const [readOnly, setReadOnly] = React.useState(true);
+  const [newContent, setNewContent] = React.useState(children);
 
 
   const onContentChange = (value) => {
-    console.log('Change' + value);
+    setNewContent(value);
+  }
+
+  const saveContentHandle = () => {
+    editContentHandle();
+    dispatch(updateContentTask({ content: newContent, taskId: id }));
   }
 
   const editContentHandle = () => {
+    setNewContent(children);
     setReadOnly(!readOnly);
   }
   return (
@@ -21,14 +31,14 @@ function ContentTask(props) {
         </div>
       ) : (
         <>
-          <TextEditor className="mb-3" value={children} onChange={onContentChange} />
+          <TextEditor className="mb-3" value={newContent} onChange={onContentChange} />
           <div style={{ "height": "8px" }}></div>
           <ul className="align-center flex-wrap flex-sm-nowrap gx-3">
             <li className="order-md-last">
               <a href="#" className="btn btn-light" onClick={editContentHandle}>Cancel</a>
             </li>
             <li>
-              <a href="#" className="btn btn-primary" onClick={editContentHandle}>Save</a>
+              <a href="#" className="btn btn-primary" onClick={saveContentHandle}>Save</a>
             </li>
           </ul>
         </>

@@ -18,17 +18,9 @@ const DetailTaskModal = (props) => {
     const { isShow, modalName, taskId, handleCloseModal, modalSize } = props
     const [taskInfo, setTaskInfo] = useState(task);
 
-    const fetchTaskInfo = async () => {
-        //
-    }
-
     useEffect(() => {
         setTaskInfo(task);
     }, [task]);
-
-    const onContentChange = () => {
-        console.log("Content change");
-    }
 
     return (
         <Modal show={isShow} className="fade" size={modalSize} tabIndex={-1} backdrop='true'>
@@ -49,7 +41,7 @@ const DetailTaskModal = (props) => {
                                 id={taskInfo.id}
                                 title={taskInfo.title}
                             />
-                            <ContentTask>
+                            <ContentTask id={taskInfo.id}>
                                 {taskInfo.content}
                             </ContentTask>
                         </div>

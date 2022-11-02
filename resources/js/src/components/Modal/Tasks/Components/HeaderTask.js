@@ -1,7 +1,24 @@
-import React from 'react'
+import { TextField } from '@mui/material';
+import React, { useState } from 'react'
+import { useEffect } from 'react';
+import InlineEdit from '../../../InlineEdit/InlineEdit';
+
 
 function HeaderTask(props) {
   const { id, title } = props;
+  const [taskTitle, setTaskTitle] = useState(title);
+
+  useEffect(() => {
+    setTaskTitle(title);
+  }, [title]);
+
+  const updateTitle = async (e) => {
+    const newTitle = e.target.value;
+    console.log(newTitle)
+    setTaskTitle(newTitle);
+  }
+
+
   return (
     <>
       <div className="d-none d-lg-block">
@@ -15,10 +32,11 @@ function HeaderTask(props) {
         </ul>
       </div>
       <div className="nk-msg-head-meta">
-        <h4 className="title align-items-center d-none d-lg-block mt-3">
+        {/* <h4 className="title align-items-center d-none d-lg-block mt-3">
           {title}
-        </h4>
-        <div className="d-lg-none">
+        </h4> */}
+        <InlineEdit value={taskTitle} setValue={setTaskTitle} />
+        <div className="d-lg-none mt-2">
           <a href="#" className="btn btn-icon btn-trigger nk-msg-hide ml-n1">
             <em className="icon ni ni-arrow-left" />
           </a>
