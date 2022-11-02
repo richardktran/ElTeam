@@ -129,7 +129,7 @@ const Kanban = (props) => {
                                 opacity: snapshot.isDragging ? '0.5' : '1'
                               }}
                             >
-                              <KanbanCard>
+                              <KanbanCard description={task.content}>
                                 {task.title}
                               </KanbanCard>
                             </div>

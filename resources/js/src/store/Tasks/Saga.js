@@ -48,8 +48,10 @@ export function* updateContentTask({ payload }) {
     const data = {
       content: content
     }
-    yield call(groupApi.updateContentTask, taskId, data);
+    const task = yield call(groupApi.updateContentTask, taskId, data);
+    const groupId = task.data.data.group_id;
     yield put(requestTaskInfoAction(taskId));
+    yield put(requestTaskAction(groupId));
   } catch (e) {
     console.log(e);
     const err = _get(e, 'response.data', {});
