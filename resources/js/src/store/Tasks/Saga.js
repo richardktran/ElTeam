@@ -7,6 +7,7 @@ import {
   requestTasks as requestTaskAction,
   updateTaskPosition as updateTaskPositionAction,
   updateContentTask as updateContentTaskAction,
+  updateTitleTask as updateTitleTaskAction,
 } from './Reducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { groupApi } from '../../api/groupApi';
@@ -55,6 +56,22 @@ export function* updateContentTask({ payload }) {
   }
 }
 
+export function* updateTitleTask({ payload }) {
+  try {
+    const { title, taskId } = payload;
+    const data = {
+      title: title
+    }
+    const task = yield call(groupApi.updateContentTask, taskId, data);
+    const groupId = task.data.data.group_id;
+    yield put(requestTaskInfoAction(taskId));
+    yield put(requestTaskAction(groupId));
+  } catch (e) {
+    console.log(e);
+    const err = _get(e, 'response.data', {});
+  }
+}
+
 export function* requestTasks({ payload }) {
   try {
     const groupId = payload;
@@ -78,6 +95,7 @@ function* tasksSaga() {
   yield takeLatest(requestTaskAction, requestTasks);
   yield takeLatest(updateTaskPositionAction, updateTaskPosition);
   yield takeLatest(updateContentTaskAction, updateContentTask);
+  yield takeLatest(updateTitleTaskAction, updateTitleTask);
 
 }
 export default tasksSaga;

@@ -2,7 +2,7 @@ import { TextField } from '@mui/material';
 import React from 'react'
 import { useEffect } from 'react';
 
-function InlineEdit({ value, setValue }) {
+function InlineEdit({ value, setValue, onSave }) {
   const [editingValue, setEditingValue] = React.useState(value);
 
   useEffect(() => {
@@ -13,6 +13,7 @@ function InlineEdit({ value, setValue }) {
 
   const onKeyDown = (event) => {
     if (event.key === "Enter" || event.key === "Escape") {
+      onSave(editingValue);
       event.target.blur();
     }
   };
@@ -22,6 +23,7 @@ function InlineEdit({ value, setValue }) {
       setEditingValue(value);
     } else {
       setValue(event.target.value);
+      onSave(editingValue);
     }
   };
 

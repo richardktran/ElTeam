@@ -82,6 +82,17 @@ const groupTasks = createSlice({
           content
         }
       }
+    },
+    updateTitleTask: (state, action) => {
+      const { title, taskId } = action.payload;
+      return {
+        ...state,
+        submitting: false,
+        currentTask: {
+          ...state.currentTask,
+          title
+        }
+      }
     }
   }
 });
@@ -93,7 +104,8 @@ export const {
   requestTask,
   requestTasks,
   updateTaskPosition,
-  updateContentTask
+  updateContentTask,
+  updateTitleTask
 } = actions;
 
 export default reducer;

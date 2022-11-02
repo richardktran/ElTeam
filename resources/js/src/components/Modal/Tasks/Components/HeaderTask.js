@@ -1,10 +1,13 @@
 import { TextField } from '@mui/material';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateTitleTask } from '../../../../store/Tasks/Reducer';
 import InlineEdit from '../../../InlineEdit/InlineEdit';
 
 
 function HeaderTask(props) {
+  const dispatch = useDispatch();
   const { id, title } = props;
   const [taskTitle, setTaskTitle] = useState(title);
 
@@ -12,10 +15,9 @@ function HeaderTask(props) {
     setTaskTitle(title);
   }, [title]);
 
-  const updateTitle = async (e) => {
-    const newTitle = e.target.value;
-    console.log(newTitle)
-    setTaskTitle(newTitle);
+  const updateTitle = (value) => {
+    setTaskTitle(value);
+    dispatch(updateTitleTask({ title: value, taskId: id }));
   }
 
 
@@ -35,7 +37,7 @@ function HeaderTask(props) {
         {/* <h4 className="title align-items-center d-none d-lg-block mt-3">
           {title}
         </h4> */}
-        <InlineEdit value={taskTitle} setValue={setTaskTitle} />
+        <InlineEdit value={taskTitle} setValue={setTaskTitle} onSave={updateTitle} />
         <div className="d-lg-none mt-2">
           <a href="#" className="btn btn-icon btn-trigger nk-msg-hide ml-n1">
             <em className="icon ni ni-arrow-left" />
