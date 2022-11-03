@@ -1,13 +1,26 @@
 import React from 'react'
 import Avatar from '../../../Avatar/Avatar'
-
+import OptionDialog from '../../../Dialog/OptionDialog';
 function Members(props) {
   const { assignees } = props;
+  const emails = ['username@gmail.com', 'user02@gmail.com'];
   const [members, setMembers] = React.useState([]);
+  const [openMemberList, setOpenMemberList] = React.useState(false);
+  const [selectedMember, setSelectedMember] = React.useState(emails[1]);
+
 
   React.useEffect(() => {
     setMembers(assignees);
   }, [assignees]);
+
+  const handleClickOpenMembersList = () => {
+    setOpenMemberList(true);
+  };
+
+  const handleCloseMembersList = (value) => {
+    setOpenMemberList(false);
+    // setSelectedMember(value);
+  };
 
 
   return (
@@ -20,7 +33,7 @@ function Members(props) {
           </li>
         ))}
         <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="#" onClick={handleClickOpenMembersList} class="dropdown-toggle" data-toggle="dropdown">
             <div class="user-avatar sm bg-light">
               <span>
                 <em class="icon ni ni-plus"></em>
@@ -29,6 +42,11 @@ function Members(props) {
           </a>
         </li>
       </ul>
+      <OptionDialog
+        selectedValue={selectedMember}
+        open={openMemberList}
+        onClose={handleCloseMembersList}
+      />
     </div>
   )
 }
