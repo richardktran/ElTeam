@@ -8,6 +8,7 @@ import HeaderTask from './Components/HeaderTask';
 import CommentTask from './Components/CommentTask';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import Members from './Components/Members';
 
 const { TextArea } = Input;
 
@@ -27,7 +28,7 @@ const DetailTaskModal = (props) => {
             <a href="#" onClick={handleCloseModal} className="close" data-dismiss="modal" aria-label="Close">
                 <em className="icon ni ni-cross" />
             </a>
-            <div className="modal-body">
+            <div className="modal-body" style={{ padding: 0 }}>
                 {isLoading ? (
                     <div className="text-center">
                         <div className="spinner-border text-primary" role="status">
@@ -41,6 +42,8 @@ const DetailTaskModal = (props) => {
                                 id={taskInfo.id}
                                 title={taskInfo.title}
                             />
+                            <Members assignees={taskInfo.assignees} />
+
                             <ContentTask id={taskInfo.id}>
                                 {taskInfo.content}
                             </ContentTask>

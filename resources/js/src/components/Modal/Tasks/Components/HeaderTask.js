@@ -34,9 +34,6 @@ function HeaderTask(props) {
         </ul>
       </div>
       <div className="nk-msg-head-meta">
-        {/* <h4 className="title align-items-center d-none d-lg-block mt-3">
-          {title}
-        </h4> */}
         <InlineEdit value={taskTitle} setValue={setTaskTitle} onSave={updateTitle} />
         <div className="d-lg-none mt-2">
           <a href="#" className="btn btn-icon btn-trigger nk-msg-hide ml-n1">

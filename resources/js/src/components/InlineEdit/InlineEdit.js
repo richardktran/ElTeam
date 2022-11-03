@@ -40,7 +40,7 @@ function InlineEdit({ value, setValue, onSave }) {
         width: '100%',
         '& .MuiOutlinedInput-input': { padding: 0 },
         '& .MuiOutlinedInput-notchedOutline': { border: 'unset ' },
-        '& .MuiOutlinedInput-root': { fontSize: '2.5rem', fontWeight: '700' },
+        '& .MuiOutlinedInput-root': { fontSize: '1.7rem', fontWeight: '700' },
         marginBottom: '10px'
       }}
     />
