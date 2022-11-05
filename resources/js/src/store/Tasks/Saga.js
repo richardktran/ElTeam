@@ -10,6 +10,7 @@ import {
   updateTaskPosition as updateTaskPositionAction,
   updateContentTask as updateContentTaskAction,
   updateTitleTask as updateTitleTaskAction,
+  updateAssignees as updateAssigneesAction,
 
 } from './Reducer';
 import { useDispatch, useSelector } from 'react-redux';
@@ -78,6 +79,19 @@ export function* updateContentTask({ payload }) {
   }
 }
 
+export function* updateAssigneesTask({ payload }) {
+  try {
+    const { assignees, taskId } = payload;
+    const data = {
+      assignees: assignees
+    }
+    yield call(groupApi.updateContentTask, taskId, data);
+  } catch (e) {
+    console.log(e);
+    const err = _get(e, 'response.data', {});
+  }
+}
+
 export function* updateTitleTask({ payload }) {
   try {
     const { title, taskId } = payload;
@@ -121,6 +135,7 @@ function* tasksSaga() {
   yield takeLatest(updateTaskPositionAction, updateTaskPosition);
   yield takeLatest(updateContentTaskAction, updateContentTask);
   yield takeLatest(updateTitleTaskAction, updateTitleTask);
+  yield takeLatest(updateAssigneesAction, updateAssigneesTask);
 
 }
 export default tasksSaga;

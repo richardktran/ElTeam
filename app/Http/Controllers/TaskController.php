@@ -66,6 +66,15 @@ class TaskController extends Controller
     {
         $params = $request->all();
 
+        if (isset($params['assignees'])) {
+            $assignees = $params['assignees'];
+            // Get ids of assignees
+            $assigneesIds = array_map(function ($assignee) {
+                return (string)$assignee['id'];
+            }, $assignees);
+            $params['assignees'] = $assigneesIds;
+        }
+
         Task::where('id', $task->id)
             ->update($params);
         $task = Task::find($task->id);

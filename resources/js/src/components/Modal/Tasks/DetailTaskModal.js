@@ -48,7 +48,11 @@ const DetailTaskModal = (props) => {
                                 id={taskInfo.id}
                                 title={taskInfo.title}
                             />
-                            <Members assignees={taskInfo.assignees} members={groupInfo.students} />
+                            <Members
+                                id={taskInfo.id}
+                                assignees={taskInfo.assignees}
+                                members={groupInfo.students}
+                            />
 
                             <ContentTask id={taskInfo.id}>
                                 {taskInfo.content}

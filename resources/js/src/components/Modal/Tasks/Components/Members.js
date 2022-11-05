@@ -4,11 +4,14 @@ import { Popover, Typography } from '@mui/material';
 import { Select } from 'antd';
 import { useEffect } from 'react';
 import { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateAssignees } from '../../../../store/Tasks/Reducer';
 
 
 function Members(props) {
+  const dispatch = useDispatch();
   const { assignees, members } = props;
-  const [assigneesList, setAssigneesList] = React.useState(assignees);
+  const [assigneesList, setAssigneesList] = React.useState(null);
   const [membersList, setMembersList] = React.useState(members);
 
 
@@ -23,6 +26,12 @@ function Members(props) {
       setAssigneesList([...assigneesList, member]);
     }
   }
+
+  useEffect(() => {
+    if (assigneesList !== null) {
+      dispatch(updateAssignees({ taskId: props.id, assignees: assigneesList }));
+    }
+  }, [assigneesList]);
 
   const isAssignee = useCallback((id) => {
     return assigneesList.find(assignee => assignee.id === id);
