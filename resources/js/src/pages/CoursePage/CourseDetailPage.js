@@ -6,6 +6,7 @@ import { changePage } from '../../app/reducers/sideBarReducer';
 import { courseDetailItems, courseMembersItems } from './sidebars/courseDetail';
 import Curriculum from './Components/Curriculum';
 import isCourseOwner from '../../hooks/isCourseOwner';
+import Lesson from './Components/Lesson';
 
 const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
@@ -78,7 +79,7 @@ const CourseDetailPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Curriculum id={id} isEditable={isEditable} />
+            <Lesson courseId={id} />
           </div>
         </div>
       </div>
