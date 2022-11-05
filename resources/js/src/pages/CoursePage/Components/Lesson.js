@@ -4,55 +4,43 @@ function Lesson(props) {
   const { courseId } = props;
   return (
     <div className='nk-block'>
-      <div className="card card-bordered">
+      <div className="support-topic-details card card-bordered">
         <div className="card-inner">
-          {/* .row */}
-          <div className="row g-gs flex-lg-row-reverse">
-            {/* .col */}
-            <div className="col-lg-12">
-              <div className="product-details entry mr-xxl-3">
-                <h3>Product details of Comfy cushions</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Neque porro quisquam est, qui dolorem consectetur, adipisci velit.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-                <ul className="list list-sm list-checked">
-                  <li>Meets and/or exceeds performance standards.</li>
-                  <li>Liumbar support.</li>
-                  <li>Made of bonded teather and poiyurethane.</li>
-                  <li>Metal frame.</li>
-                  <li>Anatomically shaped cork-latex</li>
-                  <li>As attractively priced as you look attractive in one</li>
-                </ul>
-                <p>Unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.</p>
-                <h3>The best seats in the house</h3>
-                <p>I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings. Unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.</p>
+          <div className="card-title-group mb-4">
+            <div className="card-title">
+              <h4 style={{ color: "#6576ff" }}>ĐỌC KỸ HƯỚNG DẪN TRƯỚC KHI BẮT ĐẦU</h4>
+            </div>
+            <div className="card-tools mr-n1">
+              <div className="dropdown">
+                <a className="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em className="icon ni ni-more-h" /></a>
+                <div className="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                  <ul className="link-list-plain">
+                    <li><a href="#">View</a></li>
+                    <li><a href="#">Edit</a></li>
+                    <li><a href="#">Remove</a></li>
+                  </ul>
+                </div>
               </div>
-            </div>{/* .col */}
-          </div>{/* .row */}
-        </div>
-      </div>
-      <div className="card card-bordered">
-        <div className="card-inner">
-          {/* .row */}
-          <div className="row g-gs flex-lg-row-reverse">
-            {/* .col */}
-            <div className="col-lg-12">
-              <div className="product-details entry mr-xxl-3">
-                <h3>Giới thiệu học phần (cập nhật 13/08/2022)</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Neque porro quisquam est, qui dolorem consectetur, adipisci velit.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-                <ul className="list list-sm list-checked">
-                  <li>Meets and/or exceeds performance standards.</li>
-                  <li>Liumbar support.</li>
-                  <li>Made of bonded teather and poiyurethane.</li>
-                  <li>Metal frame.</li>
-                  <li>Anatomically shaped cork-latex</li>
-                  <li>As attractively priced as you look attractive in one</li>
-                </ul>
-                <p>Unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.</p>
-                <h3>The best seats in the house</h3>
-                <p>I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings. Unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.</p>
-              </div>
-            </div>{/* .col */}
-          </div>{/* .row */}
-        </div>
+            </div>{/* card-tools */}
+          </div>
+          <div className="entry">
+            <p>Rất nhiều bạn chưa đọc phần hướng dẫn làm bài trên hệ thống này đã vội gởi bài dẫn đến gặp rất nhiều lỗi mà không biết tại sao.</p>
+            <p>Một số lời khuyên với các bạn:</p>
+            <ul class="list list-sm list-checked">
+              <li>Đọc kỹ phần hướng dẫn cách làm bài thực hành.</li>
+              <li>Làm các bài tập trong phần KHỞI ĐỘNG để làm quen với cách làm bài.</li>
+              <li>Khi viết chương trình trên DEV-C, các bạn nhớ lưu tập tin với phần mở rộng là .c, đừng lưu với .cpp.</li>
+              <li>Các bài tập thực hành đều có phần ví dụ về đọc đồ thị, các bạn cứ theo đó mà làm.</li>
+              <li>Các bạn NÊN thử nhiều lần để khám phá và hiểu hệ thống</li>
+              <li>Các bạn NÊN siêng năng làm tất cả các bài tập để hiểu được các giải thuật trong LTĐT, qua đó củng cố được lý thuyết và rèn luyện kỹ năng lập trình</li>
+            </ul>
+            <h5>HƯỚNG DẪN LÀM BÀI THI THỰC HÀNH</h5>
+            <ul class="list list-sm list-checked">
+              <li>Viết chương trình hoàn chỉnh: sinh viên cần phải #include, khai báo các hàm, biến cần thiết, nhập dữ liệu, tính toán và in kết quả ra màn hình.</li>
+              <li>Các bạn NÊN siêng năng làm tất cả các bài tập để hiểu được các giải thuật trong LTĐT, qua đó củng cố được lý thuyết và rèn luyện kỹ năng lập trình</li>
+            </ul>
+          </div>{/* .entry */}
+        </div>{/* .support-topic-meta */}
       </div>
     </div>
   )

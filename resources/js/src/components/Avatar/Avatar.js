@@ -51,7 +51,7 @@ function Avatar(props) {
     <>
       {image ? (
         <div class={`user-avatar ${size} bg-blue`}>
-          <img src={image} alt="" />
+          <img src={image} alt="" referrerpolicy="no-referrer" />
         </div>
       ) : (
         <div class={`user-avatar ${size} ${randomColor()}`}>
