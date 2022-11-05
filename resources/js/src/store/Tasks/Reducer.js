@@ -5,6 +5,7 @@ const initialItems = {
   group_id: 107,
   submitting: false,
   currentTask: {},
+  groupInfo: {},
   sections: [
     {
       id: uuidv4(),
@@ -47,12 +48,31 @@ const groupTasks = createSlice({
         group_id
       }
     },
+    requestGroupInfo: (state, action) => {
+      const course_id = action.payload;
+      return {
+        ...state,
+        submitting: true,
+        groupInfo: {
+          ...state.groupInfo,
+          course_id
+        }
+      }
+    },
     getTask: (state, action) => {
       const task = action.payload;
       return {
         ...state,
         submitting: false,
         currentTask: task
+      }
+    },
+    getGroupInfo: (state, action) => {
+      const groupInfo = action.payload;
+      return {
+        ...state,
+        submitting: false,
+        groupInfo
       }
     },
     getTasks: (state, action) => {
@@ -64,12 +84,22 @@ const groupTasks = createSlice({
       }
     },
     updateTaskPosition: (state, action) => {
-      console.log(action.payload);
       const { groupId, sections } = action.payload;
       return {
         ...state,
         submitting: false,
         sections: sections
+      }
+    },
+    updateAssignees: (state, action) => {
+      const { taskId, assignees } = action.payload;
+      return {
+        ...state,
+        submitting: false,
+        currentTask: {
+          ...state.currentTask,
+          assignees
+        }
       }
     },
     updateContentTask: (state, action) => {
@@ -101,11 +131,14 @@ const { reducer, actions } = groupTasks;
 export const {
   getTask,
   getTasks,
+  getGroupInfo,
   requestTask,
   requestTasks,
+  requestGroupInfo,
   updateTaskPosition,
   updateContentTask,
-  updateTitleTask
+  updateTitleTask,
+  updateAssignees
 } = actions;
 
 export default reducer;

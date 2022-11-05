@@ -31,7 +31,12 @@ class Task extends Model
 
     public function getAssigneesAttribute($value)
     {
-        return json_decode($value);
+        $assignees = json_decode($value);
+        if (!$assignees) {
+            return [];
+        }
+        $listAssignees = User::whereIn('id', $assignees)->get();
+        return $listAssignees;
     }
 
     public function setAssigneesAttribute($value)

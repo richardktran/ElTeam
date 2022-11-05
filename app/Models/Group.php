@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use function PHPSTORM_META\map;
+
 class Group extends Model
 {
     use HasFactory;
@@ -13,7 +15,11 @@ class Group extends Model
         'id',
         'name',
         'number',
-        'course_id',
+    ];
+
+    protected $with = [
+        'students',
+        'course'
     ];
 
     public function course()

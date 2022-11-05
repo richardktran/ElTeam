@@ -25,6 +25,7 @@ function ContentTask(props) {
   }
   return (
     <>
+      <h6 className="title mb-2">Mô tả công việc</h6>
       {readOnly ? (
         <div onClick={editContentHandle}>
           <TextEditor value={children} readOnly={true} />

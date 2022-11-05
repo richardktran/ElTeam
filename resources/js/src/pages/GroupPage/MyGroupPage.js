@@ -9,7 +9,7 @@ import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
 import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
-import { requestTask, requestTasks } from '../../store/Tasks/Reducer';
+import { getGroupInfo, requestTask, requestTasks } from '../../store/Tasks/Reducer';
 import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
 import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
 
@@ -33,7 +33,7 @@ const MyGroupPage = () => {
     if (result.status === HTTP_OK) {
       const { data } = result.data;
       setGroupInfo(data);
-
+      dispatch(getGroupInfo(data));
       const fetchTasksAction = requestTasks(data.id);
       dispatch(fetchTasksAction);
     }
@@ -81,6 +81,7 @@ const MyGroupPage = () => {
       if (response.status === HTTP_OK) {
         toast.success('Thêm nhiệm vụ thành công!');
         dispatch(requestTasks(groupInfo.id));
+
         setShowAddTaskModal(false);
       } else {
         console.log(response);

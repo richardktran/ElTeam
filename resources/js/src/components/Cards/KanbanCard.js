@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { cutStringShorter } from "../../utils/stringUtils";
+import Avatar from "../Avatar/Avatar";
 
 const KanbanCard = props => {
-  const { description } = props;
+  const { description, assignees } = props;
   const [content, setContent] = useState(description);
+  const [assigneesList, setAssigneesList] = useState(assignees);
 
   useEffect(() => {
     function getText(html) {
@@ -14,6 +16,10 @@ const KanbanCard = props => {
     setContent(getText(description));
   }, [description]);
 
+  useEffect(() => {
+    setAssigneesList(assignees);
+  }, [assignees]);
+
 
   return (
     <div className="kanban-item">
@@ -22,23 +28,11 @@ const KanbanCard = props => {
         <div className="dropdown">
           <a href="#" className="dropdown-toggle" data-toggle="dropdown">
             <div className="user-avatar-group">
-              <div className="user-avatar xs bg-primary"><span>A</span></div>
+              {assigneesList && assigneesList.map((assignee, index) => (
+                <Avatar image={assignee.avatar} name={assignee.name} size='xs' />
+              ))}
             </div>
           </a>
-          <div className="dropdown-menu dropdown-menu-right">
-            <ul className="link-list-opt no-bdr p-3 g-2">
-              <li>
-                <div className="user-card">
-                  <div className="user-avatar sm bg-primary">
-                    <span>AB</span>
-                  </div>
-                  <div className="user-name">
-                    <span className="tb-lead">Abu Bin Ishtiyak</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
       <div className="kanban-item-text">

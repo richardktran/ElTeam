@@ -18,6 +18,11 @@ export const groupApi = {
         const config = await bearerConfig();
         return axiosInstance.get(url, config);
     },
+    getInfo: async (groupId) => {
+        const url = 'groups' + '/' + groupId;
+        const config = await bearerConfig();
+        return axiosInstance.get(url, config);
+    },
     updateTaskPosition: async (groupId, data) => {
         const url = 'groups' + '/' + groupId + '/update-task-position';
         const config = await bearerConfig();
