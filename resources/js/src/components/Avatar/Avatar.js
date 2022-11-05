@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Avatar(props) {
-  const { image = null, name = '', email = '' } = props;
+  const { image = null, name = '', email = '', size = 'sm' } = props;
 
   const colors = [
     'bg-primary',
@@ -50,11 +50,11 @@ function Avatar(props) {
   return (
     <>
       {image ? (
-        <div class="user-avatar sm bg-blue">
+        <div class={`user-avatar ${size} bg-blue`}>
           <img src={image} alt="" />
         </div>
       ) : (
-        <div class={`user-avatar sm ${randomColor()}`}>
+        <div class={`user-avatar ${size} ${randomColor()}`}>
           <span>
             {getNameLabel() ?? getEmailLabel()}
           </span>
