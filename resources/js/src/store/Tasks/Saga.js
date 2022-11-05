@@ -3,11 +3,14 @@ import { TextField } from '@mui/material'
 import {
   getTask,
   getTasks,
+  getGroupInfo,
   requestTask as requestTaskInfoAction,
   requestTasks as requestTaskAction,
+  requestGroupInfo as requestGroupInfoAction,
   updateTaskPosition as updateTaskPositionAction,
   updateContentTask as updateContentTaskAction,
   updateTitleTask as updateTitleTaskAction,
+
 } from './Reducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { groupApi } from '../../api/groupApi';
@@ -20,6 +23,23 @@ export function* requestTask({ payload }) {
       const { data } = yield call(groupApi.getTask, taskId);
       const task = data.data;
       yield put(getTask(task));
+    } catch (e) {
+      console.log(e.message || e.toString())
+    }
+    // console.log(tasks);
+    // yield put(getTasks(tasks));
+  } catch (e) {
+    const err = _get(e, 'response.data', {});
+  }
+}
+
+export function* requestGroupInfo({ payload }) {
+  try {
+    const groupId = payload;
+    try {
+      const { data } = yield call(groupApi.getInfo, groupId);
+      const groupInfo = data.data;
+      yield put(getGroupInfo(groupInfo));
     } catch (e) {
       console.log(e.message || e.toString())
     }
@@ -94,7 +114,10 @@ export function* requestTasks({ payload }) {
 
 function* tasksSaga() {
   yield takeLatest(requestTaskInfoAction, requestTask);
+  yield takeLatest(requestTaskInfoAction, requestTask);
+  yield takeLatest(requestGroupInfoAction, requestGroupInfo);
   yield takeLatest(requestTaskAction, requestTasks);
+
   yield takeLatest(updateTaskPositionAction, updateTaskPosition);
   yield takeLatest(updateContentTaskAction, updateContentTask);
   yield takeLatest(updateTitleTaskAction, updateTitleTask);

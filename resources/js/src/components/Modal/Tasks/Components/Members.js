@@ -1,53 +1,82 @@
 import React from 'react'
 import Avatar from '../../../Avatar/Avatar'
-import OptionDialog from '../../../Dialog/OptionDialog';
+import { Popover, Typography } from '@mui/material';
+import { Select } from 'antd';
+import { useEffect } from 'react';
+import { useCallback } from 'react';
+
+
 function Members(props) {
-  const { assignees } = props;
-  const emails = ['username@gmail.com', 'user02@gmail.com'];
-  const [members, setMembers] = React.useState([]);
-  const [openMemberList, setOpenMemberList] = React.useState(false);
-  const [selectedMember, setSelectedMember] = React.useState(emails[1]);
+  const { assignees, members } = props;
+  const [assigneesList, setAssigneesList] = React.useState(assignees);
+  const [membersList, setMembersList] = React.useState(members);
 
 
   React.useEffect(() => {
-    setMembers(assignees);
+    setAssigneesList(assignees);
   }, [assignees]);
 
-  const handleClickOpenMembersList = () => {
-    setOpenMemberList(true);
-  };
+  const toggleAssign = (member) => {
+    if (assigneesList.find(assignee => assignee.id === member.id)) {
+      setAssigneesList(assigneesList.filter((item) => item.id !== member.id));
+    } else {
+      setAssigneesList([...assigneesList, member]);
+    }
+  }
 
-  const handleCloseMembersList = (value) => {
-    setOpenMemberList(false);
-    // setSelectedMember(value);
-  };
+  const isAssignee = useCallback((id) => {
+    return assigneesList.find(assignee => assignee.id === id);
+  }, [assigneesList]);
 
+  useEffect(() => {
+    setMembersList(members);
+  }, [assigneesList])
 
   return (
     <div className="card-title ">
       <p className="title mb-2" style={{ fontSize: "14px", color: "#5e6c84" }}>Người thực hiện</p>
       <ul class="project-users g-1">
-        {members && members.map((assignee, index) => (
+        {assigneesList && assigneesList.map((assignee, index) => (
           <li>
             <Avatar image={assignee.avatar} name={assignee.name} />
           </li>
         ))}
         <li>
-          <a href="#" onClick={handleClickOpenMembersList} class="dropdown-toggle" data-toggle="dropdown">
-            <div class="user-avatar sm bg-light">
-              <span>
-                <em class="icon ni ni-plus"></em>
-              </span>
+
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
+              <div class="user-avatar sm bg-light">
+                <span>
+                  <em class="icon ni ni-plus"></em>
+                </span>
+              </div>
+            </a>
+            <div class="dropdown-menu" style={{ minWidth: "200px" }}>
+              <div class="dropdown-head">
+                <span class="sub-title nk-dropdown-title">Chọn thành viên</span>
+              </div>
+              <ul class="link-check">
+                {assigneesList && membersList && membersList.map((member, index) => {
+                  return (
+                    <li class={`chat-item ${isAssignee(member.id) ? 'active' : ''}`} onClick={() => toggleAssign(member)}>
+                      <a class="chat-link" href="#">
+                        <Avatar image={member.avatar} name={member.name} />
+                        <div class="chat-info ml-2">
+                          <div class="chat-from">
+                            <div class="name">{member.name}</div>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-          </a>
-        </li>
-      </ul>
-      <OptionDialog
-        selectedValue={selectedMember}
-        open={openMemberList}
-        onClose={handleCloseMembersList}
-      />
-    </div>
+          </div>
+        </li >
+      </ul >
+
+    </div >
   )
 }
 
