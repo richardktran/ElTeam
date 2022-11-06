@@ -7,13 +7,21 @@ import { courseDetailItems, courseMembersItems } from './sidebars/courseDetail';
 import Curriculum from './Components/Curriculum';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import Lesson from './Components/Lesson';
+import { requestCourse } from '../../store/Course/Reducer';
 
 const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
   const isOwner = isCourseOwner(id);
   const dispatch = useDispatch();
+  const courseData = useSelector(state => state.course.courseInfo);
+
+  const [course, setCourse] = useState(courseData);
 
   const [isAddTopic, setIsAddTopic] = useState(false);
+
+  useEffect(() => {
+    setCourse(courseData);
+  }, [courseData]);
 
   const toggleEditable = () => {
     setIsAddTopic(!isAddTopic);
@@ -25,10 +33,15 @@ const CourseDetailPage = () => {
     dispatch(action);
   }, [isOwner]);
 
+  const fetchCourseInfo = () => {
+    dispatch(requestCourse(id));
+  }
+
   useEffect(() => {
     const items = isOwner ? courseDetailItems : courseMembersItems;
     const action = changePage(items);
     dispatch(action);
+    fetchCourseInfo();
   }, []);
 
   return (
@@ -44,7 +57,7 @@ const CourseDetailPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                <h3 className="nk-block-title page-title">CT240 - Luận văn tốt nghiệp</h3>
+                <h3 className="nk-block-title page-title">{course.code} - {course.name}</h3>
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content">
                 <div className="nk-block-head-sub mb-2"></div>
