@@ -8,12 +8,18 @@ import Curriculum from './Components/Curriculum';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import Lesson from './Components/Lesson';
 import { requestCourse } from '../../store/Course/Reducer';
+import { changeLoading } from '../../store/App/Reducer';
 
 const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
   const isOwner = isCourseOwner(id);
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.course.submitting);
   const courseData = useSelector(state => state.course.courseInfo);
+
+  useEffect(() => {
+    dispatch(changeLoading(loading));
+  }, [loading]);
 
   const [course, setCourse] = useState(courseData);
 
