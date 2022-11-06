@@ -13,10 +13,10 @@ const CourseDetailPage = () => {
   const isOwner = isCourseOwner(id);
   const dispatch = useDispatch();
 
-  const [isEditable, setIsEditable] = useState(false);
+  const [isAddTopic, setIsAddTopic] = useState(false);
 
   const toggleEditable = () => {
-    setIsEditable(!isEditable);
+    setIsAddTopic(!isAddTopic);
   }
 
   useEffect(() => {
@@ -64,11 +64,11 @@ const CourseDetailPage = () => {
                           </div>
                         </div>
                       </li>
-                      {isOwner &&
+                      {isOwner || !isOwner &&
                         <li className="nk-block-tools-opt">
                           <div onClick={toggleEditable} className="btn btn-primary">
                             <em className="icon ni ni-reports" />
-                            <span>{!isEditable ? "Chỉnh sửa" : "Lưu"}</span>
+                            <span>Thêm chủ đề</span>
                           </div>
                         </li>
                       }
@@ -79,7 +79,7 @@ const CourseDetailPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Lesson courseId={id} />
+            <Lesson courseId={id} isAddTopic={isAddTopic} setIsAddTopic={setIsAddTopic} />
           </div>
         </div>
       </div>

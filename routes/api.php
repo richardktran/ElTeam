@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TopicController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -67,4 +68,10 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function (
     Route::get('/', [UserController::class, 'index'])->name('users.index');
     Route::get('/{id:[0-9]+}', [UserController::class, 'show'])->name('users.show');
     Route::get('/get-by-email', [UserController::class, 'getByEmail'])->name('users.get-by-email');
+});
+
+Route::group(['prefix' => 'topics', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
+    Route::get('/', [TopicController::class, 'index'])->name('topics.get');
+
+    Route::post('/', [TopicController::class, 'create'])->name('groups.topic.create');
 });
