@@ -5,7 +5,7 @@ const initialItems = {
   course_id: 107,
   courseInfo: {},
   lesson: {
-    topic: {}
+    topics: []
   }
 };
 
@@ -29,13 +29,31 @@ const courses = createSlice({
         courseInfo
       }
     },
+    requestTopics: (state) => {
+      return {
+        ...state,
+        submitting: true,
+      }
+    },
+    getTopics: (state, action) => {
+      const topics = action.payload;
+      return {
+        ...state,
+        submitting: false,
+        lesson: {
+          topics
+        }
+      }
+    },
   }
 });
 
 const { reducer, actions } = courses;
 export const {
   getCourse,
+  getTopics,
   requestCourse,
+  requestTopics,
 } = actions;
 
 export default reducer;

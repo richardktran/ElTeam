@@ -7,7 +7,7 @@ import { courseDetailItems, courseMembersItems } from './sidebars/courseDetail';
 import Curriculum from './Components/Curriculum';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import Lesson from './Components/Lesson';
-import { requestCourse } from '../../store/Course/Reducer';
+import { requestCourse, requestTopics } from '../../store/Course/Reducer';
 import { changeLoading } from '../../store/App/Reducer';
 
 const CourseDetailPage = () => {
@@ -17,11 +17,12 @@ const CourseDetailPage = () => {
   const loading = useSelector(state => state.course.submitting);
   const courseData = useSelector(state => state.course.courseInfo);
 
+  const [course, setCourse] = useState(courseData);
+
+
   useEffect(() => {
     dispatch(changeLoading(loading));
   }, [loading]);
-
-  const [course, setCourse] = useState(courseData);
 
   const [isAddTopic, setIsAddTopic] = useState(false);
 
@@ -41,6 +42,7 @@ const CourseDetailPage = () => {
 
   const fetchCourseInfo = () => {
     dispatch(requestCourse(id));
+    dispatch(requestTopics());
   }
 
   useEffect(() => {
