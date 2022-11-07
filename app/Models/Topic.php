@@ -16,6 +16,8 @@ class Topic extends Model
         'course_id',
     ];
 
+    protected $with = ['activities'];
+
     public function course()
     {
         return $this->belongsTo(Course::class);
