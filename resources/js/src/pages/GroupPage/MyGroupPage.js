@@ -12,6 +12,7 @@ import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/co
 import { getGroupInfo, requestTask, requestTasks } from '../../store/Tasks/Reducer';
 import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
 import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
+import { changeLoading } from '../../store/App/Reducer';
 
 const MyGroupPage = () => {
   let { courseId } = useParams(); //get id from url
@@ -20,6 +21,8 @@ const MyGroupPage = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(state => state.groupTasks.sections);
   const sidebarItems = useSelector(state => state.sidebar);
+  const loading = useSelector(state => state.groupTasks.submitting);
+  const [isLoading, setIsLoading] = useState(loading);
   const [groupInfo, setGroupInfo] = useState({});
 
   const [boardData, setBoardData] = useState(tasks);
@@ -39,6 +42,14 @@ const MyGroupPage = () => {
     }
   }
 
+  // useEffect(() => {
+  //   setIsLoading(loading);
+  // }, [loading]);
+
+  useEffect(() => {
+    dispatch(changeLoading(isLoading));
+  }, [isLoading]);
+
   useEffect(() => {
     setBoardData(tasks);
   }, [tasks]);
@@ -50,10 +61,12 @@ const MyGroupPage = () => {
   }, [isOwner]);
 
   useEffect(() => {
+    setIsLoading(true);
     const items = isOwner ? courseDetailItems : courseMembersItems;
     const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
     dispatch(action);
     fetchGroupInfo();
+    setIsLoading(false);
   }, []);
 
   const openAddTaskModal = (sectionId) => {
