@@ -55,6 +55,26 @@ function Lesson(props) {
     }
   }
 
+  const toggleLockTopic = async (topicId, oldStatus) => {
+    try {
+      const response = await lessonApi.toggleLockTopic(topicId);
+      if (response.status === HTTP_OK) {
+        toast.success(oldStatus ? 'Khóa chủ đề thành công!' : 'Mở khóa chủ đề thành công!');
+        dispatch(requestTopics());
+      } else {
+        console.log(response);
+        toast.error(!oldStatus ? 'Khóa chủ đề thất bại!' : 'Mở khóa chủ đề thất bại!');
+      }
+    } catch (e) {
+      console.log(e);
+      const messages = e.response.data.messages;
+      messages.forEach(message => {
+        toast.error(message.message);
+      });
+    }
+  }
+
+
   const onDragEnd = result => {
     if (!result.destination) return;
     const { source, destination } = result;
@@ -121,6 +141,7 @@ function Lesson(props) {
                                     <ul className="link-list-plain">
                                       <li><a href="#">Thêm hoạt động</a></li>
                                       <li><a href="#">Sửa chủ đề</a></li>
+                                      <li><a href="#" onClick={() => toggleLockTopic(topic.id, topic.enable)}>{topic.enable === 1 ? "Khóa chủ đề" : "Mở khóa chủ đề"}</a></li>
                                       <li><a href="#">Xóa chủ đề</a></li>
                                     </ul>
                                   </div>

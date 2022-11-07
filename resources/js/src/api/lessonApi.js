@@ -18,5 +18,10 @@ export const lessonApi = {
         const url = TOPIC_URL;
         const config = await bearerConfig();
         return axiosInstance.post(url, data, config);
+    },
+    toggleLockTopic: async (topicId) => {
+        const url = TOPIC_URL + '/' + topicId + '/toggle-lock';
+        const config = await bearerConfig();
+        return axiosInstance.post(url, {}, config);
     }
 }

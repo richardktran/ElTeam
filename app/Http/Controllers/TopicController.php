@@ -40,4 +40,11 @@ class TopicController extends Controller
         }
         $this->response(['message' => 'Update position successfully']);
     }
+
+    public function toggleLock(Request $request, Topic $topic)
+    {
+        $topic->enable = !$topic->enable;
+        $topic->save();
+        return $this->response($topic);
+    }
 }
