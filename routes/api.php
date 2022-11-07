@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Http\Request;
@@ -76,4 +77,10 @@ Route::group(['prefix' => 'topics', 'middleware' => ['auth:sanctum', 'role:stude
     Route::post('/', [TopicController::class, 'create'])->name('groups.topic.create');
     Route::post('/update-position', [TopicController::class, 'updatePosition'])->name('groups.topic.update-position');
     Route::post('/{topic}/toggle-lock', [TopicController::class, 'toggleLock'])->name('groups.topic.toggle-lock');
+});
+
+Route::group(['prefix' => 'activities', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
+    Route::get('/', [ActivityController::class, 'index'])->name('activities.get');
+
+    Route::post('/', [ActivityController::class, 'create'])->name('activities.create');
 });
