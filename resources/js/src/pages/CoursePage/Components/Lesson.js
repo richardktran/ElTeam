@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import AddTopicModal from '../../../components/Modal/Lesson/AddTopicModal';
+import { updateTopicPosition } from '../../../store/Course/Reducer';
 
 function Lesson(props) {
+  const dispatch = useDispatch();
   const { courseId, isAddTopic, setIsAddTopic } = props;
   const topicsData = useSelector(state => state.course.lesson.topics);
 
@@ -28,7 +30,22 @@ function Lesson(props) {
   }
 
   const onDragEnd = result => {
-    console.log(result);
+    if (!result.destination) return;
+    const { source, destination } = result;
+    const sourceIndex = source.index;
+    const destinationIndex = destination.index;
+
+    const newTopics = [...topics];
+    const [removed] = newTopics.splice(sourceIndex, 1);
+    newTopics.splice(destinationIndex, 0, removed);
+    //update all position of topic equal index
+    const newTopicsData = [];
+    newTopics.forEach((topic, index) => {
+      topic = { ...topic, position: index }
+      newTopicsData.push(topic);
+    });
+    setTopics(newTopicsData);
+    dispatch(updateTopicPosition({ courseId, newTopics: newTopicsData }));
   }
 
   return (

@@ -45,6 +45,16 @@ const courses = createSlice({
         }
       }
     },
+    updateTopicPosition: (state, action) => {
+      const { courseId, newTopics } = action.payload;
+      return {
+        ...state,
+        submitting: false,
+        lesson: {
+          topics: newTopics
+        }
+      }
+    },
   }
 });
 
@@ -54,6 +64,7 @@ export const {
   getTopics,
   requestCourse,
   requestTopics,
+  updateTopicPosition
 } = actions;
 
 export default reducer;

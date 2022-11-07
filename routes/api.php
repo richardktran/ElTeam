@@ -74,4 +74,5 @@ Route::group(['prefix' => 'topics', 'middleware' => ['auth:sanctum', 'role:stude
     Route::get('/', [TopicController::class, 'index'])->name('topics.get');
 
     Route::post('/', [TopicController::class, 'create'])->name('groups.topic.create');
+    ROute::post('/update-position', [TopicController::class, 'updatePosition'])->name('groups.topic.update-position');
 });

@@ -9,7 +9,8 @@ class TopicController extends Controller
 {
     public function index(Request $request)
     {
-        $topics = Topic::all()->where('course_id', $request->course_id)->sortBy('position');
+        $topics = Topic::where('course_id', $request->course_id)->orderBy('position', 'asc')->get();
+
         return $this->response($topics);
     }
 
@@ -24,5 +25,19 @@ class TopicController extends Controller
 
         $topic = Topic::create($data);
         return $this->response($topic);
+    }
+
+    //Update all topics position in a course base on course_id
+    public function updatePosition(Request $request)
+    {
+        $params = $request->all();
+        $topics = $params['topics'];
+
+        foreach ($topics as $topic) {
+            $topicModel = Topic::find($topic['id']);
+            $topicModel->position = $topic['position'];
+            $topicModel->save();
+        }
+        $this->response(['message' => 'Update position successfully']);
     }
 }

@@ -9,4 +9,9 @@ export const lessonApi = {
         const config = await bearerConfig();
         return axiosInstance.get(url, config, data);
     },
+    updateTopicsPosition: async (data) => {
+        const url = TOPIC_URL + '/update-position';
+        const config = await bearerConfig();
+        return axiosInstance.post(url, data, config);
+    }
 }
