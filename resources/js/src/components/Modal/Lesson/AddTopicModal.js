@@ -7,10 +7,10 @@ function AddTopicModal(props) {
   return (
     <BaseModal modalName={modalName} handleCloseModal={handleCloseModal} isShow={isShow}>
       <Form action="#" className="form-validate is-alter" onFinish={onFinish}>
-        <label className="form-label" htmlFor="topicName">Tên chủ đề</label>
+        <label className="form-label" htmlFor="name">Tên chủ đề</label>
         <Form.Item
           className="form-group mb-3"
-          name="topicName"
+          name="name"
           rules={[
             {
               required: true,
@@ -19,7 +19,7 @@ function AddTopicModal(props) {
           ]}
         >
           <div className="form-control-wrap mb-2">
-            <Input type="text" placeholder='Nhập tên chủ đề' className="form-control" id="topicName" />
+            <Input type="text" placeholder='Nhập tên chủ đề' className="form-control" id="name" />
           </div>
         </Form.Item>
         <Form.Item className="form-group">

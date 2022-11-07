@@ -13,5 +13,10 @@ export const lessonApi = {
         const url = TOPIC_URL + '/update-position';
         const config = await bearerConfig();
         return axiosInstance.post(url, data, config);
+    },
+    create: async (data) => {
+        const url = TOPIC_URL;
+        const config = await bearerConfig();
+        return axiosInstance.post(url, data, config);
     }
 }

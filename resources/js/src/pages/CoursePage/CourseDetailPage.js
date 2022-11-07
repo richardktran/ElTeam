@@ -85,7 +85,7 @@ const CourseDetailPage = () => {
                           </div>
                         </div>
                       </li>
-                      {isOwner || !isOwner &&
+                      {isOwner &&
                         <li className="nk-block-tools-opt">
                           <div onClick={toggleEditable} className="btn btn-primary">
                             <em className="icon ni ni-reports" />
@@ -100,7 +100,7 @@ const CourseDetailPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Lesson courseId={id} isAddTopic={isAddTopic} setIsAddTopic={setIsAddTopic} />
+            <Lesson isOwner={isOwner} courseId={id} isAddTopic={isAddTopic} setIsAddTopic={setIsAddTopic} />
           </div>
         </div>
       </div>

@@ -42,9 +42,9 @@ const MyGroupPage = () => {
     }
   }
 
-  useEffect(() => {
-    setIsLoading(loading);
-  }, [loading]);
+  // useEffect(() => {
+  //   setIsLoading(loading);
+  // }, [loading]);
 
   useEffect(() => {
     dispatch(changeLoading(isLoading));
