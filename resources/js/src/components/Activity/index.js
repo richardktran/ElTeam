@@ -55,7 +55,11 @@ function Activities(props) {
                       opacity: snapshot.isDragging ? '0.5' : '1'
                     }}
                   >
-                    {isOwner && <span><em class="icon ni ni-menu-circled" {...provided.dragHandleProps}></em></span>}
+                    {isOwner &&
+                      <span style={{ paddingTop: '5px' }}>
+                        <em class="icon ni ni-menu-circled" {...provided.dragHandleProps}></em>
+                      </span>
+                    }
                     <div className='pl-2'>
                       <ActivitySection activity={activity} isOwner={isOwner} />
                     </div>

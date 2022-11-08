@@ -5,7 +5,7 @@ function LinkType(props) {
   return (
     <div {...props}>
       <a href={content}>
-        <img src="https://elearning.ctu.edu.vn/theme/image.php/lambda/url/1662695177/icon" className="mr-2" alt="" role="presentation" aria-hidden="true" />
+        <img src="https://elteam.s3.ap-southeast-1.amazonaws.com/icons/movie_icon.svg" style={{ width: "37px", height: "37px" }} className="mr-1" alt="" role="presentation" aria-hidden="true" />
         <span className="instancename">
           {name}
         </span>
