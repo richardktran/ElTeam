@@ -55,6 +55,21 @@ const courses = createSlice({
         }
       }
     },
+    updateActivities: (state, action) => {
+      const { topicId, newActivities } = action.payload;
+      return {
+        ...state,
+        lesson: {
+          topics: state.lesson.topics.map(topic => {
+            let newTopic = { ...topic };
+            if (topic.id === topicId) {
+              newTopic.activities = newActivities;
+            }
+            return newTopic;
+          })
+        }
+      }
+    }
   }
 });
 
@@ -64,7 +79,8 @@ export const {
   getTopics,
   requestCourse,
   requestTopics,
-  updateTopicPosition
+  updateTopicPosition,
+  updateActivities
 } = actions;
 
 export default reducer;

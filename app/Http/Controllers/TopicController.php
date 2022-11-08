@@ -9,7 +9,11 @@ class TopicController extends Controller
 {
     public function index(Request $request)
     {
-        $topics = Topic::where('course_id', $request->course_id)->orderBy('position', 'asc')->get();
+        $topics = Topic::where('course_id', $request->course_id)
+        ->with(['activities' => function ($query) {
+            $query->orderBy('position', 'asc');
+        }])
+        ->orderBy('position', 'asc')->get();
 
         return $this->response($topics);
     }

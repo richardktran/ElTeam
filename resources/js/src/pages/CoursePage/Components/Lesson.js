@@ -6,6 +6,7 @@ import AddTopicModal from '../../../components/Modal/Lesson/AddTopicModal';
 import { requestTopics, updateTopicPosition } from '../../../store/Course/Reducer';
 import { lessonApi } from '../../../api/lessonApi';
 import { HTTP_OK } from '../../../utils/constant';
+import Activities from '../../../components/Activity';
 
 function Lesson(props) {
   const dispatch = useDispatch();
@@ -149,18 +150,8 @@ function Lesson(props) {
                               </div>
                             }
                           </div>
-                          <div className="entry">
-                            <ul class="list list-sm list-checked">
-                              {topic.activities && topic.activities.map((activity, index) => {
-                                return (
-                                  <li key={index}>
-                                    <span>{activity.name}</span>
-                                  </li>
-                                )
-                              }
-                              )}
-                            </ul>
-                          </div>{/* .entry */}
+
+                          <Activities topicId={topic.id} activities={topic.activities} isOwner={isOwner} />
                         </div>{/* .support-topic-meta */}
                       </div>
                     )}

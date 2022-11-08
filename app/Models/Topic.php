@@ -16,7 +16,7 @@ class Topic extends Model
         'course_id',
     ];
 
-    protected $with = ['activities'];
+    // protected $with = ['activities'];
 
     public function course()
     {

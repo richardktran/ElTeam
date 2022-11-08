@@ -26,4 +26,18 @@ class ActivityController extends Controller
         $topic = Activity::create($data);
         return $this->response($topic);
     }
+
+    public function updateActivities(Request $request)
+    {
+        $data = $request->all();
+        $activities = $data['activities'];
+
+        foreach ($activities as $activity) {
+            $activityModel = Activity::find($activity['id']);
+            $activityModel->position = $activity['position'];
+            $activityModel->save();
+        }
+
+        return $this->response($activities);
+    }
 }

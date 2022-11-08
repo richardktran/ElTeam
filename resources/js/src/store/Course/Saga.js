@@ -6,6 +6,7 @@ import {
   requestCourse as requestCourseAction,
   requestTopics as requestTopicsAction,
   updateTopicPosition as updateTopicPositionAction,
+  updateActivities as updateActivitiesAction,
 } from './Reducer';
 
 import { courseApi } from '../../api/courseApi';
@@ -57,11 +58,25 @@ export function* updateTopicsPosition({ payload }) {
   }
 }
 
+export function* updateActivities({ payload }) {
+  try {
+    const { newActivities } = payload;
+    const data = {
+      activities: newActivities
+    }
+    yield call(lessonApi.updateActivities, data);
+  } catch (e) {
+    const err = _get(e, 'response.data', {});
+    console.log(e);
+  }
+}
+
 
 function* courseSaga() {
   yield takeLatest(requestCourseAction, requestCourse);
   yield takeLatest(requestTopicsAction, requestTopics);
   yield takeLatest(updateTopicPositionAction, updateTopicsPosition);
+  yield takeLatest(updateActivitiesAction, updateActivities);
 
 }
 export default courseSaga;

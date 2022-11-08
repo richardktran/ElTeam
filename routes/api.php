@@ -83,4 +83,5 @@ Route::group(['prefix' => 'activities', 'middleware' => ['auth:sanctum', 'role:s
     Route::get('/', [ActivityController::class, 'index'])->name('activities.get');
 
     Route::post('/', [ActivityController::class, 'create'])->name('activities.create');
+    Route::put('/', [ActivityController::class, 'updateActivities'])->name('activities.update');
 });
