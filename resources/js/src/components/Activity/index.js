@@ -56,9 +56,18 @@ function Activities(props) {
                     }}
                   >
                     {isOwner &&
-                      <span style={{ paddingTop: '5px' }}>
-                        <em class="icon ni ni-menu-circled" {...provided.dragHandleProps}></em>
-                      </span>
+                      <div className='dropdown d-flex align-items-center'>
+                        <span className='dropdown-toggle' data-toggle="dropdown" style={{ paddingTop: '5px' }}>
+                          <em class="icon ni ni-menu-circled" {...provided.dragHandleProps}></em>
+                        </span>
+                        <div className="dropdown-menu dropdown-menu-left">
+                          <ul className="link-list-opt no-bdr">
+                            <li><a href="#"><span>Sửa hoạt động</span></a></li>
+                            <li><a href="#"><span>Khóa hoạt động</span></a></li>
+                            <li><a href="#"><span>Xóa hoạt động</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
                     }
                     <div className='pl-2'>
                       <ActivitySection activity={activity} isOwner={isOwner} />
