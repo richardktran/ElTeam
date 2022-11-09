@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TopicController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\UserController;
 */
 
 
+Route::post('/file/upload', [FileController::class, 'upload'])->name('upload');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/auth/google/url', [GoogleController::class, 'loginUrl'])->name('login.google.url');
 Route::get('/auth/google/callback', [GoogleController::class, 'loginCallback'])->name('login.google.callback');
