@@ -106,6 +106,10 @@ function AddActivityModal(props) {
         toast.success('Thêm hoạt động thành công!');
         dispatch(requestTopics());
         setIsShow({ show: false, topicId: null });
+        setName('');
+        setType('text');
+        setContent('');
+        setFileType('pdf');
       } else {
         console.log(response);
         toast.error("Thêm hoạt động thất bại!!!");
