@@ -40,4 +40,12 @@ class ActivityController extends Controller
 
         return $this->response($activities);
     }
+
+    public function toggleLock(Request $request, Activity $activity)
+    {
+        $activity->enable = !$activity->enable;
+        $activity->save();
+
+        return $this->response($activity);
+    }
 }

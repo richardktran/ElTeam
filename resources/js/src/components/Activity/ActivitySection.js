@@ -22,6 +22,16 @@ const BaseActivity = ({ activity, isOwner }) => {
           isOwner={isOwner}
         />
       );
+    case 'link':
+      return (
+        <LinkType
+          icon='https://elteam.s3.ap-southeast-1.amazonaws.com/icons/link_icon.svg'
+          id={activity.id}
+          content={activity.content}
+          name={activity.name}
+          isOwner={isOwner}
+        />
+      );
     default:
       return (
         <LinkType

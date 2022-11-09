@@ -24,9 +24,19 @@ export const lessonApi = {
         const config = await bearerConfig();
         return axiosInstance.post(url, {}, config);
     },
+    toggleLockActivity: async (activityId) => {
+        const url = ACTIVITY_URL + '/' + activityId + '/toggle-lock';
+        const config = await bearerConfig();
+        return axiosInstance.post(url, {}, config);
+    },
     updateActivities: async (data) => {
         const url = ACTIVITY_URL + '/';
         const config = await bearerConfig();
         return axiosInstance.put(url, data, config);
     },
+    createActivity: async (data) => {
+        const url = ACTIVITY_URL;
+        const config = await bearerConfig();
+        return axiosInstance.post(url, data, config);
+    }
 }

@@ -2,18 +2,39 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useDispatch } from 'react-redux';
-import { updateActivities } from '../../store/Course/Reducer';
+import { lessonApi } from '../../api/lessonApi';
+import { requestTopics, updateActivities } from '../../store/Course/Reducer';
 import ActivitySection from './ActivitySection';
+import { HTTP_OK } from '../../utils/constant';
+import toast from 'react-hot-toast';
 
 function Activities(props) {
   const dispatch = useDispatch();
   const { topicId, activities, isOwner } = props;
-  const [isHover, setIsHover] = useState(false);
   const [activitiesData, setActivitiesData] = useState(activities);
 
   useEffect(() => {
     setActivitiesData(activities);
   }, [activities]);
+
+  const toggleLockActivity = async (activityId, oldStatus) => {
+    try {
+      const response = await lessonApi.toggleLockActivity(activityId);
+      if (response.status === HTTP_OK) {
+        toast.success(oldStatus ? 'Khóa chủ đề thành công!' : 'Mở khóa chủ đề thành công!');
+        dispatch(requestTopics());
+      } else {
+        console.log(response);
+        toast.error(!oldStatus ? 'Khóa chủ đề thất bại!' : 'Mở khóa chủ đề thất bại!');
+      }
+    } catch (e) {
+      console.log(e);
+      const messages = e.response.data.messages;
+      messages.forEach(message => {
+        toast.error(message.message);
+      });
+    }
+  }
 
   const onDragEnd = (result) => {
     if (!result.destination) return;
@@ -57,13 +78,17 @@ function Activities(props) {
                   >
                     {isOwner &&
                       <div className='dropdown d-flex align-items-center'>
-                        <span className='dropdown-toggle' data-toggle="dropdown" style={{ paddingTop: '5px' }}>
+                        <span className='dropdown-toggle' data-toggle="dropdown">
                           <em class="icon ni ni-menu-circled" {...provided.dragHandleProps}></em>
                         </span>
                         <div className="dropdown-menu dropdown-menu-left">
                           <ul className="link-list-opt no-bdr">
                             <li><a href="#"><span>Sửa hoạt động</span></a></li>
-                            <li><a href="#"><span>Khóa hoạt động</span></a></li>
+                            <li>
+                              <a href="#" onClick={() => toggleLockActivity(activity.id, activity.enable)}>
+                                <span>{activity.enable === 1 ? "Khóa hoạt động" : "Mở khóa hoạt động"}</span>
+                              </a>
+                            </li>
                             <li><a href="#"><span>Xóa hoạt động</span></a></li>
                           </ul>
                         </div>

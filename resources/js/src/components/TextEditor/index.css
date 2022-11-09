@@ -1,0 +1,6 @@
+.ql-editor {
+  overflow-y: scroll;
+  resize: vertical;
+  min-height: 140px;
+  /* margin-bottom: 40px; */
+}

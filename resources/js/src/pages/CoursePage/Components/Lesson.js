@@ -7,6 +7,7 @@ import { requestTopics, updateTopicPosition } from '../../../store/Course/Reduce
 import { lessonApi } from '../../../api/lessonApi';
 import { HTTP_OK } from '../../../utils/constant';
 import Activities from '../../../components/Activity';
+import AddActivityModal from '../../../components/Modal/Lesson/AddActivityModal';
 
 function Lesson(props) {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function Lesson(props) {
   const topicsData = useSelector(state => state.course.lesson.topics);
 
   const [topics, setTopics] = useState(topicsData);
+  const [showAddActivityModal, setShowAddActivityModal] = useState({ show: false, topicId: null });
 
   const [showAddTopic, setShowAddTopic] = React.useState(false);
 
@@ -24,6 +26,8 @@ function Lesson(props) {
   useEffect(() => {
     setShowAddTopic(isAddTopic);
   }, [isAddTopic])
+
+
 
   useEffect(() => {
     setIsAddTopic(showAddTopic);
@@ -73,6 +77,10 @@ function Lesson(props) {
         toast.error(message.message);
       });
     }
+  }
+
+  const addActivity = () => {
+    //
   }
 
 
@@ -140,7 +148,12 @@ function Lesson(props) {
                                   <a className="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em className="icon ni ni-more-h" /></a>
                                   <div className="dropdown-menu dropdown-menu-right dropdown-menu-sm">
                                     <ul className="link-list-plain">
-                                      <li><a href="#">Thêm hoạt động</a></li>
+                                      <li>
+                                        <a href="#" onClick={() => setShowAddActivityModal({
+                                          show: true,
+                                          topicId: topic.id
+                                        })}>Thêm hoạt động</a>
+                                      </li>
                                       <li><a href="#">Sửa chủ đề</a></li>
                                       <li><a href="#" onClick={() => toggleLockTopic(topic.id, topic.enable)}>{topic.enable === 1 ? "Khóa chủ đề" : "Mở khóa chủ đề"}</a></li>
                                       <li><a href="#">Xóa chủ đề</a></li>
@@ -168,6 +181,14 @@ function Lesson(props) {
         onFinish={addTopic}
         isShow={showAddTopic}
         handleCloseModal={() => setShowAddTopic(false)}
+      />
+      <AddActivityModal
+        modalName="Thêm hoạt động mới"
+        onFinish={addActivity}
+        topicId={showAddActivityModal.topicId}
+        isShow={showAddActivityModal.show}
+        setIsShow={setShowAddActivityModal}
+        handleCloseModal={() => setShowAddActivityModal({ show: false })}
       />
     </div>
   )
