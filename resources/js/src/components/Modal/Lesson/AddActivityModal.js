@@ -11,25 +11,7 @@ import { requestTopics } from '../../../store/Course/Reducer';
 import { useDispatch } from 'react-redux';
 const { Dragger } = Upload;
 
-const uploadProps = {
-  name: 'file',
-  multiple: false,
-  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-  onChange(info) {
-    const { status } = info.file;
-    if (status !== 'uploading') {
-      console.log(info.file, info.fileList);
-    }
-    if (status === 'done') {
-      message.success(`${info.file.name} file uploaded successfully.`);
-    } else if (status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
-  onDrop(e) {
-    console.log('Dropped files', e.dataTransfer.files);
-  },
-};
+
 
 function AddActivityModal(props) {
   const { isShow, setIsShow, modalName, onFinish, handleCloseModal, topicId } = props
@@ -38,8 +20,69 @@ function AddActivityModal(props) {
 
   const [name, setName] = useState('');
   const [type, setType] = useState('text');
+  const [fileType, setFileType] = useState('pdf');
   const [content, setContent] = useState('');
 
+  const uploadProps = {
+    name: 'file',
+    multiple: false,
+    action: 'http://localhost:8000/api/file/upload',
+    data: {
+      category: 'lesson'
+    },
+    onChange(info) {
+      const { status, response } = info.file;
+      if (status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (status === 'done') {
+        setContent(response.data.url);
+        changeType(response.data.name);
+
+      } else if (status === 'error') {
+        toast.error(`${info.file.name} file upload failed.`);
+      }
+    },
+    onDrop(e) {
+      console.log('Dropped files', e.dataTransfer.files);
+    },
+  };
+
+  const checkIncludes = (name, types) => {
+    let result = false;
+    types.forEach(type => {
+      if (name.includes(type)) {
+        result = true;
+      }
+    })
+    return result;
+  }
+
+  const getTypes = (name) => {
+    const ext = getExtension(name);
+    if (checkIncludes(ext, ['pdf'])) {
+      return 'pdf';
+    }
+    if (checkIncludes(ext, ['doc', 'docx'])) {
+      return 'doc';
+    }
+    if (checkIncludes(ext, ['xls', 'xlsx'])) {
+      return 'xls';
+    }
+    if (checkIncludes(ext, ['mp4', 'avi', 'mov', 'wmv'])) {
+      return 'movie';
+    }
+    if (checkIncludes(ext, ['mp3', 'wav', 'wma'])) {
+      return 'audio';
+    }
+
+    return 'text';
+  }
+
+  const changeType = (name) => {
+    const type = getTypes(name);
+    setFileType(type);
+  }
 
   const addActivity = async () => {
     if (name === '') {
@@ -47,21 +90,25 @@ function AddActivityModal(props) {
       return;
     }
     try {
+      let newType = type;
+      if (type === 'file') {
+        newType = fileType;
+      }
       const data = {
         topic_id: topicId,
         name: name,
-        type: type,
+        type: newType,
         content: content,
       }
 
       const response = await lessonApi.createActivity(data);
       if (response.status === HTTP_OK) {
-        toast.success('Thêm chủ đề thành công!');
+        toast.success('Thêm hoạt động thành công!');
         dispatch(requestTopics());
         setIsShow({ show: false, topicId: null });
       } else {
         console.log(response);
-        toast.error("Thêm chủ đề thất bại!!!");
+        toast.error("Thêm hoạt động thất bại!!!");
       }
     } catch (e) {
       console.log(e);

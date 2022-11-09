@@ -23,8 +23,9 @@ class FileController extends Controller
             $path = sprintf('%s/%s.%s', $category, uniqid(), $file->getClientOriginalExtension());
             $this->fileSystemService->upload($path, $file->getRealPath(), false);
             $url = [
-                'filename' => $file->getClientOriginalName(),
+                'name' => $file->getClientOriginalName(),
                 'path' => $path,
+                'status' => 'done',
                 'url' => $this->fileSystemService->url($path),
             ];
         }

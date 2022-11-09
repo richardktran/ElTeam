@@ -1,5 +1,6 @@
 import React from 'react'
 import DragHandleIcon from '../../images/draggable.svg';
+import FileType from './FileType';
 import LinkType from './LinkType';
 import TextType from './TextType';
 
@@ -25,7 +26,6 @@ const BaseActivity = ({ activity, isOwner }) => {
     case 'link':
       return (
         <LinkType
-          icon='https://elteam.s3.ap-southeast-1.amazonaws.com/icons/link_icon.svg'
           id={activity.id}
           content={activity.content}
           name={activity.name}
@@ -34,9 +34,10 @@ const BaseActivity = ({ activity, isOwner }) => {
       );
     default:
       return (
-        <LinkType
+        <FileType
           id={activity.id}
           content={activity.content}
+          type={activity.type}
           name={activity.name}
           isOwner={isOwner}
         />
