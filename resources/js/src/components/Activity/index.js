@@ -8,12 +8,14 @@ import ActivitySection from './ActivitySection';
 import { HTTP_OK } from '../../utils/constant';
 import toast from 'react-hot-toast';
 import EditActivityModal from '../Modal/Lesson/EditActivityModal';
+import FileViewerModal from '../Modal/Lesson/FileViewerModal';
 
 function Activities(props) {
   const dispatch = useDispatch();
   const { topicId, activities, isOwner } = props;
   const [activitiesData, setActivitiesData] = useState(activities);
   const [showEditActivityModal, setShowEditActivityModal] = useState({ show: false, activity: null });
+  const [showFileViewer, setShowFileViewer] = useState({ show: false, url: null, name: null });
 
   useEffect(() => {
     setActivitiesData(activities);
@@ -72,6 +74,12 @@ function Activities(props) {
     }
   }
 
+  const handleOpenViewer = (activity) => {
+    if (activity.type !== 'text' && activity.type !== 'link' && activity.content !== null) {
+      setShowFileViewer({ show: true, url: activity.content, name: activity.name });
+    }
+  }
+
   return (
     <div>
       <DragDropContext onDragEnd={onDragEnd}>
@@ -120,7 +128,7 @@ function Activities(props) {
                           </div>
                         </div>
                       }
-                      <div className='pl-2'>
+                      <div className='pl-2' onClick={() => handleOpenViewer(activity)}>
                         <ActivitySection activity={activity} isOwner={isOwner} />
                       </div>
                     </div>
@@ -137,6 +145,12 @@ function Activities(props) {
         isShow={showEditActivityModal.show}
         setIsShow={setShowEditActivityModal}
         handleCloseModal={() => setShowEditActivityModal({ show: false, activity: null })}
+      />
+      <FileViewerModal
+        modalName={showFileViewer.name}
+        url={showFileViewer.url}
+        isShow={showFileViewer.show}
+        handleCloseModal={() => setShowFileViewer({ show: false, url: null })}
       />
     </div>
   )
