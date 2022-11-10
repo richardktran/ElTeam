@@ -1,5 +1,7 @@
 import React from 'react'
+import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import parse from 'html-react-parser';
 import { updateContentTask } from '../../../../store/Tasks/Reducer';
 import TextEditor from '../../../TextEditor/TextEditor';
 
@@ -23,12 +25,20 @@ function ContentTask(props) {
     setNewContent(children);
     setReadOnly(!readOnly);
   }
+
+  const transformText = useCallback((text) => {
+    if (text === undefined) return "";
+    let newText = text.replace("<ul", '<ul class="list list-sm list-checked"');
+    newText = newText.replaceAll("h2>", 'h4>');
+    return parse(newText);
+  }, [children]);
+
   return (
     <>
       <h6 className="title mb-2">Mô tả công việc</h6>
       {readOnly ? (
         <div onClick={editContentHandle}>
-          <TextEditor value={children} readOnly={true} />
+          {transformText(children)}
         </div>
       ) : (
         <>
