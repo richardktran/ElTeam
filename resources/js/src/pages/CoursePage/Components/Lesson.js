@@ -6,6 +6,10 @@ import AddTopicModal from '../../../components/Modal/Lesson/AddTopicModal';
 import { requestTopics, updateTopicPosition } from '../../../store/Course/Reducer';
 import { lessonApi } from '../../../api/lessonApi';
 import { HTTP_OK } from '../../../utils/constant';
+import Activities from '../../../components/Activity';
+import AddActivityModal from '../../../components/Modal/Lesson/AddActivityModal';
+import EditTopicModal from '../../../components/Modal/Lesson/EditTopicModal';
+import EditActivityModal from '../../../components/Modal/Lesson/EditActivityModal';
 
 function Lesson(props) {
   const dispatch = useDispatch();
@@ -13,8 +17,10 @@ function Lesson(props) {
   const topicsData = useSelector(state => state.course.lesson.topics);
 
   const [topics, setTopics] = useState(topicsData);
+  const [showAddActivityModal, setShowAddActivityModal] = useState({ show: false, topicId: null });
 
   const [showAddTopic, setShowAddTopic] = React.useState(false);
+  const [showEditTopic, setShowEditTopic] = useState({ show: false, topic: {} });
 
   useEffect(() => {
     setTopics(topicsData);
@@ -23,6 +29,8 @@ function Lesson(props) {
   useEffect(() => {
     setShowAddTopic(isAddTopic);
   }, [isAddTopic])
+
+
 
   useEffect(() => {
     setIsAddTopic(showAddTopic);
@@ -55,6 +63,22 @@ function Lesson(props) {
     }
   }
 
+  const deleteTopic = async (id) => {
+    try {
+      const response = await lessonApi.delete(id);
+      if (response.status === HTTP_OK) {
+        toast.success('Xóa chủ đề thành công!');
+        dispatch(requestTopics());
+      } else {
+        console.log(response);
+        toast.error("Xóa chủ đề thất bại!!!");
+      }
+    } catch (e) {
+      console.log(e);
+      toast.error("Xóa chủ đề thất bại!!!");
+    }
+  }
+
   const toggleLockTopic = async (topicId, oldStatus) => {
     try {
       const response = await lessonApi.toggleLockTopic(topicId);
@@ -72,6 +96,10 @@ function Lesson(props) {
         toast.error(message.message);
       });
     }
+  }
+
+  const addActivity = () => {
+    //
   }
 
 
@@ -139,33 +167,23 @@ function Lesson(props) {
                                   <a className="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em className="icon ni ni-more-h" /></a>
                                   <div className="dropdown-menu dropdown-menu-right dropdown-menu-sm">
                                     <ul className="link-list-plain">
-                                      <li><a href="#">Thêm hoạt động</a></li>
-                                      <li><a href="#">Sửa chủ đề</a></li>
+                                      <li>
+                                        <a href="#" onClick={() => setShowAddActivityModal({
+                                          show: true,
+                                          topicId: topic.id
+                                        })}>Thêm hoạt động</a>
+                                      </li>
+                                      <li><a href="#" onClick={() => setShowEditTopic({ show: true, topic: topic })}>Sửa chủ đề</a></li>
                                       <li><a href="#" onClick={() => toggleLockTopic(topic.id, topic.enable)}>{topic.enable === 1 ? "Khóa chủ đề" : "Mở khóa chủ đề"}</a></li>
-                                      <li><a href="#">Xóa chủ đề</a></li>
+                                      <li><a onClick={() => deleteTopic(topic.id)}>Xóa chủ đề</a></li>
                                     </ul>
                                   </div>
                                 </div>
                               </div>
                             }
                           </div>
-                          <div className="entry">
-                            <p>Rất nhiều bạn chưa đọc phần hướng dẫn làm bài trên hệ thống này đã vội gởi bài dẫn đến gặp rất nhiều lỗi mà không biết tại sao.</p>
-                            <p>Một số lời khuyên với các bạn:</p>
-                            <ul class="list list-sm list-checked">
-                              <li>Đọc kỹ phần hướng dẫn cách làm bài thực hành.</li>
-                              <li>Làm các bài tập trong phần KHỞI ĐỘNG để làm quen với cách làm bài.</li>
-                              <li>Khi viết chương trình trên DEV-C, các bạn nhớ lưu tập tin với phần mở rộng là .c, đừng lưu với .cpp.</li>
-                              <li>Các bài tập thực hành đều có phần ví dụ về đọc đồ thị, các bạn cứ theo đó mà làm.</li>
-                              <li>Các bạn NÊN thử nhiều lần để khám phá và hiểu hệ thống</li>
-                              <li>Các bạn NÊN siêng năng làm tất cả các bài tập để hiểu được các giải thuật trong LTĐT, qua đó củng cố được lý thuyết và rèn luyện kỹ năng lập trình</li>
-                            </ul>
-                            <h5>HƯỚNG DẪN LÀM BÀI THI THỰC HÀNH</h5>
-                            <ul class="list list-sm list-checked">
-                              <li>Viết chương trình hoàn chỉnh: sinh viên cần phải #include, khai báo các hàm, biến cần thiết, nhập dữ liệu, tính toán và in kết quả ra màn hình.</li>
-                              <li>Các bạn NÊN siêng năng làm tất cả các bài tập để hiểu được các giải thuật trong LTĐT, qua đó củng cố được lý thuyết và rèn luyện kỹ năng lập trình</li>
-                            </ul>
-                          </div>{/* .entry */}
+
+                          <Activities topicId={topic.id} activities={topic.activities} isOwner={isOwner} />
                         </div>{/* .support-topic-meta */}
                       </div>
                     )}
@@ -183,6 +201,22 @@ function Lesson(props) {
         isShow={showAddTopic}
         handleCloseModal={() => setShowAddTopic(false)}
       />
+      <EditTopicModal
+        modalName="Cập nhật chủ đề"
+        topicInfo={showEditTopic.topic}
+        isShow={showEditTopic.show}
+        setIsShow={setShowEditTopic}
+        handleCloseModal={() => setShowEditTopic({ show: false, topic: {} })}
+      />
+      <AddActivityModal
+        modalName="Thêm hoạt động mới"
+        onFinish={addActivity}
+        topicId={showAddActivityModal.topicId}
+        isShow={showAddActivityModal.show}
+        setIsShow={setShowAddActivityModal}
+        handleCloseModal={() => setShowAddActivityModal({ show: false })}
+      />
+
     </div>
   )
 }

@@ -9,7 +9,11 @@ class TopicController extends Controller
 {
     public function index(Request $request)
     {
-        $topics = Topic::where('course_id', $request->course_id)->orderBy('position', 'asc')->get();
+        $topics = Topic::where('course_id', $request->course_id)
+        ->with(['activities' => function ($query) {
+            $query->orderBy('position', 'asc');
+        }])
+        ->orderBy('position', 'asc')->get();
 
         return $this->response($topics);
     }
@@ -24,6 +28,18 @@ class TopicController extends Controller
         $data['position'] = $latestPosition ? $latestPosition->position + 1 : 0;
 
         $topic = Topic::create($data);
+        return $this->response($topic);
+    }
+
+    public function update(Request $request, Topic $topic)
+    {
+        $topic->update($request->all());
+        return $this->response($topic);
+    }
+
+    public function destroy(Topic $topic)
+    {
+        $topic->delete();
         return $this->response($topic);
     }
 

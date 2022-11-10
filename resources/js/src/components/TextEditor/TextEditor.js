@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import './index.css';
 
 const modules = {
   toolbar: [
@@ -44,7 +45,6 @@ const TextEditor = (props) => {
         onChange={onChange}
         placeholder={placeholder}
         readOnly={readOnly}
-        style={{ height: "140px", marginBottom: "40px" }}
       />
     </>
   );

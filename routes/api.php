@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TopicController;
@@ -22,6 +24,7 @@ use App\Http\Controllers\UserController;
 */
 
 
+Route::post('/file/upload', [FileController::class, 'upload'])->name('upload');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/auth/google/url', [GoogleController::class, 'loginUrl'])->name('login.google.url');
 Route::get('/auth/google/callback', [GoogleController::class, 'loginCallback'])->name('login.google.callback');
@@ -74,6 +77,18 @@ Route::group(['prefix' => 'topics', 'middleware' => ['auth:sanctum', 'role:stude
     Route::get('/', [TopicController::class, 'index'])->name('topics.get');
 
     Route::post('/', [TopicController::class, 'create'])->name('groups.topic.create');
+    Route::put('/{topic}', [TopicController::class, 'update'])->name('groups.topic.update');
+    Route::delete('/{topic}', [TopicController::class, 'destroy'])->name('groups.topic.destroy');
     Route::post('/update-position', [TopicController::class, 'updatePosition'])->name('groups.topic.update-position');
     Route::post('/{topic}/toggle-lock', [TopicController::class, 'toggleLock'])->name('groups.topic.toggle-lock');
+});
+
+Route::group(['prefix' => 'activities', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
+    Route::get('/', [ActivityController::class, 'index'])->name('activities.get');
+
+    Route::post('/', [ActivityController::class, 'create'])->name('activities.create');
+    Route::put('/', [ActivityController::class, 'updateActivities'])->name('activities.updateAll');
+    Route::put('/{activity}', [ActivityController::class, 'update'])->name('activities.update');
+    Route::delete('/{activity}', [ActivityController::class, 'destroy'])->name('activities.destroy');
+    Route::post('/{activity}/toggle-lock', [ActivityController::class, 'toggleLock'])->name('activity.toggle-lock');
 });
