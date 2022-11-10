@@ -35,6 +35,7 @@ services:
     container_name: elteam_app
     volumes:
       - ./:/var/www/html
+      - ./docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - elteam_network
 
