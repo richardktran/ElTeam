@@ -77,6 +77,8 @@ Route::group(['prefix' => 'topics', 'middleware' => ['auth:sanctum', 'role:stude
     Route::get('/', [TopicController::class, 'index'])->name('topics.get');
 
     Route::post('/', [TopicController::class, 'create'])->name('groups.topic.create');
+    Route::put('/{topic}', [TopicController::class, 'update'])->name('groups.topic.update');
+    Route::delete('/{topic}', [TopicController::class, 'destroy'])->name('groups.topic.destroy');
     Route::post('/update-position', [TopicController::class, 'updatePosition'])->name('groups.topic.update-position');
     Route::post('/{topic}/toggle-lock', [TopicController::class, 'toggleLock'])->name('groups.topic.toggle-lock');
 });
@@ -85,6 +87,8 @@ Route::group(['prefix' => 'activities', 'middleware' => ['auth:sanctum', 'role:s
     Route::get('/', [ActivityController::class, 'index'])->name('activities.get');
 
     Route::post('/', [ActivityController::class, 'create'])->name('activities.create');
-    Route::put('/', [ActivityController::class, 'updateActivities'])->name('activities.update');
+    Route::put('/', [ActivityController::class, 'updateActivities'])->name('activities.updateAll');
+    Route::put('/{activity}', [ActivityController::class, 'update'])->name('activities.update');
+    Route::delete('/{activity}', [ActivityController::class, 'destroy'])->name('activities.destroy');
     Route::post('/{activity}/toggle-lock', [ActivityController::class, 'toggleLock'])->name('activity.toggle-lock');
 });

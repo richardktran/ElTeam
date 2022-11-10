@@ -8,6 +8,8 @@ import { lessonApi } from '../../../api/lessonApi';
 import { HTTP_OK } from '../../../utils/constant';
 import Activities from '../../../components/Activity';
 import AddActivityModal from '../../../components/Modal/Lesson/AddActivityModal';
+import EditTopicModal from '../../../components/Modal/Lesson/EditTopicModal';
+import EditActivityModal from '../../../components/Modal/Lesson/EditActivityModal';
 
 function Lesson(props) {
   const dispatch = useDispatch();
@@ -18,6 +20,7 @@ function Lesson(props) {
   const [showAddActivityModal, setShowAddActivityModal] = useState({ show: false, topicId: null });
 
   const [showAddTopic, setShowAddTopic] = React.useState(false);
+  const [showEditTopic, setShowEditTopic] = useState({ show: false, topic: {} });
 
   useEffect(() => {
     setTopics(topicsData);
@@ -57,6 +60,22 @@ function Lesson(props) {
         toast.error(message.message);
       });
       setIsAddTopic(true);
+    }
+  }
+
+  const deleteTopic = async (id) => {
+    try {
+      const response = await lessonApi.delete(id);
+      if (response.status === HTTP_OK) {
+        toast.success('Xóa chủ đề thành công!');
+        dispatch(requestTopics());
+      } else {
+        console.log(response);
+        toast.error("Xóa chủ đề thất bại!!!");
+      }
+    } catch (e) {
+      console.log(e);
+      toast.error("Xóa chủ đề thất bại!!!");
     }
   }
 
@@ -154,9 +173,9 @@ function Lesson(props) {
                                           topicId: topic.id
                                         })}>Thêm hoạt động</a>
                                       </li>
-                                      <li><a href="#">Sửa chủ đề</a></li>
+                                      <li><a href="#" onClick={() => setShowEditTopic({ show: true, topic: topic })}>Sửa chủ đề</a></li>
                                       <li><a href="#" onClick={() => toggleLockTopic(topic.id, topic.enable)}>{topic.enable === 1 ? "Khóa chủ đề" : "Mở khóa chủ đề"}</a></li>
-                                      <li><a href="#">Xóa chủ đề</a></li>
+                                      <li><a onClick={() => deleteTopic(topic.id)}>Xóa chủ đề</a></li>
                                     </ul>
                                   </div>
                                 </div>
@@ -182,6 +201,13 @@ function Lesson(props) {
         isShow={showAddTopic}
         handleCloseModal={() => setShowAddTopic(false)}
       />
+      <EditTopicModal
+        modalName="Cập nhật chủ đề"
+        topicInfo={showEditTopic.topic}
+        isShow={showEditTopic.show}
+        setIsShow={setShowEditTopic}
+        handleCloseModal={() => setShowEditTopic({ show: false, topic: {} })}
+      />
       <AddActivityModal
         modalName="Thêm hoạt động mới"
         onFinish={addActivity}
@@ -190,6 +216,7 @@ function Lesson(props) {
         setIsShow={setShowAddActivityModal}
         handleCloseModal={() => setShowAddActivityModal({ show: false })}
       />
+
     </div>
   )
 }

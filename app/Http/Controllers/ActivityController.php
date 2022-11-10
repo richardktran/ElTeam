@@ -27,6 +27,18 @@ class ActivityController extends Controller
         return $this->response($topic);
     }
 
+    public function update(Request $request, Activity $activity)
+    {
+        $activity->update($request->all());
+        return $this->response($activity);
+    }
+
+    public function destroy(Activity $activity)
+    {
+        $activity->delete();
+        return $this->response($activity);
+    }
+    
     public function updateActivities(Request $request)
     {
         $data = $request->all();

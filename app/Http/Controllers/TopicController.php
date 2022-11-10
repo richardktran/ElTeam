@@ -31,6 +31,18 @@ class TopicController extends Controller
         return $this->response($topic);
     }
 
+    public function update(Request $request, Topic $topic)
+    {
+        $topic->update($request->all());
+        return $this->response($topic);
+    }
+
+    public function destroy(Topic $topic)
+    {
+        $topic->delete();
+        return $this->response($topic);
+    }
+
     //Update all topics position in a course base on course_id
     public function updatePosition(Request $request)
     {
