@@ -6,16 +6,32 @@ import { changePage } from '../../app/reducers/sideBarReducer';
 import { courseDetailItems, courseMembersItems } from './sidebars/courseDetail';
 import Curriculum from './Components/Curriculum';
 import isCourseOwner from '../../hooks/isCourseOwner';
+import Lesson from './Components/Lesson';
+import { requestCourse, requestTopics } from '../../store/Course/Reducer';
+import { changeLoading } from '../../store/App/Reducer';
 
 const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
   const isOwner = isCourseOwner(id);
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.course.submitting);
+  const courseData = useSelector(state => state.course.courseInfo);
 
-  const [isEditable, setIsEditable] = useState(false);
+  const [course, setCourse] = useState(courseData);
+
+
+  useEffect(() => {
+    dispatch(changeLoading(loading));
+  }, [loading]);
+
+  const [isAddTopic, setIsAddTopic] = useState(false);
+
+  useEffect(() => {
+    setCourse(courseData);
+  }, [courseData]);
 
   const toggleEditable = () => {
-    setIsEditable(!isEditable);
+    setIsAddTopic(!isAddTopic);
   }
 
   useEffect(() => {
@@ -24,10 +40,16 @@ const CourseDetailPage = () => {
     dispatch(action);
   }, [isOwner]);
 
+  const fetchCourseInfo = () => {
+    dispatch(requestCourse(id));
+    dispatch(requestTopics());
+  }
+
   useEffect(() => {
     const items = isOwner ? courseDetailItems : courseMembersItems;
     const action = changePage(items);
     dispatch(action);
+    fetchCourseInfo();
   }, []);
 
   return (
@@ -43,7 +65,7 @@ const CourseDetailPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                <h3 className="nk-block-title page-title">CT240 - Luận văn tốt nghiệp</h3>
+                <h3 className="nk-block-title page-title">{course.code} - {course.name}</h3>
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content">
                 <div className="nk-block-head-sub mb-2"></div>
@@ -67,7 +89,7 @@ const CourseDetailPage = () => {
                         <li className="nk-block-tools-opt">
                           <div onClick={toggleEditable} className="btn btn-primary">
                             <em className="icon ni ni-reports" />
-                            <span>{!isEditable ? "Chỉnh sửa" : "Lưu"}</span>
+                            <span>Thêm chủ đề</span>
                           </div>
                         </li>
                       }
@@ -78,7 +100,7 @@ const CourseDetailPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Curriculum id={id} isEditable={isEditable} />
+            <Lesson isOwner={isOwner} courseId={id} isAddTopic={isAddTopic} setIsAddTopic={setIsAddTopic} />
           </div>
         </div>
       </div>

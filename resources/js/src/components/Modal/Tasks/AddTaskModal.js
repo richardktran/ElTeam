@@ -1,8 +1,8 @@
 import { Form, Input, DatePicker } from 'antd'
 import React, { useState } from 'react'
 import moment from 'moment';
-import BaseModal from './BaseModal'
-import TextEditor from '../TextEditor/TextEditor';
+import BaseModal from '../BaseModal'
+import TextEditor from '../../TextEditor/TextEditor';
 
 const { TextArea } = Input;
 
@@ -27,18 +27,6 @@ const AddTaskModal = (props) => {
                         <Input type="text" placeholder='Nhập tên nhiệm vụ' className="form-control" id="title" />
                     </div>
                 </Form.Item>
-                <label className="form-label" htmlFor="content">Mô tả</label>
-                <Form.Item
-                    className="form-group"
-                    name="content"
-                    rules={[
-                        {
-                            message: 'Mô tả không được để trống!',
-                        },
-                    ]}
-                >
-                    <TextEditor className="form-control" id="content" />
-                </Form.Item>
                 <label className="form-label" htmlFor="deadline">Hạn chót</label>
                 <Form.Item
                     className="form-control-wrap"
@@ -52,6 +40,18 @@ const AddTaskModal = (props) => {
                             current.isBefore(moment().subtract(1, 'day'))
                         }
                     />
+                </Form.Item>
+                <label className="form-label" htmlFor="content">Mô tả</label>
+                <Form.Item
+                    className="form-group"
+                    name="content"
+                    rules={[
+                        {
+                            message: 'Mô tả không được để trống!',
+                        },
+                    ]}
+                >
+                    <TextEditor className="form-control" id="content" />
                 </Form.Item>
                 <Form.Item className="form-group">
                     <button type="submit" className="btn btn-lg btn-primary">Thêm nhiệm vụ</button>

@@ -26,7 +26,7 @@ const UserControl = () => {
                 <div className="user-toggle">
                     <div className="user-avatar sm">
                         {userData && userData.avatar ?
-                            <img src={userData.avatar} alt="" />
+                            <img src={userData.avatar} alt="" referrerpolicy="no-referrer" />
                             :
                             <em className="icon ni ni-user-alt" />
                         }

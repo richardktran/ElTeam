@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    public function getTask(Request $request, Task $task)
+    {
+        return $this->response($task);
+    }
     public function getTasksForGroup(Request $request, Group $group)
     {
         $sections = $group->course->sections->load(['tasks' => function ($query) use ($group) {
@@ -54,6 +58,26 @@ class TaskController extends Controller
             'deadline' => $params['deadline'],
             'position' => $position,
         ]);
+
+        return $this->response($task);
+    }
+
+    public function updateTask(Request $request, Task $task)
+    {
+        $params = $request->all();
+
+        if (isset($params['assignees'])) {
+            $assignees = $params['assignees'];
+            // Get ids of assignees
+            $assigneesIds = array_map(function ($assignee) {
+                return (string)$assignee['id'];
+            }, $assignees);
+            $params['assignees'] = $assigneesIds;
+        }
+
+        Task::where('id', $task->id)
+            ->update($params);
+        $task = Task::find($task->id);
 
         return $this->response($task);
     }

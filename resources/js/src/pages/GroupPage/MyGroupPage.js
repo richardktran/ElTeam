@@ -9,8 +9,10 @@ import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
 import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
-import { requestTasks } from '../../store/Tasks/Reducer';
-import AddTaskModal from '../../components/Modal/AddTaskModal';
+import { getGroupInfo, requestTask, requestTasks } from '../../store/Tasks/Reducer';
+import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
+import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
+import { changeLoading } from '../../store/App/Reducer';
 
 const MyGroupPage = () => {
   let { courseId } = useParams(); //get id from url
@@ -19,22 +21,34 @@ const MyGroupPage = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(state => state.groupTasks.sections);
   const sidebarItems = useSelector(state => state.sidebar);
+  const loading = useSelector(state => state.groupTasks.submitting);
+  const [isLoading, setIsLoading] = useState(loading);
   const [groupInfo, setGroupInfo] = useState({});
 
   const [boardData, setBoardData] = useState(tasks);
   const [sectionId, setSectionId] = useState(0);
+  const [taskId, setTaskId] = useState(0);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
+  const [showDetailTaskModal, setShowDetailTaskModal] = useState(false);
 
   const fetchGroupInfo = async () => {
     let result = await groupApi.getMyGroupInfo(courseId);
     if (result.status === HTTP_OK) {
       const { data } = result.data;
       setGroupInfo(data);
-
+      dispatch(getGroupInfo(data));
       const fetchTasksAction = requestTasks(data.id);
       dispatch(fetchTasksAction);
     }
   }
+
+  // useEffect(() => {
+  //   setIsLoading(loading);
+  // }, [loading]);
+
+  useEffect(() => {
+    dispatch(changeLoading(isLoading));
+  }, [isLoading]);
 
   useEffect(() => {
     setBoardData(tasks);
@@ -47,15 +61,23 @@ const MyGroupPage = () => {
   }, [isOwner]);
 
   useEffect(() => {
+    setIsLoading(true);
     const items = isOwner ? courseDetailItems : courseMembersItems;
     const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
     dispatch(action);
     fetchGroupInfo();
+    setIsLoading(false);
   }, []);
 
   const openAddTaskModal = (sectionId) => {
     setShowAddTaskModal(true);
     setSectionId(sectionId);
+  }
+
+  const openDetailTaskModal = (taskId) => {
+    setShowDetailTaskModal(true);
+    dispatch(requestTask(taskId));
+    setTaskId(taskId);
   }
 
   const addTask = async (values) => {
@@ -72,6 +94,7 @@ const MyGroupPage = () => {
       if (response.status === HTTP_OK) {
         toast.success('Thêm nhiệm vụ thành công!');
         dispatch(requestTasks(groupInfo.id));
+
         setShowAddTaskModal(false);
       } else {
         console.log(response);
@@ -137,15 +160,25 @@ const MyGroupPage = () => {
             <Kanban
               boardData={boardData}
               openAddTaskModal={openAddTaskModal}
+              openDetailTaskModal={openDetailTaskModal}
               groupId={groupInfo.id}
             />
           </div>
           <AddTaskModal
             modalName="Thêm công việc"
-            modalSize='lg'
+            modalSize='xl'
             onFinish={addTask}
             isShow={showAddTaskModal}
             handleCloseModal={() => setShowAddTaskModal(false)}
+          />
+
+          <DetailTaskModal
+            modalName="Chi tiết công việc"
+            taskId={taskId}
+            modalSize='xl'
+            onFinish={addTask}
+            isShow={showDetailTaskModal}
+            handleCloseModal={() => setShowDetailTaskModal(false)}
           />
         </div>
       </div>
