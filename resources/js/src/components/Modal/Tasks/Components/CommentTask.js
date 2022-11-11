@@ -3,15 +3,26 @@ import { db } from '../../../../services/firebase';
 import { onValue, ref, set, push, query, orderByChild } from "firebase/database";
 import useUser from '../../../../hooks/useUser';
 import Avatar from '../../../Avatar/Avatar';
+import { Button, Upload } from 'antd';
+import { UploadOutlined } from '@mui/icons-material';
+import { createRef } from 'react';
 
 function CommentTask(props) {
   const { id } = props;
   const [taskId, setTaskId] = useState(null);
   const [message, setMessage] = useState('');
+  const [filesMessage, setFilesMessage] = useState([]);
   const currentUser = useUser();
 
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
+  const [comments, setComments] = useState([]);
+
+
+  const uploadFileBtn = createRef();
+  const uploadImagesBtn = createRef();
+  const uploadFileRef = createRef();
+  const uploadImageRef = createRef();
 
   useEffect(() => {
     console.log(id);
@@ -22,7 +33,6 @@ function CommentTask(props) {
     setTaskId(id);
   }, [id])
 
-  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     if (taskId === null) {
@@ -47,10 +57,42 @@ function CommentTask(props) {
     });
   }, [taskId]);
 
-  const sendMessage = () => {
+  const uploadFilesProps = {
+    name: 'file',
+    multiple: true,
+    action: 'http://localhost:8000/api/file/upload',
+    data: {
+      category: 'tasks/' + taskId + '/comments'
+    },
+    onChange(info) {
+      const { status, response } = info.file;
+      if (status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (status === 'done') {
+        const data = response.data;
+        setFilesMessage([...filesMessage, {
+          name: data.name,
+          url: data.url
+        }]);
+
+      } else if (status === 'error') {
+        toast.error(`${info.file.name} file upload failed.`);
+      }
+    },
+    onRemove(e) {
+      console.log('Remove files ', e);
+      const newFiles = filesMessage.filter(file => file.url !== e.response.data.url);
+      setFilesMessage(newFiles);
+    },
+  };
+
+  const sendMessage = useCallback(() => {
     if (message === '') return;
+    console.log(filesMessage);
     const newComment = {
       content: message,
+      files: filesMessage,
       sendBy: {
         id: currentUser.id,
         name: currentUser.name,
@@ -62,6 +104,17 @@ function CommentTask(props) {
     const oldComments = push(ref(db, "tasks/" + taskId + "/comments/"));
     set(oldComments, newComment);
     setMessage('');
+    setFilesMessage([]);
+    uploadFileRef.current.fileList.length = 0;
+    uploadImageRef.current.fileList.length = 0;
+    forceUpdate();
+  }, [uploadFileRef]);
+  const uploadFiles = () => {
+    uploadFileBtn.current.click();
+  }
+
+  const uploadImages = () => {
+    uploadImagesBtn.current.click();
   }
 
   return (
@@ -95,6 +148,20 @@ function CommentTask(props) {
                     onChange={(e) => setMessage(e.target.value)}
                     value={message}
                   />
+                  <Upload
+                    {...uploadFilesProps}
+                    ref={uploadFileRef}
+                  >
+                    <Button hidden={true} ref={uploadFileBtn}></Button>
+                  </Upload>
+                  <Upload
+                    {...uploadFilesProps}
+                    ref={uploadImageRef}
+                    listType="picture"
+                    className="upload-list-inline"
+                  >
+                    <Button hidden={true} ref={uploadImagesBtn}></Button>
+                  </Upload>
                 </div>
                 <div className="nk-reply-form-tools">
                   <ul className="nk-reply-form-actions g-1">
@@ -102,7 +169,7 @@ function CommentTask(props) {
                       <button className="btn btn-primary" onClick={sendMessage} type="submit">Gửi</button>
                     </li>
                     <li>
-                      <a className="btn btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title href="#" data-original-title="Upload Attachment">
+                      <a onClick={uploadFiles} className="btn btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title href="#" data-original-title="Upload Attachment">
                         <em className="icon ni ni-clip-v" />
                       </a>
                     </li>
@@ -112,7 +179,7 @@ function CommentTask(props) {
                       </a>
                     </li>
                     <li>
-                      <a className="btn btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title href="#" data-original-title="Upload Images">
+                      <a onClick={uploadImages} className="btn btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title href="#" data-original-title="Upload Images">
                         <em className="icon ni ni-img" />
                       </a>
                     </li>
