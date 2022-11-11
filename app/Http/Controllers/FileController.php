@@ -20,7 +20,7 @@ class FileController extends Controller
         $category = $request->all()['category'];
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $path = sprintf('%s/%s.%s', $category, uniqid(), $file->getClientOriginalExtension());
+            $path = sprintf('%s/%s-%s', $category, uniqid(), $file->getClientOriginalName());
             $this->fileSystemService->upload($path, $file->getRealPath(), false);
             $url = [
                 'name' => $file->getClientOriginalName(),
@@ -31,6 +31,25 @@ class FileController extends Controller
         }
 
         return $this->response($url);
+    }
+
+    public function multipleUpload(Request $request)
+    {
+        $urls = [];
+        $category = $request->all()['category'];
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $path = sprintf('%s/%s-%s', $category, uniqid(), $file->getClientOriginalName());
+                $this->fileSystemService->upload($path, $file->getRealPath(), false);
+                $urls[] = [
+                    'filename' => $file->getClientOriginalName(),
+                    'path' => $path,
+                    'url' => $this->fileSystemService->url($path),
+                ];
+            }
+        }
+
+        return $this->response($urls);
     }
 
     public function destroy(Request $request)

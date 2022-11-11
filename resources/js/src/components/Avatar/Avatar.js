@@ -31,8 +31,10 @@ function Avatar(props) {
     return () => {
       if (name) {
         const lastName = name.split(' ').pop();
+        //Get first name 
+        const firstName = name.split(' ').shift();
         const firstLetter = lastName.charAt(0);
-        return firstLetter.toUpperCase();
+        return firstName.charAt(0) + firstLetter;
       }
       return '';
     }

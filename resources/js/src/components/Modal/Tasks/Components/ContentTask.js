@@ -35,9 +35,16 @@ function ContentTask(props) {
 
   return (
     <>
-      <h6 className="title mb-2">Mô tả công việc</h6>
+      <h6 className="title mb-2">
+        Mô tả công việc
+        <span className="ml-2">
+          <a onClick={editContentHandle}>
+            <em class="icon ni ni-edit-fill text-primary"></em>
+          </a>
+        </span>
+      </h6>
       {readOnly ? (
-        <div onClick={editContentHandle}>
+        <div>
           {transformText(children)}
         </div>
       ) : (
