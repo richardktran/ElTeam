@@ -117,6 +117,21 @@ function CommentTask(props) {
     uploadImagesBtn.current.click();
   }
 
+  const downloadAll = async (e, files) => {
+    e.preventDefault();
+    console.log(files);
+    files.map(async (file) => {
+      const response = await fetch(file);
+      response.blob().then(blob => {
+        let url = window.URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = file.name;
+        a.click();
+      });
+    });
+  }
+
   return (
     <div className="nk-msg-reply nk-reply" data-simplebar="init">
       {/* <div className="simplebar-height-auto-observer-wrapper">
@@ -225,34 +240,34 @@ function CommentTask(props) {
                   </div>
                   <div className="date-time">{datetime.toLocaleString()}</div>
                 </div>
+
                 <div className="nk-reply-body">
                   <div className="nk-reply-entry entry">
                     <p>{comment.content}</p>
                   </div>
-                  <div className="attach-files">
-                    <ul className="attach-list">
-                      <li className="attach-item">
-                        <a className="download" href="#">
-                          <em className="icon ni ni-img" />
-                          <span>error-show-On-order.jpg</span>
+                  {comment.hasOwnProperty('files') && comment.files.length > 0 && (
+                    <div className="attach-files">
+                      <ul className="attach-list">
+                        {comment.files.map((file) => (
+                          <li className="attach-item">
+                            <a className="download" href={file.url} download>
+                              <em className="icon ni ni-img" />
+                              <span>{file.name}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="attach-foot">
+                        <span className="attach-info">2 files attached</span>
+                        <a className="attach-download link" onClick={(e) => downloadAll(e, comment.files)}>
+                          <em className="icon ni ni-download" />
+                          <span>Download All</span>
                         </a>
-                      </li>
-                      <li className="attach-item">
-                        <a className="download" href="#">
-                          <em className="icon ni ni-img" />
-                          <span>full-page-error.jpg</span>
-                        </a>
-                      </li>
-                    </ul>
-                    <div className="attach-foot">
-                      <span className="attach-info">2 files attached</span>
-                      <a className="attach-download link" href="#">
-                        <em className="icon ni ni-download" />
-                        <span>Download All</span>
-                      </a>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
+
               </div>
             );
           })}
