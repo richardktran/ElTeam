@@ -13,11 +13,11 @@ import Members from './Components/Members';
 const { TextArea } = Input;
 
 const DetailTaskModal = (props) => {
+    const { isShow, modalName, taskId, handleCloseModal, modalSize } = props
     const dispatch = useDispatch();
     const group = useSelector(state => state.groupTasks.groupInfo);
     const task = useSelector(state => state.groupTasks.currentTask);
     const isLoading = useSelector(state => state.groupTasks.isSubmitting);
-    const { isShow, modalName, taskId, handleCloseModal, modalSize } = props
     const [taskInfo, setTaskInfo] = useState(task);
     const [groupInfo, setGroupInfo] = useState(group);
 
@@ -60,7 +60,7 @@ const DetailTaskModal = (props) => {
                         </div>
 
 
-                        <CommentTask />
+                        <CommentTask id={taskInfo.id} />
 
                     </div>
                 )}
