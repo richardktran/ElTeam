@@ -1,11 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { db } from '../../../../services/firebase';
 import { onValue, ref, set, push, query, orderByChild } from "firebase/database";
+import useUser from '../../../../hooks/useUser';
+import Avatar from '../../../Avatar/Avatar';
 
 function CommentTask(props) {
   const { id } = props;
   const [taskId, setTaskId] = useState(null);
   const [message, setMessage] = useState('');
+  const currentUser = useUser();
 
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
@@ -48,7 +51,12 @@ function CommentTask(props) {
     if (message === '') return;
     const newComment = {
       content: message,
-      sendBy: 'Trần Đăng Khoa',
+      sendBy: {
+        id: currentUser.id,
+        name: currentUser.name,
+        avatar: currentUser.avatar,
+        email: currentUser.email
+      },
       time: new Date().getTime()
     }
     const oldComments = push(ref(db, "tasks/" + taskId + "/comments/"));
@@ -66,10 +74,8 @@ function CommentTask(props) {
         <div className="nk-reply-form" style={{ marginBottom: "0" }}>
           <div className="nk-reply-form-header">
             <div className="nk-reply-form-title my-2">
-              <div className="user-avatar xs bg-purple">
-                <span>TK</span>
-              </div>
-              <div className="title ml-2">Trần Đăng Khoa</div>
+              <Avatar image={currentUser.avatar} name={currentUser.name} />
+              <div className="title ml-2">{currentUser.name}</div>
             </div>
             <ul className="nav nav-tabs-s2 nav-tabs nav-tabs-sm">
               <li className="nav-item">
@@ -84,7 +90,7 @@ function CommentTask(props) {
                 <div className="nk-reply-form-field">
                   <textarea
                     className="form-control form-control-simple no-resize"
-                    placeholder="Hello"
+                    placeholder="Nhập bình luận của bạn..."
                     defaultValue={""}
                     onChange={(e) => setMessage(e.target.value)}
                     value={message}
@@ -93,7 +99,7 @@ function CommentTask(props) {
                 <div className="nk-reply-form-tools">
                   <ul className="nk-reply-form-actions g-1">
                     <li className="mr-2">
-                      <button className="btn btn-primary" onClick={sendMessage} type="submit">Reply</button>
+                      <button className="btn btn-primary" onClick={sendMessage} type="submit">Gửi</button>
                     </li>
                     <li>
                       <a className="btn btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title href="#" data-original-title="Upload Attachment">
@@ -140,47 +146,49 @@ function CommentTask(props) {
         </div>
         {/* .nk-reply-form */}
         <div className="simplebar-content" style={{ padding: '0px' }}>
-          {comments && comments.map((comment) => (
-            <div className="nk-reply-item">
-              <div className="nk-reply-header">
-                <div className="user-card">
-                  <div className="user-avatar sm bg-blue">
-                    <span>AB</span>
+          {comments && comments.map((comment) => {
+            const datetime = new Date(comment.time);
+
+            return (
+              <div className="nk-reply-item">
+                <div className="nk-reply-header">
+                  <div className="user-card">
+                    <Avatar image={comment.sendBy.avatar} name={comment.sendBy.name} />
+                    <div className="user-name">{comment.sendBy.name}</div>
                   </div>
-                  <div className="user-name">{comment.sendBy}</div>
+                  <div className="date-time">{datetime.toLocaleString()}</div>
                 </div>
-                <div className="date-time">14 Jan, 2020</div>
-              </div>
-              <div className="nk-reply-body">
-                <div className="nk-reply-entry entry">
-                  <p>{comment.content}</p>
-                </div>
-                <div className="attach-files">
-                  <ul className="attach-list">
-                    <li className="attach-item">
-                      <a className="download" href="#">
-                        <em className="icon ni ni-img" />
-                        <span>error-show-On-order.jpg</span>
+                <div className="nk-reply-body">
+                  <div className="nk-reply-entry entry">
+                    <p>{comment.content}</p>
+                  </div>
+                  <div className="attach-files">
+                    <ul className="attach-list">
+                      <li className="attach-item">
+                        <a className="download" href="#">
+                          <em className="icon ni ni-img" />
+                          <span>error-show-On-order.jpg</span>
+                        </a>
+                      </li>
+                      <li className="attach-item">
+                        <a className="download" href="#">
+                          <em className="icon ni ni-img" />
+                          <span>full-page-error.jpg</span>
+                        </a>
+                      </li>
+                    </ul>
+                    <div className="attach-foot">
+                      <span className="attach-info">2 files attached</span>
+                      <a className="attach-download link" href="#">
+                        <em className="icon ni ni-download" />
+                        <span>Download All</span>
                       </a>
-                    </li>
-                    <li className="attach-item">
-                      <a className="download" href="#">
-                        <em className="icon ni ni-img" />
-                        <span>full-page-error.jpg</span>
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="attach-foot">
-                    <span className="attach-info">2 files attached</span>
-                    <a className="attach-download link" href="#">
-                      <em className="icon ni ni-download" />
-                      <span>Download All</span>
-                    </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
 
         </div>
       </div>
