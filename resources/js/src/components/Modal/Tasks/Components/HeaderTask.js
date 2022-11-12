@@ -44,7 +44,7 @@ function HeaderTask(props) {
           <li>
             <a href="#" className="btn btn-dim btn-sm btn-outline-light">
               <em className="icon ni ni-check" />
-              <span>Mark as Closed</span>
+              <span>Nộp bài</span>
             </a>
           </li>
           <li className="d-lg-none">

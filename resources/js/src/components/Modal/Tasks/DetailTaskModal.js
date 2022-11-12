@@ -9,6 +9,7 @@ import CommentTask from './Components/CommentTask';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Members from './Components/Members';
+import SubmitTask from './Components/SubmitTask';
 
 const { TextArea } = Input;
 
@@ -57,6 +58,8 @@ const DetailTaskModal = (props) => {
                             <ContentTask id={taskInfo.id}>
                                 {taskInfo.content}
                             </ContentTask>
+
+                            <SubmitTask id={taskInfo.id} />
                         </div>
 
 

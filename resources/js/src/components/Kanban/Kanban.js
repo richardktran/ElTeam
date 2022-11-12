@@ -86,7 +86,7 @@ const Kanban = (props) => {
                 <div
                   {...provided.droppableProps}
                   className='kanban-board'
-                  style={{ "width": "320px", "marginLeft": "0", "marginRight": "0" }}
+                  style={{ "width": (100 / data.length) + '%', "marginLeft": "0", "marginRight": "0" }}
                   ref={provided.innerRef}
                 >
                   <header class="kanban-board-header kanban-light">
