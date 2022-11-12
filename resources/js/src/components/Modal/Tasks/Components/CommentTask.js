@@ -6,6 +6,8 @@ import Avatar from '../../../Avatar/Avatar';
 import { Button, Upload } from 'antd';
 import { UploadOutlined } from '@mui/icons-material';
 import { createRef } from 'react';
+import { Mention, MentionsInput } from 'react-mentions';
+import mentionsInputStyle from "./mentionsInputStyles";
 
 function CommentTask(props) {
   const { id } = props;
@@ -23,6 +25,21 @@ function CommentTask(props) {
   const uploadImagesBtn = createRef();
   const uploadFileRef = createRef();
   const uploadImageRef = createRef();
+
+  const users = [
+    {
+      id: "isaac",
+      display: "Isaac Newton",
+    },
+    {
+      id: "sam",
+      display: "Sam Victor",
+    },
+    {
+      id: "emma",
+      display: "emmanuel@nobody.com",
+    },
+  ];
 
   useEffect(() => {
     console.log(id);
@@ -156,13 +173,34 @@ function CommentTask(props) {
             <div className="tab-pane active" id="reply-form">
               <div className="nk-reply-form-editor">
                 <div className="nk-reply-form-field">
-                  <textarea
-                    className="form-control form-control-simple no-resize"
+                  <MentionsInput
                     placeholder="Nhập bình luận của bạn..."
-                    defaultValue={""}
-                    onChange={(e) => setMessage(e.target.value)}
                     value={message}
-                  />
+                    defaultValue={""}
+                    classNames={{
+                      mentions__input: 'form-control form-control-simple no-resize'
+                    }}
+                    style={mentionsInputStyle}
+                    onChange={(e) => setMessage(e.target.value)}
+                  >
+                    <Mention
+                      style={{
+                        backgroundColor: '#cee4e5',
+                      }}
+                      // renderSuggestion={(
+                      //   suggestion,
+                      //   search,
+                      //   highlightedDisplay,
+                      //   index,
+                      //   focused
+                      // ) => (
+                      //   <div className={`user ${focused ? 'focused' : ''}`}>
+                      //     {highlightedDisplay}
+                      //   </div>
+                      // )}
+                      trigger="@"
+                      data={users} />
+                  </MentionsInput>
                   <Upload
                     {...uploadFilesProps}
                     ref={uploadFileRef}
