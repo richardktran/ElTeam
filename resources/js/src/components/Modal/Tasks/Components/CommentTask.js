@@ -6,23 +6,50 @@ import Avatar from '../../../Avatar/Avatar';
 import { Button, Upload } from 'antd';
 import { UploadOutlined } from '@mui/icons-material';
 import { createRef } from 'react';
+import { Mention, MentionsInput } from 'react-mentions';
+import mentionsInputStyle from "./mentionsInputStyles";
+import parse from 'html-react-parser';
+import { convertMentionToText, getMentionList } from '../../../../utils/textTransformer';
+import { useSelector } from 'react-redux';
 
 function CommentTask(props) {
-  const { id } = props;
+  const { id, members } = props;
   const [taskId, setTaskId] = useState(null);
   const [message, setMessage] = useState('');
   const [filesMessage, setFilesMessage] = useState([]);
+  const [membersList, setMembersList] = React.useState(null);
   const currentUser = useUser();
 
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
   const [comments, setComments] = useState([]);
 
+  const courseData = useSelector(state => state.course.courseInfo);
+  const [course, setCourse] = useState(courseData);
+
+  useEffect(() => {
+    setCourse(courseData);
+  }, [courseData]);
 
   const uploadFileBtn = createRef();
   const uploadImagesBtn = createRef();
   const uploadFileRef = createRef();
   const uploadImageRef = createRef();
+
+  useEffect(() => {
+    if (members === null || members === undefined) {
+      forceUpdate();
+      return;
+    }
+    const membersList = members.map(member => {
+      return {
+        ...member,
+        display: member.name
+      }
+    });
+    console.log(membersList);
+    setMembersList(membersList);
+  }, [members]);
 
   useEffect(() => {
     console.log(id);
@@ -89,7 +116,7 @@ function CommentTask(props) {
 
   const sendMessage = useCallback(() => {
     if (message === '') return;
-    console.log(filesMessage);
+    const mentionPeople = getMentionList(message);
     const newComment = {
       content: message,
       files: filesMessage,
@@ -103,12 +130,38 @@ function CommentTask(props) {
     }
     const oldComments = push(ref(db, "tasks/" + taskId + "/comments/"));
     set(oldComments, newComment);
+
+    // Push notification to all mentionPeople except current user to firebase database 
+    console.log(course);
+    mentionPeople.map(mention => {
+      if (mention.id !== currentUser.id) {
+        const newNotification = {
+          type: 'mention',
+          content: message,
+          sendBy: {
+            id: currentUser.id,
+            name: currentUser.name,
+            avatar: currentUser.avatar,
+            email: currentUser.email
+          },
+          taskId: id,
+          courseData: course,
+          time: new Date().getTime(),
+          isRead: false
+        }
+        const oldNotifications = push(ref(db, "users/" + mention.id + "/notifications/"));
+        set(oldNotifications, newNotification);
+      }
+    });
+
     setMessage('');
     setFilesMessage([]);
     uploadFileRef.current.fileList.length = 0;
     uploadImageRef.current.fileList.length = 0;
     forceUpdate();
   }, [uploadFileRef]);
+
+
   const uploadFiles = () => {
     uploadFileBtn.current.click();
   }
@@ -156,13 +209,39 @@ function CommentTask(props) {
             <div className="tab-pane active" id="reply-form">
               <div className="nk-reply-form-editor">
                 <div className="nk-reply-form-field">
-                  <textarea
-                    className="form-control form-control-simple no-resize"
+                  <MentionsInput
                     placeholder="Nhập bình luận của bạn..."
-                    defaultValue={""}
-                    onChange={(e) => setMessage(e.target.value)}
                     value={message}
-                  />
+                    defaultValue={""}
+                    classNames={{
+                      mentions__input: 'form-control form-control-simple no-resize'
+                    }}
+                    style={mentionsInputStyle}
+                    onChange={(e) => setMessage(e.target.value)}
+                  >
+                    <Mention
+                      style={{
+                        backgroundColor: '#cee4e5',
+                      }}
+                      renderSuggestion={(
+                        suggestion,
+                        search,
+                        highlightedDisplay,
+                        index,
+                        focused
+                      ) => (
+                        <li className="chat-item ">
+                          <a className="chat-link" href="#">
+                            <Avatar image={suggestion.avatar} name={suggestion.name} />
+                            <div className="chat-info ml-2">
+                              <div className="chat-from"><div className="name">{suggestion.name}</div></div>
+                            </div>
+                          </a>
+                        </li>
+                      )}
+                      trigger="@"
+                      data={membersList} />
+                  </MentionsInput>
                   <Upload
                     {...uploadFilesProps}
                     ref={uploadFileRef}
@@ -243,7 +322,7 @@ function CommentTask(props) {
 
                 <div className="nk-reply-body">
                   <div className="nk-reply-entry entry">
-                    <p>{comment.content}</p>
+                    <p>{parse(convertMentionToText(comment.content))}</p>
                   </div>
                   {comment.hasOwnProperty('files') && comment.files.length > 0 && (
                     <div className="attach-files">
