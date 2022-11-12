@@ -31,11 +31,10 @@ export default {
     list: {
       backgroundColor: 'white',
       border: '1px solid rgba(0,0,0,0.15)',
-      fontSize: 16,
     },
     item: {
-      padding: '5px 15px',
-      borderBottom: '1px solid rgba(0,0,0,0.15)',
+      // padding: '5px 15px',
+      // borderBottom: '1px solid rgba(0,0,0,0.15)',
       '&focused': {
         backgroundColor: '#cee4e5',
       },

@@ -60,7 +60,7 @@ const DetailTaskModal = (props) => {
                         </div>
 
 
-                        <CommentTask id={taskInfo.id} />
+                        <CommentTask members={groupInfo.students} id={taskInfo.id} />
 
                     </div>
                 )}

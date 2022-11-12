@@ -10,6 +10,7 @@ import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
 import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
 import { getGroupInfo, requestTask, requestTasks } from '../../store/Tasks/Reducer';
+import { requestCourse } from '../../store/Course/Reducer';
 import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
 import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
 import { changeLoading } from '../../store/App/Reducer';
@@ -65,6 +66,7 @@ const MyGroupPage = () => {
     const items = isOwner ? courseDetailItems : courseMembersItems;
     const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
     dispatch(action);
+    dispatch(requestCourse(courseId));
     fetchGroupInfo();
     setIsLoading(false);
   }, []);
