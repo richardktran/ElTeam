@@ -12,7 +12,7 @@ function Course() {
     <Layout>
       <Routes>
         <Route path="" element={<HomePage />} />
-        <Route path=":id/info" element={<CourseDetailPage />} />
+        <Route path=":id/lesson" element={<CourseDetailPage />} />
         <Route path=":id/members" element={<MemberPage />} />
         <Route path=":courseId/my-group" element={<MyGroupPage />} />
       </Routes>

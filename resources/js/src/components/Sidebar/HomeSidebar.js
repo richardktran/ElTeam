@@ -1,18 +1,35 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { changeActiveItem } from '../../app/reducers/sideBarReducer';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { checkMatchPatternWithCourse } from '../../utils/sidebar';
 
-function Sidebar({ props }) {
-  let navigate = useNavigate();
-  const dispatch = useDispatch();
-  const sidebarItems = useSelector(state => state.sidebar);
+function HomeSidebar({ pathname }) {
+  const items = [
+    {
+      icon: "icon ni ni-cart-fill",
+      pathPattern: '/courses',
+      title: 'Danh sách khóa học',
+    },
+    {
+      icon: "icon ni ni-growth-fill",
+      pathPattern: '/my-courses',
+      title: 'Khóa học của tôi',
+    },
+    {
+      icon: "icon ni ni-activity-round-fill",
+      pathPattern: '/storage',
+      title: 'Lưu trữ',
+    },
+    {
+      icon: "icon ni ni-users-fill",
+      pathPattern: '/settings',
+      title: 'Cài đặt',
+    },
+  ]
 
-  const changeItem = (path) => {
-    const newPath = location.pathname.split('/').slice(0, -1).join('/') + '/' + path;
-    const action = changeActiveItem(path);
-    dispatch(action);
-    navigate(newPath);
+  const getUrl = (pathPattern) => {
+    const courseId = pathname.split('/')[2];
+    return pathPattern.replace('*', courseId);
   }
 
   return (
@@ -48,16 +65,20 @@ function Sidebar({ props }) {
                         <li className="nk-menu-heading">
                           <h6 className="overline-title text-primary-alt">Dashboards</h6>
                         </li>
-                        {sidebarItems.map((item, index) => (
-                          <li className={`nk-menu-item ${item.active ? "active current-page" : ""}`} key={index}>
-                            <a onClick={() => changeItem(item.path)} className="nk-menu-link" data-original-title title>
-                              <span className="nk-menu-icon">
-                                <em className={item.icon} />
-                              </span>
-                              <span className="nk-menu-text">{item.title}</span>
-                            </a>
-                          </li>
-                        ))}
+                        {items.map((item, index) => {
+                          // Check the current location url matches the item's path pattern
+                          const isActive = checkMatchPatternWithCourse(pathname, item.pathPattern);
+                          return (
+                            <li className={`nk-menu-item ${isActive ? "active current-page" : ""}`} key={index}>
+                              <Link to={getUrl(item.pathPattern)} className="nk-menu-link" data-original-title title>
+                                <span className="nk-menu-icon">
+                                  <em className={item.icon} />
+                                </span>
+                                <span className="nk-menu-text">{item.title}</span>
+                              </Link>
+                            </li>
+                          );
+                        })}
                       </ul> {/* .nk-menu */}
                     </div>
                   </div>
@@ -78,4 +99,4 @@ function Sidebar({ props }) {
   )
 }
 
-export default Sidebar
+export default HomeSidebar

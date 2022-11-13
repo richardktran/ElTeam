@@ -9,7 +9,6 @@ import Layout from '../../components/Layout/Layout';
 import AddMemberModal from '../../components/Modal/AddMemberModal';
 import MemberList from '../../components/MemberList/MemberList';
 import { HTTP_OK } from '../../utils/constant';
-import { courseDetailItems, courseMembersItems } from './sidebars/courseDetail';
 import isCourseOwner from '../../hooks/isCourseOwner';
 
 const MemberPage = () => {
@@ -17,7 +16,6 @@ const MemberPage = () => {
   const isOwner = isCourseOwner(id);
 
   const dispatch = useDispatch();
-  const sidebarItems = useSelector(state => state.sidebar);
 
   const [members, setMembers] = useState([]);
   const fetchMembers = async () => {
@@ -29,15 +27,6 @@ const MemberPage = () => {
   }
 
   useEffect(() => {
-    const items = isOwner ? courseDetailItems : courseMembersItems;
-    const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
-    dispatch(action);
-  }, [isOwner]);
-
-  useEffect(() => {
-    const items = isOwner ? courseDetailItems : courseMembersItems;
-    const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
-    dispatch(action);
     fetchMembers();
   }, []);
 

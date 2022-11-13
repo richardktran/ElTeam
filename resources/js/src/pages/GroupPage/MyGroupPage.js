@@ -4,11 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
 import { groupApi } from '../../api/groupApi';
-import { changePage } from '../../app/reducers/sideBarReducer';
 import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
-import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
 import { getGroupInfo, requestTask, requestTasks } from '../../store/Tasks/Reducer';
 import { requestCourse } from '../../store/Course/Reducer';
 import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
@@ -21,7 +19,6 @@ const MyGroupPage = () => {
 
   const dispatch = useDispatch();
   const tasks = useSelector(state => state.groupTasks.sections);
-  const sidebarItems = useSelector(state => state.sidebar);
   const loading = useSelector(state => state.groupTasks.submitting);
   const [isLoading, setIsLoading] = useState(loading);
   const [groupInfo, setGroupInfo] = useState({});
@@ -56,16 +53,7 @@ const MyGroupPage = () => {
   }, [tasks]);
 
   useEffect(() => {
-    const items = isOwner ? courseDetailItems : courseMembersItems;
-    const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
-    dispatch(action);
-  }, [isOwner]);
-
-  useEffect(() => {
     setIsLoading(true);
-    const items = isOwner ? courseDetailItems : courseMembersItems;
-    const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
-    dispatch(action);
     dispatch(requestCourse(courseId));
     fetchGroupInfo();
     setIsLoading(false);

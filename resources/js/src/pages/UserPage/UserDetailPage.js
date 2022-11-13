@@ -3,20 +3,13 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { userApi } from '../../api/userApi';
-import { changePage } from '../../app/reducers/sideBarReducer';
 import Avatar from '../../components/Avatar/Avatar'
 import { HTTP_OK } from '../../utils/constant';
-import { homeItems } from '../HomePage/sidebars/home';
 
 function UserDetailPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [user, setUser] = useState(null);
-
-  const loadSidebarItems = () => {
-    const action = changePage(homeItems);
-    dispatch(action);
-  }
 
   const fetchUser = async () => {
     let result = await userApi.getById(id);
@@ -27,7 +20,6 @@ function UserDetailPage() {
   }
 
   useEffect(() => {
-    loadSidebarItems();
     fetchUser();
   }, []);
 

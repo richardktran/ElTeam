@@ -12,7 +12,7 @@ const ClassCard = (props) => {
       toast.error('Bạn chưa đăng ký tham gia vào khóa học này');
       return;
     }
-    navigate(`${isMyCourse ? '/courses/' : ''}${courseId}/info`);
+    navigate(`${isMyCourse ? '/courses/' : ''}${courseId}/lesson`);
   }
 
   return (
