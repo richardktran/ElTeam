@@ -22,6 +22,11 @@ class TaskController extends Controller
         return $this->response($sections);
     }
 
+    public function getGroupOfTask(Request $request, Task $task)
+    {
+        return $this->response($task->group);
+    }
+
     public function updatePositionTask(Request $request, Group $group)
     {
         $params = $request->all();
