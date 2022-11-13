@@ -8,8 +8,6 @@ import moment from 'moment';
 import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from 'react-redux';
-import { homeItems } from "./sidebars/home";
-import { changePage } from "../../app/reducers/sideBarReducer";
 import useUser from "../../hooks/useUser";
 
 function HomePage() {
@@ -47,13 +45,7 @@ function HomePage() {
         }
     }
 
-    const loadSidebarItems = () => {
-        const action = changePage(homeItems);
-        dispatch(action);
-    }
-
     useEffect(() => {
-        loadSidebarItems();
         fetchLearningCourses();
     }, []);
 

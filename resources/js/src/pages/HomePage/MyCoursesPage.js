@@ -8,13 +8,10 @@ import moment from 'moment';
 import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from 'react-redux';
-import { homeItems } from "./sidebars/home";
-import { changePage } from "../../app/reducers/sideBarReducer";
 
 function MyCoursesPage() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const sidebarItems = useSelector(state => state.sidebar);
 
     const [OwnCoursesData, setOwnCourses] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -30,13 +27,7 @@ function MyCoursesPage() {
         }
     }
 
-    const loadSidebarItems = () => {
-        const action = changePage(sidebarItems.length === 0 ? homeItems : sidebarItems);
-        dispatch(action);
-    }
-
     useEffect(() => {
-        loadSidebarItems();
         fetchOwnCourses();
     }, []);
 

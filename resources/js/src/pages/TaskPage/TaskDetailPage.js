@@ -13,13 +13,11 @@ import isCourseOwner from '../../hooks/isCourseOwner';
 import { getGroupInfo, requestTask } from '../../store/Tasks/Reducer';
 import { requestCourse } from '../../store/Course/Reducer';
 import { HTTP_OK } from '../../utils/constant';
-import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
 
 function TaskDetailPage(props) {
   const { id } = useParams();
   const dispatch = useDispatch();
   const group = useSelector(state => state.groupTasks.groupInfo);
-  const sidebarItems = useSelector(state => state.sidebar);
   const task = useSelector(state => state.groupTasks.currentTask);
   const isLoading = useSelector(state => state.groupTasks.isSubmitting);
   const [taskInfo, setTaskInfo] = useState(task);
@@ -52,9 +50,6 @@ function TaskDetailPage(props) {
   }, [group]);
 
   useEffect(() => {
-    const items = isCourseOwner ? courseDetailItems : courseMembersItems;
-    const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
-    dispatch(action);
     dispatch(requestTask(id));
   }, []);
 

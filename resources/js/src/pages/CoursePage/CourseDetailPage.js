@@ -34,11 +34,6 @@ const CourseDetailPage = () => {
     setIsAddTopic(!isAddTopic);
   }
 
-  useEffect(() => {
-    const items = isOwner ? courseDetailItems : courseMembersItems;
-    const action = changePage(items);
-    dispatch(action);
-  }, [isOwner]);
 
   const fetchCourseInfo = () => {
     dispatch(requestCourse(id));
@@ -46,9 +41,6 @@ const CourseDetailPage = () => {
   }
 
   useEffect(() => {
-    const items = isOwner ? courseDetailItems : courseMembersItems;
-    const action = changePage(items);
-    dispatch(action);
     fetchCourseInfo();
   }, []);
 
