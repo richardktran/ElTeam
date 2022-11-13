@@ -25,7 +25,25 @@ function CommentTask(props) {
   const [comments, setComments] = useState([]);
 
   const courseData = useSelector(state => state.course.courseInfo);
-  const [course, setCourse] = useState(courseData);
+  const sections = useSelector(state => state.groupTasks.sections);
+  const [course, setCourse] = useState(null);
+  const [allTasks, setAllTasks] = useState(null);
+
+
+  useEffect(() => {
+    if (sections === null || sections === undefined) {
+      forceUpdate();
+      return;
+    }
+    const tasks = sections.flatMap(section => section.tasks);
+    const tasksList = tasks.map(task => {
+      return {
+        ...task,
+        display: task.id.toString(),
+      }
+    });
+    setAllTasks(tasksList);
+  }, [sections, course])
 
   useEffect(() => {
     setCourse(courseData);
@@ -219,10 +237,35 @@ function CommentTask(props) {
                     style={mentionsInputStyle}
                     onChange={(e) => setMessage(e.target.value)}
                   >
+                    {course && (course.code !== null || course.code !== undefined) &&
+                      <Mention
+                        style={{
+                          backgroundColor: '#cee4e5',
+                        }}
+                        markup="#[__display__](__id__)"
+                        renderSuggestion={(
+                          suggestion,
+                          search,
+                          highlightedDisplay,
+                          index,
+                          focused
+                        ) => (
+                          <li className="chat-item ">
+                            <a className="chat-link" href="#">
+                              {/* <em class="icon ni ni-check-round-fill"></em> */}
+                              {course.code} - {suggestion.display}
+                            </a>
+                          </li>
+                        )}
+                        trigger="#"
+                        data={allTasks}
+                      />
+                    }
                     <Mention
                       style={{
                         backgroundColor: '#cee4e5',
                       }}
+                      displayTransform={(id, display) => `@${display}`}
                       renderSuggestion={(
                         suggestion,
                         search,
@@ -240,7 +283,10 @@ function CommentTask(props) {
                         </li>
                       )}
                       trigger="@"
-                      data={membersList} />
+                      data={membersList}
+                    />
+
+
                   </MentionsInput>
                   <Upload
                     {...uploadFilesProps}
@@ -263,17 +309,12 @@ function CommentTask(props) {
                       <button className="btn btn-primary" onClick={sendMessage} type="submit">Gửi</button>
                     </li>
                     <li>
-                      <a onClick={uploadFiles} className="btn btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title href="#" data-original-title="Upload Attachment">
+                      <a onClick={uploadFiles} className="btn btn-icon btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Upload Attachment">
                         <em className="icon ni ni-clip-v" />
                       </a>
                     </li>
                     <li>
-                      <a className="btn btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title href="#" data-original-title="Insert Emoji">
-                        <em className="icon ni ni-happy" />
-                      </a>
-                    </li>
-                    <li>
-                      <a onClick={uploadImages} className="btn btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title href="#" data-original-title="Upload Images">
+                      <a onClick={uploadImages} className="btn btn-icon btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Upload Images">
                         <em className="icon ni ni-img" />
                       </a>
                     </li>
@@ -337,10 +378,10 @@ function CommentTask(props) {
                         ))}
                       </ul>
                       <div className="attach-foot">
-                        <span className="attach-info">2 files attached</span>
+                        <span className="attach-info">{comment.files.length} tệp đính kèm</span>
                         <a className="attach-download link" onClick={(e) => downloadAll(e, comment.files)}>
                           <em className="icon ni ni-download" />
-                          <span>Download All</span>
+                          <span>Tải xuống tất cả</span>
                         </a>
                       </div>
                     </div>

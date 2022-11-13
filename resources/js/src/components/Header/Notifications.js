@@ -37,7 +37,6 @@ function Notifications() {
         setNotRead(newNotRead);
         // Revet order of comments
         newNotifications.reverse();
-        console.log(newNotifications);
         setNotifications(newNotifications);
       }
     });

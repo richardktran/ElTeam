@@ -26,10 +26,12 @@ function HeaderTask(props) {
       <div className="d-none d-lg-block">
         <ul className="nk-msg-tags">
           <li>
-            <span className="label-tag">
-              <em className="icon ni ni-flag-fill" />
-              <span>CT247-{id}</span>
-            </span>
+            <a href={`/tasks/${id}`} target="_blank">
+              <span className="label-tag">
+                <em className="icon ni ni-flag-fill" />
+                <span>CT247-{id}</span>
+              </span>
+            </a>
           </li>
         </ul>
       </div>
