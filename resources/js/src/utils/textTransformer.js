@@ -4,14 +4,14 @@ export const convertMentionToText = (text) => {
   let result = text;
   for (const match of matches) {
     const [fullMatch, name, id] = match;
-    result = result.replace(fullMatch, `<span><a href='#'>${name}</a></span>`);
+    result = result.replace(fullMatch, `<span><a href='/users/${id}' target='_blank'>${name}</a></span>`);
   }
 
   const regexTask = /#\[([^\]]+)\]\(([^\)]+)\)/g;
   const matchesTask = result.matchAll(regexTask);
   for (const match of matchesTask) {
     const [fullMatch, name, id] = match;
-    result = result.replace(fullMatch, `<span><a href='/tasks/${id}'>#${name}</a></span>`);
+    result = result.replace(fullMatch, `<span><a href='/tasks/${id}' target='_blank'>#${name}</a></span>`);
   }
 
   return result;

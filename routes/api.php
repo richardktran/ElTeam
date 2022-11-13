@@ -70,7 +70,7 @@ Route::group(['prefix' => 'tasks', 'middleware' => ['auth:sanctum', 'role:studen
 
 Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function () {
     Route::get('/', [UserController::class, 'index'])->name('users.index');
-    Route::get('/{id:[0-9]+}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/{user}', [UserController::class, 'show'])->name('users.show');
     Route::get('/get-by-email', [UserController::class, 'getByEmail'])->name('users.get-by-email');
 });
 

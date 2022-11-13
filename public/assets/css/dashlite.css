@@ -11971,7 +11971,7 @@ h6 .badge { margin-left: 0.5rem; }
 
 @media (min-width: 576px) { .card-search .card-body { padding: 1.5rem; } }
 
-.card-aside { width: 300px; background-color: #fff; min-height: 100vh; flex-shrink: 0; }
+.card-aside { width: 300px; background-color: #fff; min-height: 100%; flex-shrink: 0; }
 
 .card-aside-left { order: -1; border-right: 1px solid #e5e9f2; }
 

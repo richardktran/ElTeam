@@ -10,6 +10,7 @@ import MyCoursesPage from '../pages/HomePage/MyCoursesPage';
 import SplashPage from '../pages/HomePage/SplashPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import Task from '../pages/TaskPage';
+import User from '../pages/UserPage';
 
 
 const hist = createBrowserHistory();
@@ -20,6 +21,7 @@ const Router = () => {
             <Route path="/" element={<SplashPage />} />
             <Route path="/courses/*" element={<Course />} />
             <Route path="/tasks/*" element={<Task />} />
+            <Route path="/users/*" element={<User />} />
             <Route path="/my-courses" element={<MyCoursesPage />} />
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/auth/google" element={<GoogleCallback />} />
