@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-loading';
 import Layout from '../../components/Layout/Layout';
+import GroupDetailPage from '../GroupPage/GroupDetailPage';
 import GroupListPage from '../GroupPage/GroupListPage';
 import MyGroupPage from '../GroupPage/MyGroupPage';
 import HomePage from '../HomePage/HomePage';
@@ -17,6 +18,7 @@ function Course() {
         <Route path=":id/members" element={<MemberPage />} />
         <Route path=":courseId/my-group" element={<MyGroupPage />} />
         <Route path=":id/groups" element={<GroupListPage />} />
+        <Route path=":courseId/groups/:groupId" element={<GroupDetailPage />} />
       </Routes>
     </Layout>
   );

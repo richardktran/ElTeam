@@ -140,12 +140,12 @@ function GroupListPage() {
                   return (
                     <tr className="nk-tb-item">
                       <td className="nk-tb-col">
-                        <a href="html/apps-kanban.html" className="project-title">
+                        <Link to={`/courses/${id}/groups/${group.id}`} className="project-title">
                           <div className="user-avatar sq bg-purple"><span>{getNameLabel(group.name)}</span></div>
                           <div className="project-info">
                             <h6 className="title">{group.name}</h6>
                           </div>
-                        </a>
+                        </Link>
                       </td>
                       <td className="nk-tb-col tb-col-xxl">
                         <span>Softnio</span>
