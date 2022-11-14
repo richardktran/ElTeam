@@ -11,9 +11,11 @@ use App\Services\CourseService;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCourseValidator;
 use App\Http\Resources\UserResource;
+use App\Imports\UsersImport;
 use App\Models\CourseStudent;
 use App\Models\Curriculum;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CourseController extends Controller
 {
@@ -148,6 +150,15 @@ class CourseController extends Controller
 
         event(new GenerateGroupsEvent($course));
         return $this->response($groups);
+    }
+
+    public function importStudents(Request $request, Course $course)
+    {
+        $import = new UsersImport;
+        Excel::import($import, $request->file('file'));
+        $data = $import->getEmails();
+        
+        return $this->response($data);
     }
 
     public function destroy(Course $course)

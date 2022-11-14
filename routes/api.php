@@ -53,6 +53,7 @@ Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:stud
     Route::post('/{course}/decline', [CourseController::class, 'decline'])->name('course.decline');
     Route::post('/{course}/curriculum', [CourseController::class, 'createOrUpdateCurriculum'])->name('course.update-curriculum');
     Route::post('/{course}/divide-random-groups', [CourseController::class, 'divideStudentToGroups'])->name('course.divideStudentToGroups');
+    Route::post('/{course}/import-students', [CourseController::class, 'importStudents'])->name('course.importStudents');
 });
 
 Route::group(['prefix' => 'groups', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {

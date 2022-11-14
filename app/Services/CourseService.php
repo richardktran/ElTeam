@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Supports\Utils\Math;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CourseService
 {
@@ -82,6 +83,8 @@ class CourseService
     {
         $students = $data['students'];
 
+        dd($students);
+
         // Add students email to Database
         foreach ($students as $student) {
             $student = User::firstOrCreate([
@@ -150,8 +153,8 @@ class CourseService
     {
         $this->removeGroups($course);
         $groups = [];
-        $students = $course->students()->wherePivot('status','=', CourseStudent::STATUS_ACCEPTED)->get();
-        if(array_key_exists('number_of_groups', $data) &&  $data['number_of_groups']) {
+        $students = $course->students()->wherePivot('status', '=', CourseStudent::STATUS_ACCEPTED)->get();
+        if (array_key_exists('number_of_groups', $data) &&  $data['number_of_groups']) {
             $groups = Math::dividePeopleToNoGroups($students->count(), $data['number_of_groups']);
         } else {
             $groups = Math::dividePeopleToGroupsWithSize($students->count(), $data['group_size']);
@@ -160,14 +163,14 @@ class CourseService
         // Create a function to distribute randomly students to groups
         $students = $students->shuffle();
 
-        foreach($groups as $number => $groupSize) {
+        foreach ($groups as $number => $groupSize) {
             $group = Group::create([
                 'name' => 'Group ' . ($number+1),
                 'number' => ($number+1),
                 'course_id' => $course->id
             ]);
 
-            foreach($students->take($groupSize) as $student) {
+            foreach ($students->take($groupSize) as $student) {
                 $group->students()->attach($student);
             }
             $students = $students->slice($groupSize);
@@ -180,7 +183,7 @@ class CourseService
     public function removeGroups(Course $course)
     {
         $groups = $course->groups;
-        foreach($groups as $group) {
+        foreach ($groups as $group) {
             $group->students()->detach();
             $group->delete();
         }
