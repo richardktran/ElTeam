@@ -83,8 +83,6 @@ class CourseService
     {
         $students = $data['students'];
 
-        dd($students);
-
         // Add students email to Database
         foreach ($students as $student) {
             $student = User::firstOrCreate([
