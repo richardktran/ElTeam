@@ -57,6 +57,7 @@ Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:stud
 Route::group(['prefix' => 'groups', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
     Route::get('/{group}/tasks', [TaskController::class, 'getTasksForGroup'])->name('groups.task.get');
     Route::get('/{group}', [GroupController::class, 'getGroupInfo'])->name('groups.group.get');
+    Route::get('/', [GroupController::class, 'getAll'])->name('groups.getAll');
 
     Route::post('/{group}/tasks', [TaskController::class, 'createTask'])->name('groups.task.create');
     Route::post('/{group}/update-task-position', [TaskController::class, 'updatePositionTask'])->name('groups.task.update-position');
