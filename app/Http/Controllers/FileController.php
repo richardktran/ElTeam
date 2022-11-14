@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\UsersImport;
 use App\Supports\FileSystem\FileSystemService;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FileController extends Controller
 {
@@ -50,6 +52,15 @@ class FileController extends Controller
         }
 
         return $this->response($urls);
+    }
+
+    public function importStudents(Request $request)
+    {
+        $import = new UsersImport();
+        Excel::import($import, $request->file('file'));
+        $data = $import->getEmails();
+        
+        return $this->response($data);
     }
 
     public function destroy(Request $request)

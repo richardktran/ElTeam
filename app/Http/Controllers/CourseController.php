@@ -152,15 +152,6 @@ class CourseController extends Controller
         return $this->response($groups);
     }
 
-    public function importStudents(Request $request, Course $course)
-    {
-        $import = new UsersImport;
-        Excel::import($import, $request->file('file'));
-        $data = $import->getEmails();
-        
-        return $this->response($data);
-    }
-
     public function destroy(Course $course)
     {
         //

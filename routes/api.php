@@ -26,6 +26,7 @@ use App\Http\Controllers\UserController;
 
 Route::post('/file/upload', [FileController::class, 'upload'])->name('upload');
 Route::post('/file/upload/multiple', [FileController::class, 'multipleUpload'])->name('multipleUpload');
+Route::post('/file/import-students', [FileController::class, 'importStudents'])->name('file.importStudents');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/auth/google/url', [GoogleController::class, 'loginUrl'])->name('login.google.url');
 Route::get('/auth/google/callback', [GoogleController::class, 'loginCallback'])->name('login.google.callback');
@@ -53,7 +54,6 @@ Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:stud
     Route::post('/{course}/decline', [CourseController::class, 'decline'])->name('course.decline');
     Route::post('/{course}/curriculum', [CourseController::class, 'createOrUpdateCurriculum'])->name('course.update-curriculum');
     Route::post('/{course}/divide-random-groups', [CourseController::class, 'divideStudentToGroups'])->name('course.divideStudentToGroups');
-    Route::post('/{course}/import-students', [CourseController::class, 'importStudents'])->name('course.importStudents');
 });
 
 Route::group(['prefix' => 'groups', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {

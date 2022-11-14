@@ -130,6 +130,7 @@ const MemberPage = () => {
             />
           </div>
           <AddMemberModal
+            courseId={id}
             modalName="Thêm thành viên"
             onFinish={addMember}
             isShow={showMemberModal}
