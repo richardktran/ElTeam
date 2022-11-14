@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
     Route::get('/own', [CourseController::class, 'getOwnCourses'])->name('courses.own');
     Route::get('/', [CourseController::class, 'getLearningCourses'])->name('courses.learn-courses');
+    Route::get('/{course}/groups', [GroupController::class, 'getAll'])->name('groups.getAllGroups');
     Route::get('/{course}', [CourseController::class, 'detail'])->name('course.detail');
     Route::get('/{course}/members', [CourseController::class, 'membersList'])->name('course.members');
     Route::get('/{course}/curriculum', [CourseController::class, 'getcurriculum'])->name('course.get-curriculum');
@@ -57,7 +58,6 @@ Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:stud
 Route::group(['prefix' => 'groups', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
     Route::get('/{group}/tasks', [TaskController::class, 'getTasksForGroup'])->name('groups.task.get');
     Route::get('/{group}', [GroupController::class, 'getGroupInfo'])->name('groups.group.get');
-    Route::get('/', [GroupController::class, 'getAll'])->name('groups.getAll');
 
     Route::post('/{group}/tasks', [TaskController::class, 'createTask'])->name('groups.task.create');
     Route::post('/{group}/update-task-position', [TaskController::class, 'updatePositionTask'])->name('groups.task.update-position');
