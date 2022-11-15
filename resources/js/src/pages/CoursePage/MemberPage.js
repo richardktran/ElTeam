@@ -131,9 +131,11 @@ const MemberPage = () => {
           </div>
           <AddMemberModal
             courseId={id}
+            fetchMembers={fetchMembers}
             modalName="Thêm thành viên"
             onFinish={addMember}
             isShow={showMemberModal}
+            setIsShow={setShowMemberModal}
             handleCloseModal={() => setShowMemberModal(false)}
           />
         </div>

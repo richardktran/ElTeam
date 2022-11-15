@@ -6,17 +6,18 @@ import toast from 'react-hot-toast';
 import Dragger from 'antd/lib/upload/Dragger';
 import { InboxOutlined } from '@mui/icons-material';
 import { useEffect } from 'react';
+import { courseApi } from '../../api/courseApi';
 
 const AddMemberModal = (props) => {
-    const { isShow, modalName, onFinish, handleCloseModal, courseId } = props
-    const [type, setType] = useState('multiple');
-    const [modalSize, setModalSize] = useState('xs');
+    const { isShow, modalName, setIsShow, handleCloseModal, courseId, fetchMembers } = props
+    const [type, setType] = useState('single');
     const [checkAll, setCheckAll] = useState(true);
+    const [singleEmail, setSingleEmail] = useState('');
 
-    const [emailList, setEmailList] = useState(null);
+    const [emailList, setEmailList] = useState([]);
 
     useEffect(() => {
-        if (emailList === null) {
+        if (emailList.length === 0) {
             return;
         }
         const isCheckAll = emailList.every((item) => item.checked);
@@ -66,12 +67,46 @@ const AddMemberModal = (props) => {
     }
 
     const uploadAgain = () => {
-        setEmailList(null);
+        setEmailList([]);
+    }
+
+    const addMember = async () => {
+        let emailsSubmit = [...emailList];
+        if (singleEmail !== '') {
+            emailsSubmit = [
+                ...emailsSubmit,
+                {
+                    email: singleEmail,
+                    checked: true
+                }
+            ];
+        }
+        const emails = emailsSubmit.filter((item) => item.checked).map((item) => item.email);
+        if (emails.length === 0) {
+            toast.error('Bạn chưa chọn email nào');
+            return;
+        }
+
+        try {
+            const data = {
+                students: emails,
+            }
+            await courseApi.invite(courseId, data);
+
+        } catch (e) {
+            toast.error('Thêm thành viên thất bại');
+            console.log(e);
+        }
+        fetchMembers();
+        toast.success('Lời mời tham gia khóa học đã được gởi');
+        setIsShow(false);
+        setEmailList([]);
+        setSingleEmail('');
     }
 
     return (
-        <BaseModal modalName={modalName} handleCloseModal={handleCloseModal} isShow={isShow} modalSize={modalSize}>
-            <Form action="#" className="form-validate is-alter" onFinish={onFinish}>
+        <BaseModal modalName={modalName} handleCloseModal={handleCloseModal} isShow={isShow}>
+            <Form action="#" className="form-validate is-alter">
                 <Form.Item
                     className="form-group mb-2"
                     name="type"
@@ -107,20 +142,20 @@ const AddMemberModal = (props) => {
                         <Form.Item
                             className="form-group mb-3"
                             name="email"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Email không được để trống!',
-                                },
-                            ]}
                         >
                             <div className="form-control-wrap mb-2">
-                                <Input type="email" placeholder='Nhập email của học viên' className="form-control" id="email" />
+                                <Input type="email"
+                                    value={singleEmail}
+                                    onChange={(e) => setSingleEmail(e.target.value)}
+                                    placeholder='Nhập email của học viên'
+                                    className="form-control"
+                                    id="email"
+                                />
                             </div>
                         </Form.Item>
                     </>
                 )}
-                {type === 'multiple' && emailList === null &&
+                {type === 'multiple' && emailList.length === 0 &&
                     <Dragger {...uploadProps} className="mb-3">
                         <p className="ant-upload-drag-icon">
                             <InboxOutlined />
@@ -132,7 +167,7 @@ const AddMemberModal = (props) => {
                     </Dragger>
                 }
 
-                {type === 'multiple' && emailList !== null &&
+                {type === 'multiple' && emailList.length !== 0 &&
                     <div className="email_list">
                         <h6 className="title my-3">
                             Danh sách email thành viên
@@ -173,7 +208,6 @@ const AddMemberModal = (props) => {
                                                     const newEmailList = [...emailList];
                                                     newEmailList[index].checked = e.target.checked;
                                                     setEmailList(newEmailList);
-                                                    console.log(newEmailList);
                                                 }}
                                             />
                                             <label class="custom-control-label" style={{ borderWidth: '0' }} for={`user-choose-s${index}`}>
@@ -190,7 +224,7 @@ const AddMemberModal = (props) => {
                 }
 
                 <Form.Item className="form-group">
-                    <button type="submit" className="btn btn-lg btn-primary">Thêm học viên</button>
+                    <button type="submit" onClick={addMember} className="btn btn-lg btn-primary">Thêm học viên</button>
                 </Form.Item>
             </Form>
         </BaseModal>
