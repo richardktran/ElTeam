@@ -26,6 +26,7 @@ use App\Http\Controllers\UserController;
 
 Route::post('/file/upload', [FileController::class, 'upload'])->name('upload');
 Route::post('/file/upload/multiple', [FileController::class, 'multipleUpload'])->name('multipleUpload');
+Route::post('/file/import-students', [FileController::class, 'importStudents'])->name('file.importStudents');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/auth/google/url', [GoogleController::class, 'loginUrl'])->name('login.google.url');
 Route::get('/auth/google/callback', [GoogleController::class, 'loginCallback'])->name('login.google.callback');

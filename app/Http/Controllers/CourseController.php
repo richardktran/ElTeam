@@ -11,9 +11,11 @@ use App\Services\CourseService;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCourseValidator;
 use App\Http\Resources\UserResource;
+use App\Imports\UsersImport;
 use App\Models\CourseStudent;
 use App\Models\Curriculum;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CourseController extends Controller
 {
