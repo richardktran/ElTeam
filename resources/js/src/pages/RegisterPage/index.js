@@ -6,10 +6,11 @@ import { authApi } from '../../api';
 import LoginForm from '../../components/Form/LoginForm'
 import AuthSlider from '../../components/Slider/AuthSlider'
 import { HTTP_OK, ROLE_ADMIN } from '../../utils/constant';
+import RegisterForm from '../../components/Form/RegisterForm';
 
-function LoginPage() {
+function RegisterPage() {
     const [loadingButton, setLoadingButton] = useState(false);
-    const [loginFailed, setLoginFailed] = useState(false);
+    const [registerFail, setRegisterFail] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -38,7 +39,8 @@ function LoginPage() {
     const onFinish = async (values) => {
         // await axiosInstance.get('/sanctum/csrf-cookie');
         try {
-            const response = await authApi.login({
+            const response = await authApi.register({
+                name: values.name,
                 email: values.email,
                 password: values.password
             });
@@ -47,26 +49,26 @@ function LoginPage() {
 
 
             if (status !== HTTP_OK) {
-                setLoginFailed(true);
+                setRegisterFail(true);
                 return;
             }
             console.log(data);
             await saveUserData(data.data);
         } catch (e) {
-            setLoginFailed(true);
+            setRegisterFail(true);
         }
     };
 
     const onFinishFailed = () => {
-        setLoginFailed(true);
+        setRegisterFail(true);
     };
 
     return (
         <div className="nk-content ">
             <div className="nk-split nk-split-page nk-split-md">
-                <LoginForm
+                <RegisterForm
                     onFinish={onFinish}
-                    loginFailed={loginFailed}
+                    registerFail={registerFail}
                     onFinishFailed={onFinishFailed}
                     loadingButton={loadingButton}
                 />
@@ -76,4 +78,4 @@ function LoginPage() {
     )
 }
 
-export default LoginPage
+export default RegisterPage;

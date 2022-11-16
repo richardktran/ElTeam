@@ -39,6 +39,35 @@ class AuthController extends Controller
         ]);
     }
 
+    public function signUp(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user!==null) {
+            return $this->responseError('Email already exists', Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $user = User::create([
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'name' => $request->name,
+            'role_id' => 2,
+        ]);
+
+        $token = $user->createToken('authToken')->plainTextToken;
+
+        return $this->response([
+            'user' => new UserResource($user),
+            'token' => $token,
+        ]);
+    }
+
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
