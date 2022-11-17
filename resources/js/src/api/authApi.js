@@ -7,6 +7,13 @@ const authApi = {
             password: user.password,
         });
     },
+    register: (user) => {
+        return axiosInstance.post('/register', {
+            name: user.name,
+            email: user.email,
+            password: user.password,
+        });
+    },
     logout: async () => {
         const config = await bearerConfig();
         return axiosInstance.post('/logout', {}, config);

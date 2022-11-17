@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import authApi from '../../api/authApi';
 import { HTTP_OK } from '../../utils/constant';
 
-const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => {
+const RegisterForm = ({ onFinish, registerFail, onFinishFailed, loadingButton }) => {
+
+    const [isAgreeTerms, setIsAgreeTerms] = useState(false);
 
     const [googleLoginUrl, setGoogleLoginUrl] = useState(null);
 
@@ -17,6 +19,9 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
     }
 
     useEffect(() => {
+        if (localStorage.getItem('token')) {
+            navigate('/');
+        }
         fetchGoogleUrl();
     }, []);
 
@@ -25,9 +30,6 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
         wrapperCol: { span: { sm: 24, md: 16, lg: 12 } },
     };
 
-    const onClickToRegister = () => {
-        navigate('/');
-    };
 
 
     return (
@@ -46,9 +48,9 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                 </div>
                 <div className="nk-block-head">
                     <div className="nk-block-head-content">
-                        <h5 className="nk-block-title">Đăng nhập</h5>
+                        <h5 className="nk-block-title">Đăng ký tài khoản</h5>
                         <div className="nk-block-des">
-                            <p>Truy cập vào khóa học của bạn bằng cách sử dụng email và mật khẩu.</p>
+                            <p>Tạo tài khoản để tham gia các lớp học.</p>
                         </div>
                     </div>
                 </div>{/* .nk-block-head */}
@@ -68,6 +70,23 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                     autoComplete="off"
                     noValidate="novalidate"
                 >
+                    <div className="form-label-group">
+                        <label className="form-label" htmlFor="name">Họ và tên</label>
+                    </div>
+                    <Form.Item
+                        name="name"
+                        className="form-group"
+                    >
+                        <Input
+                            placeholder={"Nhập họ và tên"}
+                            autoComplete="off"
+                            type="name"
+                            className="form-control form-control-lg"
+                            required
+                            id="name"
+                        />
+                    </Form.Item>
+
                     <div className="form-label-group">
                         <label className="form-label" htmlFor="email-address">Email</label>
                         <a className="link link-primary link-sm" tabIndex={-1} href="#">Giúp đỡ?</a>
@@ -110,19 +129,27 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                         </div>
 
                     </Form.Item>
-                    {loginFailed &&
+                    {registerFail &&
                         <div className="alert alert-danger alert-icon">
                             <em className="icon ni ni-cross-circle"></em>
-                            <strong>Email hoặc mật khẩu của bạn không đúng!!!</strong>
+                            <strong>Tài khoản đã tồn tài, đăng ký tài khoản khác hoặc đăng nhập!!!</strong>
                         </div>
                     }
+                    <div className="form-group">
+                        <div className="custom-control custom-control-xs custom-checkbox">
+                            <input value={isAgreeTerms} onChange={(e) => setIsAgreeTerms(!isAgreeTerms)} type="checkbox" className="custom-control-input" id="checkbox" />
+                            <label className="custom-control-label" htmlFor="checkbox">
+                                Tôi đồng ý với các <a tabIndex={-1} href="#">Điều khoản</a> &amp; <a tabIndex={-1} href="#"> Điều kiện.</a> của Elteam.
+                            </label>
+                        </div>
+                    </div>
                     <Form.Item className="form-group">
                         <Button
-                            htmlType="submit"
-                            className="btn btn-lg btn-primary btn-block"
+                            htmlType={isAgreeTerms ? 'submit' : 'button'}
+                            className={`btn btn-lg btn-${isAgreeTerms ? 'primary' : 'gray'} btn-block`}
                             loading={loadingButton}
                         >
-                            Đăng nhập
+                            Đăng ký
                         </Button>
                     </Form.Item>
                     <Form.Item className="form-group">
@@ -140,8 +167,8 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                             </li>
                         </ul>
                         <div className="text-center mt-5">
-                            <span className="fw-500">Bạn chưa có tài khoản?
-                                <Link to="/register"> Đăng ký ngay</Link>
+                            <span className="fw-500">Bạn đã có tài khoản?
+                                <Link to="/register"> Đăng nhập ngay</Link>
                             </span>
                         </div>
                     </Form.Item>
@@ -149,8 +176,8 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
 
             </div>{/* .nk-block */}
 
-        </div>
+        </div >
     )
 }
 
-export default LoginForm
+export default RegisterForm
