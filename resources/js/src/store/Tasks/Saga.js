@@ -87,7 +87,7 @@ export function* updateAssigneesTask({ payload }) {
     }
     const task = yield call(groupApi.updateContentTask, taskId, data);
     const groupId = task.data.data.group_id;
-    yield put(requestTaskAction(groupId));
+    yield put(requestTaskAction({ group_id: groupId }));
   } catch (e) {
     console.log(e);
     const err = _get(e, 'response.data', {});

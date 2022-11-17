@@ -54,7 +54,7 @@ const GroupDetailPage = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    dispatch(requestCourse(courseId));
+    dispatch(requestCourse({ course_id: courseId }));
     fetchGroupInfo();
     setIsLoading(false);
   }, []);

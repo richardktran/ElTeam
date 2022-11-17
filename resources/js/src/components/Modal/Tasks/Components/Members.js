@@ -25,13 +25,14 @@ function Members(props) {
     } else {
       setAssigneesList([...assigneesList, member]);
     }
+    dispatch(updateAssignees({ taskId: props.id, assignees: assigneesList }));
   }
 
-  useEffect(() => {
-    if (assigneesList !== null) {
-      dispatch(updateAssignees({ taskId: props.id, assignees: assigneesList }));
-    }
-  }, [assigneesList]);
+  // useEffect(() => {
+  //   if (assigneesList !== null) {
+  //     dispatch(updateAssignees({ taskId: props.id, assignees: assigneesList }));
+  //   }
+  // }, [assigneesList]);
 
   const isAssignee = useCallback((id) => {
     return assigneesList.find(assignee => assignee.id === id);
@@ -39,7 +40,7 @@ function Members(props) {
 
   useEffect(() => {
     setMembersList(members);
-  }, [assigneesList])
+  }, [members])
 
   return (
     <div className="card-title ">
