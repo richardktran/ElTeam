@@ -19,9 +19,9 @@ import { groupApi } from '../../api/groupApi';
 
 export function* requestTask({ payload }) {
   try {
-    const taskId = payload;
+    const { task_id } = payload;
     try {
-      const { data } = yield call(groupApi.getTask, taskId);
+      const { data } = yield call(groupApi.getTask, task_id);
       const task = data.data;
       yield put(getTask(task));
     } catch (e) {
@@ -36,9 +36,9 @@ export function* requestTask({ payload }) {
 
 export function* requestGroupInfo({ payload }) {
   try {
-    const groupId = payload;
+    const { course_id } = payload;
     try {
-      const { data } = yield call(groupApi.getInfo, groupId);
+      const { data } = yield call(groupApi.getInfo, course_id);
       const groupInfo = data.data;
       yield put(getGroupInfo(groupInfo));
     } catch (e) {
@@ -112,9 +112,9 @@ export function* updateTitleTask({ payload }) {
 
 export function* requestTasks({ payload }) {
   try {
-    const groupId = payload;
+    const { group_id } = payload;
     try {
-      const { data } = yield call(groupApi.getTasks, groupId);
+      const { data } = yield call(groupApi.getTasks, group_id);
       const tasks = data.data;
       yield put(getTasks(tasks));
     } catch (e) {

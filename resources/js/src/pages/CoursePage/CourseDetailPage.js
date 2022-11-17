@@ -36,7 +36,7 @@ const CourseDetailPage = () => {
 
 
   const fetchCourseInfo = () => {
-    dispatch(requestCourse(id));
+    dispatch(requestCourse({ course_id: id }));
     dispatch(requestTopics());
   }
 

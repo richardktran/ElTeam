@@ -30,10 +30,14 @@ const groupTasks = createSlice({
   initialState: initialItems,
   reducers: {
     requestTask: (state, action) => {
-      const task_id = action.payload;
+      let isLoading = true;
+      if (action.payload) {
+        isLoading = action.payload.loading;
+      }
+      const { task_id } = action.payload;
       return {
         ...state,
-        submitting: true,
+        submitting: isLoading,
         currentTask: {
           ...state.currentTask,
           id: task_id
@@ -41,18 +45,26 @@ const groupTasks = createSlice({
       }
     },
     requestTasks: (state, action) => {
-      const group_id = action.payload;
+      let isLoading = true;
+      if (action.payload) {
+        isLoading = action.payload.loading;
+      }
+      const { group_id } = action.payload;
       return {
         ...state,
-        submitting: true,
+        submitting: isLoading,
         group_id
       }
     },
     requestGroupInfo: (state, action) => {
-      const course_id = action.payload;
+      let isLoading = true;
+      if (action.payload) {
+        isLoading = action.payload.loading;
+      }
+      const { course_id } = action.payload;
       return {
         ...state,
-        submitting: true,
+        submitting: isLoading,
         groupInfo: {
           ...state.groupInfo,
           course_id

@@ -46,7 +46,7 @@ function Lesson(props) {
       const response = await lessonApi.create(data);
       if (response.status === HTTP_OK) {
         toast.success('Thêm chủ đề thành công!');
-        dispatch(requestTopics());
+        dispatch(requestTopics({ loading: false }));
         setIsAddTopic(false);
       } else {
         console.log(response);
@@ -68,7 +68,7 @@ function Lesson(props) {
       const response = await lessonApi.delete(id);
       if (response.status === HTTP_OK) {
         toast.success('Xóa chủ đề thành công!');
-        dispatch(requestTopics());
+        dispatch(requestTopics({ loading: false }));
       } else {
         console.log(response);
         toast.error("Xóa chủ đề thất bại!!!");
@@ -84,7 +84,7 @@ function Lesson(props) {
       const response = await lessonApi.toggleLockTopic(topicId);
       if (response.status === HTTP_OK) {
         toast.success(oldStatus ? 'Khóa chủ đề thành công!' : 'Mở khóa chủ đề thành công!');
-        dispatch(requestTopics());
+        dispatch(requestTopics({ loading: false }));
       } else {
         console.log(response);
         toast.error(!oldStatus ? 'Khóa chủ đề thất bại!' : 'Mở khóa chủ đề thất bại!');

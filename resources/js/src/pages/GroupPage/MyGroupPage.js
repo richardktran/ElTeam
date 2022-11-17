@@ -35,7 +35,7 @@ const MyGroupPage = () => {
       const { data } = result.data;
       setGroupInfo(data);
       dispatch(getGroupInfo(data));
-      const fetchTasksAction = requestTasks(data.id);
+      const fetchTasksAction = requestTasks({ group_id: data.id });
       dispatch(fetchTasksAction);
     }
   }
@@ -54,7 +54,7 @@ const MyGroupPage = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    dispatch(requestCourse(courseId));
+    dispatch(requestCourse({ course_id: courseId }));
     fetchGroupInfo();
     setIsLoading(false);
   }, []);
@@ -66,7 +66,7 @@ const MyGroupPage = () => {
 
   const openDetailTaskModal = (taskId) => {
     setShowDetailTaskModal(true);
-    dispatch(requestTask(taskId));
+    dispatch(requestTask({ task_id: taskId }));
     setTaskId(taskId);
   }
 
@@ -83,7 +83,7 @@ const MyGroupPage = () => {
       const response = await groupApi.create(groupInfo.id, data);
       if (response.status === HTTP_OK) {
         toast.success('Thêm nhiệm vụ thành công!');
-        dispatch(requestTasks(groupInfo.id));
+        dispatch(requestTasks({ group_id: groupInfo.id }));
 
         setShowAddTaskModal(false);
       } else {
