@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 const initialItems = {
   group_id: 107,
-  submitting: false,
+  // submitting: false,
   currentTask: {},
   groupInfo: {},
   sections: [
@@ -32,7 +32,7 @@ const groupTasks = createSlice({
     requestTask: (state, action) => {
       let isLoading = true;
       if (action.payload) {
-        isLoading = action.payload.loading;
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
       }
       const { task_id } = action.payload;
       return {
@@ -47,8 +47,9 @@ const groupTasks = createSlice({
     requestTasks: (state, action) => {
       let isLoading = true;
       if (action.payload) {
-        isLoading = action.payload.loading;
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
       }
+      console.log('requestTasks: ', isLoading);
       const { group_id } = action.payload;
       return {
         ...state,
@@ -59,7 +60,7 @@ const groupTasks = createSlice({
     requestGroupInfo: (state, action) => {
       let isLoading = true;
       if (action.payload) {
-        isLoading = action.payload.loading;
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
       }
       const { course_id } = action.payload;
       return {

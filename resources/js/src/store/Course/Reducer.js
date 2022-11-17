@@ -16,7 +16,7 @@ const courses = createSlice({
     requestCourse: (state, action) => {
       let isLoading = true;
       if (action.payload) {
-        isLoading = action.payload.loading;
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
       }
       const { course_id } = action.payload;
       return {
@@ -36,7 +36,7 @@ const courses = createSlice({
     requestTopics: (state, action) => {
       let isLoading = true;
       if (action.payload) {
-        isLoading = action.payload.loading;
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
       }
       return {
         ...state,

@@ -20,7 +20,6 @@ const GroupDetailPage = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(state => state.groupTasks.sections);
   const loading = useSelector(state => state.groupTasks.submitting);
-  const [isLoading, setIsLoading] = useState(loading);
   const [groupInfo, setGroupInfo] = useState({});
 
   const [boardData, setBoardData] = useState(tasks);
@@ -40,23 +39,17 @@ const GroupDetailPage = () => {
     }
   }
 
-  // useEffect(() => {
-  //   setIsLoading(loading);
-  // }, [loading]);
-
   useEffect(() => {
-    dispatch(changeLoading(isLoading));
-  }, [isLoading]);
+    dispatch(changeLoading(loading));
+  }, [loading]);
 
   useEffect(() => {
     setBoardData(tasks);
   }, [tasks]);
 
   useEffect(() => {
-    setIsLoading(true);
     dispatch(requestCourse({ course_id: courseId }));
     fetchGroupInfo();
-    setIsLoading(false);
   }, []);
 
   const openAddTaskModal = (sectionId) => {
@@ -66,7 +59,7 @@ const GroupDetailPage = () => {
 
   const openDetailTaskModal = (taskId) => {
     setShowDetailTaskModal(true);
-    dispatch(requestTask({ task_id: taskId }));
+    dispatch(requestTask({ task_id: taskId, loading: false }));
     setTaskId(taskId);
   }
 
@@ -83,7 +76,7 @@ const GroupDetailPage = () => {
       const response = await groupApi.create(groupInfo.id, data);
       if (response.status === HTTP_OK) {
         toast.success('Thêm nhiệm vụ thành công!');
-        dispatch(requestTasks({ group_id: groupInfo.id }));
+        dispatch(requestTasks({ group_id: groupInfo.id, loading: false }));
 
         setShowAddTaskModal(false);
       } else {
