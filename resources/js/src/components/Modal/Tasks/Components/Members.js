@@ -19,14 +19,17 @@ function Members(props) {
     setAssigneesList(assignees);
   }, [assignees]);
 
-  const toggleAssign = (member) => {
+  const toggleAssign = useCallback((member) => {
+    let newAssignmentList = [...assigneesList];
     if (assigneesList.find(assignee => assignee.id === member.id)) {
-      setAssigneesList(assigneesList.filter((item) => item.id !== member.id));
+      newAssignmentList = (assigneesList.filter((item) => item.id !== member.id));
     } else {
-      setAssigneesList([...assigneesList, member]);
+      newAssignmentList = [...assigneesList, member];
     }
-    dispatch(updateAssignees({ taskId: props.id, assignees: assigneesList }));
-  }
+    setAssigneesList(newAssignmentList);
+    dispatch(updateAssignees({ taskId: props.id, assignees: newAssignmentList }));
+  }, [assigneesList]);
+
 
   const isAssignee = useCallback((id) => {
     return assigneesList.find(assignee => assignee.id === id);
