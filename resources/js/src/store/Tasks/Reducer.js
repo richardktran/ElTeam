@@ -6,23 +6,7 @@ const initialItems = {
   // submitting: false,
   currentTask: {},
   groupInfo: {},
-  sections: [
-    {
-      id: uuidv4(),
-      title: ' 📃 To do',
-      tasks: []
-    },
-    {
-      id: uuidv4(),
-      title: ' ✏️ In progress',
-      tasks: []
-    },
-    {
-      id: uuidv4(),
-      title: ' ✔️ Completed',
-      tasks: []
-    }
-  ]
+  sections: []
 };
 
 const groupTasks = createSlice({

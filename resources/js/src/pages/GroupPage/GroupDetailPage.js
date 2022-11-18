@@ -12,6 +12,8 @@ import { requestCourse } from '../../store/Course/Reducer';
 import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
 import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
 import { changeLoading } from '../../store/App/Reducer';
+import Skeleton from 'react-loading-skeleton';
+import isEmpty from 'lodash/isEmpty';
 
 const GroupDetailPage = () => {
   let { courseId, groupId } = useParams(); //get id from url
@@ -22,7 +24,7 @@ const GroupDetailPage = () => {
   const loading = useSelector(state => state.groupTasks.submitting);
   const [groupInfo, setGroupInfo] = useState({});
 
-  const [boardData, setBoardData] = useState(tasks);
+  const [boardData, setBoardData] = useState([]);
   const [sectionId, setSectionId] = useState(0);
   const [taskId, setTaskId] = useState(0);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
@@ -107,7 +109,15 @@ const GroupDetailPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                <h3 className="nk-block-title page-title">Nhóm {groupInfo.number} - {groupInfo.name}</h3>
+                {loading || isEmpty(groupInfo) ? (
+                  <h3 className="nk-block-title page-title">
+                    <Skeleton width={300} />
+                  </h3>
+                ) :
+                  <h3 className="nk-block-title page-title">
+                    Nhóm {groupInfo.number} - {groupInfo.name}
+                  </h3>
+                }
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content">
                 <div className="nk-block-head-sub mb-2"></div>
@@ -140,12 +150,17 @@ const GroupDetailPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Kanban
-              boardData={boardData}
-              openAddTaskModal={openAddTaskModal}
-              openDetailTaskModal={openDetailTaskModal}
-              groupId={groupInfo.id}
-            />
+            {loading || isEmpty(boardData) ?
+              <Kanban.Loading />
+              :
+              <Kanban
+                isLoading={loading}
+                boardData={boardData}
+                openAddTaskModal={openAddTaskModal}
+                openDetailTaskModal={openDetailTaskModal}
+                groupId={groupInfo.id}
+              />
+            }
           </div>
           <AddTaskModal
             modalName="Thêm công việc"

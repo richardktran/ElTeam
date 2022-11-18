@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 import { cutStringShorter } from "../../utils/stringUtils";
 import Avatar from "../Avatar/Avatar";
 
@@ -56,5 +57,42 @@ const KanbanCard = props => {
 
   )
 }
+
+const Loading = () => {
+  return (
+    <div className="kanban-item">
+      <div className="kanban-item-title">
+        <h6 className="title">
+          <Skeleton width={200} />
+        </h6>
+        <div className="dropdown">
+          <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+            <div className="user-avatar-group">
+              <Skeleton circle={true} width={32} height={32} count={2} />
+            </div>
+          </a>
+        </div>
+      </div>
+      <div className="kanban-item-text">
+        <Skeleton count={3.5} />
+      </div>
+      <ul className="kanban-item-tags">
+        <li><span className="badge badge-info">Dashlite</span></li>
+        <li><span className="badge badge-warning">UI Design</span></li>
+      </ul>
+      <div className="kanban-item-meta">
+        <ul className="kanban-item-meta-list">
+          <li className="text-danger"><em className="icon ni ni-calendar" /><span>2d Due</span></li>
+          <li><em className="icon ni ni-notes" /><span>Design</span></li>
+        </ul>
+        <ul className="kanban-item-meta-list">
+          <Skeleton count={2} />
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+KanbanCard.Loading = Loading;
 
 export default KanbanCard
