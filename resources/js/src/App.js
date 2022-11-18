@@ -23,7 +23,7 @@ function App() {
                 position="top-center"
                 reverseOrder={false}
             />
-            {(isLoading.groupTasks.submitting || isLoading.course.submitting) && <Loading />}
+            {/* {(isLoading.groupTasks.submitting || isLoading.course.submitting) && <Loading />} */}
             <div className="nk-app-root">
                 <div className="nk-main">
                     <Router />

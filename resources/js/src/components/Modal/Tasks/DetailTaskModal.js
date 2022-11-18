@@ -14,11 +14,10 @@ import SubmitTask from './Components/SubmitTask';
 const { TextArea } = Input;
 
 const DetailTaskModal = (props) => {
-    const { isShow, modalName, taskId, handleCloseModal, modalSize } = props
+    const { isShow, modalName, taskId, handleCloseModal, modalSize, isLoading } = props
     const dispatch = useDispatch();
     const group = useSelector(state => state.groupTasks.groupInfo);
     const task = useSelector(state => state.groupTasks.currentTask);
-    const isLoading = useSelector(state => state.groupTasks.isSubmitting);
     const [taskInfo, setTaskInfo] = useState(task);
     const [groupInfo, setGroupInfo] = useState(group);
 
@@ -36,37 +35,29 @@ const DetailTaskModal = (props) => {
                 <em className="icon ni ni-cross" />
             </a>
             <div className="modal-body" style={{ padding: 0 }}>
-                {isLoading ? (
-                    <div className="text-center">
-                        <div className="spinner-border text-primary" role="status">
-                            <span className="sr-only">Loading...</span>
-                        </div>
+                <div className="nk-msg-body bg-white">
+                    <div className="nk-msg-head">
+                        <HeaderTask
+                            id={taskInfo.id}
+                            title={taskInfo.title}
+                            isLoading={isLoading}
+                        />
+                        <Members
+                            isLoading={isLoading}
+                            id={taskInfo.id}
+                            assignees={taskInfo.assignees}
+                            members={groupInfo.students}
+                        />
+
+                        <ContentTask isLoading={isLoading} id={taskInfo.id}>
+                            {taskInfo.content}
+                        </ContentTask>
+
+                        <SubmitTask isLoading={isLoading} id={taskInfo.id} />
                     </div>
-                ) : (
-                    <div className="nk-msg-body bg-white">
-                        <div className="nk-msg-head">
-                            <HeaderTask
-                                id={taskInfo.id}
-                                title={taskInfo.title}
-                            />
-                            <Members
-                                id={taskInfo.id}
-                                assignees={taskInfo.assignees}
-                                members={groupInfo.students}
-                            />
+                    <CommentTask members={groupInfo.students} id={taskInfo.id} />
 
-                            <ContentTask id={taskInfo.id}>
-                                {taskInfo.content}
-                            </ContentTask>
-
-                            <SubmitTask id={taskInfo.id} />
-                        </div>
-
-
-                        <CommentTask members={groupInfo.students} id={taskInfo.id} />
-
-                    </div>
-                )}
+                </div>
             </div>
         </Modal>
     )

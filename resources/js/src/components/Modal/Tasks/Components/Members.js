@@ -6,11 +6,12 @@ import { useEffect } from 'react';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateAssignees } from '../../../../store/Tasks/Reducer';
+import Skeleton from 'react-loading-skeleton';
 
 
 function Members(props) {
   const dispatch = useDispatch();
-  const { assignees, members } = props;
+  const { assignees, members, isLoading } = props;
   const [assigneesList, setAssigneesList] = React.useState(null);
   const [membersList, setMembersList] = React.useState(members);
 
@@ -43,7 +44,13 @@ function Members(props) {
     <div className="card-title ">
       <p className="title mb-2" style={{ fontSize: "14px", color: "#5e6c84" }}>Người thực hiện</p>
       <ul class="project-users g-1">
-        {assigneesList && assigneesList.map((assignee, index) => (
+        {isLoading &&
+          <li>
+            <Skeleton circle={true} width={32} height={32} />
+          </li>
+
+        }
+        {!isLoading && assigneesList && assigneesList.map((assignee, index) => (
           <li>
             <Avatar image={assignee.avatar} name={assignee.name} />
           </li>
