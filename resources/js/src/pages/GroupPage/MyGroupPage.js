@@ -64,7 +64,7 @@ const MyGroupPage = () => {
 
   const openDetailTaskModal = (taskId) => {
     setShowDetailTaskModal(true);
-    dispatch(requestTask({ task_id: taskId, loading: false }));
+    dispatch(requestTask({ task_id: taskId }));
     setTaskId(taskId);
   }
 
@@ -165,6 +165,7 @@ const MyGroupPage = () => {
             taskId={taskId}
             modalSize='xl'
             onFinish={addTask}
+            isLoading={loading}
             isShow={showDetailTaskModal}
             handleCloseModal={() => setShowDetailTaskModal(false)}
           />
