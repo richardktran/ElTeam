@@ -19,8 +19,6 @@ function GroupListPage() {
   const [course, setCourse] = useState(null);
   const [groupList, setGroupList] = useState(null);
 
-  const [, updateState] = React.useState();
-  const forceUpdate = React.useCallback(() => updateState({}), []);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -45,16 +43,6 @@ function GroupListPage() {
       return data;
     }
   }, []);
-
-  // useEffect(() => {
-  //   // if (course === null) {
-  //   //   forceUpdate();
-  //   //   return;
-  //   // }
-  //   setIsLoading(true);
-  //   fetchAllGroups();
-  //   setIsLoading(false);
-  // }, [course]);
 
 
   useEffect(() => {
