@@ -4,11 +4,13 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateTitleTask } from '../../../../store/Tasks/Reducer';
 import InlineEdit from '../../../InlineEdit/InlineEdit';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 
 function HeaderTask(props) {
   const dispatch = useDispatch();
-  const { id, title } = props;
+  const { id, title, isLoading } = props;
   const [taskTitle, setTaskTitle] = useState(title);
 
   useEffect(() => {
@@ -27,28 +29,26 @@ function HeaderTask(props) {
         <ul className="nk-msg-tags">
           <li>
             <a href={`/tasks/${id}`} target="_blank">
-              <span className="label-tag">
-                <em className="icon ni ni-flag-fill" />
-                <span>CT247-{id}</span>
-              </span>
+              {isLoading ? <Skeleton width='100px' /> :
+                <span className="label-tag">
+                  <em className="icon ni ni-flag-fill" />
+                  <span>CT247-{id}</span>
+                </span>
+              }
             </a>
           </li>
         </ul>
       </div>
       <div className="nk-msg-head-meta">
-        <InlineEdit value={taskTitle} setValue={setTaskTitle} onSave={updateTitle} />
+        {isLoading ? <Skeleton width="700px" height="1.7rem" /> :
+          <InlineEdit value={taskTitle} setValue={setTaskTitle} onSave={updateTitle} />
+        }
         <div className="d-lg-none mt-2">
           <a href="#" className="btn btn-icon btn-trigger nk-msg-hide ml-n1">
             <em className="icon ni ni-arrow-left" />
           </a>
         </div>
         <ul className="nk-msg-actions">
-          <li>
-            <a href="#" className="btn btn-dim btn-sm btn-outline-light">
-              <em className="icon ni ni-check" />
-              <span>Nộp bài</span>
-            </a>
-          </li>
           <li className="d-lg-none">
             <a href="#" className="btn btn-icon btn-sm btn-white btn-light profile-toggle">
               <em className="icon ni ni-info-i" />

@@ -5,11 +5,12 @@ import KanbanCard from '../Cards/KanbanCard'
 import './kanban.scss'
 import { useDispatch } from 'react-redux'
 import { updateTaskPosition } from '../../store/Tasks/Reducer'
+import Skeleton from 'react-loading-skeleton'
 
 const Kanban = (props) => {
   const dispatch = useDispatch();
 
-  const { boardData, groupId, openAddTaskModal, openDetailTaskModal } = props;
+  const { boardData, groupId, openAddTaskModal, openDetailTaskModal, isLoading } = props;
   const [data, setData] = useState(boardData);
 
   useEffect(() => {
@@ -111,7 +112,7 @@ const Kanban = (props) => {
                   </header>
                   <div className="kanban__section__content">
                     {
-                      section.tasks.map((task, index) => (
+                      !isLoading && section.tasks.map((task, index) => (
                         <Draggable
                           key={task.id}
                           draggableId={task.id.toString()}
@@ -154,5 +155,56 @@ const Kanban = (props) => {
     </DragDropContext>
   )
 }
+
+const Loading = () => {
+  return (
+    <div className="kanban">
+      {
+        [1, 2, 3].map(section => (
+          <div
+            className='kanban-board'
+            style={{ "width": (100 / 3) + '%', "marginLeft": "0", "marginRight": "0" }}
+          >
+            <header class="kanban-board-header kanban-light">
+              <div class="kanban-title-board">
+                <div class="kanban-title-content">
+                  <h6 class="title">
+                    <Skeleton width={200} />
+                  </h6>
+                  <span class="badge badge-pill badge-outline-light text-dark">3</span>
+                </div>
+                <div class="kanban-title-content">
+                  <div class="dropdown">
+                    <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger mr-n1" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <ul class="link-list-opt no-bdr">
+                        <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Board</span></a></li>
+                        <li><a href="#"><em class="icon ni ni-plus-sm"></em><span>Add Task</span></a></li>
+                        <li><a href="#"><em class="icon ni ni-plus-sm"></em><span>Add Option</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div className="kanban__section__content">
+              <KanbanCard.Loading />
+              <KanbanCard.Loading />
+              <KanbanCard.Loading />
+              <footer>
+                <button className="kanban-add-task btn btn-block">
+                  <em className="icon ni ni-plus-sm" />
+                  <span>Add another task</span>
+                </button>
+              </footer>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  )
+}
+
+Kanban.Loading = Loading;
 
 export default Kanban

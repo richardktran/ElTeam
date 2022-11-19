@@ -12,6 +12,8 @@ import { requestCourse } from '../../store/Course/Reducer';
 import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
 import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
 import { changeLoading } from '../../store/App/Reducer';
+import Skeleton from 'react-loading-skeleton';
+import isEmpty from 'lodash/isEmpty';
 
 const MyGroupPage = () => {
   let { courseId } = useParams(); //get id from url
@@ -23,7 +25,7 @@ const MyGroupPage = () => {
   const [isLoading, setIsLoading] = useState(loading);
   const [groupInfo, setGroupInfo] = useState({});
 
-  const [boardData, setBoardData] = useState(tasks);
+  const [boardData, setBoardData] = useState([]);
   const [sectionId, setSectionId] = useState(0);
   const [taskId, setTaskId] = useState(0);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
@@ -35,14 +37,14 @@ const MyGroupPage = () => {
       const { data } = result.data;
       setGroupInfo(data);
       dispatch(getGroupInfo(data));
-      const fetchTasksAction = requestTasks(data.id);
+      const fetchTasksAction = requestTasks({ group_id: data.id });
       dispatch(fetchTasksAction);
     }
   }
 
-  // useEffect(() => {
-  //   setIsLoading(loading);
-  // }, [loading]);
+  useEffect(() => {
+    setIsLoading(loading);
+  }, [loading]);
 
   useEffect(() => {
     dispatch(changeLoading(isLoading));
@@ -53,10 +55,8 @@ const MyGroupPage = () => {
   }, [tasks]);
 
   useEffect(() => {
-    setIsLoading(true);
-    dispatch(requestCourse(courseId));
+    dispatch(requestCourse({ course_id: courseId }));
     fetchGroupInfo();
-    setIsLoading(false);
   }, []);
 
   const openAddTaskModal = (sectionId) => {
@@ -66,7 +66,7 @@ const MyGroupPage = () => {
 
   const openDetailTaskModal = (taskId) => {
     setShowDetailTaskModal(true);
-    dispatch(requestTask(taskId));
+    dispatch(requestTask({ task_id: taskId }));
     setTaskId(taskId);
   }
 
@@ -83,7 +83,7 @@ const MyGroupPage = () => {
       const response = await groupApi.create(groupInfo.id, data);
       if (response.status === HTTP_OK) {
         toast.success('Thêm nhiệm vụ thành công!');
-        dispatch(requestTasks(groupInfo.id));
+        dispatch(requestTasks({ group_id: groupInfo.id, loading: false }));
 
         setShowAddTaskModal(false);
       } else {
@@ -114,7 +114,15 @@ const MyGroupPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                <h3 className="nk-block-title page-title">Nhóm {groupInfo.number} - {groupInfo.name}</h3>
+                {loading || isEmpty(groupInfo) ? (
+                  <h3 className="nk-block-title page-title">
+                    <Skeleton width={300} />
+                  </h3>
+                ) :
+                  <h3 className="nk-block-title page-title">
+                    Nhóm {groupInfo.number} - {groupInfo.name}
+                  </h3>
+                }
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content">
                 <div className="nk-block-head-sub mb-2"></div>
@@ -147,12 +155,17 @@ const MyGroupPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Kanban
-              boardData={boardData}
-              openAddTaskModal={openAddTaskModal}
-              openDetailTaskModal={openDetailTaskModal}
-              groupId={groupInfo.id}
-            />
+            {loading || isEmpty(boardData) ?
+              <Kanban.Loading />
+              :
+              <Kanban
+                isLoading={loading}
+                boardData={boardData}
+                openAddTaskModal={openAddTaskModal}
+                openDetailTaskModal={openDetailTaskModal}
+                groupId={groupInfo.id}
+              />
+            }
           </div>
           <AddTaskModal
             modalName="Thêm công việc"
@@ -167,6 +180,7 @@ const MyGroupPage = () => {
             taskId={taskId}
             modalSize='xl'
             onFinish={addTask}
+            isLoading={loading}
             isShow={showDetailTaskModal}
             handleCloseModal={() => setShowDetailTaskModal(false)}
           />

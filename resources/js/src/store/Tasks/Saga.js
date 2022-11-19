@@ -19,9 +19,9 @@ import { groupApi } from '../../api/groupApi';
 
 export function* requestTask({ payload }) {
   try {
-    const taskId = payload;
+    const { task_id } = payload;
     try {
-      const { data } = yield call(groupApi.getTask, taskId);
+      const { data } = yield call(groupApi.getTask, task_id);
       const task = data.data;
       yield put(getTask(task));
     } catch (e) {
@@ -36,9 +36,9 @@ export function* requestTask({ payload }) {
 
 export function* requestGroupInfo({ payload }) {
   try {
-    const groupId = payload;
+    const { course_id } = payload;
     try {
-      const { data } = yield call(groupApi.getInfo, groupId);
+      const { data } = yield call(groupApi.getInfo, course_id);
       const groupInfo = data.data;
       yield put(getGroupInfo(groupInfo));
     } catch (e) {
@@ -71,8 +71,8 @@ export function* updateContentTask({ payload }) {
     }
     const task = yield call(groupApi.updateContentTask, taskId, data);
     const groupId = task.data.data.group_id;
-    yield put(requestTaskInfoAction(taskId));
-    yield put(requestTaskAction(groupId));
+    yield put(requestTaskInfoAction({ task_id: taskId, loading: false }));
+    yield put(requestTaskAction({ group_id: groupId, loading: false }));
   } catch (e) {
     console.log(e);
     const err = _get(e, 'response.data', {});
@@ -87,7 +87,7 @@ export function* updateAssigneesTask({ payload }) {
     }
     const task = yield call(groupApi.updateContentTask, taskId, data);
     const groupId = task.data.data.group_id;
-    yield put(requestTaskAction(groupId));
+    yield put(requestTaskAction({ group_id: groupId, loading: false }));
   } catch (e) {
     console.log(e);
     const err = _get(e, 'response.data', {});
@@ -102,8 +102,8 @@ export function* updateTitleTask({ payload }) {
     }
     const task = yield call(groupApi.updateContentTask, taskId, data);
     const groupId = task.data.data.group_id;
-    yield put(requestTaskInfoAction(taskId));
-    yield put(requestTaskAction(groupId));
+    yield put(requestTaskInfoAction({ task_id: taskId, loading: false }));
+    yield put(requestTaskAction({ group_id: groupId, loading: false }));
   } catch (e) {
     console.log(e);
     const err = _get(e, 'response.data', {});
@@ -112,9 +112,9 @@ export function* updateTitleTask({ payload }) {
 
 export function* requestTasks({ payload }) {
   try {
-    const groupId = payload;
+    const { group_id } = payload;
     try {
-      const { data } = yield call(groupApi.getTasks, groupId);
+      const { data } = yield call(groupApi.getTasks, group_id);
       const tasks = data.data;
       yield put(getTasks(tasks));
     } catch (e) {

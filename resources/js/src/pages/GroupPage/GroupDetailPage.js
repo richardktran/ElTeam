@@ -7,11 +7,13 @@ import { groupApi } from '../../api/groupApi';
 import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
-import { getGroupInfo, requestTask, requestTasks } from '../../store/Tasks/Reducer';
+import { getGroupInfo, removeTasks, requestTask, requestTasks } from '../../store/Tasks/Reducer';
 import { requestCourse } from '../../store/Course/Reducer';
 import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
 import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
 import { changeLoading } from '../../store/App/Reducer';
+import Skeleton from 'react-loading-skeleton';
+import isEmpty from 'lodash/isEmpty';
 
 const GroupDetailPage = () => {
   let { courseId, groupId } = useParams(); //get id from url
@@ -20,10 +22,9 @@ const GroupDetailPage = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(state => state.groupTasks.sections);
   const loading = useSelector(state => state.groupTasks.submitting);
-  const [isLoading, setIsLoading] = useState(loading);
   const [groupInfo, setGroupInfo] = useState({});
 
-  const [boardData, setBoardData] = useState(tasks);
+  const [boardData, setBoardData] = useState([]);
   const [sectionId, setSectionId] = useState(0);
   const [taskId, setTaskId] = useState(0);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
@@ -35,28 +36,23 @@ const GroupDetailPage = () => {
       const { data } = result.data;
       setGroupInfo(data);
       dispatch(getGroupInfo(data));
-      const fetchTasksAction = requestTasks(data.id);
+      const fetchTasksAction = requestTasks({ group_id: data.id });
       dispatch(fetchTasksAction);
     }
   }
 
-  // useEffect(() => {
-  //   setIsLoading(loading);
-  // }, [loading]);
-
   useEffect(() => {
-    dispatch(changeLoading(isLoading));
-  }, [isLoading]);
+    dispatch(changeLoading(loading));
+  }, [loading]);
 
   useEffect(() => {
     setBoardData(tasks);
   }, [tasks]);
 
   useEffect(() => {
-    setIsLoading(true);
-    dispatch(requestCourse(courseId));
+    dispatch(removeTasks());
+    dispatch(requestCourse({ course_id: courseId }));
     fetchGroupInfo();
-    setIsLoading(false);
   }, []);
 
   const openAddTaskModal = (sectionId) => {
@@ -66,7 +62,7 @@ const GroupDetailPage = () => {
 
   const openDetailTaskModal = (taskId) => {
     setShowDetailTaskModal(true);
-    dispatch(requestTask(taskId));
+    dispatch(requestTask({ task_id: taskId, loading: true }));
     setTaskId(taskId);
   }
 
@@ -83,7 +79,7 @@ const GroupDetailPage = () => {
       const response = await groupApi.create(groupInfo.id, data);
       if (response.status === HTTP_OK) {
         toast.success('Thêm nhiệm vụ thành công!');
-        dispatch(requestTasks(groupInfo.id));
+        dispatch(requestTasks({ group_id: groupInfo.id, loading: false }));
 
         setShowAddTaskModal(false);
       } else {
@@ -114,7 +110,15 @@ const GroupDetailPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                <h3 className="nk-block-title page-title">Nhóm {groupInfo.number} - {groupInfo.name}</h3>
+                {loading || isEmpty(groupInfo) ? (
+                  <h3 className="nk-block-title page-title">
+                    <Skeleton width={300} />
+                  </h3>
+                ) :
+                  <h3 className="nk-block-title page-title">
+                    Nhóm {groupInfo.number} - {groupInfo.name}
+                  </h3>
+                }
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content">
                 <div className="nk-block-head-sub mb-2"></div>
@@ -147,12 +151,17 @@ const GroupDetailPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Kanban
-              boardData={boardData}
-              openAddTaskModal={openAddTaskModal}
-              openDetailTaskModal={openDetailTaskModal}
-              groupId={groupInfo.id}
-            />
+            {loading || isEmpty(boardData) ?
+              <Kanban.Loading />
+              :
+              <Kanban
+                isLoading={loading}
+                boardData={boardData}
+                openAddTaskModal={openAddTaskModal}
+                openDetailTaskModal={openDetailTaskModal}
+                groupId={groupInfo.id}
+              />
+            }
           </div>
           <AddTaskModal
             modalName="Thêm công việc"
@@ -166,6 +175,7 @@ const GroupDetailPage = () => {
             modalName="Chi tiết công việc"
             taskId={taskId}
             modalSize='xl'
+            isLoading={loading}
             onFinish={addTask}
             isShow={showDetailTaskModal}
             handleCloseModal={() => setShowDetailTaskModal(false)}

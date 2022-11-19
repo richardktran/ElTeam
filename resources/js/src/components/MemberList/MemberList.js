@@ -1,10 +1,13 @@
+import { isEmpty } from 'lodash';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
+import Skeleton from 'react-loading-skeleton';
 import RandomDivideGroupModel from '../Modal/RandomDivideGroupModel';
 
 const MemberList = (props) => {
-  const { members, isOwner, handleRandomDivide } = props;
+  const { members, isOwner, handleRandomDivide, isLoading } = props;
   const [showRandomFormModel, setShowRandomFormModel] = useState(false);
+
 
   const getAvatarName = (name) => {
     var matches = name.match(/\b(\w)/g);
@@ -99,7 +102,12 @@ const MemberList = (props) => {
           </ul>
         </div>
       </div>
-      {members.map((member, index) => {
+      {(isLoading || isEmpty(members)) &&
+        [...Array(40)].map((item, index) => (
+          <Loading />
+        ))
+      }
+      {!isLoading && members && members.map((member, index) => {
         const status = member.pivot.status;
         const email = member.email;
         const group = member.group;
@@ -122,7 +130,7 @@ const MemberList = (props) => {
                     </div>
                   ) : (
                     <div class="user-avatar sm">
-                      <img src="https://lh3.googleusercontent.com/a-/ACNPEu96hM4PtUF1ByN0JYz9R4DixV550SybNX--uMpV=s96-c" alt="" />
+                      <img src={member.avatar} alt="" />
                     </div>
                   )}
                   <div className="user-info">
@@ -210,6 +218,61 @@ const MemberList = (props) => {
       />
     </div>
 
+  );
+}
+
+const Loading = () => {
+  return (
+    <div className="nk-tb-item">
+      <div className="nk-tb-col nk-tb-col-check">
+        <div className="custom-control custom-control-sm custom-checkbox notext">
+          <input type="checkbox" className="custom-control-input" />
+          <label className="custom-control-label" />
+        </div>
+      </div>
+      <div className="nk-tb-col">
+        <a href="html/ecommerce/customer-details.html">
+          <div className="user-card">
+            <Skeleton circle={true} className="mr-2" height={40} width={40} />
+            <div className="user-info">
+              <span className="tb-lead">
+                <Skeleton width={50} />
+              </span>
+              <span>
+                <Skeleton width={100} />
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div className="nk-tb-col tb-col-mb">
+        <span className="tb-amount">
+          <Skeleton width={100} height={`1.2rem`} />
+        </span>
+      </div>
+      <div className="nk-tb-col tb-col-md">
+        <span>
+          <Skeleton width={100} height={`1.2rem`} />
+        </span>
+      </div>
+      <div className="nk-tb-col tb-col-lg">
+        <Skeleton width={100} height={`1.2rem`} />
+      </div>
+      <div className="nk-tb-col tb-col-md">
+        <Skeleton width={100} height={`1.2rem`} />
+      </div>
+      <div className="nk-tb-col nk-tb-col-tools">
+        <ul className="nk-tb-actions gx-1">
+          <li>
+            <div className="drodown">
+              <a href="#" className="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown">
+                <em className="icon ni ni-more-h" />
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 }
 

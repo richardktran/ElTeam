@@ -13,6 +13,7 @@ import isCourseOwner from '../../hooks/isCourseOwner';
 import { getGroupInfo, requestTask } from '../../store/Tasks/Reducer';
 import { requestCourse } from '../../store/Course/Reducer';
 import { HTTP_OK } from '../../utils/constant';
+import { changeLoading } from '../../store/App/Reducer';
 
 function TaskDetailPage(props) {
   const { id } = useParams();
@@ -29,9 +30,13 @@ function TaskDetailPage(props) {
       const { data } = result.data;
       setGroupInfo(data);
       dispatch(getGroupInfo(data));
-      dispatch(requestCourse(data.course_id));
+      dispatch(requestCourse({ course_id: data.course_id }));
     }
   }
+
+  useEffect(() => {
+    dispatch(changeLoading(isLoading));
+  }, [isLoading]);
 
   useEffect(() => {
     if (taskInfo === null) {
@@ -50,43 +55,35 @@ function TaskDetailPage(props) {
   }, [group]);
 
   useEffect(() => {
-    dispatch(requestTask(id));
+    dispatch(requestTask({ task_id: id }));
   }, []);
 
   return (
     <div>
       <div className="modal-body" style={{ padding: 0 }}>
-        {isLoading ? (
-          <div className="text-center">
-            <div className="spinner-border text-primary" role="status">
-              <span className="sr-only">Loading...</span>
-            </div>
+        <div className="nk-msg-body bg-white">
+          <div className="nk-msg-head">
+            <HeaderTask
+              id={taskInfo.id}
+              title={taskInfo.title}
+            />
+            <Members
+              id={taskInfo.id}
+              assignees={taskInfo.assignees}
+              members={groupInfo.students}
+            />
+
+            <ContentTask id={taskInfo.id}>
+              {taskInfo.content}
+            </ContentTask>
+
+            <SubmitTask id={taskInfo.id} />
           </div>
-        ) : (
-          <div className="nk-msg-body bg-white">
-            <div className="nk-msg-head">
-              <HeaderTask
-                id={taskInfo.id}
-                title={taskInfo.title}
-              />
-              <Members
-                id={taskInfo.id}
-                assignees={taskInfo.assignees}
-                members={groupInfo.students}
-              />
-
-              <ContentTask id={taskInfo.id}>
-                {taskInfo.content}
-              </ContentTask>
-
-              <SubmitTask id={taskInfo.id} />
-            </div>
 
 
-            <CommentTask members={groupInfo.students} id={taskInfo.id} />
+          <CommentTask members={groupInfo.students} id={taskInfo.id} />
 
-          </div>
-        )}
+        </div>
       </div>
     </div>
   )

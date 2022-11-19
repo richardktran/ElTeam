@@ -9,12 +9,13 @@ import { useSelector } from "react-redux";
 import Loading from "./components/Loading/Loading";
 
 function App() {
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
     const isLoadingApp = useSelector(state => state.app.isLoading);
+    const isLoading = useSelector(state => ({ groupTasks: state.groupTasks, course: state.course }));
 
-    useEffect(() => {
-        setIsLoading(isLoadingApp);
-    }, [isLoadingApp]);
+    // useEffect(() => {
+    //     setIsLoading(isLoadingApp);
+    // }, [isLoadingApp]);
 
     return (
         <BrowserRouter>
@@ -22,7 +23,7 @@ function App() {
                 position="top-center"
                 reverseOrder={false}
             />
-            {isLoading && <Loading />}
+            {/* {(isLoading.groupTasks.submitting || isLoading.course.submitting) && <Loading />} */}
             <div className="nk-app-root">
                 <div className="nk-main">
                     <Router />

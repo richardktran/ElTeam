@@ -64,7 +64,7 @@ function Activities(props) {
       const response = await lessonApi.deleteActivity(id);
       if (response.status === HTTP_OK) {
         toast.success('Xóa hoạt động thành công!');
-        dispatch(requestTopics());
+        dispatch(requestTopics({ loading: false }));
       } else {
         console.log(response);
         toast.error("Xóa hoạt động thất bại!!!");

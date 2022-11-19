@@ -10,13 +10,15 @@ import Activities from '../../../components/Activity';
 import AddActivityModal from '../../../components/Modal/Lesson/AddActivityModal';
 import EditTopicModal from '../../../components/Modal/Lesson/EditTopicModal';
 import EditActivityModal from '../../../components/Modal/Lesson/EditActivityModal';
+import Skeleton from 'react-loading-skeleton';
+import { isEmpty } from 'lodash';
 
 function Lesson(props) {
   const dispatch = useDispatch();
-  const { courseId, isAddTopic, setIsAddTopic, isOwner } = props;
+  const { courseId, isAddTopic, setIsAddTopic, isOwner, isLoading } = props;
   const topicsData = useSelector(state => state.course.lesson.topics);
 
-  const [topics, setTopics] = useState(topicsData);
+  const [topics, setTopics] = useState([]);
   const [showAddActivityModal, setShowAddActivityModal] = useState({ show: false, topicId: null });
 
   const [showAddTopic, setShowAddTopic] = React.useState(false);
@@ -46,7 +48,7 @@ function Lesson(props) {
       const response = await lessonApi.create(data);
       if (response.status === HTTP_OK) {
         toast.success('Thêm chủ đề thành công!');
-        dispatch(requestTopics());
+        dispatch(requestTopics({ loading: false }));
         setIsAddTopic(false);
       } else {
         console.log(response);
@@ -68,7 +70,7 @@ function Lesson(props) {
       const response = await lessonApi.delete(id);
       if (response.status === HTTP_OK) {
         toast.success('Xóa chủ đề thành công!');
-        dispatch(requestTopics());
+        dispatch(requestTopics({ loading: false }));
       } else {
         console.log(response);
         toast.error("Xóa chủ đề thất bại!!!");
@@ -84,7 +86,7 @@ function Lesson(props) {
       const response = await lessonApi.toggleLockTopic(topicId);
       if (response.status === HTTP_OK) {
         toast.success(oldStatus ? 'Khóa chủ đề thành công!' : 'Mở khóa chủ đề thành công!');
-        dispatch(requestTopics());
+        dispatch(requestTopics({ loading: false }));
       } else {
         console.log(response);
         toast.error(!oldStatus ? 'Khóa chủ đề thất bại!' : 'Mở khóa chủ đề thất bại!');
@@ -97,11 +99,6 @@ function Lesson(props) {
       });
     }
   }
-
-  const addActivity = () => {
-    //
-  }
-
 
   const onDragEnd = result => {
     if (!result.destination) return;
@@ -123,102 +120,140 @@ function Lesson(props) {
   }
 
   return (
-    <div className="lesson">
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable key="drop-1" droppableId="drop-1">
-          {(provided, snapshot) => (
-            <div
-              {...provided.droppableProps}
-              className='nk-block'
-              ref={provided.innerRef}
-            >
-              {topics && topics.map((topic, index) => {
-                if (!isOwner && topic.enable === 0) return null;
-                return (
-                  <Draggable
-                    key={topic.id}
-                    draggableId={topic.id.toString()}
-                    index={index}
-                  >
-                    {(provided, snapshot) => (
-                      <div
-                        className="support-topic-details card card-bordered"
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        style={{
-                          ...provided.draggableProps.style,
-                          opacity: snapshot.isDragging ? '0.5' : '1'
-                        }}
+    <>
+      {(isLoading || isEmpty(topics)) && <Loading />}
+      {!isLoading && !isEmpty(topics) &&
+        <div className="lesson">
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable key="drop-1" droppableId="drop-1">
+              {(provided, snapshot) => (
+                <div
+                  {...provided.droppableProps}
+                  className='nk-block'
+                  ref={provided.innerRef}
+                >
+                  {topics && topics.map((topic, index) => {
+                    if (!isOwner && topic.enable === 0) return null;
+                    return (
+                      <Draggable
+                        key={topic.id}
+                        draggableId={topic.id.toString()}
+                        index={index}
                       >
-                        <div className="card-inner">
+                        {(provided, snapshot) => (
                           <div
-                            className="card-title-group mb-4"
-                            {...isOwner ? provided.dragHandleProps : {}}
+                            className="support-topic-details card card-bordered"
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            style={{
+                              ...provided.draggableProps.style,
+                              opacity: snapshot.isDragging ? '0.5' : '1'
+                            }}
                           >
-                            <div className="card-title">
-                              <h4 style={{ color: "#6576ff" }}>
-                                {topic.enable !== 1 ? <span><em class="icon ni ni-lock-alt-fill mr-2"></em></span> : <span></span>}
-                                {topic.name}
-                              </h4>
-                            </div>
-                            {isOwner &&
-                              <div className="card-tools mr-n1">
-                                <div className="dropdown">
-                                  <a className="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em className="icon ni ni-more-h" /></a>
-                                  <div className="dropdown-menu dropdown-menu-right dropdown-menu-sm">
-                                    <ul className="link-list-plain">
-                                      <li>
-                                        <a href="#" onClick={() => setShowAddActivityModal({
-                                          show: true,
-                                          topicId: topic.id
-                                        })}>Thêm hoạt động</a>
-                                      </li>
-                                      <li><a href="#" onClick={() => setShowEditTopic({ show: true, topic: topic })}>Sửa chủ đề</a></li>
-                                      <li><a href="#" onClick={() => toggleLockTopic(topic.id, topic.enable)}>{topic.enable === 1 ? "Khóa chủ đề" : "Mở khóa chủ đề"}</a></li>
-                                      <li><a onClick={() => deleteTopic(topic.id)}>Xóa chủ đề</a></li>
-                                    </ul>
-                                  </div>
+                            <div className="card-inner">
+                              <div
+                                className="card-title-group mb-4"
+                                {...isOwner ? provided.dragHandleProps : {}}
+                              >
+                                <div className="card-title">
+                                  <h4 style={{ color: "#6576ff" }}>
+                                    {topic.enable !== 1 ? <span><em class="icon ni ni-lock-alt-fill mr-2"></em></span> : <span></span>}
+                                    {topic.name}
+                                  </h4>
                                 </div>
+                                {isOwner &&
+                                  <div className="card-tools mr-n1">
+                                    <div className="dropdown">
+                                      <a className="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em className="icon ni ni-more-h" /></a>
+                                      <div className="dropdown-menu dropdown-menu-right dropdown-menu-sm">
+                                        <ul className="link-list-plain">
+                                          <li>
+                                            <a href="#" onClick={() => setShowAddActivityModal({
+                                              show: true,
+                                              topicId: topic.id
+                                            })}>Thêm hoạt động</a>
+                                          </li>
+                                          <li><a href="#" onClick={() => setShowEditTopic({ show: true, topic: topic })}>Sửa chủ đề</a></li>
+                                          <li><a href="#" onClick={() => toggleLockTopic(topic.id, topic.enable)}>{topic.enable === 1 ? "Khóa chủ đề" : "Mở khóa chủ đề"}</a></li>
+                                          <li><a onClick={() => deleteTopic(topic.id)}>Xóa chủ đề</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                }
                               </div>
-                            }
+
+                              <Activities topicId={topic.id} activities={topic.activities} isOwner={isOwner} />
+                            </div>{/* .support-topic-meta */}
                           </div>
+                        )}
+                      </Draggable>
+                    );
+                  })}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
+          <AddTopicModal
+            modalName="Thêm chủ đề"
+            courseId={courseId}
+            onFinish={addTopic}
+            isShow={showAddTopic}
+            handleCloseModal={() => setShowAddTopic(false)}
+          />
+          <EditTopicModal
+            modalName="Cập nhật chủ đề"
+            topicInfo={showEditTopic.topic}
+            isShow={showEditTopic.show}
+            setIsShow={setShowEditTopic}
+            handleCloseModal={() => setShowEditTopic({ show: false, topic: {} })}
+          />
+          <AddActivityModal
+            modalName="Thêm hoạt động mới"
+            topicId={showAddActivityModal.topicId}
+            isShow={showAddActivityModal.show}
+            setIsShow={setShowAddActivityModal}
+            handleCloseModal={() => setShowAddActivityModal({ show: false })}
+          />
 
-                          <Activities topicId={topic.id} activities={topic.activities} isOwner={isOwner} />
-                        </div>{/* .support-topic-meta */}
-                      </div>
-                    )}
-                  </Draggable>
-                );
-              })}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
-      <AddTopicModal
-        modalName="Thêm chủ đề"
-        courseId={courseId}
-        onFinish={addTopic}
-        isShow={showAddTopic}
-        handleCloseModal={() => setShowAddTopic(false)}
-      />
-      <EditTopicModal
-        modalName="Cập nhật chủ đề"
-        topicInfo={showEditTopic.topic}
-        isShow={showEditTopic.show}
-        setIsShow={setShowEditTopic}
-        handleCloseModal={() => setShowEditTopic({ show: false, topic: {} })}
-      />
-      <AddActivityModal
-        modalName="Thêm hoạt động mới"
-        onFinish={addActivity}
-        topicId={showAddActivityModal.topicId}
-        isShow={showAddActivityModal.show}
-        setIsShow={setShowAddActivityModal}
-        handleCloseModal={() => setShowAddActivityModal({ show: false })}
-      />
-
-    </div>
+        </div>
+      }
+    </>
   )
+}
+
+const Loading = () => {
+  return (
+    <div className="lesson">
+      <div className="nk-block">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div className="support-topic-details card card-bordered" data-rbd-draggable-context-id={0} data-rbd-draggable-id={3} style={{ opacity: 1 }}>
+            <div className="card-inner">
+              <div className="card-title-group mb-4">
+                <div className="card-title">
+                  <h4 style={{ color: 'rgb(101, 118, 255)' }}>
+                    <Skeleton width={200} height={`1.5rem`} />
+                  </h4>
+                </div>
+              </div>
+              <div>
+                <div className="entry" data-rbd-droppable-id="activities-1" data-rbd-droppable-context-id={1}>
+                  <div className="mb-3 d-flex justify-content-start" data-rbd-draggable-context-id={1} data-rbd-draggable-id={19} style={{ opacity: 1 }}>
+                    <div className="pl-2 mb-2">
+                      {[...Array(7)].map((e, i) => (
+                        <Skeleton height={`1.3rem`} className="mb-2" width={`70rem`} />
+                      ))}
+                      <Skeleton height={`1.3rem`} className="mb-2" count={0.5} width={`70rem`} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Lesson

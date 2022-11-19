@@ -16,9 +16,9 @@ export const getCourseId = (state) => state.course.course_id;
 
 export function* requestCourse({ payload }) {
   try {
-    const courseId = payload;
+    const { course_id } = payload;
     try {
-      const { data } = yield call(courseApi.getDetail, courseId);
+      const { data } = yield call(courseApi.getDetail, course_id);
       const courseInfo = data.data;
       yield put(getCourse(courseInfo));
     } catch (e) {

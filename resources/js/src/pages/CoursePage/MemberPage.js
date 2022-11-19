@@ -16,14 +16,17 @@ const MemberPage = () => {
   const isOwner = isCourseOwner(id);
 
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
 
   const [members, setMembers] = useState([]);
   const fetchMembers = async () => {
+    setIsLoading(true);
     let result = await courseApi.getMembers(id);
     if (result.status === HTTP_OK) {
       const { data } = result.data;
       setMembers(data);
     }
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -124,6 +127,7 @@ const MemberPage = () => {
           </div>
           <div className="nk-block">
             <MemberList
+              isLoading={isLoading}
               members={members}
               isOwner={isOwner}
               handleRandomDivide={handleRandomDivideGroup}

@@ -16,7 +16,7 @@ const app = createSlice({
       state.isLoading = false;
     },
     changeLoading: (state, action) => {
-      const isLoading = action.payload;
+      const isLoading = action.payload === undefined ? true : action.payload;
       return {
         ...state,
         isLoading

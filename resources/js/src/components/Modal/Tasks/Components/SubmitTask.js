@@ -8,9 +8,10 @@ import { updateContentTask } from '../../../../store/Tasks/Reducer';
 import TextEditor from '../../../TextEditor/TextEditor';
 import { Button, Upload } from 'antd';
 import useUser from '../../../../hooks/useUser';
+import Skeleton from 'react-loading-skeleton';
 
 function SubmitTask(props) {
-  const { id } = props;
+  const { id, isLoading } = props;
   const dispatch = useDispatch();
   const currentUser = useUser();
 
@@ -151,7 +152,8 @@ function SubmitTask(props) {
       <div>
         <div className='ant-upload-list ant-upload-list-picture'>
           <div className="ant-upload-list-picture-container" style={{}}>
-            {initFiles && initFiles.length > 0 && initFiles.map((file, index) => (
+            {isLoading && <Skeleton height={`2rem`} count={2} />}
+            {!isLoading && initFiles && initFiles.length > 0 && initFiles.map((file, index) => (
               <div className="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture">
                 <div className="ant-upload-list-item-info">
                   <span className="ant-upload-span">

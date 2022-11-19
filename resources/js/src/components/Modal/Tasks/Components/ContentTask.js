@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux';
 import parse from 'html-react-parser';
 import { updateContentTask } from '../../../../store/Tasks/Reducer';
 import TextEditor from '../../../TextEditor/TextEditor';
+import Skeleton from 'react-loading-skeleton';
 
 function ContentTask(props) {
-  const { children, id } = props;
+  const { children, id, isLoading } = props;
   const dispatch = useDispatch();
   const [readOnly, setReadOnly] = React.useState(true);
   const [newContent, setNewContent] = React.useState(children);
@@ -45,7 +46,7 @@ function ContentTask(props) {
       </h6>
       {readOnly ? (
         <div>
-          {transformText(children)}
+          {isLoading ? <Skeleton count={5.5} /> : transformText(children)}
         </div>
       ) : (
         <>
