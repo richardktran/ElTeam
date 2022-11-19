@@ -7,7 +7,7 @@ import { groupApi } from '../../api/groupApi';
 import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
-import { getGroupInfo, requestTask, requestTasks } from '../../store/Tasks/Reducer';
+import { getGroupInfo, removeTasks, requestTask, requestTasks } from '../../store/Tasks/Reducer';
 import { requestCourse } from '../../store/Course/Reducer';
 import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
 import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
@@ -50,6 +50,7 @@ const GroupDetailPage = () => {
   }, [tasks]);
 
   useEffect(() => {
+    dispatch(removeTasks());
     dispatch(requestCourse({ course_id: courseId }));
     fetchGroupInfo();
   }, []);

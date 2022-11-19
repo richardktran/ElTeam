@@ -120,6 +120,13 @@ const groupTasks = createSlice({
           title
         }
       }
+    },
+    removeTasks: (state) => {
+      return {
+        ...state,
+        submitting: false,
+        sections: []
+      }
     }
   }
 });
@@ -135,7 +142,8 @@ export const {
   updateTaskPosition,
   updateContentTask,
   updateTitleTask,
-  updateAssignees
+  updateAssignees,
+  removeTasks,
 } = actions;
 
 export default reducer;

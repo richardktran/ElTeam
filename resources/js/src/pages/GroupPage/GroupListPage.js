@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import Skeleton from 'react-loading-skeleton';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
 import { groupApi } from '../../api/groupApi';
 import Avatar from '../../components/Avatar/Avatar';
+import { changeLoading } from '../../store/App/Reducer';
 import { requestCourse } from '../../store/Course/Reducer';
 import { HTTP_OK } from '../../utils/constant';
 
@@ -12,41 +14,53 @@ function GroupListPage() {
   const dispatch = useDispatch();
   const courseData = useSelector(state => state.course.courseInfo);
 
+  const loading = useSelector(state => state.course.submitting);
+
   const [course, setCourse] = useState(null);
   const [groupList, setGroupList] = useState(null);
 
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     setCourse(courseData);
   }, [courseData]);
 
+  useEffect(() => {
+    setIsLoading(loading);
+  }, [loading]);
+
+  useEffect(() => {
+    dispatch(changeLoading(isLoading));
+  }, [isLoading]);
+
   //Create a function to get all groups of course
-  const fetchAllGroups = async () => {
-    let result = await groupApi.getAllGroups(course['id']);
+  const fetchAllGroups = useCallback(async () => {
+    let result = await groupApi.getAllGroups(id);
     if (result.status === HTTP_OK) {
       const { data } = result.data;
       setGroupList(data);
-      console.log(data);
+      return data;
     }
-  }
-
-  useEffect(() => {
-    if (course === null) {
-      forceUpdate();
-      return;
-    }
-    fetchAllGroups();
-  }, [course]);
-
-  const fetchCourseInfo = () => {
-    dispatch(requestCourse({ course_id: id }));
-  }
-
-  useEffect(() => {
-    fetchCourseInfo();
   }, []);
+
+  // useEffect(() => {
+  //   // if (course === null) {
+  //   //   forceUpdate();
+  //   //   return;
+  //   // }
+  //   setIsLoading(true);
+  //   fetchAllGroups();
+  //   setIsLoading(false);
+  // }, [course]);
+
+
+  useEffect(() => {
+    dispatch(requestCourse({ course_id: id }));
+    fetchAllGroups();
+  }, [fetchAllGroups]);
 
   const getNameLabel = (fullName) => {
     if (fullName) {
@@ -118,101 +132,153 @@ function GroupListPage() {
                 </tr>
                 {/* .nk-tb-item */}
               </thead>
-              <tbody>
-                {groupList !== null && groupList.map((group, index) => {
-                  let completePercent = 0;
-                  if (group.number_of_tasks !== 0) {
-                    completePercent = Math.round(group.number_of_completed_tasks / group.number_of_tasks * 100);
-                  }
-
-                  // Get list of members and sort with avatar first
-                  let members = group.students;
-                  members.sort((a, b) => {
-                    if (a.avatar === null && b.avatar !== null) {
-                      return 1;
+              {isLoading && <Loading />}
+              {!isLoading &&
+                <tbody>
+                  {groupList !== null && groupList.map((group, index) => {
+                    let completePercent = 0;
+                    if (group.number_of_tasks !== 0) {
+                      completePercent = Math.round(group.number_of_completed_tasks / group.number_of_tasks * 100);
                     }
-                    if (a.avatar !== null && b.avatar === null) {
-                      return -1;
-                    }
-                    return 0;
-                  });
 
-                  return (
-                    <tr className="nk-tb-item">
-                      <td className="nk-tb-col">
-                        <Link to={`/courses/${id}/groups/${group.id}`} className="project-title">
-                          <div className="user-avatar sq bg-purple"><span>{getNameLabel(group.name)}</span></div>
-                          <div className="project-info">
-                            <h6 className="title">{group.name}</h6>
-                          </div>
-                        </Link>
-                      </td>
-                      <td className="nk-tb-col tb-col-xxl">
-                        <span>Softnio</span>
-                      </td>
-                      <td className="nk-tb-col tb-col-lg">
-                        <span>{members[0].name}</span>
-                      </td>
-                      <td className="nk-tb-col tb-col-lg">
-                        <ul className="project-users g-1">
-                          {members.map((member, index) => {
-                            if (index < 3) {
-                              return (
-                                <div>
-                                  <Avatar image={member.avatar} name={member.name} size='sm' />
+                    // Get list of members and sort with avatar first
+                    let members = group.students;
+                    members.sort((a, b) => {
+                      if (a.avatar === null && b.avatar !== null) {
+                        return 1;
+                      }
+                      if (a.avatar !== null && b.avatar === null) {
+                        return -1;
+                      }
+                      return 0;
+                    });
+
+                    return (
+                      <tr className="nk-tb-item">
+                        <td className="nk-tb-col">
+                          <Link to={`/courses/${id}/groups/${group.id}`} className="project-title">
+                            <div className="user-avatar sq bg-purple"><span>{getNameLabel(group.name)}</span></div>
+                            <div className="project-info">
+                              <h6 className="title">{group.name}</h6>
+                            </div>
+                          </Link>
+                        </td>
+                        <td className="nk-tb-col tb-col-xxl">
+                          <span>Softnio</span>
+                        </td>
+                        <td className="nk-tb-col tb-col-lg">
+                          <span>{members[0].name}</span>
+                        </td>
+                        <td className="nk-tb-col tb-col-lg">
+                          <ul className="project-users g-1">
+                            {members.map((member, index) => {
+                              if (index < 3) {
+                                return (
+                                  <div>
+                                    <Avatar image={member.avatar} name={member.name} size='sm' />
+                                  </div>
+                                );
+                              }
+                            })}
+                            {members.length - 3 > 0 && (
+                              <li>
+                                <div className="user-avatar bg-light sm">
+                                  <span>+{members.length - 3}</span>
                                 </div>
-                              );
-                            }
-                          })}
-                          {members.length - 3 > 0 && (
-                            <li>
-                              <div className="user-avatar bg-light sm">
-                                <span>+{members.length - 3}</span>
-                              </div>
-                            </li>
-                          )}
-                        </ul>
-                      </td>
+                              </li>
+                            )}
+                          </ul>
+                        </td>
 
-                      <td className="nk-tb-col tb-col-md">
-                        <div className="project-list-progress">
-                          <div className="progress progress-pill progress-md bg-light">
-                            <div className="progress-bar" data-progress={completePercent} style={{ width: completePercent }} />
+                        <td className="nk-tb-col tb-col-md">
+                          <div className="project-list-progress">
+                            <div className="progress progress-pill progress-md bg-light">
+                              <div className="progress-bar" data-progress={completePercent} style={{ width: completePercent }} />
+                            </div>
+                            <div className="project-progress-percent">{completePercent}%</div>
                           </div>
-                          <div className="project-progress-percent">{completePercent}%</div>
-                        </div>
-                      </td>
-                      <td className="nk-tb-col tb-col-mb">
-                        {completePercent === 0 &&
-                          <span className="badge badge-dim badge-danger">
-                            <em className="icon ni ni-cross-circle" />
-                            <span>Chưa làm</span>
-                          </span>
-                        }
-                        {completePercent !== 0 && completePercent !== 100 &&
-                          <span className="badge badge-dim badge-warning">
-                            <em className="icon ni ni-alert-circle" />
-                            <span>Đang làm</span>
-                          </span>
-                        }
+                        </td>
+                        <td className="nk-tb-col tb-col-mb">
+                          {completePercent === 0 &&
+                            <span className="badge badge-dim badge-danger">
+                              <em className="icon ni ni-cross-circle" />
+                              <span>Chưa làm</span>
+                            </span>
+                          }
+                          {completePercent !== 0 && completePercent !== 100 &&
+                            <span className="badge badge-dim badge-warning">
+                              <em className="icon ni ni-alert-circle" />
+                              <span>Đang làm</span>
+                            </span>
+                          }
 
-                        {completePercent === 100 &&
-                          <span className="badge badge-dim badge-success">
-                            <em className="icon ni ni-check-circle" />
-                            <span>Hoàn thành</span>
-                          </span>
-                        }
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
+                          {completePercent === 100 &&
+                            <span className="badge badge-dim badge-success">
+                              <em className="icon ni ni-check-circle" />
+                              <span>Hoàn thành</span>
+                            </span>
+                          }
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              }
             </table>
           </div>
           {/* .nk-block */}
         </div>
       </div>
     </div>
+  )
+}
+
+const Loading = () => {
+  return (
+    <tbody>
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((group, index) => {
+        return (
+          <tr className="nk-tb-item">
+            <td className="nk-tb-col">
+              <a href='#' className="project-title">
+                <div className="user-avatar sq bg-purple">
+                  <Skeleton />
+                </div>
+                <div className="project-info">
+                  <h6 className="title"><Skeleton width={100} /></h6>
+                </div>
+              </a>
+            </td>
+            <td className="nk-tb-col tb-col-xxl">
+              <span><Skeleton width={100} /></span>
+            </td>
+            <td className="nk-tb-col tb-col-lg">
+              <span><Skeleton width={200} /></span>
+            </td>
+            <td className="nk-tb-col tb-col-lg">
+              <ul className="project-users g-1">
+                {[1, 2, 3].map((member, index) => {
+                  return (
+                    <div>
+                      <Skeleton circle={true} height={32} width={32} />
+                    </div>
+                  );
+                })}
+              </ul>
+            </td>
+
+            <td className="nk-tb-col tb-col-md">
+              <div className="project-list-progress">
+                <Skeleton height={10} width={200} />
+              </div>
+            </td>
+            <td className="nk-tb-col tb-col-mb">
+              <Skeleton height={20} width={100} />
+            </td>
+          </tr>
+        )
+      })}
+    </tbody>
   )
 }
 
