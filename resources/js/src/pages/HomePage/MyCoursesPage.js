@@ -8,6 +8,7 @@ import moment from 'moment';
 import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from 'react-redux';
+import { isEmpty } from "lodash";
 
 function MyCoursesPage() {
     const navigate = useNavigate();
@@ -126,6 +127,13 @@ function MyCoursesPage() {
                 </div>{/* .nk-block-head */}
                 <div className="nk-block">
                     <div className="row g-gs">
+                        {isEmpty(OwnCoursesData) &&
+                            [...Array(6)].map((item, index) => (
+                                <div className="col-sm-6 col-lg-4 col-xxl-3">
+                                    <ClassCard.Loading />
+                                </div>
+                            ))
+                        }
                         {OwnCoursesData && OwnCoursesData.map((course, index) => {
                             return (
                                 <div key={index} className="col-sm-6 col-lg-4 col-xxl-3">

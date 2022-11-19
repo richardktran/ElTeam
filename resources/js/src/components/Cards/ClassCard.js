@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import Skeleton from 'react-loading-skeleton';
 
 const ClassCard = (props) => {
   const { id, name, code, credit, location, hours_per_week, status, handleAccept, handleDecline, isMyCourse = false } = props;
@@ -120,19 +121,19 @@ const ClassCard = (props) => {
             </span>
           </div>
           {status === 'pending' ? (
-            <div class="col-12 mt-3">
-              <ul class="align-center flex-wrap flex-sm-nowrap gx-5 gy-2">
+            <div className="col-12 mt-3">
+              <ul className="align-center flex-wrap flex-sm-nowrap gx-5 gy-2">
                 <li>
-                  <div onClick={() => handleDecline(id)} class="btn btn-danger">Từ chối</div>
+                  <div onClick={() => handleDecline(id)} className="btn btn-danger">Từ chối</div>
                 </li>
                 <li>
-                  <div onClick={() => handleAccept(id)} class="btn btn-primary">Tham gia</div>
+                  <div onClick={() => handleAccept(id)} className="btn btn-primary">Tham gia</div>
                 </li>
               </ul>
             </div>
           ) : (
-            <div class="col-12 mt-3">
-              <div onClick={() => goToCourse(id)} class="btn btn-primary btn-block">Vào lớp học</div>
+            <div className="col-12 mt-3">
+              <div onClick={() => goToCourse(id)} className="btn btn-primary btn-block">Vào lớp học</div>
             </div>
           )}
         </div>
@@ -140,5 +141,95 @@ const ClassCard = (props) => {
     </div>
   )
 }
+
+const Loading = () => {
+  return (
+    <div className="card h-100">
+      <div className="card-inner">
+        <div className="project">
+          <div className="project-head">
+            <a className="project-title">
+              <div className="project-info">
+                <h6 className="title">
+                  <Skeleton width={200} />
+                </h6>
+                <span className="sub-text"><Skeleton width={50} /></span>
+              </div>
+            </a>
+            <div className="drodown">
+              <a href="#" className="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown">
+                <em className="icon ni ni-more-h" />
+              </a>
+            </div>
+          </div>
+          <div className="project-details">
+            <div className="row">
+              <div className="col-md-6">
+                <span className="label-tag ">
+                  <em className="text-primary icon ni ni-map-pin-fill"></em>
+                  <span> <Skeleton width={50} /></span>
+                </span>
+              </div>
+              <div className="col-md-6">
+                <span className="label-tag">
+                  <em className="text-primary icon ni ni-cards"></em>
+                  <span> <Skeleton width={50} /></span>
+                </span>
+              </div>
+            </div>
+            <div className="row my-2">
+              <div className="col-md-6">
+                <span className="label-tag">
+                  <em className="text-primary icon ni ni-users"></em>
+                  <span> <Skeleton width={50} /></span>
+                </span>
+              </div>
+              <div className="col-md-6">
+                <span className="label-tag">
+                  <em className="text-primary icon ni ni-clock-fill"></em>
+                  <span> <Skeleton width={50} /></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="project-progress">
+            <div className="project-progress-details">
+              <div className="project-progress-task">
+                <em className="icon ni ni-check-round-cut" />
+                <span><Skeleton width={50} /></span>
+              </div>
+              <div className="project-progress-percent"><Skeleton width={50} /></div>
+            </div>
+            <div className="progress progress-pill progress-md bg-light">
+              <Skeleton />
+            </div>
+          </div>
+          <div className="project-meta mb-3">
+            <ul className="project-users g-1">
+              <li>
+                <Skeleton circle={true} height={32} width={32} />
+              </li>
+              <li>
+                <Skeleton circle={true} height={32} width={32} />
+              </li>
+              <li>
+                <Skeleton circle={true} height={32} width={32} />
+              </li>
+            </ul>
+            <span className="badge badge-dim badge-warning">
+              <em className="icon ni ni-clock" />
+              <span><Skeleton width={50} /></span>
+            </span>
+          </div>
+          <div className="col-12 mt-3">
+            <div className="btn btn-primary btn-block"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ClassCard.Loading = Loading;
 
 export default ClassCard

@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from 'react-redux';
 import useUser from "../../hooks/useUser";
+import { isEmpty } from "lodash";
 
 function HomePage() {
     const navigate = useNavigate();
@@ -125,6 +126,13 @@ function HomePage() {
             </div>{/* .nk-block-head */}
             <div className="nk-block">
                 <div className="row g-gs">
+                    {isEmpty(coursesData) &&
+                        [...Array(6)].map((item, index) => (
+                            <div className="col-sm-6 col-lg-4 col-xxl-3">
+                                <ClassCard.Loading />
+                            </div>
+                        ))
+                    }
                     {coursesData && coursesData.map((course, index) => {
                         return (
                             <div key={index} className="col-sm-6 col-lg-4 col-xxl-3">
