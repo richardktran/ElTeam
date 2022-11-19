@@ -9,6 +9,8 @@ import isCourseOwner from '../../hooks/isCourseOwner';
 import Lesson from './Components/Lesson';
 import { requestCourse, requestTopics } from '../../store/Course/Reducer';
 import { changeLoading } from '../../store/App/Reducer';
+import Skeleton from 'react-loading-skeleton';
+import { isEmpty } from 'lodash';
 
 const CourseDetailPage = () => {
   let { id } = useParams(); //get id from url
@@ -17,7 +19,7 @@ const CourseDetailPage = () => {
   const loading = useSelector(state => state.course.submitting);
   const courseData = useSelector(state => state.course.courseInfo);
 
-  const [course, setCourse] = useState(courseData);
+  const [course, setCourse] = useState([]);
 
 
   useEffect(() => {
@@ -57,7 +59,16 @@ const CourseDetailPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                <h3 className="nk-block-title page-title">{course.code} - {course.name}</h3>
+                {(loading || isEmpty(course)) &&
+                  <h2 className="nk-block-title page-title">
+                    <Skeleton width={200} height={`1.5rem`} />
+                  </h2>
+                }
+                {!loading && !isEmpty(course) &&
+                  <h3 className="nk-block-title page-title">
+                    {course.code} - {course.name}
+                  </h3>
+                }
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content">
                 <div className="nk-block-head-sub mb-2"></div>
@@ -92,7 +103,7 @@ const CourseDetailPage = () => {
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
-            <Lesson isOwner={isOwner} courseId={id} isAddTopic={isAddTopic} setIsAddTopic={setIsAddTopic} />
+            <Lesson isLoading={loading} isOwner={isOwner} courseId={id} isAddTopic={isAddTopic} setIsAddTopic={setIsAddTopic} />
           </div>
         </div>
       </div>
