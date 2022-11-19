@@ -41,9 +41,8 @@ const RegisterForm = ({ onFinish, registerFail, onFinishFailed, loadingButton })
             </div>
             <div className="nk-block nk-block-middle nk-auth-body">
                 <div className="brand-logo pb-5">
-                    <a href="html/index.html" className="logo-link">
-                        <img className="logo-light logo-img logo-img-lg" src="./images/logo.png" srcSet="./images/logo2x.png 2x" alt="logo" />
-                        <img className="logo-dark logo-img logo-img-lg" src="./images/logo-dark.png" srcSet="./images/logo-dark2x.png 2x" alt="logo-dark" />
+                    <a href="/" >
+                        <img width={400} height={150} src="/images/elteam_logo.jpg" srcSet="./images/elteam_logo.jpg 2x" alt="logo-dark" />
                     </a>
                 </div>
                 <div className="nk-block-head">
@@ -168,7 +167,7 @@ const RegisterForm = ({ onFinish, registerFail, onFinishFailed, loadingButton })
                         </ul>
                         <div className="text-center mt-5">
                             <span className="fw-500">Bạn đã có tài khoản?
-                                <Link to="/register"> Đăng nhập ngay</Link>
+                                <Link to="/login"> Đăng nhập ngay</Link>
                             </span>
                         </div>
                     </Form.Item>
