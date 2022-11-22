@@ -6,8 +6,8 @@ import Course from '../pages/CoursePage';
 import CourseDetailPage from '../pages/CoursePage/CourseDetailPage';
 import MemberPage from '../pages/CoursePage/MemberPage';
 import HomePage from '../pages/HomePage/HomePage';
+import LandingPage from '../pages/HomePage/LandingPage';
 import MyCoursesPage from '../pages/HomePage/MyCoursesPage';
-import SplashPage from '../pages/HomePage/SplashPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import Task from '../pages/TaskPage';
@@ -19,7 +19,7 @@ const hist = createBrowserHistory();
 const Router = () => {
     return (
         <Routes history={hist}>
-            <Route path="/" element={<SplashPage />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/courses/*" element={<Course />} />
             <Route path="/tasks/*" element={<Task />} />
             <Route path="/users/*" element={<User />} />

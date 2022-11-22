@@ -40,7 +40,7 @@ const RegisterForm = ({ onFinish, registerFail, onFinishFailed, loadingButton })
                 </a>
             </div>
             <div className="nk-block nk-block-middle nk-auth-body">
-                <div className="brand-logo pb-5">
+                <div className="brand-logo pb-3">
                     <a href="/" >
                         <img width={400} height={150} src="/images/elteam_logo.jpg" srcSet="./images/elteam_logo.jpg 2x" alt="logo-dark" />
                     </a>

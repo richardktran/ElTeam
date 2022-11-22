@@ -32,13 +32,13 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
 
     return (
         <div className="nk-split-content nk-block-area nk-block-area-column nk-auth-container bg-white">
-            <div className="absolute-top-right d-lg-none p-3 p-sm-5">
+            <div className="absolute-top-right d-lg-none px-3 p-sm-5">
                 <a href="#" className="toggle btn-white btn btn-icon btn-light" data-target="athPromo">
                     <em className="icon ni ni-info" />
                 </a>
             </div>
             <div className="nk-block nk-block-middle nk-auth-body">
-                <div className="brand-logo pb-5">
+                <div className="brand-logo pb-3">
                     <a href="/" >
                         <img width={400} height={150} src="./images/elteam_logo.jpg" srcSet="./images/elteam_logo.jpg 2x" alt="logo-dark" />
                     </a>
@@ -47,7 +47,7 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                     <div className="nk-block-head-content">
                         <h5 className="nk-block-title">Đăng nhập</h5>
                         <div className="nk-block-des">
-                            <p>Truy cập vào khóa học của bạn bằng cách sử dụng email và mật khẩu.</p>
+                            <p>Truy cập vào khóa học qua email và mật khẩu.</p>
                         </div>
                     </div>
                 </div>{/* .nk-block-head */}

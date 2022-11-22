@@ -7,46 +7,14 @@ const AuthSlider = () => {
                 <div className="slider-init slick-initialized slick-slider slick-dotted" data-slick="{&quot;dots&quot;:true, &quot;arrows&quot;:false}">
                     <div className="slick-list draggable">
                         <div className="slick-track" style={{ opacity: 1, width: '3241px', transform: 'translate3d(-1389px, 0px, 0px)' }}>
-                            <div className="slider-item slick-slide slick-cloned" data-slick-index={-1} id aria-hidden="true" style={{ width: '463px' }} tabIndex={-1}>
-                                <div className="nk-feature nk-feature-center">
-                                    <div className="nk-feature-img">
-                                        <img className="round" src="./images/slides/promo-c.png" srcSet="./images/slides/promo-c2x.png 2x" alt="" />
-                                    </div>
-                                    <div className="nk-feature-content py-4 p-sm-5">
-                                        <h4>Dashlite</h4>
-                                        <p>You can start to create your products easily with its user-friendly design &amp; most completed responsive layout.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="slider-item slick-slide" data-slick-index={0} aria-hidden="true" style={{ width: '463px' }} tabIndex={-1} role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00">
-                                <div className="nk-feature nk-feature-center">
-                                    <div className="nk-feature-img">
-                                        <img className="round" src="./images/slides/promo-a.png" srcSet="./images/slides/promo-a2x.png 2x" alt="" />
-                                    </div>
-                                    <div className="nk-feature-content py-4 p-sm-5">
-                                        <h4>Dashlite</h4>
-                                        <p>You can start to create your products easily with its user-friendly design &amp; most completed responsive layout.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="slider-item slick-slide" data-slick-index={1} aria-hidden="true" style={{ width: '463px' }} tabIndex={-1} role="tabpanel" id="slick-slide01" aria-describedby="slick-slide-control01">
-                                <div className="nk-feature nk-feature-center">
-                                    <div className="nk-feature-img">
-                                        <img className="round" src="./images/slides/promo-b.png" srcSet="./images/slides/promo-b2x.png 2x" alt="" />
-                                    </div>
-                                    <div className="nk-feature-content py-4 p-sm-5">
-                                        <h4>Dashlite</h4>
-                                        <p>You can start to create your products easily with its user-friendly design &amp; most completed responsive layout.</p>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div className="slider-item slick-slide slick-current slick-active" data-slick-index={2} aria-hidden="false" style={{ width: '463px' }} tabIndex={0} role="tabpanel" id="slick-slide02" aria-describedby="slick-slide-control02">
                                 <div className="nk-feature nk-feature-center">
                                     <div className="nk-feature-img">
                                         <img className="round" src="./images/slides/promo-c.png" srcSet="./images/slides/promo-c2x.png 2x" alt="" />
                                     </div>
                                     <div className="nk-feature-content py-4 p-sm-5">
-                                        <h4>Dashlite</h4>
+                                        <h4>Dashlite 1</h4>
                                         <p>You can start to create your products easily with its user-friendly design &amp; most completed responsive layout.</p>
                                     </div>
                                 </div>
@@ -57,7 +25,7 @@ const AuthSlider = () => {
                                         <img className="round" src="./images/slides/promo-a.png" srcSet="./images/slides/promo-a2x.png 2x" alt="" />
                                     </div>
                                     <div className="nk-feature-content py-4 p-sm-5">
-                                        <h4>Dashlite</h4>
+                                        <h4>Dashlite 1</h4>
                                         <p>You can start to create your products easily with its user-friendly design &amp; most completed responsive layout.</p>
                                     </div>
                                 </div>
@@ -68,7 +36,7 @@ const AuthSlider = () => {
                                         <img className="round" src="./images/slides/promo-b.png" srcSet="./images/slides/promo-b2x.png 2x" alt="" />
                                     </div>
                                     <div className="nk-feature-content py-4 p-sm-5">
-                                        <h4>Dashlite</h4>
+                                        <h4>Dashlite 1</h4>
                                         <p>You can start to create your products easily with its user-friendly design &amp; most completed responsive layout.</p>
                                     </div>
                                 </div>
@@ -79,8 +47,8 @@ const AuthSlider = () => {
                                         <img className="round" src="./images/slides/promo-c.png" srcSet="./images/slides/promo-c2x.png 2x" alt="" />
                                     </div>
                                     <div className="nk-feature-content py-4 p-sm-5">
-                                        <h4>Dashlite</h4>
-                                        <p>You can start to create your products easily with its user-friendly design &amp; most completed responsive layout.</p>
+                                        <h4>QUẢN LÝ CÔNG VIỆC NHÓM </h4>
+                                        <p>Theo dõi được mức độ hiệu quả trong công việc của các thành viên trong nhóm, phối hợp giữa các thành viên trong nhóm một cách mượt mà hơn.</p>
                                     </div>
                                 </div>
                             </div>
