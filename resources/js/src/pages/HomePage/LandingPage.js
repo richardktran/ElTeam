@@ -12,7 +12,7 @@ function LandingPage() {
           <div style={{ background: 'url("https://elteam.s3.ap-southeast-1.amazonaws.com/images/appshowcase/1.jpg") 0% 0% / cover', height: '100vh', width: '100vw', zIndex: '-1000', position: "fixed", top: 0, left: 0, filter: "blur(5px)", }}></div>
           <div className="container-fluid">
             <img src="/images/elteam_logo.png" width={600} height={200} className="d-none d-lg-block" style={{ position: 'absolute', left: 0, top: 20 }} />
-            {/* <img src="https://elteam.s3.ap-southeast-1.amazonaws.com/images/appshowcase/slider-iphone.png" alt="Image" className="d-none d-lg-block" style={{ position: 'absolute', left: 20, bottom: 0 }} /> */}
+            <img src="/images/mockup_0.png" alt="Image" className="d-none d-lg-block fadeIn animated" data-animate="fadeIn" style={{ position: 'absolute', left: 0, bottom: 0, width: 800 }} />
             <div className="vertical-middle" >
               <div className="row">
                 <div className="col-lg-5 offset-lg-7 col-xl-6 offset-xl-6 dark fadeIn animated" data-animate="fadeIn">
@@ -57,7 +57,15 @@ function LandingPage() {
             </div>
           </div>
           <div className="section mb-0" style={{ paddingBottom: '150px' }}>
-            <div className="d-none d-lg-block" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'transparent url("https://elteam.s3.ap-southeast-1.amazonaws.com/images/appshowcase/ipad-section.png") bottom right no-repeat' }} />
+            <div className="d-none d-lg-block" style={{
+              position: 'absolute',
+              top: 0,
+              right: -150,
+              width: '61%',
+              height: '100%',
+              background: 'transparent url("/images/mockup_1.png") top right',
+              backgroundSize: 'cover'
+            }} />
             <div className="container clearfix" style={{ zIndex: 1 }}>
               <div className="row">
                 <div className="col-lg-5">
@@ -73,10 +81,19 @@ function LandingPage() {
             </div>
           </div>
           <div className="section my-0">
+            <div className="d-none d-lg-block" style={{
+              position: 'absolute',
+              top: 0,
+              left: -150,
+              width: '60%',
+              height: '100%',
+              background: 'transparent url("/images/mockup_2.png") top left',
+              backgroundSize: 'cover'
+            }} />
             <div className="container">
               <div className="row align-items-center col-mb-30 mt-0 mt-lg-5">
                 <div className="col-md-6">
-                  <img src="https://elteam.s3.ap-southeast-1.amazonaws.com/images/appshowcase/iphone-solid.png" alt="Image" className="center-block" />
+                  {/* <img src="/images/mockup_2.png" alt="Image" className="center-block" /> */}
                 </div>
                 <div className="col-md-6 text-center text-md-start">
                   <div className="heading-block border-bottom-0">
