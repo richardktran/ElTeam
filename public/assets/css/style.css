@@ -13268,7 +13268,7 @@ fieldset[disabled] .sm-form-control {
 
 .sm-form-control { height: auto; }
 
-.form-control { border-radius: 3px; }
+/* .form-control { border-radius: 3px; } */
 
 .form-control:active,
 .form-control:focus {
@@ -13276,7 +13276,7 @@ fieldset[disabled] .sm-form-control {
 	box-shadow: none;
 }
 
-label {
+/* label {
 	display: inline-block;
 	font-size: 13px;
 	font-weight: 700;
@@ -13286,7 +13286,7 @@ label {
 	color: #555;
 	margin-bottom: 10px;
 	cursor: pointer;
-}
+} */
 
 label.label-muted {
 	color: #999;

@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ClassCard from "../../components/Cards/ClassCard";
 
 function LandingPage() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      navigate('/courses');
+    }
+  }, [])
 
   return (
     <div id="wrapper" className="clearfix">
