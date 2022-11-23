@@ -91,12 +91,13 @@
                             <tr>
                                 <td style="text-align: center; padding-bottom:25px">
                                     <a href="#">
-                                        <img style="height: 40px"
-                                            src="http://cdn.mcauto-images-production.sendgrid.net/6f42aec5f37a9830/c519a1f9-55f0-49fc-8a36-1a5ec0eed8ab/96x96.png"
+                                        <img style="height: 150px"
+                                            src="https://elteam.s3.ap-southeast-1.amazonaws.com/app/elteam_logo.png"
                                             alt="logo">
                                     </a>
-                                    <p style="font-size: 14px; color: #6576ff; padding-top: 12px;">Conceptual Base
-                                        Modern Dashboard Theme</p>
+                                    <p style="font-size: 14px; color: #6576ff; padding-top: 12px;">
+                                    Hệ thống quản lý lớp học trực tuyến
+                                </p>
                                 </td>
                             </tr>
                         </tbody>
