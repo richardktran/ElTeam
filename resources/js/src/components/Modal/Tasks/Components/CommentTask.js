@@ -11,6 +11,7 @@ import mentionsInputStyle from "./mentionsInputStyles";
 import parse from 'html-react-parser';
 import { convertMentionToText, getMentionList } from '../../../../utils/textTransformer';
 import { useSelector } from 'react-redux';
+import { API_URL } from '../../../../api/axiosInstance';
 
 function CommentTask(props) {
   const { id, members } = props;
@@ -105,7 +106,7 @@ function CommentTask(props) {
   const uploadFilesProps = {
     name: 'file',
     multiple: true,
-    action: 'http://localhost:8000/api/file/upload',
+    action: API_URL + 'file/upload',
     data: {
       category: 'tasks/' + taskId + '/comments'
     },

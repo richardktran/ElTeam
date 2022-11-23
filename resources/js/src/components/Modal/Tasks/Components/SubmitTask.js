@@ -9,6 +9,7 @@ import TextEditor from '../../../TextEditor/TextEditor';
 import { Button, Upload } from 'antd';
 import useUser from '../../../../hooks/useUser';
 import Skeleton from 'react-loading-skeleton';
+import { API_URL } from '../../../../api/axiosInstance';
 
 function SubmitTask(props) {
   const { id, isLoading } = props;
@@ -59,7 +60,7 @@ function SubmitTask(props) {
     name: 'file',
     multiple: true,
     listType: 'picture',
-    action: 'http://localhost:8000/api/file/upload',
+    action: API_URL + 'file/upload',
     data: {
       category: 'tasks/' + taskId + '/hand-in',
     },

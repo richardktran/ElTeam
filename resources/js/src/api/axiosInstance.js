@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const BASE_DOMAIN = 'http://127.0.0.1:8000/api/';
-const baseURL = BASE_DOMAIN;
+export const BASE_DOMAIN = process.env.MIX_APP_URL;
+export const API_URL = BASE_DOMAIN + 'api/';
 
 export const bearerConfig = async () => {
     const token = localStorage.getItem('token') ?? "";
@@ -12,5 +12,5 @@ export const bearerConfig = async () => {
 };
 
 export const axiosInstance = axios.create({
-    baseURL,
+    baseURL: API_URL,
 });

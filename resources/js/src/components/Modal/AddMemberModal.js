@@ -7,6 +7,7 @@ import Dragger from 'antd/lib/upload/Dragger';
 import { InboxOutlined } from '@mui/icons-material';
 import { useEffect } from 'react';
 import { courseApi } from '../../api/courseApi';
+import { API_URL } from '../../api/axiosInstance';
 
 const AddMemberModal = (props) => {
     const { isShow, modalName, setIsShow, handleCloseModal, courseId, fetchMembers } = props
@@ -27,7 +28,7 @@ const AddMemberModal = (props) => {
     const uploadProps = {
         name: 'file',
         multiple: false,
-        action: 'http://localhost:8000/api/file/import-students',
+        action: API_URL + 'file/import-students',
         onChange(info) {
             const { status, response } = info.file;
             if (status !== 'uploading') {

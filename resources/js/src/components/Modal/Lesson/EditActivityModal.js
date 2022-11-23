@@ -9,6 +9,7 @@ import { HTTP_OK } from '../../../utils/constant';
 import toast from 'react-hot-toast';
 import { requestTopics } from '../../../store/Course/Reducer';
 import { useDispatch } from 'react-redux';
+import { API_URL } from '../../../api/axiosInstance';
 const { Dragger } = Upload;
 
 
@@ -58,7 +59,7 @@ function EditActivityModal(props) {
   const uploadProps = {
     name: 'file',
     multiple: false,
-    action: 'http://localhost:8000/api/file/upload',
+    action: API_URL + 'file/upload',
     data: {
       category: 'lesson'
     },
