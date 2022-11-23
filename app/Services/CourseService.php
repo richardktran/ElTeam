@@ -100,7 +100,7 @@ class CourseService
             }
         }
 
-        CourseInvitationEvent::dispatch($course, $students);
+        // CourseInvitationEvent::dispatch($course, $students);
 
         return $course;
     }
