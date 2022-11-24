@@ -142,7 +142,7 @@ const Kanban = (props) => {
                     <footer>
                       <button onClick={() => openAddTaskModal(section.id)} className="kanban-add-task btn btn-block">
                         <em className="icon ni ni-plus-sm" />
-                        <span>Add another task</span>
+                        <span>Thêm công việc</span>
                       </button>
                     </footer>
                   </div>
@@ -194,7 +194,7 @@ const Loading = () => {
               <footer>
                 <button className="kanban-add-task btn btn-block">
                   <em className="icon ni ni-plus-sm" />
-                  <span>Add another task</span>
+                  <span>Thêm công việc</span>
                 </button>
               </footer>
             </div>

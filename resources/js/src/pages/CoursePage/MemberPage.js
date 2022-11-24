@@ -10,6 +10,7 @@ import AddMemberModal from '../../components/Modal/AddMemberModal';
 import MemberList from '../../components/MemberList/MemberList';
 import { HTTP_OK } from '../../utils/constant';
 import isCourseOwner from '../../hooks/isCourseOwner';
+import { requestCourse } from '../../store/Course/Reducer';
 
 const MemberPage = () => {
   let { id } = useParams(); //get id from url
@@ -18,7 +19,7 @@ const MemberPage = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
 
-  const [members, setMembers] = useState([]);
+  const [members, setMembers] = useState(null);
   const fetchMembers = async () => {
     setIsLoading(true);
     let result = await courseApi.getMembers(id);
@@ -31,6 +32,7 @@ const MemberPage = () => {
 
   useEffect(() => {
     fetchMembers();
+    dispatch(requestCourse({ course_id: id }));
   }, []);
 
 
@@ -130,6 +132,7 @@ const MemberPage = () => {
               isLoading={isLoading}
               members={members}
               isOwner={isOwner}
+              setIsShowAddModal={setShowMemberModal}
               handleRandomDivide={handleRandomDivideGroup}
             />
           </div>

@@ -196,7 +196,7 @@ function Lesson(props) {
                                 }
                               </div>
 
-                              <Activities topicId={topic.id} activities={topic.activities} isOwner={isOwner} />
+                              <Activities topicId={topic.id} setShowAddActivityModal={setShowAddActivityModal} activities={topic.activities} isOwner={isOwner} />
                             </div>{/* .support-topic-meta */}
                           </div>
                         )}

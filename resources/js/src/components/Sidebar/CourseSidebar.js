@@ -27,6 +27,15 @@ function CourseSidebar({ pathname }) {
     }
   }, [isOwner]);
 
+  useEffect(() => {
+    console.log(isOwner);
+    if (isOwner) {
+      setItems(ownerCourseItems);
+    } else {
+      setItems(courseItems);
+    }
+  }, []);
+
   const courseItems = [
     {
       icon: "icon ni ni-cart-fill",
