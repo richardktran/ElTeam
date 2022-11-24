@@ -9,11 +9,12 @@ import { HTTP_OK } from '../../utils/constant';
 import toast from 'react-hot-toast';
 import EditActivityModal from '../Modal/Lesson/EditActivityModal';
 import FileViewerModal from '../Modal/Lesson/FileViewerModal';
+import { isEmpty } from 'lodash';
 
 function Activities(props) {
   const dispatch = useDispatch();
-  const { topicId, activities, isOwner } = props;
-  const [activitiesData, setActivitiesData] = useState(activities);
+  const { topicId, activities, isOwner, setShowAddActivityModal } = props;
+  const [activitiesData, setActivitiesData] = useState(null);
   const [showEditActivityModal, setShowEditActivityModal] = useState({ show: false, activity: null });
   const [showFileViewer, setShowFileViewer] = useState({ show: false, url: null, name: null });
 
@@ -82,11 +83,23 @@ function Activities(props) {
 
   return (
     <div>
+      {isEmpty(activitiesData) && activitiesData !== null &&
+        <div
+          className="d-flex flex-column align-items-center justify-content-center"
+        >
+          <p className="">Chưa có hoạt động nào cho chủ đề này</p>
+          {isOwner && <div className="btn btn-primary mt-1"
+            onClick={() => setShowAddActivityModal({
+              show: true,
+              topicId: topicId
+            })}>Tạo hoạt động</div>}
+        </div>
+      }
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable key="activities-1" droppableId="activities-1">
           {(provided, snapshot) => (
             <div className="entry" {...provided.droppableProps} ref={provided.innerRef}>
-              {activitiesData.map((activity, index) => (
+              {activitiesData && activitiesData.map((activity, index) => (
                 <Draggable
                   key={activity.id}
                   draggableId={activity.id.toString()}

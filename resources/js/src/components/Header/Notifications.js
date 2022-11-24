@@ -3,9 +3,11 @@ import useUser from '../../hooks/useUser'
 import { onValue, ref, query, orderByChild, update, onChildAdded, get } from "firebase/database";
 import { db } from '../../services/firebase';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 function Notifications() {
   const currentUser = useUser();
+  const navigate = useNavigate();
   const [notifications, setNotifications] = useState([]);
   const [notRead, setNotRead] = useState(0);
 
@@ -50,11 +52,14 @@ function Notifications() {
     }
   }
 
-  const markRead = (notificationId) => {
+  const markRead = (notificationId, taskId = null) => {
     const notificationRef = ref(db, "users/" + currentUser.id + "/notifications/" + notificationId);
     update(notificationRef, {
       isRead: true
     });
+    if (taskId) {
+      window.open(`/tasks/${taskId}`, '_blank');
+    }
   }
 
   const markAllRead = () => {
@@ -77,14 +82,14 @@ function Notifications() {
       </a>
       <div className="dropdown-menu dropdown-menu-xl dropdown-menu-right">
         <div className="dropdown-head">
-          <span className="sub-title nk-dropdown-title">Thông báo ({notRead !== 0 ? notRead : ''})</span>
+          <span className="sub-title nk-dropdown-title">Thông báo ({notRead !== 0 ? notRead : '0'})</span>
           <a href="#" onClick={() => markAllRead()}>Đánh dấu là đã đọc</a>
         </div>
         <div className="dropdown-body">
           <div className="nk-notification">
             {notifications && notifications.length === 0 && <div className="nk-notification-item dropdown-inner d-flex justify-content-center">Bạn không có thông báo nào</div>}
             {notifications && notifications.length !== 0 && notifications.map((notification) => (
-              <div onClick={() => markRead(notification.id)} style={{ cursor: "pointer" }} className={`nk-notification-item dropdown-inner ${notification.isRead ? '' : 'fw-bold'}`}>
+              <div onClick={() => markRead(notification.id, notification.taskId)} style={{ cursor: "pointer" }} className={`nk-notification-item dropdown-inner ${notification.isRead ? '' : 'fw-bold'}`}>
                 <div className="nk-notification-icon">
                   <em className="icon icon-circle bg-warning-dim ni ni-curve-down-right" />
                 </div>

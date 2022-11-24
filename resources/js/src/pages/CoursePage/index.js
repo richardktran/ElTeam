@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-loading';
 import Layout from '../../components/Layout/Layout';
 import GroupDetailPage from '../GroupPage/GroupDetailPage';
