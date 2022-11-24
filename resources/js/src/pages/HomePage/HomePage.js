@@ -16,7 +16,7 @@ function HomePage() {
     const dispatch = useDispatch();
     const userData = useUser();
 
-    const [coursesData, setCoursesData] = useState([]);
+    const [coursesData, setCoursesData] = useState(null);
     const [totalCourses, setTotalCourses] = useState(0);
 
 
@@ -124,9 +124,20 @@ function HomePage() {
                     </div>{/* .nk-block-head-content */}
                 </div>{/* .nk-block-between */}
             </div>{/* .nk-block-head */}
+            {isEmpty(coursesData) && coursesData !== null &&
+                <div style={{
+                    minHeight: "50vh",
+                }}
+                    className="d-flex flex-column align-items-center justify-content-center"
+                >
+                    <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
+                    <h6 className="mt-3">Bạn chưa tham gia vào khóa học nào</h6>
+
+                </div>
+            }
             <div className="nk-block">
                 <div className="row g-gs">
-                    {isEmpty(coursesData) &&
+                    {coursesData === null &&
                         [...Array(6)].map((item, index) => (
                             <div className="col-sm-6 col-lg-4 col-xxl-3">
                                 <ClassCard.Loading />

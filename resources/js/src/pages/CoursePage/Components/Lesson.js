@@ -18,7 +18,7 @@ function Lesson(props) {
   const { courseId, isAddTopic, setIsAddTopic, isOwner, isLoading } = props;
   const topicsData = useSelector(state => state.course.lesson.topics);
 
-  const [topics, setTopics] = useState([]);
+  const [topics, setTopics] = useState(null);
   const [showAddActivityModal, setShowAddActivityModal] = useState({ show: false, topicId: null });
 
   const [showAddTopic, setShowAddTopic] = React.useState(false);
@@ -121,8 +121,21 @@ function Lesson(props) {
 
   return (
     <>
-      {(isLoading || isEmpty(topics)) && <Loading />}
-      {!isLoading && !isEmpty(topics) &&
+      {!isLoading && isEmpty(topics) && topics !== null &&
+        <div style={{
+          minHeight: "50vh",
+        }}
+          className="d-flex flex-column align-items-center justify-content-center"
+        >
+          <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
+          <h6 className="mt-3">Khóa học này chưa có chủ đề nào
+            {isOwner && <span>, tạo chủ đề ngay!</span>}
+          </h6>
+          {isOwner && <div className="btn btn-primary mt-3" onClick={() => setIsAddTopic(true)}>Tạo chủ đề</div>}
+        </div>
+      }
+      {(isLoading || topics === null) && <Loading />}
+      {!isLoading && topics !== null &&
         <div className="lesson">
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable key="drop-1" droppableId="drop-1">
