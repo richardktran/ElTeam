@@ -15,6 +15,7 @@ class Group extends Model
         'id',
         'name',
         'number',
+        'course_id'
     ];
 
     protected $with = [

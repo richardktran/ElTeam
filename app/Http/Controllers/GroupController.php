@@ -29,7 +29,8 @@ class GroupController extends Controller
             $group->number_of_tasks = $group->getNumberOfTasks();
             return $group;
         });
+
         
-        return $this->response($groups);
+        return $this->response([...$groups]);
     }
 }

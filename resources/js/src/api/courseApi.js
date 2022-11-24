@@ -57,5 +57,10 @@ export const courseApi = {
         const url = DEFAULT_URL + '/' + id + '/divide-random-groups';
         const config = await bearerConfig();
         return axiosInstance.post(url, data, config);
+    },
+    lockGroup: async (id) => {
+        const url = DEFAULT_URL + '/' + id + '/lock-group';
+        const config = await bearerConfig();
+        return axiosInstance.post(url, {}, config);
     }
 }

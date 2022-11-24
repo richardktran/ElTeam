@@ -20,6 +20,7 @@ class Course extends Model
         'start_date',
         'end_date',
         'teacher_id',
+        'lock_group'
     ];
 
     public function teacher()
