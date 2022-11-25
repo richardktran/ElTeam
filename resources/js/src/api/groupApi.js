@@ -8,6 +8,16 @@ export const groupApi = {
         const config = await bearerConfig();
         return axiosInstance.get(url, config);
     },
+    getGroupOfTask: async (taskId) => {
+        const url = 'tasks/' + taskId + '/group';
+        const config = await bearerConfig();
+        return axiosInstance.get(url, config);
+    },
+    getAllGroups: async (courseId) => {
+        const url = DEFAULT_URL + '/' + courseId + '/groups';
+        const config = await bearerConfig();
+        return axiosInstance.get(url, config);
+    },
     getTask: async (taskId) => {
         const url = 'tasks' + '/' + taskId;
         const config = await bearerConfig();
@@ -37,5 +47,15 @@ export const groupApi = {
         const url = 'groups' + '/' + groupId + '/tasks';
         const config = await bearerConfig();
         return axiosInstance.post(url, data, config);
+    },
+    updateGroup: async (groupId, data) => {
+        const url = 'groups' + '/' + groupId;
+        const config = await bearerConfig();
+        return axiosInstance.put(url, data, config);
+    },
+    deleteTask: async (taskId) => {
+        const url = 'tasks' + '/' + taskId;
+        const config = await bearerConfig();
+        return axiosInstance.delete(url, config);
     }
 }

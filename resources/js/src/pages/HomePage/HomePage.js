@@ -8,16 +8,15 @@ import moment from 'moment';
 import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from 'react-redux';
-import { homeItems } from "./sidebars/home";
-import { changePage } from "../../app/reducers/sideBarReducer";
 import useUser from "../../hooks/useUser";
+import { isEmpty } from "lodash";
 
 function HomePage() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const userData = useUser();
 
-    const [coursesData, setCoursesData] = useState([]);
+    const [coursesData, setCoursesData] = useState(null);
     const [totalCourses, setTotalCourses] = useState(0);
 
 
@@ -47,13 +46,7 @@ function HomePage() {
         }
     }
 
-    const loadSidebarItems = () => {
-        const action = changePage(homeItems);
-        dispatch(action);
-    }
-
     useEffect(() => {
-        loadSidebarItems();
         fetchLearningCourses();
     }, []);
 
@@ -119,20 +112,32 @@ function HomePage() {
                                             </div>
                                         </div>
                                     </li>
-                                    <li className="nk-block-tools-opt">
-                                        <a href="#" className="btn btn-primary" onClick={() => setShowModal(true)} data-toggle="modal" data-target="#createCoursesModal">
-                                            <em className="icon ni ni-plus" />
-                                            <span>Tham gia tất cả</span>
-                                        </a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>{/* .toggle-wrap */}
                     </div>{/* .nk-block-head-content */}
                 </div>{/* .nk-block-between */}
             </div>{/* .nk-block-head */}
+            {isEmpty(coursesData) && coursesData !== null &&
+                <div style={{
+                    minHeight: "50vh",
+                }}
+                    className="d-flex flex-column align-items-center justify-content-center"
+                >
+                    <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
+                    <h6 className="mt-3">Bạn chưa tham gia vào khóa học nào</h6>
+
+                </div>
+            }
             <div className="nk-block">
                 <div className="row g-gs">
+                    {coursesData === null &&
+                        [...Array(6)].map((item, index) => (
+                            <div className="col-sm-6 col-lg-4 col-xxl-3">
+                                <ClassCard.Loading />
+                            </div>
+                        ))
+                    }
                     {coursesData && coursesData.map((course, index) => {
                         return (
                             <div key={index} className="col-sm-6 col-lg-4 col-xxl-3">

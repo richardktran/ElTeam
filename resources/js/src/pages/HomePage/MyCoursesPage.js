@@ -8,15 +8,13 @@ import moment from 'moment';
 import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from 'react-redux';
-import { homeItems } from "./sidebars/home";
-import { changePage } from "../../app/reducers/sideBarReducer";
+import { isEmpty } from "lodash";
 
 function MyCoursesPage() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const sidebarItems = useSelector(state => state.sidebar);
 
-    const [OwnCoursesData, setOwnCourses] = useState([]);
+    const [OwnCoursesData, setOwnCourses] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [totalOwnCourses, setTotalOwnCourses] = useState(0);
 
@@ -30,13 +28,7 @@ function MyCoursesPage() {
         }
     }
 
-    const loadSidebarItems = () => {
-        const action = changePage(sidebarItems.length === 0 ? homeItems : sidebarItems);
-        dispatch(action);
-    }
-
     useEffect(() => {
-        loadSidebarItems();
         fetchOwnCourses();
     }, []);
 
@@ -133,8 +125,31 @@ function MyCoursesPage() {
                         </div>{/* .nk-block-head-content */}
                     </div>{/* .nk-block-between */}
                 </div>{/* .nk-block-head */}
+
+
+                {isEmpty(OwnCoursesData) && OwnCoursesData !== null &&
+                    <div style={{
+                        minHeight: "50vh",
+                    }}
+                        className="d-flex flex-column align-items-center justify-content-center"
+                    >
+                        <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
+                        <h6 className="mt-3">Bạn chưa tạo khóa học nào, hãy tạo khóa học cho bạn</h6>
+                        <div className="btn btn-primary mt-3" onClick={() => setShowModal(true)}>Tạo khóa học</div>
+
+                    </div>
+                }
                 <div className="nk-block">
+
                     <div className="row g-gs">
+                        {OwnCoursesData === null &&
+                            [...Array(6)].map((item, index) => (
+                                <div className="col-sm-6 col-lg-4 col-xxl-3">
+                                    <ClassCard.Loading />
+                                </div>
+                            ))
+                        }
+
                         {OwnCoursesData && OwnCoursesData.map((course, index) => {
                             return (
                                 <div key={index} className="col-sm-6 col-lg-4 col-xxl-3">
@@ -152,7 +167,7 @@ function MyCoursesPage() {
                     handleCloseModal={() => setShowModal(false)}
                 />
             </div>
-        </Layout>
+        </Layout >
     );
 }
 

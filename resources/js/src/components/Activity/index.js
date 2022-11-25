@@ -8,12 +8,15 @@ import ActivitySection from './ActivitySection';
 import { HTTP_OK } from '../../utils/constant';
 import toast from 'react-hot-toast';
 import EditActivityModal from '../Modal/Lesson/EditActivityModal';
+import FileViewerModal from '../Modal/Lesson/FileViewerModal';
+import { isEmpty } from 'lodash';
 
 function Activities(props) {
   const dispatch = useDispatch();
-  const { topicId, activities, isOwner } = props;
-  const [activitiesData, setActivitiesData] = useState(activities);
+  const { topicId, activities, isOwner, setShowAddActivityModal } = props;
+  const [activitiesData, setActivitiesData] = useState(null);
   const [showEditActivityModal, setShowEditActivityModal] = useState({ show: false, activity: null });
+  const [showFileViewer, setShowFileViewer] = useState({ show: false, url: null, name: null });
 
   useEffect(() => {
     setActivitiesData(activities);
@@ -62,7 +65,7 @@ function Activities(props) {
       const response = await lessonApi.deleteActivity(id);
       if (response.status === HTTP_OK) {
         toast.success('Xóa hoạt động thành công!');
-        dispatch(requestTopics());
+        dispatch(requestTopics({ loading: false }));
       } else {
         console.log(response);
         toast.error("Xóa hoạt động thất bại!!!");
@@ -72,13 +75,31 @@ function Activities(props) {
     }
   }
 
+  const handleOpenViewer = (activity) => {
+    if (activity.type !== 'text' && activity.type !== 'link' && activity.content !== null) {
+      setShowFileViewer({ show: true, url: activity.content, name: activity.name });
+    }
+  }
+
   return (
     <div>
+      {isEmpty(activitiesData) && activitiesData !== null &&
+        <div
+          className="d-flex flex-column align-items-center justify-content-center"
+        >
+          <p className="">Chưa có hoạt động nào cho chủ đề này</p>
+          {isOwner && <div className="btn btn-primary mt-1"
+            onClick={() => setShowAddActivityModal({
+              show: true,
+              topicId: topicId
+            })}>Tạo hoạt động</div>}
+        </div>
+      }
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable key="activities-1" droppableId="activities-1">
           {(provided, snapshot) => (
             <div className="entry" {...provided.droppableProps} ref={provided.innerRef}>
-              {activitiesData.map((activity, index) => (
+              {activitiesData && activitiesData.map((activity, index) => (
                 <Draggable
                   key={activity.id}
                   draggableId={activity.id.toString()}
@@ -120,7 +141,7 @@ function Activities(props) {
                           </div>
                         </div>
                       }
-                      <div className='pl-2'>
+                      <div className='pl-2' onClick={() => handleOpenViewer(activity)}>
                         <ActivitySection activity={activity} isOwner={isOwner} />
                       </div>
                     </div>
@@ -137,6 +158,12 @@ function Activities(props) {
         isShow={showEditActivityModal.show}
         setIsShow={setShowEditActivityModal}
         handleCloseModal={() => setShowEditActivityModal({ show: false, activity: null })}
+      />
+      <FileViewerModal
+        modalName={showFileViewer.name}
+        url={showFileViewer.url}
+        isShow={showFileViewer.show}
+        handleCloseModal={() => setShowFileViewer({ show: false, url: null })}
       />
     </div>
   )

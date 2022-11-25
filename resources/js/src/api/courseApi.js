@@ -33,6 +33,11 @@ export const courseApi = {
         const config = await bearerConfig();
         return axiosInstance.post(url, data, config);
     },
+    update: async (id, data) => {
+        const url = DEFAULT_URL + '/' + id;
+        const config = await bearerConfig();
+        return axiosInstance.put(url, data, config);
+    },
     invite: async (id, data) => {
         const url = DEFAULT_URL + '/' + id + '/invite';
         const config = await bearerConfig();
@@ -57,5 +62,10 @@ export const courseApi = {
         const url = DEFAULT_URL + '/' + id + '/divide-random-groups';
         const config = await bearerConfig();
         return axiosInstance.post(url, data, config);
+    },
+    lockGroup: async (id) => {
+        const url = DEFAULT_URL + '/' + id + '/lock-group';
+        const config = await bearerConfig();
+        return axiosInstance.post(url, {}, config);
     }
 }

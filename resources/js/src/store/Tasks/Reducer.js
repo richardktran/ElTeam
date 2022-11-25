@@ -3,26 +3,10 @@ import { v4 as uuidv4 } from 'uuid'
 
 const initialItems = {
   group_id: 107,
-  submitting: false,
+  // submitting: false,
   currentTask: {},
   groupInfo: {},
-  sections: [
-    {
-      id: uuidv4(),
-      title: ' 📃 To do',
-      tasks: []
-    },
-    {
-      id: uuidv4(),
-      title: ' ✏️ In progress',
-      tasks: []
-    },
-    {
-      id: uuidv4(),
-      title: ' ✔️ Completed',
-      tasks: []
-    }
-  ]
+  sections: []
 };
 
 const groupTasks = createSlice({
@@ -30,10 +14,14 @@ const groupTasks = createSlice({
   initialState: initialItems,
   reducers: {
     requestTask: (state, action) => {
-      const task_id = action.payload;
+      let isLoading = true;
+      if (action.payload) {
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
+      }
+      const { task_id } = action.payload;
       return {
         ...state,
-        submitting: true,
+        submitting: isLoading,
         currentTask: {
           ...state.currentTask,
           id: task_id
@@ -41,18 +29,27 @@ const groupTasks = createSlice({
       }
     },
     requestTasks: (state, action) => {
-      const group_id = action.payload;
+      let isLoading = true;
+      if (action.payload) {
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
+      }
+      console.log('requestTasks: ', isLoading);
+      const { group_id } = action.payload;
       return {
         ...state,
-        submitting: true,
+        submitting: isLoading,
         group_id
       }
     },
     requestGroupInfo: (state, action) => {
-      const course_id = action.payload;
+      let isLoading = true;
+      if (action.payload) {
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
+      }
+      const { course_id } = action.payload;
       return {
         ...state,
-        submitting: true,
+        submitting: isLoading,
         groupInfo: {
           ...state.groupInfo,
           course_id
@@ -123,6 +120,23 @@ const groupTasks = createSlice({
           title
         }
       }
+    },
+    removeTasks: (state) => {
+      return {
+        ...state,
+        submitting: false,
+        sections: []
+      }
+    },
+    requestDeleteTask: (state, action) => {
+      let isLoading = true;
+      if (action.payload) {
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
+      }
+      return {
+        ...state,
+        submitting: isLoading,
+      }
     }
   }
 });
@@ -138,7 +152,9 @@ export const {
   updateTaskPosition,
   updateContentTask,
   updateTitleTask,
-  updateAssignees
+  updateAssignees,
+  removeTasks,
+  requestDeleteTask
 } = actions;
 
 export default reducer;

@@ -8,7 +8,7 @@ const Layout = ({ children, items }) => {
 
   return (
     <>
-      {role && role !== ROLE_ADMIN ?
+      {role ?
         <CustomerLayout items={items}>{children}</CustomerLayout>
         :
         <Navigate to="/" replace />

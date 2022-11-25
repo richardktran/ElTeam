@@ -10,5 +10,10 @@ export const userApi = {
         }
         const header = await bearerConfig();
         return axiosInstance.get(url, { params, ...header });
+    },
+    getById: async (id) => {
+        const url = DEFAULT_URL + '/' + id;
+        const header = await bearerConfig();
+        return axiosInstance.get(url, header);
     }
 }

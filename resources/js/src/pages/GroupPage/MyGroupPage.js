@@ -4,15 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
 import { groupApi } from '../../api/groupApi';
-import { changePage } from '../../app/reducers/sideBarReducer';
 import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
-import { courseDetailItems, courseMembersItems } from '../CoursePage/sidebars/courseDetail';
-import { getGroupInfo, requestTask, requestTasks } from '../../store/Tasks/Reducer';
+import { getGroupInfo, getTasks, requestTask, requestTasks } from '../../store/Tasks/Reducer';
+import { requestCourse } from '../../store/Course/Reducer';
 import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
 import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
 import { changeLoading } from '../../store/App/Reducer';
+import Skeleton from 'react-loading-skeleton';
+import isEmpty from 'lodash/isEmpty';
+import EditGroupNameModal from '../../components/Modal/Course/EditGroupNameModal';
 
 const MyGroupPage = () => {
   let { courseId } = useParams(); //get id from url
@@ -20,31 +22,42 @@ const MyGroupPage = () => {
 
   const dispatch = useDispatch();
   const tasks = useSelector(state => state.groupTasks.sections);
-  const sidebarItems = useSelector(state => state.sidebar);
   const loading = useSelector(state => state.groupTasks.submitting);
   const [isLoading, setIsLoading] = useState(loading);
-  const [groupInfo, setGroupInfo] = useState({});
+  const [groupInfo, setGroupInfo] = useState(null);
 
-  const [boardData, setBoardData] = useState(tasks);
+  const [boardData, setBoardData] = useState(null);
   const [sectionId, setSectionId] = useState(0);
   const [taskId, setTaskId] = useState(0);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [showDetailTaskModal, setShowDetailTaskModal] = useState(false);
+  const [showEditGroupNameModal, setShowEditGroupNameModal] = useState({
+    show: false,
+    name: ''
+  });
 
   const fetchGroupInfo = async () => {
     let result = await groupApi.getMyGroupInfo(courseId);
     if (result.status === HTTP_OK) {
       const { data } = result.data;
-      setGroupInfo(data);
-      dispatch(getGroupInfo(data));
-      const fetchTasksAction = requestTasks(data.id);
-      dispatch(fetchTasksAction);
+      if (data !== null) {
+        setGroupInfo(data);
+        dispatch(getGroupInfo(data));
+        dispatch(requestTasks({ group_id: data.id }));
+      } else {
+        setGroupInfo({});
+        dispatch(getTasks([]));
+      }
+
     }
   }
 
-  // useEffect(() => {
-  //   setIsLoading(loading);
-  // }, [loading]);
+  useEffect(() => {
+    if (loading === undefined) {
+      setIsLoading(true);
+    }
+    setIsLoading(loading);
+  }, [loading]);
 
   useEffect(() => {
     dispatch(changeLoading(isLoading));
@@ -55,18 +68,8 @@ const MyGroupPage = () => {
   }, [tasks]);
 
   useEffect(() => {
-    const items = isOwner ? courseDetailItems : courseMembersItems;
-    const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
-    dispatch(action);
-  }, [isOwner]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const items = isOwner ? courseDetailItems : courseMembersItems;
-    const action = changePage(sidebarItems.length === 0 ? items : sidebarItems);
-    dispatch(action);
+    dispatch(requestCourse({ course_id: courseId }));
     fetchGroupInfo();
-    setIsLoading(false);
   }, []);
 
   const openAddTaskModal = (sectionId) => {
@@ -76,7 +79,7 @@ const MyGroupPage = () => {
 
   const openDetailTaskModal = (taskId) => {
     setShowDetailTaskModal(true);
-    dispatch(requestTask(taskId));
+    dispatch(requestTask({ task_id: taskId }));
     setTaskId(taskId);
   }
 
@@ -93,7 +96,7 @@ const MyGroupPage = () => {
       const response = await groupApi.create(groupInfo.id, data);
       if (response.status === HTTP_OK) {
         toast.success('Thêm nhiệm vụ thành công!');
-        dispatch(requestTasks(groupInfo.id));
+        dispatch(requestTasks({ group_id: groupInfo.id, loading: false }));
 
         setShowAddTaskModal(false);
       } else {
@@ -111,6 +114,31 @@ const MyGroupPage = () => {
     }
   }
 
+  const editGroupName = async (values) => {
+    const isUndefined = Object.values(values).some(value => value === undefined);
+    if (isUndefined) {
+      setShowEditGroupNameModal({ show: false, name: '' })
+      return;
+    }
+    try {
+      let data = values;
+
+      const response = await groupApi.updateGroup(groupInfo.id, data);
+      if (response.status === HTTP_OK) {
+        toast.success('Chỉnh sửa thành công!');
+        dispatch(requestCourse({ course_id: courseId }));
+        fetchGroupInfo();
+        setShowEditGroupNameModal({ show: false, name: '' })
+      } else {
+        console.log(response);
+        setShowEditGroupNameModal({ show: false, name: '' })
+      }
+    } catch (e) {
+      console.log(e);
+      setShowEditGroupNameModal({ show: false, name: '' })
+    }
+  }
+
   return (
     <div className="container-fluid">
       <div className="nk-content-inner">
@@ -124,7 +152,18 @@ const MyGroupPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                <h3 className="nk-block-title page-title">Nhóm {groupInfo.number} - {groupInfo.name}</h3>
+                {loading || groupInfo === null ? (
+                  <h3 className="nk-block-title page-title">
+                    <Skeleton width={300} />
+                  </h3>
+                ) :
+                  isEmpty(groupInfo) ?
+                    <div></div>
+                    :
+                    <h3 className="nk-block-title page-title">
+                      Nhóm {groupInfo.number} - {groupInfo.name}
+                    </h3>
+                }
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content">
                 <div className="nk-block-head-sub mb-2"></div>
@@ -134,20 +173,12 @@ const MyGroupPage = () => {
                     <ul className="nk-block-tools g-3">
                       <li>
                         <div className="drodown">
-                          <a href="#" className="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-toggle="dropdown">
-                            <em className="d-none d-sm-inline icon ni ni-calender-date" />
+                          <a onClick={() => setShowEditGroupNameModal({ show: true, name: groupInfo.name })} className="btn btn-white btn-dim btn-outline-light" >
+                            <em class="icon ni ni-pen2"></em>
                             <span>
-                              Phân nhóm
+                              Đổi tên nhóm
                             </span>
-                            <em className="dd-indc icon ni ni-chevron-right" />
                           </a>
-                          <div className="dropdown-menu dropdown-menu-right">
-                            <ul className="link-list-opt no-bdr">
-                              <li><a href="#"><span>Phân nhóm ngẫu nhiên</span></a></li>
-                              <li><a href="#"><span>Sinh viên chọn nhóm</span></a></li>
-                              <li><a href="#"><span>Chốt nhóm</span></a></li>
-                            </ul>
-                          </div>
                         </div>
                       </li>
                     </ul>
@@ -156,13 +187,30 @@ const MyGroupPage = () => {
               </div>{/* .nk-block-head-content */}
             </div>{/* .nk-block-between */}
           </div>
+
           <div className="nk-block">
-            <Kanban
-              boardData={boardData}
-              openAddTaskModal={openAddTaskModal}
-              openDetailTaskModal={openDetailTaskModal}
-              groupId={groupInfo.id}
-            />
+            {(isEmpty(groupInfo) && groupInfo !== null) &&
+              <div style={{
+                minHeight: "50vh",
+              }}
+                className="d-flex flex-column align-items-center justify-content-center"
+              >
+                <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
+                <h6 className="mt-3">Giáo viên chưa chốt nhóm, mời bạn quay lại sau!</h6>
+              </div>
+            }
+            {(loading === true || loading === undefined) &&
+              <Kanban.Loading />
+            }
+            {boardData !== null && groupInfo !== null &&
+              <Kanban
+                isLoading={loading}
+                boardData={boardData}
+                openAddTaskModal={openAddTaskModal}
+                openDetailTaskModal={openDetailTaskModal}
+                groupId={groupInfo.id}
+              />
+            }
           </div>
           <AddTaskModal
             modalName="Thêm công việc"
@@ -177,8 +225,17 @@ const MyGroupPage = () => {
             taskId={taskId}
             modalSize='xl'
             onFinish={addTask}
+            isLoading={loading}
             isShow={showDetailTaskModal}
             handleCloseModal={() => setShowDetailTaskModal(false)}
+          />
+
+          <EditGroupNameModal
+            modalName="Đổi tên nhóm"
+            onFinish={editGroupName}
+            currentName={showEditGroupNameModal.name}
+            isShow={showEditGroupNameModal.show}
+            handleCloseModal={() => setShowEditGroupNameModal({ show: false, name: '' })}
           />
         </div>
       </div>

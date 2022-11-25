@@ -14,10 +14,14 @@ const courses = createSlice({
   initialState: initialItems,
   reducers: {
     requestCourse: (state, action) => {
-      const course_id = action.payload;
+      let isLoading = true;
+      if (action.payload) {
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
+      }
+      const { course_id } = action.payload;
       return {
         ...state,
-        submitting: true,
+        submitting: isLoading,
         course_id: parseInt(course_id)
       }
     },
@@ -29,10 +33,14 @@ const courses = createSlice({
         courseInfo
       }
     },
-    requestTopics: (state) => {
+    requestTopics: (state, action) => {
+      let isLoading = true;
+      if (action.payload) {
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
+      }
       return {
         ...state,
-        submitting: true,
+        submitting: isLoading,
       }
     },
     getTopics: (state, action) => {

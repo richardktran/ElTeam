@@ -5,7 +5,7 @@ import { useLoadingContext } from 'react-router-loading';
 import { authApi } from '../../api';
 import LoginForm from '../../components/Form/LoginForm'
 import AuthSlider from '../../components/Slider/AuthSlider'
-import { HTTP_OK, ROLE_ADMIN, ROLE_TEACHER } from '../../utils/constant';
+import { HTTP_OK, ROLE_ADMIN } from '../../utils/constant';
 
 function LoginPage() {
     const [loadingButton, setLoadingButton] = useState(false);
@@ -29,7 +29,7 @@ function LoginPage() {
         localStorage.setItem('status', data.user.status);
 
         if (role === ROLE_ADMIN) {
-            navigate('/admin');
+            navigate('/courses');
         } else {
             navigate('/courses');
         }

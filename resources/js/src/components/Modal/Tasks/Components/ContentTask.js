@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux';
 import parse from 'html-react-parser';
 import { updateContentTask } from '../../../../store/Tasks/Reducer';
 import TextEditor from '../../../TextEditor/TextEditor';
+import Skeleton from 'react-loading-skeleton';
 
 function ContentTask(props) {
-  const { children, id } = props;
+  const { children, id, isLoading } = props;
   const dispatch = useDispatch();
   const [readOnly, setReadOnly] = React.useState(true);
   const [newContent, setNewContent] = React.useState(children);
@@ -35,10 +36,17 @@ function ContentTask(props) {
 
   return (
     <>
-      <h6 className="title mb-2">Mô tả công việc</h6>
+      <h6 className="title mb-2">
+        Mô tả công việc
+        <span className="ml-2">
+          <a onClick={editContentHandle}>
+            <em class="icon ni ni-edit-fill text-primary"></em>
+          </a>
+        </span>
+      </h6>
       {readOnly ? (
-        <div onClick={editContentHandle}>
-          {transformText(children)}
+        <div>
+          {isLoading ? <Skeleton count={5.5} /> : transformText(children)}
         </div>
       ) : (
         <>

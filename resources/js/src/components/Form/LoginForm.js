@@ -32,23 +32,22 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
 
     return (
         <div className="nk-split-content nk-block-area nk-block-area-column nk-auth-container bg-white">
-            <div className="absolute-top-right d-lg-none p-3 p-sm-5">
+            <div className="absolute-top-right d-lg-none px-3 p-sm-5">
                 <a href="#" className="toggle btn-white btn btn-icon btn-light" data-target="athPromo">
                     <em className="icon ni ni-info" />
                 </a>
             </div>
             <div className="nk-block nk-block-middle nk-auth-body">
-                <div className="brand-logo pb-5">
-                    <a href="html/index.html" className="logo-link">
-                        <img className="logo-light logo-img logo-img-lg" src="./images/logo.png" srcSet="./images/logo2x.png 2x" alt="logo" />
-                        <img className="logo-dark logo-img logo-img-lg" src="./images/logo-dark.png" srcSet="./images/logo-dark2x.png 2x" alt="logo-dark" />
+                <div className="brand-logo pb-3">
+                    <a href="/" >
+                        <img width={400} height={150} src="./images/elteam_logo.jpg" srcSet="./images/elteam_logo.jpg 2x" alt="logo-dark" />
                     </a>
                 </div>
                 <div className="nk-block-head">
                     <div className="nk-block-head-content">
-                        <h5 className="nk-block-title">Sign-In</h5>
+                        <h5 className="nk-block-title">Đăng nhập</h5>
                         <div className="nk-block-des">
-                            <p>Access the DashLite panel using your email and passcode.</p>
+                            <p>Truy cập vào khóa học qua email và mật khẩu.</p>
                         </div>
                     </div>
                 </div>{/* .nk-block-head */}
@@ -69,15 +68,15 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                     noValidate="novalidate"
                 >
                     <div className="form-label-group">
-                        <label className="form-label" htmlFor="email-address">Email or Username</label>
-                        <a className="link link-primary link-sm" tabIndex={-1} href="#">Need Help?</a>
+                        <label className="form-label" htmlFor="email-address">Email</label>
+                        <a className="link link-primary link-sm" tabIndex={-1} href="#">Giúp đỡ?</a>
                     </div>
                     <Form.Item
                         name="email"
                         className="form-group"
                     >
                         <Input
-                            placeholder={"Please enter your email"}
+                            placeholder={"Nhập email"}
                             autoComplete="off"
                             type="email"
                             className="form-control form-control-lg"
@@ -87,8 +86,8 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                     </Form.Item>
 
                     <div className="form-label-group">
-                        <label className="form-label" htmlFor="password">Password</label>
-                        <a className="link link-primary link-sm" tabIndex={-1} href="html/pages/auths/auth-reset.html">Forgot Code?</a>
+                        <label className="form-label" htmlFor="password">Mật khẩu</label>
+                        <a className="link link-primary link-sm" tabIndex={-1} href="html/pages/auths/auth-reset.html">Quên mật khẩu?</a>
                     </div>
                     <Form.Item
                         name="password"
@@ -100,7 +99,7 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                                 <em className="passcode-icon icon-hide icon ni ni-eye-off" />
                             </a>
                             <Input
-                                placeholder={"Please enter your password"}
+                                placeholder={"Nhập mật khẩu"}
                                 autoComplete="new-password"
                                 type="password"
                                 className="form-control form-control-lg"
@@ -113,7 +112,7 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                     {loginFailed &&
                         <div className="alert alert-danger alert-icon">
                             <em className="icon ni ni-cross-circle"></em>
-                            <strong>Your email or password is invalid!!!</strong>
+                            <strong>Email hoặc mật khẩu của bạn không đúng!!!</strong>
                         </div>
                     }
                     <Form.Item className="form-group">
@@ -122,17 +121,13 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                             className="btn btn-lg btn-primary btn-block"
                             loading={loadingButton}
                         >
-                            Login
+                            Đăng nhập
                         </Button>
                     </Form.Item>
                     <Form.Item className="form-group">
-                        <div className="form-note-s2 pt-4">
-                            New on our platform?
-                            <Link to="/register"> Create an account</Link>
-                        </div>
                         <div className="text-center pt-4 pb-3">
                             <h6 className="overline-title overline-title-sap">
-                                <span>OR</span>
+                                <span>HOẶC</span>
                             </h6>
                         </div>
                         <ul className="nav justify-center gx-4">
@@ -144,8 +139,8 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                             </li>
                         </ul>
                         <div className="text-center mt-5">
-                            <span className="fw-500">I don't have an account?
-                                <a to="#">Try 15 days free</a>
+                            <span className="fw-500">Bạn chưa có tài khoản?
+                                <Link to="/register"> Đăng ký ngay</Link>
                             </span>
                         </div>
                     </Form.Item>

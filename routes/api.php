@@ -25,7 +25,10 @@ use App\Http\Controllers\UserController;
 
 
 Route::post('/file/upload', [FileController::class, 'upload'])->name('upload');
+Route::post('/file/upload/multiple', [FileController::class, 'multipleUpload'])->name('multipleUpload');
+Route::post('/file/import-students', [FileController::class, 'importStudents'])->name('file.importStudents');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/register', [AuthController::class, 'signUp'])->name('signUp');
 Route::get('/auth/google/url', [GoogleController::class, 'loginUrl'])->name('login.google.url');
 Route::get('/auth/google/callback', [GoogleController::class, 'loginCallback'])->name('login.google.callback');
 
@@ -38,6 +41,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
     Route::get('/own', [CourseController::class, 'getOwnCourses'])->name('courses.own');
     Route::get('/', [CourseController::class, 'getLearningCourses'])->name('courses.learn-courses');
+    Route::get('/{course}/groups', [GroupController::class, 'getAll'])->name('groups.getAllGroups');
     Route::get('/{course}', [CourseController::class, 'detail'])->name('course.detail');
     Route::get('/{course}/members', [CourseController::class, 'membersList'])->name('course.members');
     Route::get('/{course}/curriculum', [CourseController::class, 'getcurriculum'])->name('course.get-curriculum');
@@ -51,6 +55,10 @@ Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:stud
     Route::post('/{course}/decline', [CourseController::class, 'decline'])->name('course.decline');
     Route::post('/{course}/curriculum', [CourseController::class, 'createOrUpdateCurriculum'])->name('course.update-curriculum');
     Route::post('/{course}/divide-random-groups', [CourseController::class, 'divideStudentToGroups'])->name('course.divideStudentToGroups');
+    Route::post('/{course}/lock-group', [CourseController::class, 'lockGroup'])->name('course.lockGroup');
+
+    Route::put('/{course}', [CourseController::class, 'update'])->name('course.update');
+
 });
 
 Route::group(['prefix' => 'groups', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
@@ -59,17 +67,21 @@ Route::group(['prefix' => 'groups', 'middleware' => ['auth:sanctum', 'role:stude
 
     Route::post('/{group}/tasks', [TaskController::class, 'createTask'])->name('groups.task.create');
     Route::post('/{group}/update-task-position', [TaskController::class, 'updatePositionTask'])->name('groups.task.update-position');
+
+    Route::put('/{group}', [GroupController::class, 'update'])->name('groups.update');
 });
 
 Route::group(['prefix' => 'tasks', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
     Route::get('/{task}', [TaskController::class, 'getTask'])->name('groups.task.get.info');
-
+    Route::get('/{task}/group', [TaskController::class, 'getGroupOfTask'])->name('groups.task.get.groupOfTask');
     Route::put('/{task}', [TaskController::class, 'updateTask'])->name('groups.task.update');
+
+    Route::delete('/{task}', [TaskController::class, 'deleteTask'])->name('groups.task.delete');
 });
 
 Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function () {
     Route::get('/', [UserController::class, 'index'])->name('users.index');
-    Route::get('/{id:[0-9]+}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/{user}', [UserController::class, 'show'])->name('users.show');
     Route::get('/get-by-email', [UserController::class, 'getByEmail'])->name('users.get-by-email');
 });
 

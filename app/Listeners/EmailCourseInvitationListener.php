@@ -41,8 +41,11 @@ class EmailCourseInvitationListener implements ShouldQueue
             "owner_email" => $course->teacher->email,
             "course_url" => config('app.url') . "/courses/$course->id",
         ];
-
-        Mail::to($students)->send(new CourseInvitationMail($emailData));
+        try {
+            Mail::to($students)->send(new CourseInvitationMail($emailData));
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+        }
 
     }
 }

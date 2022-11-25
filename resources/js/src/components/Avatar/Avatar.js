@@ -21,18 +21,22 @@ function Avatar(props) {
   ]
 
   //Get random color
-  const randomColor = React.useMemo(() => {
-    return () => {
-      return colors[Math.floor(Math.random() * colors.length)];
-    }
+  const randomColor = React.useCallback(() => {
+    const number = name.split('').reduce((acc, char) => {
+      return acc + char.charCodeAt(0)
+    }, 0);
+
+    return colors[(number % colors.length)];
   }, [name, email]);
 
   const getNameLabel = React.useMemo(() => {
     return () => {
       if (name) {
         const lastName = name.split(' ').pop();
+        //Get first name 
+        const firstName = name.split(' ').shift();
         const firstLetter = lastName.charAt(0);
-        return firstLetter.toUpperCase();
+        return firstName.charAt(0) + firstLetter;
       }
       return '';
     }

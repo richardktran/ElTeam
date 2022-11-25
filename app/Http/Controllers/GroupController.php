@@ -19,4 +19,24 @@ class GroupController extends Controller
     {
         return $this->response($group);
     }
+
+    public function getAll(Request $request, Course $course)
+    {
+        $groups = Group::all()->where('course_id', $course->id);
+        // get getNumberOfCompletedTasks and getNumberOfTasks for each group
+        $groups = $groups->map(function ($group) {
+            $group->number_of_completed_tasks = $group->getNumberOfCompletedTasks();
+            $group->number_of_tasks = $group->getNumberOfTasks();
+            return $group;
+        });
+
+        
+        return $this->response([...$groups]);
+    }
+
+    public function update(Request $request, Group $group)
+    {
+        $group->update($request->all());
+        return $this->response($group);
+    }
 }

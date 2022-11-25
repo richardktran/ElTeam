@@ -22,6 +22,11 @@ class TaskController extends Controller
         return $this->response($sections);
     }
 
+    public function getGroupOfTask(Request $request, Task $task)
+    {
+        return $this->response($task->group);
+    }
+
     public function updatePositionTask(Request $request, Group $group)
     {
         $params = $request->all();
@@ -80,5 +85,12 @@ class TaskController extends Controller
         $task = Task::find($task->id);
 
         return $this->response($task);
+    }
+
+    public function deleteTask(Request $request, Task $task)
+    {
+        $task->delete();
+
+        return $this->response(['message' => 'Delete task successfully']);
     }
 }

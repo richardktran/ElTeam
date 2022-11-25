@@ -11,9 +11,11 @@ use App\Services\CourseService;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCourseValidator;
 use App\Http\Resources\UserResource;
+use App\Imports\UsersImport;
 use App\Models\CourseStudent;
 use App\Models\Curriculum;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CourseController extends Controller
 {
@@ -108,7 +110,8 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course)
     {
-        //
+        $course->update($request->all());
+        return $this->response(new CourseResource($course));
     }
 
     /**
@@ -146,8 +149,16 @@ class CourseController extends Controller
         $request = $request->all();
         $groups = $this->courseService->divideStudentToGroups($course, $request);
 
-        event(new GenerateGroupsEvent($course));
         return $this->response($groups);
+    }
+
+    public function lockGroup(Request $request, Course $course)
+    {
+        $course->lock_group = true;
+        $course->save();
+        $this->courseService->removeInvite($course);
+        event(new GenerateGroupsEvent($course));
+        return $this->response('Locked');
     }
 
     public function destroy(Course $course)
