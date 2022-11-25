@@ -7,6 +7,7 @@ import GroupListPage from '../GroupPage/GroupListPage';
 import MyGroupPage from '../GroupPage/MyGroupPage';
 import HomePage from '../HomePage/HomePage';
 import CourseDetailPage from './CourseDetailPage';
+import CourseSettingPage from './CourseSettingPage';
 import MemberPage from './MemberPage';
 
 function Course() {
@@ -20,6 +21,7 @@ function Course() {
         <Route path=":courseId/my-group" element={<MyGroupPage />} />
         <Route path=":id/groups" element={<GroupListPage />} />
         <Route path=":courseId/groups/:groupId" element={<GroupDetailPage />} />
+        <Route path=":courseId/settings" element={<CourseSettingPage />} />
       </Routes>
     </Layout>
   );

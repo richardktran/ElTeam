@@ -148,20 +148,12 @@ const MyGroupPage = () => {
                     <ul className="nk-block-tools g-3">
                       <li>
                         <div className="drodown">
-                          <a href="#" className="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-toggle="dropdown">
-                            <em className="d-none d-sm-inline icon ni ni-calender-date" />
+                          <a href="#" className="btn btn-white btn-dim btn-outline-light" data-toggle="dropdown">
+                            <em class="icon ni ni-setting-alt-fill"></em>
                             <span>
-                              Phân nhóm
+                              Cài đặt nhóm
                             </span>
-                            <em className="dd-indc icon ni ni-chevron-right" />
                           </a>
-                          <div className="dropdown-menu dropdown-menu-right">
-                            <ul className="link-list-opt no-bdr">
-                              <li><a href="#"><span>Phân nhóm ngẫu nhiên</span></a></li>
-                              <li><a href="#"><span>Sinh viên chọn nhóm</span></a></li>
-                              <li><a href="#"><span>Chốt nhóm</span></a></li>
-                            </ul>
-                          </div>
                         </div>
                       </li>
                     </ul>

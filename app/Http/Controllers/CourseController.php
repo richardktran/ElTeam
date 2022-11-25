@@ -110,7 +110,8 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course)
     {
-        //
+        $course->update($request->all());
+        return $this->response(new CourseResource($course));
     }
 
     /**
