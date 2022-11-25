@@ -11,6 +11,7 @@ import MemberList from '../../components/MemberList/MemberList';
 import { HTTP_OK } from '../../utils/constant';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { requestCourse } from '../../store/Course/Reducer';
+import RandomDivideGroupModel from '../../components/Modal/RandomDivideGroupModel';
 
 const MemberPage = () => {
   let { id } = useParams(); //get id from url
@@ -18,6 +19,8 @@ const MemberPage = () => {
 
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
+  const [showRandomFormModel, setShowRandomFormModel] = useState(false);
+  const course = useSelector((state) => state.course.courseInfo);
 
   const [members, setMembers] = useState(null);
   const fetchMembers = async () => {
@@ -35,7 +38,48 @@ const MemberPage = () => {
     dispatch(requestCourse({ course_id: id }));
   }, []);
 
+  const openDivideGroup = () => {
+    let count = 0;
+    members.forEach(member => {
+      if (member.pivot.status === 'accepted') {
+        count++;
+      }
+    });
+    if (count === 0) {
+      toast.error('Chưa thể phân nhóm do chưa có thành viên đồng ý tham gia khóa học');
+      return;
+    }
+    setShowRandomFormModel(true);
+  }
 
+  const lockGroup = () => {
+    if (!isExistsGroup()) {
+      toast.error('Mời bạn phân nhóm trước khi chốt nhóm');
+      return;
+    }
+    Swal.fire({
+      title: 'Xác nhận chốt nhóm?',
+      text: "Bạn không thể thêm thành viên và phân nhóm sau khi đã chốt nhóm!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Chốt nhóm',
+      cancelButtonText: 'Huỷ'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const response = await courseApi.lockGroup(id);
+          fetchMembers();
+          toast.success('Chốt nhóm thành công');
+          dispatch(requestCourse({ course_id: id }));
+        } catch (e) {
+          toast.success('Chốt nhóm thất bại');
+          console.log(e);
+        }
+      }
+    })
+  }
 
   const [showMemberModal, setShowMemberModal] = useState(false);
 
@@ -58,13 +102,37 @@ const MemberPage = () => {
     setShowMemberModal(false);
   }
 
-  const handleRandomDivideGroup = async (groupSize) => {
+  // write a function to check if any member have group
+  const isExistsGroup = () => {
+    let count = 0;
+    members.forEach(member => {
+      if (member.pivot.status === 'accepted' && member.group !== null) {
+        count++;
+      }
+    });
+    return count > 0;
+  }
+
+
+  const handleRandomDivideGroup = async (values) => {
+    let count = 0;
+    members.forEach(member => {
+      if (member.pivot.status === 'accepted') {
+        count++;
+      }
+    });
+    if (count === 0) {
+      toast.error('Chưa thể phân nhóm do chưa có thành viên đồng ý tham gia khóa học');
+      return;
+    }
     try {
       const data = {
-        "group_size": groupSize
+        "group_size": values.groupSize
       }
       const response = await courseApi.randomDivideGroup(id, data);
       fetchMembers();
+      toast.success('Phân nhóm thành công');
+      setShowRandomFormModel(false);
     } catch (e) {
       const messages = e.response.data.messages;
       messages.forEach(message => {
@@ -89,31 +157,37 @@ const MemberPage = () => {
                 </div>
                 <h3 className="nk-block-title page-title">Thành viên - Luận văn tốt nghiệp</h3>
               </div>{/* .nk-block-head-content */}
-              <div className="nk-block-head-content">
+              <div className="nk-block-head-content mb-0">
                 <div className="nk-block-head-sub mb-2"></div>
                 <div className="toggle-wrap nk-block-tools-toggle">
                   <a href="#" className="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em className="icon ni ni-more-v" /></a>
                   <div className="toggle-expand-content" data-content="pageMenu">
                     <ul className="nk-block-tools g-3">
-                      <li>
-                        <div className="drodown">
-                          <a href="#" className="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-toggle="dropdown">
-                            <em className="d-none d-sm-inline icon ni ni-calender-date" />
-                            <span>
-                              Phân nhóm
-                            </span>
-                            <em className="dd-indc icon ni ni-chevron-right" />
-                          </a>
-                          <div className="dropdown-menu dropdown-menu-right">
-                            <ul className="link-list-opt no-bdr">
-                              <li><a href="#"><span>Phân nhóm ngẫu nhiên</span></a></li>
-                              <li><a href="#"><span>Sinh viên chọn nhóm</span></a></li>
-                              <li><a href="#"><span>Chốt nhóm</span></a></li>
-                            </ul>
+                      {isOwner && course.lock_group != true &&
+                        <li>
+                          <div className="drodown">
+                            <a href="#" onClick={() => lockGroup()} className=" btn btn-info" >
+                              <em class="icon ni ni-check-round-fill"></em>
+                              <span>
+                                Chốt nhóm
+                              </span>
+                            </a>
                           </div>
-                        </div>
-                      </li>
-                      {isOwner &&
+                        </li>
+                      }
+                      {isOwner && course.lock_group != true &&
+                        <li>
+                          <div className="drodown">
+                            <a onClick={() => openDivideGroup()} className=" btn btn-white btn-dim btn-outline-light" >
+                              <em class="icon ni ni-user-list-fill"></em>
+                              <span>
+                                Phân nhóm
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                      }
+                      {isOwner && course.lock_group != true &&
                         <li className="nk-block-tools-opt">
                           <a href="#" onClick={() => setShowMemberModal(true)} className="btn btn-primary">
                             <em className="icon ni ni-reports" />
@@ -144,6 +218,13 @@ const MemberPage = () => {
             isShow={showMemberModal}
             setIsShow={setShowMemberModal}
             handleCloseModal={() => setShowMemberModal(false)}
+          />
+
+          <RandomDivideGroupModel
+            modalName="Phân nhóm ngẫu nhiên"
+            onFinish={handleRandomDivideGroup}
+            isShow={showRandomFormModel}
+            handleCloseModal={() => setShowRandomFormModel(false)}
           />
         </div>
       </div>

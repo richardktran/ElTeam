@@ -23,6 +23,7 @@ class CourseResource extends JsonResource
             'hours_per_week' => $this->hours_per_week,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
+            'lock_group' => $this->lock_group,
             'teacher' => $this->teacher,
             'students' => $this->students,
             'created_at' => $this->created_at,

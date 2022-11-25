@@ -49,7 +49,7 @@ const MemberList = (props) => {
         </div>
       }
       <div className="nk-tb-list is-separate mb-3">
-        {!isEmpty(members) || members === null &&
+        {(!isEmpty(members) || members === null) &&
           <div className="nk-tb-item nk-tb-head">
             <div className="nk-tb-col nk-tb-col-check">
               <div className="custom-control custom-control-sm custom-checkbox notext">

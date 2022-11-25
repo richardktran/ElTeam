@@ -1,8 +1,9 @@
+import { isEmpty } from 'lodash';
 import React, { useCallback, useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { groupApi } from '../../api/groupApi';
 import Avatar from '../../components/Avatar/Avatar';
 import { changeLoading } from '../../store/App/Reducer';
@@ -11,6 +12,7 @@ import { HTTP_OK } from '../../utils/constant';
 
 function GroupListPage() {
   let { id } = useParams(); //get id from url
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const courseData = useSelector(state => state.course.courseInfo);
 
@@ -39,6 +41,7 @@ function GroupListPage() {
     let result = await groupApi.getAllGroups(id);
     if (result.status === HTTP_OK) {
       const { data } = result.data;
+      console.log(data);
       setGroupList(data);
       return data;
     }
@@ -59,6 +62,10 @@ function GroupListPage() {
       return firstName.charAt(0) + firstLetter;
     }
     return '';
+  }
+
+  const goToMemberPage = () => {
+    navigate(`/courses/${id}/members`);
   }
 
   return (
@@ -107,23 +114,36 @@ function GroupListPage() {
             </div>{/* .nk-block-between */}
           </div>
           {/* .nk-block-head */}
+          {!isLoading && course.lock_group == false &&
+            <div style={{
+              minHeight: "50vh",
+            }}
+              className="d-flex flex-column align-items-center justify-content-center"
+            >
+              <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
+              <h6 className="mt-3">Bạn chưa chốt nhóm cho khóa học này</h6>
+              <div className="btn btn-primary mt-3" onClick={() => goToMemberPage()}>Phân nhóm và chốt nhóm ngay</div>
+            </div>
+          }
           <div className="nk-block">
             <table className="nk-tb-list is-separate nk-tb-ulist">
-              <thead>
-                <tr className="nk-tb-item nk-tb-head">
-                  <th className="nk-tb-col"><span className="sub-text">Tên nhóm</span></th>
-                  <th className="nk-tb-col tb-col-xxl"><span className="sub-text">Mã số nhóm</span></th>
-                  <th className="nk-tb-col tb-col-lg"><span className="sub-text">Trưởng nhóm</span></th>
-                  <th className="nk-tb-col tb-col-lg"><span className="sub-text">Thành viên</span></th>
-                  <th className="nk-tb-col tb-col-md"><span className="sub-text">Tiến độ</span></th>
-                  <th className="nk-tb-col tb-col-mb"><span className="sub-text">Trạng thái</span></th>
-                </tr>
-                {/* .nk-tb-item */}
-              </thead>
+              {(!isEmpty(groupList) || groupList === null) && courseData.lock_group == true &&
+                <thead>
+                  <tr className="nk-tb-item nk-tb-head">
+                    <th className="nk-tb-col"><span className="sub-text">Tên nhóm</span></th>
+                    <th className="nk-tb-col tb-col-xxl"><span className="sub-text">Mã số nhóm</span></th>
+                    <th className="nk-tb-col tb-col-lg"><span className="sub-text">Trưởng nhóm</span></th>
+                    <th className="nk-tb-col tb-col-lg"><span className="sub-text">Thành viên</span></th>
+                    <th className="nk-tb-col tb-col-md"><span className="sub-text">Tiến độ</span></th>
+                    <th className="nk-tb-col tb-col-mb"><span className="sub-text">Trạng thái</span></th>
+                  </tr>
+                  {/* .nk-tb-item */}
+                </thead>
+              }
               {isLoading && <Loading />}
-              {!isLoading &&
+              {!isLoading && courseData.lock_group == true &&
                 <tbody>
-                  {groupList !== null && groupList.map((group, index) => {
+                  {groupList !== null && groupList && groupList.map((group, index) => {
                     let completePercent = 0;
                     if (group.number_of_tasks !== 0) {
                       completePercent = Math.round(group.number_of_completed_tasks / group.number_of_tasks * 100);

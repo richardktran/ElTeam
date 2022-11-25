@@ -148,8 +148,15 @@ class CourseController extends Controller
         $request = $request->all();
         $groups = $this->courseService->divideStudentToGroups($course, $request);
 
-        event(new GenerateGroupsEvent($course));
         return $this->response($groups);
+    }
+
+    public function lockGroup(Request $request, Course $course)
+    {
+        $course->lock_group = true;
+        $course->save();
+        event(new GenerateGroupsEvent($course));
+        return $this->response('Locked');
     }
 
     public function destroy(Course $course)

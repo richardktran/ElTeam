@@ -7,7 +7,7 @@ import { groupApi } from '../../api/groupApi';
 import Kanban from '../../components/Kanban/Kanban';
 import isCourseOwner from '../../hooks/isCourseOwner';
 import { HTTP_OK } from '../../utils/constant';
-import { getGroupInfo, requestTask, requestTasks } from '../../store/Tasks/Reducer';
+import { getGroupInfo, getTasks, requestTask, requestTasks } from '../../store/Tasks/Reducer';
 import { requestCourse } from '../../store/Course/Reducer';
 import AddTaskModal from '../../components/Modal/Tasks/AddTaskModal';
 import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
@@ -23,9 +23,9 @@ const MyGroupPage = () => {
   const tasks = useSelector(state => state.groupTasks.sections);
   const loading = useSelector(state => state.groupTasks.submitting);
   const [isLoading, setIsLoading] = useState(loading);
-  const [groupInfo, setGroupInfo] = useState({});
+  const [groupInfo, setGroupInfo] = useState(null);
 
-  const [boardData, setBoardData] = useState([]);
+  const [boardData, setBoardData] = useState(null);
   const [sectionId, setSectionId] = useState(0);
   const [taskId, setTaskId] = useState(0);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
@@ -35,14 +35,22 @@ const MyGroupPage = () => {
     let result = await groupApi.getMyGroupInfo(courseId);
     if (result.status === HTTP_OK) {
       const { data } = result.data;
-      setGroupInfo(data);
-      dispatch(getGroupInfo(data));
-      const fetchTasksAction = requestTasks({ group_id: data.id });
-      dispatch(fetchTasksAction);
+      if (data !== null) {
+        setGroupInfo(data);
+        dispatch(getGroupInfo(data));
+        dispatch(requestTasks({ group_id: data.id }));
+      } else {
+        setGroupInfo({});
+        dispatch(getTasks([]));
+      }
+
     }
   }
 
   useEffect(() => {
+    if (loading === undefined) {
+      setIsLoading(true);
+    }
     setIsLoading(loading);
   }, [loading]);
 
@@ -101,6 +109,11 @@ const MyGroupPage = () => {
     }
   }
 
+  useEffect(() => {
+    console.log(loading);
+    console.log(boardData);
+  }, [loading, boardData])
+
   return (
     <div className="container-fluid">
       <div className="nk-content-inner">
@@ -114,14 +127,17 @@ const MyGroupPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                {loading || isEmpty(groupInfo) ? (
+                {loading || groupInfo === null ? (
                   <h3 className="nk-block-title page-title">
                     <Skeleton width={300} />
                   </h3>
                 ) :
-                  <h3 className="nk-block-title page-title">
-                    Nhóm {groupInfo.number} - {groupInfo.name}
-                  </h3>
+                  isEmpty(groupInfo) ?
+                    <div></div>
+                    :
+                    <h3 className="nk-block-title page-title">
+                      Nhóm {groupInfo.number} - {groupInfo.name}
+                    </h3>
                 }
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content">
@@ -154,10 +170,22 @@ const MyGroupPage = () => {
               </div>{/* .nk-block-head-content */}
             </div>{/* .nk-block-between */}
           </div>
+
           <div className="nk-block">
-            {loading || isEmpty(boardData) ?
+            {(isEmpty(groupInfo) && groupInfo !== null) &&
+              <div style={{
+                minHeight: "50vh",
+              }}
+                className="d-flex flex-column align-items-center justify-content-center"
+              >
+                <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
+                <h6 className="mt-3">Giáo viên chưa chốt nhóm, mời bạn quay lại sau!</h6>
+              </div>
+            }
+            {(loading === true || loading === undefined) &&
               <Kanban.Loading />
-              :
+            }
+            {boardData !== null && groupInfo !== null &&
               <Kanban
                 isLoading={loading}
                 boardData={boardData}
