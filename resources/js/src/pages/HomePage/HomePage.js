@@ -112,12 +112,6 @@ function HomePage() {
                                             </div>
                                         </div>
                                     </li>
-                                    <li className="nk-block-tools-opt">
-                                        <a href="#" className="btn btn-primary" onClick={() => setShowModal(true)} data-toggle="modal" data-target="#createCoursesModal">
-                                            <em className="icon ni ni-plus" />
-                                            <span>Tham gia tất cả</span>
-                                        </a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>{/* .toggle-wrap */}

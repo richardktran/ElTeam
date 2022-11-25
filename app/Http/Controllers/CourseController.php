@@ -156,6 +156,7 @@ class CourseController extends Controller
     {
         $course->lock_group = true;
         $course->save();
+        $this->courseService->removeInvite($course);
         event(new GenerateGroupsEvent($course));
         return $this->response('Locked');
     }
