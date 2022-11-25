@@ -155,7 +155,7 @@ const MemberPage = () => {
                     <span>Trở lại</span>
                   </Link>
                 </div>
-                <h3 className="nk-block-title page-title">Thành viên - Luận văn tốt nghiệp</h3>
+                <h3 className="nk-block-title page-title">Thành viên - {course.name}</h3>
               </div>{/* .nk-block-head-content */}
               <div className="nk-block-head-content mb-0">
                 <div className="nk-block-head-sub mb-2"></div>

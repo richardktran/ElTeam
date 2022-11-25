@@ -363,7 +363,7 @@ function CommentTask(props) {
                 </div>
 
                 <div className="nk-reply-body">
-                  <div className="nk-reply-entry entry">
+                  <div className="nk-reply-entry">
                     <p>{parse(convertMentionToText(comment.content))}</p>
                   </div>
                   {comment.hasOwnProperty('files') && comment.files.length > 0 && (
@@ -378,13 +378,15 @@ function CommentTask(props) {
                           </li>
                         ))}
                       </ul>
-                      <div className="attach-foot">
-                        <span className="attach-info">{comment.files.length} tệp đính kèm</span>
-                        <a className="attach-download link" onClick={(e) => downloadAll(e, comment.files)}>
-                          <em className="icon ni ni-download" />
-                          <span>Tải xuống tất cả</span>
-                        </a>
-                      </div>
+                      {comment.files.length > 0 &&
+                        <div className="attach-foot">
+                          <span className="attach-info">{comment.files.length} tệp đính kèm</span>
+                          <a className="attach-download link" onClick={(e) => downloadAll(e, comment.files)}>
+                            <em className="icon ni ni-download" />
+                            <span>Tải xuống tất cả</span>
+                          </a>
+                        </div>
+                      }
                     </div>
                   )}
                 </div>
