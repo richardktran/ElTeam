@@ -76,18 +76,6 @@ const CourseDetailPage = () => {
                   <a href="#" className="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em className="icon ni ni-more-v" /></a>
                   <div className="toggle-expand-content" data-content="pageMenu">
                     <ul className="nk-block-tools g-3">
-                      <li>
-                        <div className="drodown">
-                          <a href="#" className="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-toggle="dropdown"><em className="d-none d-sm-inline icon ni ni-calender-date" /><span><span className="d-none d-md-inline">Last</span> 30 Days</span><em className="dd-indc icon ni ni-chevron-right" /></a>
-                          <div className="dropdown-menu dropdown-menu-right">
-                            <ul className="link-list-opt no-bdr">
-                              <li><a href="#"><span>Last 30 Days</span></a></li>
-                              <li><a href="#"><span>Last 6 Months</span></a></li>
-                              <li><a href="#"><span>Last 1 Years</span></a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
                       {isOwner &&
                         <li className="nk-block-tools-opt">
                           <div onClick={toggleEditable} className="btn btn-primary">

@@ -86,4 +86,11 @@ class TaskController extends Controller
 
         return $this->response($task);
     }
+
+    public function deleteTask(Request $request, Task $task)
+    {
+        $task->delete();
+
+        return $this->response(['message' => 'Delete task successfully']);
+    }
 }

@@ -68,7 +68,12 @@ const Loading = () => {
         <div className="dropdown">
           <a href="#" className="dropdown-toggle" data-toggle="dropdown">
             <div className="user-avatar-group">
-              <Skeleton circle={true} width={32} height={32} count={2} />
+              <div class={`user-avatar sm`}>
+                <Skeleton circle={true} width={32} height={32} />
+              </div>
+              <div class={`user-avatar sm`}>
+                <Skeleton circle={true} width={32} height={32} />
+              </div>
             </div>
           </a>
         </div>

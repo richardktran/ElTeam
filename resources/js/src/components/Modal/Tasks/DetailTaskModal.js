@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Members from './Components/Members';
 import SubmitTask from './Components/SubmitTask';
+import { requestDeleteTask } from '../../../store/Tasks/Reducer';
 
 const { TextArea } = Input;
 
@@ -29,6 +30,24 @@ const DetailTaskModal = (props) => {
         setGroupInfo(group);
     }, [group]);
 
+    const deleteTask = () => {
+        Swal.fire({
+            title: 'Xác nhận xoá?',
+            text: "Bạn có muốn xóa công việc này không?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: 'red',
+            cancelButtonColor: '#8094ae',
+            confirmButtonText: 'Xóa',
+            cancelButtonText: 'Huỷ'
+        }).then(async (result) => {
+            if (result.isConfirmed && groupInfo) {
+                dispatch(requestDeleteTask({ task_id: taskId, group_id: groupInfo.id, isLoading: false }));
+                handleCloseModal();
+            }
+        })
+    }
+
     return (
         <Modal show={isShow} className="fade" size={modalSize} tabIndex={-1} backdrop='true'>
             <a href="#" onClick={handleCloseModal} className="close" data-dismiss="modal" aria-label="Close">
@@ -41,6 +60,7 @@ const DetailTaskModal = (props) => {
                             id={taskInfo.id}
                             title={taskInfo.title}
                             isLoading={isLoading}
+                            deleteTask={deleteTask}
                         />
                         <Members
                             isLoading={isLoading}

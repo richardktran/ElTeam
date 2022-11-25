@@ -20,7 +20,7 @@ function TaskDetailPage(props) {
   const dispatch = useDispatch();
   const group = useSelector(state => state.groupTasks.groupInfo);
   const task = useSelector(state => state.groupTasks.currentTask);
-  const isLoading = useSelector(state => state.groupTasks.isSubmitting);
+  const isLoading = useSelector(state => state.groupTasks.submitting);
   const [taskInfo, setTaskInfo] = useState(task);
   const [groupInfo, setGroupInfo] = useState(group);
 
@@ -30,12 +30,13 @@ function TaskDetailPage(props) {
       const { data } = result.data;
       setGroupInfo(data);
       dispatch(getGroupInfo(data));
-      dispatch(requestCourse({ course_id: data.course_id }));
+      dispatch(requestCourse({ course_id: data.course_id, isLoading: true }));
     }
   }
 
   useEffect(() => {
     dispatch(changeLoading(isLoading));
+    console.log('Loading: ' + isLoading);
   }, [isLoading]);
 
   useEffect(() => {
@@ -43,7 +44,6 @@ function TaskDetailPage(props) {
       return;
     }
     fetchGroupInfo();
-    console.log(taskInfo.course_id);
   }, [taskInfo])
 
   useEffect(() => {
@@ -55,7 +55,7 @@ function TaskDetailPage(props) {
   }, [group]);
 
   useEffect(() => {
-    dispatch(requestTask({ task_id: id }));
+    dispatch(requestTask({ task_id: id, isLoading: true }));
   }, []);
 
   return (
@@ -66,18 +66,20 @@ function TaskDetailPage(props) {
             <HeaderTask
               id={taskInfo.id}
               title={taskInfo.title}
+              isLoading={isLoading}
             />
             <Members
               id={taskInfo.id}
               assignees={taskInfo.assignees}
               members={groupInfo.students}
+              isLoading={isLoading}
             />
 
-            <ContentTask id={taskInfo.id}>
+            <ContentTask id={taskInfo.id} isLoading={isLoading}>
               {taskInfo.content}
             </ContentTask>
 
-            <SubmitTask id={taskInfo.id} />
+            <SubmitTask id={taskInfo.id} isLoading={isLoading} />
           </div>
 
 

@@ -127,6 +127,16 @@ const groupTasks = createSlice({
         submitting: false,
         sections: []
       }
+    },
+    requestDeleteTask: (state, action) => {
+      let isLoading = true;
+      if (action.payload) {
+        isLoading = action.payload.loading === undefined ? true : action.payload.loading;
+      }
+      return {
+        ...state,
+        submitting: isLoading,
+      }
     }
   }
 });
@@ -144,6 +154,7 @@ export const {
   updateTitleTask,
   updateAssignees,
   removeTasks,
+  requestDeleteTask
 } = actions;
 
 export default reducer;

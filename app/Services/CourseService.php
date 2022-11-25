@@ -105,6 +105,15 @@ class CourseService
         return $course;
     }
 
+    public function removeInvite(Course $course)
+    {
+        // Detach all students with status PENDING
+        $course->students()->wherePivot('status', CourseStudent::STATUS_PENDING)->detach();
+        $course->students()->wherePivot('status', CourseStudent::STATUS_DECLINED)->detach();
+
+        return $course;
+    }
+
     public function acceptCourse(Course $course, $user)
     {
         $courseStudent = CourseStudent::where('course_id', $course->id)

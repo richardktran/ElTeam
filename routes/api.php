@@ -56,6 +56,9 @@ Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:stud
     Route::post('/{course}/curriculum', [CourseController::class, 'createOrUpdateCurriculum'])->name('course.update-curriculum');
     Route::post('/{course}/divide-random-groups', [CourseController::class, 'divideStudentToGroups'])->name('course.divideStudentToGroups');
     Route::post('/{course}/lock-group', [CourseController::class, 'lockGroup'])->name('course.lockGroup');
+
+    Route::put('/{course}', [CourseController::class, 'update'])->name('course.update');
+
 });
 
 Route::group(['prefix' => 'groups', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
@@ -64,12 +67,16 @@ Route::group(['prefix' => 'groups', 'middleware' => ['auth:sanctum', 'role:stude
 
     Route::post('/{group}/tasks', [TaskController::class, 'createTask'])->name('groups.task.create');
     Route::post('/{group}/update-task-position', [TaskController::class, 'updatePositionTask'])->name('groups.task.update-position');
+
+    Route::put('/{group}', [GroupController::class, 'update'])->name('groups.update');
 });
 
 Route::group(['prefix' => 'tasks', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {
     Route::get('/{task}', [TaskController::class, 'getTask'])->name('groups.task.get.info');
     Route::get('/{task}/group', [TaskController::class, 'getGroupOfTask'])->name('groups.task.get.groupOfTask');
     Route::put('/{task}', [TaskController::class, 'updateTask'])->name('groups.task.update');
+
+    Route::delete('/{task}', [TaskController::class, 'deleteTask'])->name('groups.task.delete');
 });
 
 Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function () {

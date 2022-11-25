@@ -33,13 +33,13 @@ class CreateKanbanListener implements ShouldQueue
         $course = $event->getCourse();
         $course->sections()->createMany([
             [
-                'title' => ' 📃 To do',
+                'title' => ' 📃 Cần làm',
             ],
             [
-                'title' => ' ✏️ In progress',
+                'title' => ' ✏️ Đang làm',
             ],
             [
-                'title' => ' ✔️ Completed',
+                'title' => ' ✔️ Hoàn thành',
             ],
         ]);
     }

@@ -2,6 +2,7 @@ import { isEmpty } from 'lodash';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
+import Avatar from '../Avatar/Avatar';
 import RandomDivideGroupModel from '../Modal/RandomDivideGroupModel';
 
 const MemberList = (props) => {
@@ -138,15 +139,7 @@ const MemberList = (props) => {
               <div className="nk-tb-col">
                 <a href="html/ecommerce/customer-details.html">
                   <div className="user-card">
-                    {member.avatar === null ? (
-                      <div className="user-avatar bg-primary">
-                        <span>{prefixName}</span>
-                      </div>
-                    ) : (
-                      <div class="user-avatar sm">
-                        <img src={member.avatar} alt="" />
-                      </div>
-                    )}
+                    <Avatar size='sm' image={member.avatar} name={member.name ?? name} />
                     <div className="user-info">
                       <span className="tb-lead">
                         {member.name ?? name}

@@ -5,9 +5,10 @@ import { db } from '../../services/firebase';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-function Notifications() {
+function Notifications(props) {
   const currentUser = useUser();
   const navigate = useNavigate();
+  const { firstNotification } = props;
   const [notifications, setNotifications] = useState([]);
   const [notRead, setNotRead] = useState(0);
 
@@ -39,6 +40,7 @@ function Notifications() {
         setNotRead(newNotRead);
         // Revet order of comments
         newNotifications.reverse();
+        firstNotification(newNotifications[0]);
         setNotifications(newNotifications);
       }
     });

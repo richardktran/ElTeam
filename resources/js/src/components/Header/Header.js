@@ -4,6 +4,24 @@ import Chat from './Chat'
 import Notifications from './Notifications'
 
 function Header() {
+  const [notification, setNotification] = React.useState('');
+  const [taskId, setTaskId] = React.useState(null);
+  const getFirstNotification = (notification) => {
+    setNotification(getContentNotification(notification));
+    setTaskId(notification.taskId);
+  }
+
+  const getContentNotification = (notification) => {
+    const courseCode = notification.courseData.code;
+    const taskIdName = courseCode + '-' + notification.taskId;
+    if (notification.type === 'mention') {
+      return (`${notification.sendBy.name} đã nhắc đến bạn trong bình luận của công việc ${taskIdName}`);
+    }
+  }
+
+  const openTask = () => {
+    window.open(`/tasks/${taskId}`, '_blank');
+  }
   return (
     <div className="nk-header nk-header-fixed is-light">
       <div className="container-fluid">
@@ -19,17 +37,25 @@ function Header() {
 
             </a>
           </div>{/* .nk-header-brand */}
-          <div className="nk-header-search ml-3 ml-xl-0">
-            <em className="icon ni ni-search" />
-            <input type="text" className="form-control border-transparent form-focus-none" placeholder="Search anything" />
-          </div>{/* .nk-header-news */}
+          <div className="nk-header-news d-none d-xl-block" >
+            <div className="nk-news-list">
+              <a className="nk-news-item" href="#" onClick={() => openTask()} data-toggle="tooltip" data-placement="bottom" title={notification}>
+                <div className="nk-news-icon">
+                  <em className="icon ni ni-card-view" />
+                </div>
+                <div className="nk-news-text">
+                  <p>{notification}</p>
+                  <em className="icon ni ni-external" />
+                </div>
+              </a>
+            </div>
+          </div>
           <div className="nk-header-tools">
             <ul className="nk-quick-nav">
-              <li className="dropdown chats-dropdown hide-mb-xs">
-                <Chat />
-              </li>
               <li className="dropdown notification-dropdown">
-                <Notifications />
+                <Notifications
+                  firstNotification={getFirstNotification}
+                />
               </li>
               <li className="dropdown user-dropdown">
                 <UserControl />

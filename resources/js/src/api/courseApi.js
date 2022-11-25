@@ -33,6 +33,11 @@ export const courseApi = {
         const config = await bearerConfig();
         return axiosInstance.post(url, data, config);
     },
+    update: async (id, data) => {
+        const url = DEFAULT_URL + '/' + id;
+        const config = await bearerConfig();
+        return axiosInstance.put(url, data, config);
+    },
     invite: async (id, data) => {
         const url = DEFAULT_URL + '/' + id + '/invite';
         const config = await bearerConfig();

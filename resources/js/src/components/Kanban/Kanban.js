@@ -94,7 +94,7 @@ const Kanban = (props) => {
                     <div class="kanban-title-board">
                       <div class="kanban-title-content">
                         <h6 class="title">{section.title}</h6>
-                        <span class="badge badge-pill badge-outline-light text-dark">3</span>
+                        <span class="badge badge-pill badge-outline-light text-dark">{section.tasks.length}</span>
                       </div>
                       <div class="kanban-title-content">
                         <div class="dropdown">
@@ -171,7 +171,6 @@ const Loading = () => {
                   <h6 class="title">
                     <Skeleton width={200} />
                   </h6>
-                  <span class="badge badge-pill badge-outline-light text-dark">3</span>
                 </div>
                 <div class="kanban-title-content">
                   <div class="dropdown">
