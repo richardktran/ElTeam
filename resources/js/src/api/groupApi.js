@@ -52,5 +52,10 @@ export const groupApi = {
         const url = 'groups' + '/' + groupId;
         const config = await bearerConfig();
         return axiosInstance.put(url, data, config);
+    },
+    deleteTask: async (taskId) => {
+        const url = 'tasks' + '/' + taskId;
+        const config = await bearerConfig();
+        return axiosInstance.delete(url, config);
     }
 }

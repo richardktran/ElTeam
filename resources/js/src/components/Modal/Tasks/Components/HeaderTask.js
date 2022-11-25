@@ -10,7 +10,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 function HeaderTask(props) {
   const dispatch = useDispatch();
-  const { id, title, isLoading } = props;
+  const { id, title, isLoading, deleteTask } = props;
   const [taskTitle, setTaskTitle] = useState(title);
 
   useEffect(() => {
@@ -61,21 +61,9 @@ function HeaderTask(props) {
             <div className="dropdown-menu dropdown-menu-right">
               <ul className="link-list-opt no-bdr">
                 <li>
-                  <a href="#">
-                    <em className="icon ni ni-user-add" />
-                    <span>Assign To Member</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
+                  <a href="#" onClick={() => deleteTask(id)}>
                     <em className="icon ni ni-archive" />
-                    <span>Move to Archive</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <em className="icon ni ni-done" />
-                    <span>Mark as Close</span>
+                    <span>Xóa công việc</span>
                   </a>
                 </li>
               </ul>

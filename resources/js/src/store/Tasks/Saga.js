@@ -11,6 +11,7 @@ import {
   updateContentTask as updateContentTaskAction,
   updateTitleTask as updateTitleTaskAction,
   updateAssignees as updateAssigneesAction,
+  requestDeleteTask as requestDeleteTaskAction,
 
 } from './Reducer';
 import { useDispatch, useSelector } from 'react-redux';
@@ -127,6 +128,16 @@ export function* requestTasks({ payload }) {
   }
 }
 
+export function* requestDeleteTask({ payload }) {
+  try {
+    const { task_id, group_id } = payload;
+    yield call(groupApi.deleteTask, task_id);
+    yield put(requestTaskAction({ group_id: group_id, loading: false }));
+  } catch (e) {
+    const err = _get(e, 'response.data', {});
+  }
+}
+
 
 function* tasksSaga() {
   yield takeLatest(requestTaskInfoAction, requestTask);
@@ -138,6 +149,7 @@ function* tasksSaga() {
   yield takeLatest(updateContentTaskAction, updateContentTask);
   yield takeLatest(updateTitleTaskAction, updateTitleTask);
   yield takeLatest(updateAssigneesAction, updateAssigneesTask);
+  yield takeLatest(requestDeleteTaskAction, requestDeleteTask);
 
 }
 export default tasksSaga;

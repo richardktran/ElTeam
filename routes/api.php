@@ -75,6 +75,8 @@ Route::group(['prefix' => 'tasks', 'middleware' => ['auth:sanctum', 'role:studen
     Route::get('/{task}', [TaskController::class, 'getTask'])->name('groups.task.get.info');
     Route::get('/{task}/group', [TaskController::class, 'getGroupOfTask'])->name('groups.task.get.groupOfTask');
     Route::put('/{task}', [TaskController::class, 'updateTask'])->name('groups.task.update');
+
+    Route::delete('/{task}', [TaskController::class, 'deleteTask'])->name('groups.task.delete');
 });
 
 Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function () {
