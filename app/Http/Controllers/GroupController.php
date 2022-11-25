@@ -33,4 +33,10 @@ class GroupController extends Controller
         
         return $this->response([...$groups]);
     }
+
+    public function update(Request $request, Group $group)
+    {
+        $group->update($request->all());
+        return $this->response($group);
+    }
 }

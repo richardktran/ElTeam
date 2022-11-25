@@ -14,6 +14,7 @@ import DetailTaskModal from '../../components/Modal/Tasks/DetailTaskModal';
 import { changeLoading } from '../../store/App/Reducer';
 import Skeleton from 'react-loading-skeleton';
 import isEmpty from 'lodash/isEmpty';
+import EditGroupNameModal from '../../components/Modal/Course/EditGroupNameModal';
 
 const MyGroupPage = () => {
   let { courseId } = useParams(); //get id from url
@@ -30,6 +31,10 @@ const MyGroupPage = () => {
   const [taskId, setTaskId] = useState(0);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [showDetailTaskModal, setShowDetailTaskModal] = useState(false);
+  const [showEditGroupNameModal, setShowEditGroupNameModal] = useState({
+    show: false,
+    name: ''
+  });
 
   const fetchGroupInfo = async () => {
     let result = await groupApi.getMyGroupInfo(courseId);
@@ -109,10 +114,30 @@ const MyGroupPage = () => {
     }
   }
 
-  useEffect(() => {
-    console.log(loading);
-    console.log(boardData);
-  }, [loading, boardData])
+  const editGroupName = async (values) => {
+    const isUndefined = Object.values(values).some(value => value === undefined);
+    if (isUndefined) {
+      setShowEditGroupNameModal({ show: false, name: '' })
+      return;
+    }
+    try {
+      let data = values;
+
+      const response = await groupApi.updateGroup(groupInfo.id, data);
+      if (response.status === HTTP_OK) {
+        toast.success('Chỉnh sửa thành công!');
+        dispatch(requestCourse({ course_id: courseId }));
+        fetchGroupInfo();
+        setShowEditGroupNameModal({ show: false, name: '' })
+      } else {
+        console.log(response);
+        setShowEditGroupNameModal({ show: false, name: '' })
+      }
+    } catch (e) {
+      console.log(e);
+      setShowEditGroupNameModal({ show: false, name: '' })
+    }
+  }
 
   return (
     <div className="container-fluid">
@@ -148,10 +173,10 @@ const MyGroupPage = () => {
                     <ul className="nk-block-tools g-3">
                       <li>
                         <div className="drodown">
-                          <a href="#" className="btn btn-white btn-dim btn-outline-light" data-toggle="dropdown">
-                            <em class="icon ni ni-setting-alt-fill"></em>
+                          <a onClick={() => setShowEditGroupNameModal({ show: true, name: groupInfo.name })} className="btn btn-white btn-dim btn-outline-light" >
+                            <em class="icon ni ni-pen2"></em>
                             <span>
-                              Cài đặt nhóm
+                              Đổi tên nhóm
                             </span>
                           </a>
                         </div>
@@ -203,6 +228,14 @@ const MyGroupPage = () => {
             isLoading={loading}
             isShow={showDetailTaskModal}
             handleCloseModal={() => setShowDetailTaskModal(false)}
+          />
+
+          <EditGroupNameModal
+            modalName="Đổi tên nhóm"
+            onFinish={editGroupName}
+            currentName={showEditGroupNameModal.name}
+            isShow={showEditGroupNameModal.show}
+            handleCloseModal={() => setShowEditGroupNameModal({ show: false, name: '' })}
           />
         </div>
       </div>

@@ -47,5 +47,10 @@ export const groupApi = {
         const url = 'groups' + '/' + groupId + '/tasks';
         const config = await bearerConfig();
         return axiosInstance.post(url, data, config);
+    },
+    updateGroup: async (groupId, data) => {
+        const url = 'groups' + '/' + groupId;
+        const config = await bearerConfig();
+        return axiosInstance.put(url, data, config);
     }
 }
