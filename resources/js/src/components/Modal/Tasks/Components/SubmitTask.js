@@ -29,7 +29,6 @@ function SubmitTask(props) {
   useEffect(() => {
     console.log(id);
     if (id === undefined) {
-      console.log('force');
       forceUpdate();
     }
     setTaskId(id);
@@ -37,7 +36,6 @@ function SubmitTask(props) {
 
   useEffect(() => {
     if (taskId === null || taskId === undefined) {
-      console.log('force');
       forceUpdate();
       return;
     }

@@ -66,14 +66,12 @@ function CommentTask(props) {
         display: member.name
       }
     });
-    console.log(membersList);
     setMembersList(membersList);
   }, [members]);
 
   useEffect(() => {
     console.log(id);
     if (id === undefined) {
-      console.log('force');
       forceUpdate();
     }
     setTaskId(id);
@@ -82,14 +80,12 @@ function CommentTask(props) {
 
   useEffect(() => {
     if (taskId === null) {
-      console.log('force');
       forceUpdate();
       return;
     }
     const allComments = query(ref(db, "tasks/" + taskId + "/comments"), orderByChild('time'));
     return onValue(allComments, (snapshot) => {
       const data = snapshot.val();
-      console.log(data);
 
       if (snapshot.exists()) {
         const newComments = [];

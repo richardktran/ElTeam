@@ -11,7 +11,6 @@ function FileViewerModal(props) {
   useEffect(() => {
     console.log(url);
     if (url === null) {
-      console.log('force');
       forceUpdate();
     }
     setContent(url);

@@ -26,10 +26,6 @@ function Avatar(props) {
       return acc + char.charCodeAt(0)
     }, 0);
 
-    console.log('Name: ' + name);
-    console.log('Number: ' + number);
-    console.log('Color: ' + colors[number % colors.length]);
-
     return colors[(number % colors.length)];
   }, [name, email]);
 
