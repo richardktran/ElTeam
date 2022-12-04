@@ -84,7 +84,7 @@ function CourseSettingPage() {
                         </div>
 
                         <h3 className="nk-block-title page-title">
-                          Cài đặt khóa học
+                          Cài đặt lớp học
                         </h3>
                       </div>{/* .nk-block-head-content */}
                     </div>{/* .nk-block-between */}
@@ -188,7 +188,7 @@ function CourseSettingPage() {
                       </div>{/* data-item */}
                       <div className="data-item" data-toggle="modal" data-target="#profile-edit">
                         <div className="data-col">
-                          <span className="data-label">Ngày bắt đầu khóa học</span>
+                          <span className="data-label">Ngày bắt đầu lớp học</span>
                           {loading &&
                             <span className="data-value"><Skeleton width={100} height={`1.5rem`} /></span>
                           }
@@ -201,7 +201,7 @@ function CourseSettingPage() {
                               value: course.start_date,
                               type: 'date',
                               field: 'start_date',
-                              label: 'Ngày bắt đầu khóa học'
+                              label: 'Ngày bắt đầu lớp học'
                             })
                           }>
                             <em className="icon ni ni-forward-ios" />
@@ -210,7 +210,7 @@ function CourseSettingPage() {
                       </div>{/* data-item */}
                       <div className="data-item" data-toggle="modal" data-target="#profile-edit" data-tab-target="#address">
                         <div className="data-col">
-                          <span className="data-label">Ngày kết thúc khóa học</span>
+                          <span className="data-label">Ngày kết thúc lớp học</span>
                           {loading &&
                             <span className="data-value"><Skeleton width={100} height={`1.5rem`} /></span>
                           }
@@ -223,7 +223,7 @@ function CourseSettingPage() {
                               value: course.end_date,
                               type: 'date',
                               field: 'end_date',
-                              label: 'Ngày kết thúc khóa học'
+                              label: 'Ngày kết thúc lớp học'
                             })
                           }>
                             <em className="icon ni ni-forward-ios" />

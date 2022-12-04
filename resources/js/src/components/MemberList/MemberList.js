@@ -2,6 +2,7 @@ import { isEmpty } from 'lodash';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
+import { Link } from 'react-router-dom';
 import Avatar from '../Avatar/Avatar';
 import RandomDivideGroupModel from '../Modal/RandomDivideGroupModel';
 
@@ -45,7 +46,7 @@ const MemberList = (props) => {
           className="d-flex flex-column align-items-center justify-content-center"
         >
           <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
-          <h6 className="mt-3">Chưa có thành viên nào tham gia khóa học này</h6>
+          <h6 className="mt-3">Chưa có thành viên nào tham gia lớp học này</h6>
           {isOwner && <div className="btn btn-primary mt-3" onClick={() => setIsShowAddModal(true)}>Thêm thành viên</div>}
         </div>
       }
@@ -137,9 +138,9 @@ const MemberList = (props) => {
                 </div>
               </div>
               <div className="nk-tb-col">
-                <a href="html/ecommerce/customer-details.html">
+                <a href={`/users/${member.id}`}>
                   <div className="user-card">
-                    <Avatar size='sm' image={member.avatar} name={member.name ?? name} />
+                    <Avatar size='sm' image={member.avatar} email={member.email} name={member.name ?? name} />
                     <div className="user-info">
                       <span className="tb-lead">
                         {member.name ?? name}

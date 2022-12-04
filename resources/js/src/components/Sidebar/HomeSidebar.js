@@ -6,14 +6,14 @@ import { checkMatchPatternWithCourse } from '../../utils/sidebar';
 function HomeSidebar({ pathname }) {
   const items = [
     {
-      icon: "icon ni ni-cart-fill",
+      icon: "icon ni ni-layout-fill1",
       pathPattern: '/courses',
-      title: 'Danh sách khóa học',
+      title: 'Danh sách lớp học',
     },
     {
-      icon: "icon ni ni-growth-fill",
+      icon: "icon ni ni-book-fill",
       pathPattern: '/my-courses',
-      title: 'Khóa học của tôi',
+      title: 'Lớp học của tôi',
     },
     {
       icon: "icon ni ni-activity-round-fill",

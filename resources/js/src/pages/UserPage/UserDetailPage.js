@@ -55,8 +55,8 @@ function UserDetailPage() {
             </div>{/* .nk-block-head */}
             <div className="nk-block">
               <div className="card card-bordered">
-                <div className="card-aside-wrap">
-                  <div className="card-content mt-4"> {/* .nav-tabs */}
+                <div className="card-aside-wrap row">
+                  <div className="card-content mt-4 col-lg-8"> {/* .nav-tabs */}
                     <div className="card-inner ">
                       <div className="nk-block">
                         <div className="nk-block-head">
@@ -99,7 +99,7 @@ function UserDetailPage() {
                           <div className="profile-ud-item">
                             <div className="profile-ud wider">
                               <span className="profile-ud-label">Ngày tham gia</span>
-                              <span className="profile-ud-value">{new Date(user.created_at).toLocaleString()}</span>
+                              <span className="profile-ud-value">{new Date(user.created_at).toLocaleDateString()}</span>
                             </div>
                           </div>
                           <div className="profile-ud-item">
@@ -130,7 +130,7 @@ function UserDetailPage() {
 
                     </div>{/* .card-inner */}
                   </div>{/* .card-content */}
-                  <div className="card-aside card-aside-right user-aside" style={{ minHeight: '100% !important' }}>
+                  <div className="card-aside-right col-lg-4" style={{ minHeight: '100% !important' }}>
                     <div className="card-inner-group" data-simplebar="init">
                       <div className="simplebar-wrapper" style={{ margin: '0px' }}>
                         <div className="simplebar-height-auto-observer-wrapper">
@@ -142,7 +142,7 @@ function UserDetailPage() {
                               <div className="simplebar-content" style={{ padding: '0px' }}>
                                 <div className="card-inner pt-3 pb-3">
                                   <div className="user-card user-card-s2">
-                                    <Avatar name={user.name} image={user.avatar} size='lg' />
+                                    <Avatar email={user.email} name={user.name} image={user.avatar} size='lg' />
                                     <div className="user-info">
                                       <h5>{user.name}</h5>
                                       <span className="sub-text">{user.email}</span>
@@ -158,7 +158,7 @@ function UserDetailPage() {
                                     </div>
                                     <div className="col-6">
                                       <span className="sub-text">Last Login:</span>
-                                      <span>15 Feb, 2019 01:02 PM</span>
+                                      <span>{new Date(user.created_at).toLocaleDateString()}</span>
                                     </div>
                                     <div className="col-6">
                                       <span className="sub-text">Tình trạng:</span>
@@ -166,7 +166,7 @@ function UserDetailPage() {
                                     </div>
                                     <div className="col-6">
                                       <span className="sub-text">Ngày tham gia:</span>
-                                      <span>{new Date(user.created_at).toLocaleString()}</span>
+                                      <span>{new Date(user.created_at).toLocaleDateString()}</span>
                                     </div>
                                   </div>
                                 </div>

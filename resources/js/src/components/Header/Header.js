@@ -20,6 +20,9 @@ function Header() {
   }
 
   const openTask = () => {
+    if (taskId === null) {
+      return;
+    }
     window.open(`/tasks/${taskId}`, '_blank');
   }
   return (
@@ -44,8 +47,8 @@ function Header() {
                   <em className="icon ni ni-card-view" />
                 </div>
                 <div className="nk-news-text">
-                  <p>{notification}</p>
-                  <em className="icon ni ni-external" />
+                  <p style={{ width: 'calc(100%)' }}>{notification === '' ? 'Chào mừng bạn đến với Elteam' : notification}</p>
+                  {notification !== '' && <em className="icon ni ni-external" />}
                 </div>
               </a>
             </div>

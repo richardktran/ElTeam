@@ -93,7 +93,7 @@ function GroupListPage() {
               className="d-flex flex-column align-items-center justify-content-center"
             >
               <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
-              <h6 className="mt-3">Bạn chưa chốt nhóm cho khóa học này</h6>
+              <h6 className="mt-3">Bạn chưa chốt nhóm cho lớp học này</h6>
               <div className="btn btn-primary mt-3" onClick={() => goToMemberPage()}>Phân nhóm và chốt nhóm ngay</div>
             </div>
           }
@@ -155,7 +155,7 @@ function GroupListPage() {
                               if (index < 3) {
                                 return (
                                   <div>
-                                    <Avatar image={member.avatar} name={member.name} size='sm' />
+                                    <Avatar email={member.email} image={member.avatar} name={member.name} size='sm' />
                                   </div>
                                 );
                               }

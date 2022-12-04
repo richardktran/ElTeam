@@ -2,13 +2,13 @@ export const homeItems = [
   {
     icon: "icon ni ni-cart-fill",
     path: 'courses',
-    title: 'Danh sách khóa học',
+    title: 'Danh sách lớp học',
     active: true,
   },
   {
     icon: "icon ni ni-growth-fill",
     path: 'my-courses',
-    title: 'Khóa học của tôi',
+    title: 'Lớp học của tôi',
     active: false,
   },
   {
