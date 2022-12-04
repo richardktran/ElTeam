@@ -56,9 +56,11 @@ Route::group(['prefix' => 'courses', 'middleware' => ['auth:sanctum', 'role:stud
     Route::post('/{course}/curriculum', [CourseController::class, 'createOrUpdateCurriculum'])->name('course.update-curriculum');
     Route::post('/{course}/divide-random-groups', [CourseController::class, 'divideStudentToGroups'])->name('course.divideStudentToGroups');
     Route::post('/{course}/lock-group', [CourseController::class, 'lockGroup'])->name('course.lockGroup');
+    Route::post('/{course}/exit', [CourseController::class, 'exitCourse'])->name('course.exitCourse');
 
     Route::put('/{course}', [CourseController::class, 'update'])->name('course.update');
 
+    Route::delete('/{course}', [CourseController::class, 'delete'])->name('course.delete');
 });
 
 Route::group(['prefix' => 'groups', 'middleware' => ['auth:sanctum', 'role:student,teacher,admin']], function () {

@@ -67,5 +67,15 @@ export const courseApi = {
         const url = DEFAULT_URL + '/' + id + '/lock-group';
         const config = await bearerConfig();
         return axiosInstance.post(url, {}, config);
+    },
+    delete: async (id) => {
+        const url = DEFAULT_URL + '/' + id;
+        const config = await bearerConfig();
+        return axiosInstance.delete(url, config);
+    },
+    exit: async (id) => {
+        const url = DEFAULT_URL + '/' + id + '/exit';
+        const config = await bearerConfig();
+        return axiosInstance.post(url, {}, config);
     }
 }

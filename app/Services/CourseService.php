@@ -195,4 +195,11 @@ class CourseService
             $group->delete();
         }
     }
+
+    public function exitCourse(Course $course, $user)
+    {
+        $course->students()->detach($user);
+
+        return $course;
+    }
 }

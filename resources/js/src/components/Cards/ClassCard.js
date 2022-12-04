@@ -1,8 +1,11 @@
 import React, { useMemo } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
 import Avatar from '../Avatar/Avatar';
+import Swal from 'sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss'
+import { courseApi } from '../../api/courseApi';
 
 const ClassCard = (props) => {
   const { id, name, code, credit, lock_group, location, hours_per_week, students, status, handleAccept, handleDecline, isMyCourse = false } = props;
@@ -32,6 +35,54 @@ const ClassCard = (props) => {
     navigate(`${isMyCourse ? '/courses/' : ''}${courseId}/lesson`);
   }
 
+  const exitCourse = async (courseId) => {
+    const result = await Swal.fire({
+      title: 'Bạn có chắc chắn muốn rời khỏi lớp học này?',
+      showCancelButton: true,
+      icon: 'warning',
+      confirmButtonColor: 'red',
+      cancelButtonColor: '#8094ae',
+      confirmButtonText: 'Đồng ý',
+      cancelButtonText: 'Huỷ'
+    })
+
+    if (result.isConfirmed) {
+      try {
+        const response = await courseApi.exit(courseId);
+        toast.success('Rời khỏi lớp học thành công');
+        window.location.reload();
+      } catch (e) {
+        toast.error('Rời khỏi lớp học thất bại');
+      }
+    }
+  }
+
+
+  const deleteCourse = (courseId) => {
+    Swal.fire({
+      title: 'Xác nhận xoá?',
+      text: "Bạn có muốn xóa lớp học này không?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: 'red',
+      cancelButtonColor: '#8094ae',
+      confirmButtonText: 'Xóa',
+      cancelButtonText: 'Huỷ'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const response = await courseApi.delete(id);
+          if (response.status === 200) {
+            toast.success('Xoá thành công');
+            window.location.reload();
+          }
+        } catch (error) {
+          toast.error('Xoá thất bại');
+        }
+      }
+    })
+  }
+
   return (
     <div id={id} className="card h-100">
       <div className="card-inner">
@@ -43,37 +94,39 @@ const ClassCard = (props) => {
                 <span className="sub-text">10 nhóm</span>
               </div>
             </a>
-            <div className="drodown">
-              <a href="#" className="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown">
-                <em className="icon ni ni-more-h" />
-              </a>
-              <div className="dropdown-menu dropdown-menu-right">
-                <ul className="link-list-opt no-bdr">
-                  <li>
-                    <a href="html/apps-kanban.html">
-                      <em className="icon ni ni-eye" />
-                      <span>Xem lớp học</span>
-                    </a>
-                  </li>
-                  {isMyCourse === false && lock_group == 0 &&
+            {status !== 'pending' &&
+              <div className="drodown">
+                <a href="#" className="dropdown-toggle btn btn-sm btn-icon btn-trigger mt-n1 mr-n1" data-toggle="dropdown">
+                  <em className="icon ni ni-more-h" />
+                </a>
+                <div className="dropdown-menu dropdown-menu-right">
+                  <ul className="link-list-opt no-bdr">
                     <li>
-                      <a href="#">
-                        <em class="icon ni ni-user-cross-fill"></em>
-                        <span>Rời lớp học</span>
-                      </a>
+                      <Link to={`/courses/${id}/lesson`}>
+                        <em className="icon ni ni-eye" />
+                        <span>Xem lớp học</span>
+                      </Link>
                     </li>
-                  }
-                  {isMyCourse === true &&
-                    <li>
-                      <a href="#">
-                        <em class="icon ni ni-trash-alt"></em>
-                        <span>Xóa lớp học</span>
-                      </a>
-                    </li>
-                  }
-                </ul>
+                    {isMyCourse === false && lock_group == 0 &&
+                      <li>
+                        <a onClick={() => exitCourse(id)}>
+                          <em class="icon ni ni-user-cross-fill"></em>
+                          <span>Rời lớp học</span>
+                        </a>
+                      </li>
+                    }
+                    {isMyCourse === true &&
+                      <li>
+                        <a onClick={() => deleteCourse(id)}>
+                          <em class="icon ni ni-trash-alt"></em>
+                          <span>Xóa lớp học</span>
+                        </a>
+                      </li>
+                    }
+                  </ul>
+                </div>
               </div>
-            </div>
+            }
           </div>
           <div className="project-details">
             <div className="row">
