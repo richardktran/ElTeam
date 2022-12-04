@@ -79,7 +79,7 @@ const AddCoursesModal = (props) => {
                                 ]}
                             >
                                 <DatePicker
-                                    placeholder="Ngày bắt đầu khóa học"
+                                    placeholder="Ngày bắt đầu lớp học"
                                     id="start_date"
                                     className="form-control"
                                     disabledDate={(current) =>
@@ -103,7 +103,7 @@ const AddCoursesModal = (props) => {
                                 ]}
                             >
                                 <DatePicker
-                                    placeholder="Ngày kết thúc khóa học"
+                                    placeholder="Ngày kết thúc lớp học"
                                     id="end_date"
                                     className="form-control"
                                     disabledDate={(current) =>
@@ -115,7 +115,7 @@ const AddCoursesModal = (props) => {
                     </div>
                 </div>
                 <Form.Item className="form-group">
-                    <button type="submit" className="btn btn-lg btn-primary">Thêm khóa học</button>
+                    <button type="submit" className="btn btn-lg btn-primary">Thêm lớp học</button>
                 </Form.Item>
             </Form>
         </BaseModal>

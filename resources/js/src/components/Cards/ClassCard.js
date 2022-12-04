@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
+import Avatar from '../Avatar/Avatar';
 
 const ClassCard = (props) => {
-  const { id, name, code, credit, location, hours_per_week, status, handleAccept, handleDecline, isMyCourse = false } = props;
+  const { id, name, code, credit, lock_group, location, hours_per_week, students, status, handleAccept, handleDecline, isMyCourse = false } = props;
 
   const navigate = useNavigate();
 
+  const getStudentList = useMemo(() => {
+    let members = students;
+    members.sort((a, b) => {
+      if (a.avatar === null && b.avatar !== null) {
+        return 1;
+      }
+      if (a.avatar !== null && b.avatar === null) {
+        return -1;
+      }
+      return 0;
+    });
+
+    return members;
+  }, [students]);
+
   const goToCourse = (courseId) => {
     if (status === 'pending') {
-      toast.error('Bạn chưa đăng ký tham gia vào khóa học này');
+      toast.error('Bạn chưa đăng ký tham gia vào lớp học này');
       return;
     }
     navigate(`${isMyCourse ? '/courses/' : ''}${courseId}/lesson`);
@@ -36,21 +52,25 @@ const ClassCard = (props) => {
                   <li>
                     <a href="html/apps-kanban.html">
                       <em className="icon ni ni-eye" />
-                      <span>View Project</span>
+                      <span>Xem lớp học</span>
                     </a>
                   </li>
-                  <li>
-                    <a href="#">
-                      <em className="icon ni ni-edit" />
-                      <span>Edit Project</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <em className="icon ni ni-check-round-cut" />
-                      <span>Mark As Done</span>
-                    </a>
-                  </li>
+                  {isMyCourse === false && lock_group == 0 &&
+                    <li>
+                      <a href="#">
+                        <em class="icon ni ni-user-cross-fill"></em>
+                        <span>Rời lớp học</span>
+                      </a>
+                    </li>
+                  }
+                  {isMyCourse === true &&
+                    <li>
+                      <a href="#">
+                        <em class="icon ni ni-trash-alt"></em>
+                        <span>Xóa lớp học</span>
+                      </a>
+                    </li>
+                  }
                 </ul>
               </div>
             </div>
@@ -74,7 +94,7 @@ const ClassCard = (props) => {
               <div className="col-md-6">
                 <span className="label-tag">
                   <em className="text-primary icon ni ni-users"></em>
-                  <span> 40 sinh viên</span>
+                  <span> {students.length} thành viên</span>
                 </span>
               </div>
               <div className="col-md-6">
@@ -99,37 +119,43 @@ const ClassCard = (props) => {
           </div>
           <div className="project-meta mb-3">
             <ul className="project-users g-1">
-              <li>
-                <div className="user-avatar sm bg-primary">
-                  <span>A</span>
-                </div>
-              </li>
-              <li>
-                <div className="user-avatar sm bg-blue">
-                  <img src="./images/avatar/b-sm.jpg" alt="" />
-                </div>
-              </li>
-              <li>
-                <div className="user-avatar bg-light sm">
-                  <span>+12</span>
-                </div>
-              </li>
+              {getStudentList && getStudentList.map((member, index) => {
+                if (index < 3) {
+                  return (
+                    <div>
+                      <Avatar email={member.email} image={member.avatar} name={member.name ?? member.email} size='sm' />
+                    </div>
+                  );
+                }
+              })}
+              {getStudentList && getStudentList.length - 3 > 0 && (
+                <li>
+                  <div className="user-avatar bg-light sm">
+                    <span>+{getStudentList.length - 3}</span>
+                  </div>
+                </li>
+              )}
             </ul>
-            <span className="badge badge-dim badge-warning">
-              <em className="icon ni ni-clock" />
-              <span>5 Days Left</span>
-            </span>
+            {lock_group == 1 &&
+              <span className="badge badge-dim badge-primary">
+                <em class="icon ni ni-lock-fill"></em>
+                <span>Đã chốt nhóm</span>
+              </span>
+            }
+
+            {lock_group == 0 &&
+              <span className="badge badge-dim badge-warning">
+                <em class="icon ni ni-unlock-fill"></em>
+                <span>Chưa chốt nhóm</span>
+              </span>
+            }
           </div>
           {status === 'pending' ? (
             <div className="col-12 mt-3">
-              <ul className="align-center flex-wrap flex-sm-nowrap gx-5 gy-2">
-                <li>
-                  <div onClick={() => handleDecline(id)} className="btn btn-danger">Từ chối</div>
-                </li>
-                <li>
-                  <div onClick={() => handleAccept(id)} className="btn btn-primary">Tham gia</div>
-                </li>
-              </ul>
+              <div className="d-flex justify-content-around mt-2">
+                <div onClick={() => handleDecline(id)} className="btn btn-danger">Từ chối</div>
+                <div onClick={() => handleAccept(id)} className="btn btn-primary">Tham gia</div>
+              </div>
             </div>
           ) : (
             <div className="col-12 mt-3">

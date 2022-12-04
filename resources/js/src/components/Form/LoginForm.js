@@ -47,7 +47,7 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                     <div className="nk-block-head-content">
                         <h5 className="nk-block-title">Đăng nhập</h5>
                         <div className="nk-block-des">
-                            <p>Truy cập vào khóa học qua email và mật khẩu.</p>
+                            <p>Truy cập vào lớp học qua email và mật khẩu.</p>
                         </div>
                     </div>
                 </div>{/* .nk-block-head */}

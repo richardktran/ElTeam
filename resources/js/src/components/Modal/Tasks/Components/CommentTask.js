@@ -210,7 +210,7 @@ function CommentTask(props) {
         <div className="nk-reply-form" style={{ marginBottom: "0" }}>
           <div className="nk-reply-form-header">
             <div className="nk-reply-form-title my-2">
-              <Avatar image={currentUser.avatar} name={currentUser.name} />
+              <Avatar image={currentUser.avatar} name={currentUser.name} email={currentUser.email} />
               <div className="title ml-2">{currentUser.name}</div>
             </div>
             <ul className="nav nav-tabs-s2 nav-tabs nav-tabs-sm">
@@ -272,7 +272,7 @@ function CommentTask(props) {
                       ) => (
                         <li className="chat-item ">
                           <a className="chat-link" href="#">
-                            <Avatar image={suggestion.avatar} name={suggestion.name} />
+                            <Avatar image={suggestion.avatar} name={suggestion.name} email={suggestion.email} />
                             <div className="chat-info ml-2">
                               <div className="chat-from"><div className="name">{suggestion.name}</div></div>
                             </div>
@@ -352,7 +352,7 @@ function CommentTask(props) {
               <div className="nk-reply-item">
                 <div className="nk-reply-header">
                   <div className="user-card">
-                    <Avatar image={comment.sendBy.avatar} name={comment.sendBy.name} />
+                    <Avatar image={comment.sendBy.avatar} name={comment.sendBy.name} email={comment.sendBy.email} />
                     <div className="user-name">{comment.sendBy.name}</div>
                   </div>
                   <div className="date-time">{datetime.toLocaleString()}</div>

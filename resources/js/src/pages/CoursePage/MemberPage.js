@@ -46,7 +46,7 @@ const MemberPage = () => {
       }
     });
     if (count === 0) {
-      toast.error('Chưa thể phân nhóm do chưa có thành viên đồng ý tham gia khóa học');
+      toast.error('Chưa thể phân nhóm do chưa có thành viên đồng ý tham gia lớp học');
       return;
     }
     setShowRandomFormModel(true);
@@ -98,7 +98,7 @@ const MemberPage = () => {
       });
     }
     fetchMembers();
-    toast.success('Lời mời tham gia khóa học đã được gởi đến ' + values.email);
+    toast.success('Lời mời tham gia lớp học đã được gởi đến ' + values.email);
     setShowMemberModal(false);
   }
 
@@ -122,7 +122,7 @@ const MemberPage = () => {
       }
     });
     if (count === 0) {
-      toast.error('Chưa thể phân nhóm do chưa có thành viên đồng ý tham gia khóa học');
+      toast.error('Chưa thể phân nhóm do chưa có thành viên đồng ý tham gia lớp học');
       return;
     }
     try {

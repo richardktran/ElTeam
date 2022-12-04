@@ -128,7 +128,7 @@ function Lesson(props) {
           className="d-flex flex-column align-items-center justify-content-center"
         >
           <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
-          <h6 className="mt-3">Khóa học này chưa có chủ đề nào
+          <h6 className="mt-3">Lớp học này chưa có chủ đề nào
             {isOwner && <span>, tạo chủ đề ngay!</span>}
           </h6>
           {isOwner && <div className="btn btn-primary mt-3" onClick={() => setIsAddTopic(true)}>Tạo chủ đề</div>}
