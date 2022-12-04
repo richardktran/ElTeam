@@ -33,6 +33,17 @@ function HomePage() {
             return course;
         });
 
+        // Sort data by status pending on top
+        data.sort((a, b) => {
+            if (a.status === 'pending' && b.status !== 'pending') {
+                return -1;
+            }
+            if (a.status !== 'pending' && b.status === 'pending') {
+                return 1;
+            }
+            return 0;
+        });
+
         return data;
     }
 
