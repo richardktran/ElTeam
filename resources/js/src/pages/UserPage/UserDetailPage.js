@@ -142,7 +142,7 @@ function UserDetailPage() {
                               <div className="simplebar-content" style={{ padding: '0px' }}>
                                 <div className="card-inner pt-3 pb-3">
                                   <div className="user-card user-card-s2">
-                                    <Avatar name={user.name} image={user.avatar} size='lg' />
+                                    <Avatar email={user.email} name={user.name} image={user.avatar} size='lg' />
                                     <div className="user-info">
                                       <h5>{user.name}</h5>
                                       <span className="sub-text">{user.email}</span>

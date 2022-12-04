@@ -58,27 +58,15 @@ const UserControl = () => {
                 <div className="dropdown-inner">
                     <ul className="link-list">
                         <li>
-                            <a href="html/user-profile-regular.html">
+                            <a href={`/users/${userData.id}`}>
                                 <em className="icon ni ni-user-alt" />
-                                <span>View Profile</span>
+                                <span>Thông tin cá nhân</span>
                             </a>
                         </li>
                         <li>
-                            <a href="html/user-profile-setting.html">
+                            <a href="user-settings">
                                 <em className="icon ni ni-setting-alt" />
-                                <span>Account Setting</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="html/user-profile-activity.html">
-                                <em className="icon ni ni-activity-alt" />
-                                <span>Login Activity</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a className="dark-switch" href="#">
-                                <em className="icon ni ni-moon" />
-                                <span>Dark Mode</span>
+                                <span>Cài đặt tài khoản</span>
                             </a>
                         </li>
                     </ul>
@@ -88,7 +76,7 @@ const UserControl = () => {
                         <li>
                             <a href='#' onClick={logout}>
                                 <em className="icon ni ni-signout" />
-                                <span>Sign out</span>
+                                <span>Đăng xuất</span>
                             </a>
                         </li>
                     </ul>

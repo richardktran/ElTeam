@@ -8,12 +8,12 @@ function HomeSidebar({ pathname }) {
     {
       icon: "icon ni ni-cart-fill",
       pathPattern: '/courses',
-      title: 'Danh sách khóa học',
+      title: 'Danh sách lớp học',
     },
     {
       icon: "icon ni ni-growth-fill",
       pathPattern: '/my-courses',
-      title: 'Khóa học của tôi',
+      title: 'Lớp học của tôi',
     },
     {
       icon: "icon ni ni-activity-round-fill",

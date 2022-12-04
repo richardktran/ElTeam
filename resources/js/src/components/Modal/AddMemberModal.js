@@ -99,7 +99,7 @@ const AddMemberModal = (props) => {
             console.log(e);
         }
         fetchMembers();
-        toast.success('Lời mời tham gia khóa học đã được gởi');
+        toast.success('Lời mời tham gia lớp học đã được gởi');
         setIsShow(false);
         setEmailList([]);
         setSingleEmail('');

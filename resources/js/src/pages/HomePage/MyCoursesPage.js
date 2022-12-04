@@ -48,12 +48,12 @@ function MyCoursesPage() {
 
             const response = await courseApi.create(data);
             if (response.status === HTTP_OK) {
-                toast.success('Thêm khóa học thành công!');
+                toast.success('Thêm lớp học thành công!');
                 fetchOwnCourses();
                 setShowModal(false);
             } else {
                 console.log(response);
-                toast.error("Thêm khóa học thất bại!!!");
+                toast.error("Thêm lớp học thất bại!!!");
                 setShowModal(true);
             }
         } catch (e) {
@@ -72,9 +72,9 @@ function MyCoursesPage() {
                 <div className="nk-block-head nk-block-head-sm">
                     <div className="nk-block-between">
                         <div className="nk-block-head-content">
-                            <h3 className="nk-block-title page-title">Khóa học của tôi</h3>
+                            <h3 className="nk-block-title page-title">Lớp học của tôi</h3>
                             <div className="nk-block-des text-soft">
-                                <p>Bạn có {totalOwnCourses} khóa học.</p>
+                                <p>Bạn có {totalOwnCourses} lớp học.</p>
                             </div>
                         </div>
                         {/* .nk-block-head-content */}
@@ -116,7 +116,7 @@ function MyCoursesPage() {
                                         <li className="nk-block-tools-opt">
                                             <a href="#" className="btn btn-primary" onClick={() => setShowModal(true)} data-toggle="modal" data-target="#createCoursesModal">
                                                 <em className="icon ni ni-plus" />
-                                                <span>Thêm khóa học</span>
+                                                <span>Thêm lớp học</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -134,8 +134,8 @@ function MyCoursesPage() {
                         className="d-flex flex-column align-items-center justify-content-center"
                     >
                         <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
-                        <h6 className="mt-3">Bạn chưa tạo khóa học nào, hãy tạo khóa học cho bạn</h6>
-                        <div className="btn btn-primary mt-3" onClick={() => setShowModal(true)}>Tạo khóa học</div>
+                        <h6 className="mt-3">Bạn chưa tạo lớp học nào, hãy tạo lớp học cho bạn</h6>
+                        <div className="btn btn-primary mt-3" onClick={() => setShowModal(true)}>Tạo lớp học</div>
 
                     </div>
                 }
@@ -161,7 +161,7 @@ function MyCoursesPage() {
                 </div>
                 {/* .nk-block */}
                 <AddCoursesModal
-                    modalName="Thêm khóa học"
+                    modalName="Thêm lớp học"
                     onFinish={addCourse}
                     isShow={showModal}
                     handleCloseModal={() => setShowModal(false)}

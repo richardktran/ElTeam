@@ -30,7 +30,7 @@ const KanbanCard = props => {
           <a href="#" className="dropdown-toggle" data-toggle="dropdown">
             <div className="user-avatar-group">
               {assigneesList && assigneesList.map((assignee, index) => (
-                <Avatar image={assignee.avatar} name={assignee.name} size='xs' />
+                <Avatar email={assignee.email} image={assignee.avatar} name={assignee.name} size='xs' />
               ))}
             </div>
           </a>

@@ -43,6 +43,7 @@ function HomePage() {
             const { total } = meta.pagination;
             setCoursesData(getStatusFromData(data));
             setTotalCourses(total);
+            console.log(data);
         }
     }
 
@@ -53,7 +54,7 @@ function HomePage() {
     const handleAccept = async (courseId) => {
         const result = await courseApi.accept(courseId);
         if (result.status === HTTP_OK) {
-            toast.success("Đã chấp nhận yêu cầu tham gia khóa học");
+            toast.success("Đã chấp nhận yêu cầu tham gia lớp học");
             fetchLearningCourses();
         }
     }
@@ -61,7 +62,7 @@ function HomePage() {
     const handleDecline = async (courseId) => {
         const result = await courseApi.decline(courseId);
         if (result.status === HTTP_OK) {
-            toast.success("Đã từ chối yêu cầu tham gia khóa học");
+            toast.success("Đã từ chối yêu cầu tham gia lớp học");
             fetchLearningCourses();
         }
     }
@@ -71,9 +72,9 @@ function HomePage() {
             <div className="nk-block-head nk-block-head-sm">
                 <div className="nk-block-between">
                     <div className="nk-block-head-content">
-                        <h3 className="nk-block-title page-title">Các khóa học</h3>
+                        <h3 className="nk-block-title page-title">Các lớp học</h3>
                         <div className="nk-block-des text-soft">
-                            <p>Bạn có {totalCourses} khóa học.</p>
+                            <p>Bạn có {totalCourses} lớp học.</p>
                         </div>
                     </div>
                     {/* .nk-block-head-content */}
@@ -125,7 +126,7 @@ function HomePage() {
                     className="d-flex flex-column align-items-center justify-content-center"
                 >
                     <img src="https://www.gstatic.com/classroom/empty_states_home.svg" />
-                    <h6 className="mt-3">Bạn chưa tham gia vào khóa học nào</h6>
+                    <h6 className="mt-3">Bạn chưa tham gia vào lớp học nào</h6>
 
                 </div>
             }

@@ -22,25 +22,34 @@ function Avatar(props) {
 
   //Get random color
   const randomColor = React.useCallback(() => {
-    const number = name.split('').reduce((acc, char) => {
-      return acc + char.charCodeAt(0)
-    }, 0);
+    let number = 0;
+    if (name !== '' && name !== null) {
+      number = name.split('').reduce((acc, char) => {
+        return acc + char.charCodeAt(0)
+      }, 0);
+    } else {
+      number = email.split('').reduce((acc, char) => {
+        return acc + char.charCodeAt(0)
+      }, 0);
+    }
+
 
     return colors[(number % colors.length)];
   }, [name, email]);
 
   const getNameLabel = React.useMemo(() => {
     return () => {
-      if (name) {
+      if (name !== '' && name !== null) {
         const lastName = name.split(' ').pop();
         //Get first name 
         const firstName = name.split(' ').shift();
-        const firstLetter = lastName.charAt(0);
-        return firstName.charAt(0) + firstLetter;
+        const firstLetter = lastName.charAt(0).toUpperCase();
+        return (firstName.charAt(0).toUpperCase() + firstLetter).toUpperCase();
       }
-      return '';
+      console.log(email);
+      return email[0].toUpperCase() + email[1].toUpperCase();
     }
-  }, [name]);
+  }, [name, email]);
 
   const getEmailLabel = React.useMemo(() => {
     return () => {

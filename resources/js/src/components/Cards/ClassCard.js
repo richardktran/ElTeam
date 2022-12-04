@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
+import Avatar from '../Avatar/Avatar';
 
 const ClassCard = (props) => {
-  const { id, name, code, credit, location, hours_per_week, status, handleAccept, handleDecline, isMyCourse = false } = props;
+  const { id, name, code, credit, location, hours_per_week, students, status, handleAccept, handleDecline, isMyCourse = false } = props;
 
   const navigate = useNavigate();
 
+  const getStudentList = useMemo(() => {
+    let members = students;
+    members.sort((a, b) => {
+      if (a.avatar === null && b.avatar !== null) {
+        return 1;
+      }
+      if (a.avatar !== null && b.avatar === null) {
+        return -1;
+      }
+      return 0;
+    });
+
+    return members;
+  }, [students]);
+
   const goToCourse = (courseId) => {
     if (status === 'pending') {
-      toast.error('Bạn chưa đăng ký tham gia vào khóa học này');
+      toast.error('Bạn chưa đăng ký tham gia vào lớp học này');
       return;
     }
     navigate(`${isMyCourse ? '/courses/' : ''}${courseId}/lesson`);
@@ -74,7 +90,7 @@ const ClassCard = (props) => {
               <div className="col-md-6">
                 <span className="label-tag">
                   <em className="text-primary icon ni ni-users"></em>
-                  <span> 40 sinh viên</span>
+                  <span> {students.length} thành viên</span>
                 </span>
               </div>
               <div className="col-md-6">
@@ -99,21 +115,22 @@ const ClassCard = (props) => {
           </div>
           <div className="project-meta mb-3">
             <ul className="project-users g-1">
-              <li>
-                <div className="user-avatar sm bg-primary">
-                  <span>A</span>
-                </div>
-              </li>
-              <li>
-                <div className="user-avatar sm bg-blue">
-                  <img src="./images/avatar/b-sm.jpg" alt="" />
-                </div>
-              </li>
-              <li>
-                <div className="user-avatar bg-light sm">
-                  <span>+12</span>
-                </div>
-              </li>
+              {getStudentList && getStudentList.map((member, index) => {
+                if (index < 3) {
+                  return (
+                    <div>
+                      <Avatar email={member.email} image={member.avatar} name={member.name ?? member.email} size='sm' />
+                    </div>
+                  );
+                }
+              })}
+              {getStudentList && getStudentList.length - 3 > 0 && (
+                <li>
+                  <div className="user-avatar bg-light sm">
+                    <span>+{getStudentList.length - 3}</span>
+                  </div>
+                </li>
+              )}
             </ul>
             <span className="badge badge-dim badge-warning">
               <em className="icon ni ni-clock" />
