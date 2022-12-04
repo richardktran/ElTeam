@@ -161,8 +161,17 @@ class CourseController extends Controller
         return $this->response('Locked');
     }
 
-    public function destroy(Course $course)
+    public function delete(Course $course)
     {
-        //
+        $course->delete();
+        return $this->response('Deleted');
+    }
+
+    public function exitCourse(Course $course)
+    {
+        $currentUser = Auth::user();
+        $this->courseService->exitCourse($course, $currentUser);
+
+        return $this->response('Exited');
     }
 }
