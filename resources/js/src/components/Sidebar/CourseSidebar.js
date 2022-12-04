@@ -38,22 +38,22 @@ function CourseSidebar({ pathname }) {
 
   const courseItems = [
     {
-      icon: "icon ni ni-cart-fill",
+      icon: "icon ni ni-file-docs",
       pathPattern: "/courses/*/lesson",
       title: 'Bài học',
     },
     {
-      icon: "icon ni ni-growth-fill",
+      icon: "icon ni ni-user-list-fill",
       pathPattern: "/courses/*/members",
       title: 'Danh sách thành viên',
     },
     {
-      icon: "icon ni ni-activity-round-fill",
+      icon: "icon ni ni-users-fill",
       pathPattern: "/courses/*/my-group",
       title: 'Nhóm của tôi',
     },
     {
-      icon: "icon ni ni-users-fill",
+      icon: "icon ni ni-setting-alt-fill",
       pathPattern: "/courses/*/settings",
       title: 'Cài đặt',
     },
@@ -61,22 +61,22 @@ function CourseSidebar({ pathname }) {
 
   const ownerCourseItems = [
     {
-      icon: "icon ni ni-cart-fill",
+      icon: "icon ni ni-file-docs",
       pathPattern: "/courses/*/lesson",
       title: 'Bài học',
     },
     {
-      icon: "icon ni ni-growth-fill",
+      icon: "icon ni ni-user-list-fill",
       pathPattern: "/courses/*/members",
       title: 'Danh sách thành viên',
     },
     {
-      icon: "icon ni ni-activity-round-fill",
+      icon: "icon ni ni-view-group-wd",
       pathPattern: "/courses/*/groups",
       title: 'Danh sách nhóm',
     },
     {
-      icon: "icon ni ni-users-fill",
+      icon: "icon ni ni-setting-alt-fill",
       pathPattern: "/courses/*/settings",
       title: 'Cài đặt',
     },
