@@ -52,7 +52,7 @@ function EditCourseModal(props) {
           </>
         }
         <Form.Item className="form-group">
-          <button type="submit" className="btn btn-lg btn-primary">Cập nhật chủ đề</button>
+          <button type="submit" className="btn btn-lg btn-primary">Cập nhật</button>
         </Form.Item>
       </Form>
     </BaseModal>
