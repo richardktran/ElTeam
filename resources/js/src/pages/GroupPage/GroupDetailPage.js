@@ -120,34 +120,6 @@ const GroupDetailPage = () => {
                   </h3>
                 }
               </div>{/* .nk-block-head-content */}
-              <div className="nk-block-head-content">
-                <div className="nk-block-head-sub mb-2"></div>
-                <div className="toggle-wrap nk-block-tools-toggle">
-                  <a href="#" className="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em className="icon ni ni-more-v" /></a>
-                  <div className="toggle-expand-content" data-content="pageMenu">
-                    <ul className="nk-block-tools g-3">
-                      <li>
-                        <div className="drodown">
-                          <a href="#" className="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-toggle="dropdown">
-                            <em className="d-none d-sm-inline icon ni ni-calender-date" />
-                            <span>
-                              Phân nhóm
-                            </span>
-                            <em className="dd-indc icon ni ni-chevron-right" />
-                          </a>
-                          <div className="dropdown-menu dropdown-menu-right">
-                            <ul className="link-list-opt no-bdr">
-                              <li><a href="#"><span>Phân nhóm ngẫu nhiên</span></a></li>
-                              <li><a href="#"><span>Sinh viên chọn nhóm</span></a></li>
-                              <li><a href="#"><span>Chốt nhóm</span></a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>{/* .nk-block-head-content */}
             </div>{/* .nk-block-between */}
           </div>
           <div className="nk-block">
