@@ -99,7 +99,7 @@ function UserDetailPage() {
                           <div className="profile-ud-item">
                             <div className="profile-ud wider">
                               <span className="profile-ud-label">Ngày tham gia</span>
-                              <span className="profile-ud-value">{new Date(user.created_at).toLocaleString()}</span>
+                              <span className="profile-ud-value">{new Date(user.created_at).toLocaleDateString()}</span>
                             </div>
                           </div>
                           <div className="profile-ud-item">
