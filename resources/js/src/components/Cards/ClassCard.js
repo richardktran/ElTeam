@@ -5,7 +5,7 @@ import Skeleton from 'react-loading-skeleton';
 import Avatar from '../Avatar/Avatar';
 
 const ClassCard = (props) => {
-  const { id, name, code, credit, location, hours_per_week, students, status, handleAccept, handleDecline, isMyCourse = false } = props;
+  const { id, name, code, credit, lock_group, location, hours_per_week, students, status, handleAccept, handleDecline, isMyCourse = false } = props;
 
   const navigate = useNavigate();
 
@@ -52,21 +52,25 @@ const ClassCard = (props) => {
                   <li>
                     <a href="html/apps-kanban.html">
                       <em className="icon ni ni-eye" />
-                      <span>View Project</span>
+                      <span>Xem lớp học</span>
                     </a>
                   </li>
-                  <li>
-                    <a href="#">
-                      <em className="icon ni ni-edit" />
-                      <span>Edit Project</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <em className="icon ni ni-check-round-cut" />
-                      <span>Mark As Done</span>
-                    </a>
-                  </li>
+                  {isMyCourse === false && lock_group == 0 &&
+                    <li>
+                      <a href="#">
+                        <em class="icon ni ni-user-cross-fill"></em>
+                        <span>Rời lớp học</span>
+                      </a>
+                    </li>
+                  }
+                  {isMyCourse === true &&
+                    <li>
+                      <a href="#">
+                        <em class="icon ni ni-trash-alt"></em>
+                        <span>Xóa lớp học</span>
+                      </a>
+                    </li>
+                  }
                 </ul>
               </div>
             </div>
@@ -132,21 +136,26 @@ const ClassCard = (props) => {
                 </li>
               )}
             </ul>
-            <span className="badge badge-dim badge-warning">
-              <em className="icon ni ni-clock" />
-              <span>5 Days Left</span>
-            </span>
+            {lock_group == 1 &&
+              <span className="badge badge-dim badge-primary">
+                <em class="icon ni ni-lock-fill"></em>
+                <span>Đã chốt nhóm</span>
+              </span>
+            }
+
+            {lock_group == 0 &&
+              <span className="badge badge-dim badge-warning">
+                <em class="icon ni ni-unlock-fill"></em>
+                <span>Chưa chốt nhóm</span>
+              </span>
+            }
           </div>
           {status === 'pending' ? (
             <div className="col-12 mt-3">
-              <ul className="align-center flex-wrap flex-sm-nowrap gx-5 gy-2">
-                <li>
-                  <div onClick={() => handleDecline(id)} className="btn btn-danger">Từ chối</div>
-                </li>
-                <li>
-                  <div onClick={() => handleAccept(id)} className="btn btn-primary">Tham gia</div>
-                </li>
-              </ul>
+              <div className="d-flex justify-content-around mt-2">
+                <div onClick={() => handleDecline(id)} className="btn btn-danger">Từ chối</div>
+                <div onClick={() => handleAccept(id)} className="btn btn-primary">Tham gia</div>
+              </div>
             </div>
           ) : (
             <div className="col-12 mt-3">
