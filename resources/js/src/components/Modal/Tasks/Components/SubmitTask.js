@@ -6,13 +6,15 @@ import { onValue, ref, set, push, query, orderByChild, update } from "firebase/d
 import parse from 'html-react-parser';
 import { updateContentTask } from '../../../../store/Tasks/Reducer';
 import TextEditor from '../../../TextEditor/TextEditor';
+import moment from 'moment';
 import { Button, Upload } from 'antd';
 import useUser from '../../../../hooks/useUser';
 import Skeleton from 'react-loading-skeleton';
 import { API_URL } from '../../../../api/axiosInstance';
+import { useMemo } from 'react';
 
 function SubmitTask(props) {
-  const { id, isLoading } = props;
+  const { id, isLoading, task } = props;
   const dispatch = useDispatch();
   const currentUser = useUser();
 
@@ -95,6 +97,8 @@ function SubmitTask(props) {
   }
 
   const submit = () => {
+    const deadline = task.deadline;
+
     if (isSubmitted) {
       // TODO: Check the deadline of the task
       const oldFiles = ref(db, "tasks/" + taskId + "/hand-in/");
@@ -135,11 +139,21 @@ function SubmitTask(props) {
     });
   }
 
+  const checkDeadline = useMemo(() => {
+    if (task.deadline === null) {
+      return false;
+    }
+    const deadline = new Date(task.deadline);
+    const deadlineTime = moment(deadline);
+    const now = moment();
+    return now > deadlineTime;
+  }, [task]);
+
   return (
     <>
       <h6 className="title my-3">
-        Bài nộp
-        {!isSubmitted &&
+        Bài nộp {task && task.deadline !== null && <span>(Hạn nộp {task.deadline})</span>}
+        {(!isSubmitted && !checkDeadline) &&
           <span className="ml-2">
             <a onClick={uploadFiles} className="btn btn-dim btn-sm btn-outline-light">
               <em class="icon ni ni-plus-circle-fill"></em>
@@ -193,7 +207,7 @@ function SubmitTask(props) {
         >
           <Button hidden={true} ref={uploadFileBtn}></Button>
         </Upload>
-        {fileSubmit && (fileSubmit.length !== 0 || initFiles.length !== 0) &&
+        {!checkDeadline && fileSubmit && (fileSubmit.length !== 0 || initFiles.length !== 0) &&
           <button onClick={submit} className={`btn btn-${isSubmitted ? "danger" : "primary"} mt-3`}>
             {isSubmitted ? "Hủy nộp bài" : "Nộp bài"}
           </button>

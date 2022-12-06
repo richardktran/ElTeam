@@ -130,7 +130,7 @@ const Kanban = (props) => {
                                 opacity: snapshot.isDragging ? '0.5' : '1'
                               }}
                             >
-                              <KanbanCard key={task.id} description={task.content} assignees={task.assignees}>
+                              <KanbanCard key={task.id} description={task.content} assignees={task.assignees} task={task}>
                                 {task.title}
                               </KanbanCard>
                             </div>
