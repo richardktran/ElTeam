@@ -73,7 +73,7 @@ const DetailTaskModal = (props) => {
                             {taskInfo.content}
                         </ContentTask>
 
-                        <SubmitTask isLoading={isLoading} id={taskInfo.id} />
+                        <SubmitTask task={taskInfo} isLoading={isLoading} id={taskInfo.id} />
                     </div>
                     <CommentTask members={groupInfo.students} id={taskInfo.id} />
 

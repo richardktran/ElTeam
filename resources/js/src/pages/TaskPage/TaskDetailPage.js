@@ -79,7 +79,7 @@ function TaskDetailPage(props) {
               {taskInfo.content}
             </ContentTask>
 
-            <SubmitTask id={taskInfo.id} isLoading={isLoading} />
+            <SubmitTask id={taskInfo.id} task={taskInfo} isLoading={isLoading} />
           </div>
 
 
