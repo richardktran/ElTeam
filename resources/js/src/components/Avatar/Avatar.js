@@ -1,7 +1,13 @@
-import React from 'react'
+
+import React, { useMemo, useRef, useState } from 'react'
+import { Overlay, OverlayTrigger, Popover } from 'react-bootstrap';
+
 
 function Avatar(props) {
-  const { image = null, name = '', email = '', size = 'sm' } = props;
+  const { image = null, name = '', email = '', size = 'sm', user = null } = props;
+  const target = useRef(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const colors = [
     'bg-primary',
@@ -60,21 +66,64 @@ function Avatar(props) {
     }
   }, [email]);
 
+  const openInNewTab = () => {
+    if (user === null) {
+      return;
+    }
+    const url = `/users/${user.id}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <>
-      {image ? (
-        <div class={`user-avatar ${size} bg-blue`}>
-          <img src={image} alt="" referrerpolicy="no-referrer" />
-        </div>
-      ) : (
-        <div class={`user-avatar ${size} ${randomColor()}`}>
-          <span>
-            {getNameLabel() ?? getEmailLabel()}
-          </span>
-        </div>
-      )}
+      <div ref={target} onMouseEnter={() => setShowPopup(true)} onMouseLeave={() => {
+        setTimeout(() => {
+          setShowPopup(false);
+        }, 500);
+      }}>
+        {image ? (
+          <div class={`user-avatar ${size} bg-blue`}>
+            <img src={image} alt="" referrerpolicy="no-referrer" />
+          </div>
+        ) : (
+          <div class={`user-avatar ${size} ${randomColor()}`}>
+            <span>
+              {getNameLabel() ?? getEmailLabel()}
+            </span>
+          </div>
+        )}
+      </div>
 
+      <Overlay
+        show={showPopup || isHovered}
+        target={target.current}
+      >
+        <Popover id="popover-basic" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+          <Popover.Body>
+            <div className="card">
+              <a className="user-card" onClick={() => openInNewTab()}>
+                {image ? (
+                  <div class={`user-avatar sm bg-blue`}>
+                    <img src={image} alt="" referrerpolicy="no-referrer" />
+                  </div>
+                ) : (
+                  <div class={`user-avatar sm ${randomColor()}`}>
+                    <span>
+                      {getNameLabel() ?? getEmailLabel()}
+                    </span>
+                  </div>
+                )}
+                <div className="user-info">
+                  <span className="lead-text">{name}</span>
+                  <span className="sub-text">{email}</span>
+                </div>
+              </a>
+            </div>
+          </Popover.Body>
+        </Popover>
+      </Overlay>
     </>
+
   )
 }
 
