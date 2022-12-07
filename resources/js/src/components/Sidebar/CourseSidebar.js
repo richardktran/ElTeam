@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import { checkMatchPatternWithCourse } from '../../utils/sidebar';
+import FooterCourse from '../Layout/FooterCourse';
 
 function CourseSidebar({ pathname }) {
   const course = useSelector(state => state.course.courseInfo);
@@ -134,6 +135,7 @@ function CourseSidebar({ pathname }) {
                         })}
                       </ul> {/* .nk-menu */}
                     </div>
+                    <FooterCourse />
                   </div>
                 </div>
               </div>
