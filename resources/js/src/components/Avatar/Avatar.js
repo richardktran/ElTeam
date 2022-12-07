@@ -4,7 +4,7 @@ import { Overlay, OverlayTrigger, Popover } from 'react-bootstrap';
 
 
 function Avatar(props) {
-  const { image = null, name = '', email = '', size = 'sm' } = props;
+  const { image = null, name = '', email = '', size = 'sm', user = null } = props;
   const target = useRef(null);
   const [showPopup, setShowPopup] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -66,7 +66,11 @@ function Avatar(props) {
     }
   }, [email]);
 
-  const openInNewTab = url => {
+  const openInNewTab = () => {
+    if (user === null) {
+      return;
+    }
+    const url = `/users/${user.id}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -97,7 +101,7 @@ function Avatar(props) {
         <Popover id="popover-basic" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
           <Popover.Body>
             <div className="card">
-              <a className="user-card" onClick={() => openInNewTab(`/`)}>
+              <a className="user-card" onClick={() => openInNewTab()}>
                 {image ? (
                   <div class={`user-avatar sm bg-blue`}>
                     <img src={image} alt="" referrerpolicy="no-referrer" />
