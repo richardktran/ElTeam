@@ -3,7 +3,7 @@ import useUser from '../../hooks/useUser'
 import { onValue, ref, query, orderByChild, update, onChildAdded, get } from "firebase/database";
 import { db } from '../../services/firebase';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Notifications(props) {
   const currentUser = useUser();
@@ -112,6 +112,9 @@ function Notifications(props) {
             ))}
           </div>{/* .nk-notification */}
         </div>{/* .nk-dropdown-body */}
+        <div class="dropdown-foot center">
+          <Link to={'/notifications'}>Xem tất cả</Link>
+        </div>
       </div>
     </>
   )
