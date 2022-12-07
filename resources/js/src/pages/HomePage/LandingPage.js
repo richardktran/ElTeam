@@ -12,7 +12,7 @@ function LandingPage() {
   }, [])
 
   return (
-    <div id="wrapper" className="clearfix">
+    <div id="wrapper" className="clearfix" style={{ maxWidth: '100%' }}>
       <section id="slider" className="slider-element slider-parallax min-vh-100 min-vh-md-100 slider-parallax-visible">
         <div className="slider-inner" >
           <div style={{ background: 'url("https://elteam.s3.ap-southeast-1.amazonaws.com/images/appshowcase/1.jpg") 0% 0% / cover', height: '100vh', width: '100vw', zIndex: '-1000', position: "fixed", top: 0, left: 0, filter: "blur(5px)", }}></div>
@@ -116,33 +116,36 @@ function LandingPage() {
       </section>
       {/* #content end */}
 
-      <footer id="footer" className="dark" data-scrollto-settings="{&quot;offset&quot;:140,&quot;speed&quot;:1250,&quot;easing&quot;:&quot;easeOutQuad&quot;}"> {/* Copyrights ============================================= */} <div id="copyrights">
-        <div className="container-fluid">
-          <div className="row col-mb-30">
-            <div className="col-md-1"></div>
-            <div className="col-md-7 text-md-start">
-              Bản quyền thuộc về <span><a href="/">ELTEAM</a> - Hệ thống quản lý lớp học trực tuyến</span>. <br />
-              Tác giả: Trần Đăng Khoa <br />
-              <div className="copyright-links">
-                Luận văn tốt nghiệp của sinh viên trường Đại học Công Nghệ Thông Tin - Đại học Cần Thơ
+      <footer id="footer" className="dark" data-scrollto-settings="{&quot;offset&quot;:140,&quot;speed&quot;:1250,&quot;easing&quot;:&quot;easeOutQuad&quot;}">
+        {/* Copyrights ============================================= */}
+        <div id="copyrights">
+          <div className="container-fluid">
+            <div className="row col-mb-30">
+              <div className="col-md-1"></div>
+              <div className="col-md-7 text-md-start">
+                Bản quyền thuộc về <span><a href="/">ELTEAM</a> - Hệ thống quản lý lớp học trực tuyến</span>. <br />
+                Tác giả: Trần Đăng Khoa <br />
+                <div className="copyright-links">
+                  Luận văn tốt nghiệp của sinh viên trường Đại học Công Nghệ Thông Tin - Đại học Cần Thơ
+                </div>
               </div>
-            </div>
-            <div className="col-md-4 text-md-start">
-              <div className="clear" />
-              <div>
-                <em class="icon ni ni-emails-fill mr-2"></em> richardktran.dev@gmail.com
-              </div>
-              <div>
-                <em class="icon ni ni-call-alt-fill mr-2"></em> (+84) 947 685 343
-              </div>
-              <div>
-                <em class="icon ni ni-cards-fill mr-2"></em>
-                B1805879
+              <div className="col-md-4 text-md-start">
+                <div className="clear" />
+                <div>
+                  <em class="icon ni ni-emails-fill mr-2"></em> richardktran.dev@gmail.com
+                </div>
+                <div>
+                  <em class="icon ni ni-call-alt-fill mr-2"></em> (+84) 947 685 343
+                </div>
+                <div>
+                  <em class="icon ni ni-cards-fill mr-2"></em>
+                  B1805879
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>{/* #copyrights end */} </footer>
+        </div>{/* #copyrights end */}
+      </footer>
     </div>
   );
 }

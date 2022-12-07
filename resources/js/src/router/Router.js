@@ -9,6 +9,7 @@ import HomePage from '../pages/HomePage/HomePage';
 import LandingPage from '../pages/HomePage/LandingPage';
 import MyCoursesPage from '../pages/HomePage/MyCoursesPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
+import NotificationPage from '../pages/NotificationPage/NotificationPage';
 import RegisterPage from '../pages/RegisterPage';
 import Task from '../pages/TaskPage';
 import User from '../pages/UserPage';
@@ -24,6 +25,7 @@ const Router = () => {
             <Route path="/tasks/*" element={<Task />} />
             <Route path="/users/*" element={<User />} />
             <Route path="/my-courses" element={<MyCoursesPage />} />
+            <Route path="/notifications" element={<NotificationPage />} />
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/register" element={<RegisterPage />} />
             <Route exact path="/auth/google" element={<GoogleCallback />} />

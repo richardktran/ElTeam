@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Sidebar from '../Sidebar';
 import { ROLE_TEACHER } from '../../utils/constant';
 import CourseSidebar from '../Sidebar/CourseSidebar';
+import FooterCourse from './FooterCourse';
 
 const CustomerLayout = ({ children }) => {
   return (

@@ -10,6 +10,7 @@ import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from 'react-redux';
 import useUser from "../../hooks/useUser";
 import { isEmpty } from "lodash";
+import FooterCourse from "../../components/Layout/FooterCourse";
 
 function HomePage() {
     const navigate = useNavigate();
