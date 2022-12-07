@@ -27,6 +27,7 @@ function App() {
             <div className="nk-app-root">
                 <div className="nk-main">
                     <Router />
+
                 </div>
             </div>
         </BrowserRouter>

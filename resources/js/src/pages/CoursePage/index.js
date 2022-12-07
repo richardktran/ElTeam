@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-loading';
+import FooterCourse from '../../components/Layout/FooterCourse';
 import Layout from '../../components/Layout/Layout';
 import GroupDetailPage from '../GroupPage/GroupDetailPage';
 import GroupListPage from '../GroupPage/GroupListPage';
