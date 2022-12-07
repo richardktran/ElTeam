@@ -4,7 +4,7 @@ import { cutStringShorter } from "../../utils/stringUtils";
 import Avatar from "../Avatar/Avatar";
 
 const KanbanCard = props => {
-  const { description, assignees } = props;
+  const { description, assignees, task } = props;
   const [content, setContent] = useState(description);
   const [assigneesList, setAssigneesList] = useState(assignees);
 
@@ -30,7 +30,7 @@ const KanbanCard = props => {
           <a href="#" className="dropdown-toggle" data-toggle="dropdown">
             <div className="user-avatar-group">
               {assigneesList && assigneesList.map((assignee, index) => (
-                <Avatar email={assignee.email} image={assignee.avatar} name={assignee.name} size='xs' />
+                <Avatar user={assignee} email={assignee.email} image={assignee.avatar} name={assignee.name} size='xs' />
               ))}
             </div>
           </a>
@@ -44,10 +44,13 @@ const KanbanCard = props => {
         <li><span className="badge badge-warning">UI Design</span></li>
       </ul>
       <div className="kanban-item-meta">
-        <ul className="kanban-item-meta-list">
-          <li className="text-danger"><em className="icon ni ni-calendar" /><span>2d Due</span></li>
-          <li><em className="icon ni ni-notes" /><span>Design</span></li>
-        </ul>
+        {task && task.deadline !== null &&
+          <ul className="kanban-item-meta-list">
+            <li className="text-danger"><em className="icon ni ni-calendar" />
+              <span>{task.deadline}</span>
+            </li>
+          </ul>
+        }
         <ul className="kanban-item-meta-list">
           <li><em className="icon ni ni-clip" /><span>1</span></li>
           <li><em className="icon ni ni-comments" /><span>4</span></li>

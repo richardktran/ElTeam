@@ -155,7 +155,7 @@ function GroupListPage() {
                               if (index < 3) {
                                 return (
                                   <div>
-                                    <Avatar email={member.email} image={member.avatar} name={member.name} size='sm' />
+                                    <Avatar user={member} email={member.email} image={member.avatar} name={member.name} size='sm' />
                                   </div>
                                 );
                               }

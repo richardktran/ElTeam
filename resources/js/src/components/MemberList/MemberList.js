@@ -140,7 +140,7 @@ const MemberList = (props) => {
               <div className="nk-tb-col">
                 <a href={`/users/${member.id}`}>
                   <div className="user-card">
-                    <Avatar size='sm' image={member.avatar} email={member.email} name={member.name ?? name} />
+                    <Avatar user={member} size='sm' image={member.avatar} email={member.email} name={member.name ?? name} />
                     <div className="user-info">
                       <span className="tb-lead">
                         {member.name ?? name}

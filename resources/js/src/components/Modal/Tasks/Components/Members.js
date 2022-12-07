@@ -52,7 +52,7 @@ function Members(props) {
         }
         {!isLoading && assigneesList && assigneesList.map((assignee, index) => (
           <li>
-            <Avatar image={assignee.avatar} name={assignee.name} email={assignee.email} />
+            <Avatar user={assignee} image={assignee.avatar} name={assignee.name} email={assignee.email} />
           </li>
         ))}
         <li>
@@ -74,7 +74,7 @@ function Members(props) {
                   return (
                     <li class={`chat-item ${isAssignee(member.id) ? 'active' : ''}`} onClick={() => toggleAssign(member)}>
                       <a class="chat-link" href="#">
-                        <Avatar image={member.avatar} name={member.name} email={member.email} />
+                        <Avatar user={member} image={member.avatar} name={member.name} email={member.email} />
                         <div class="chat-info ml-2">
                           <div class="chat-from">
                             <div class="name">{member.name}</div>
