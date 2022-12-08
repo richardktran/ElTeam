@@ -10,6 +10,7 @@ import toast from 'react-hot-toast';
 import EditActivityModal from '../Modal/Lesson/EditActivityModal';
 import FileViewerModal from '../Modal/Lesson/FileViewerModal';
 import { isEmpty } from 'lodash';
+import DeliveryTaskModal from '../Modal/Lesson/DeliveryTaskModal';
 
 function Activities(props) {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function Activities(props) {
   const [activitiesData, setActivitiesData] = useState(null);
   const [showEditActivityModal, setShowEditActivityModal] = useState({ show: false, activity: null });
   const [showFileViewer, setShowFileViewer] = useState({ show: false, url: null, name: null });
+  const [showDeliveryTaskModal, setShowDeliveryTaskModal] = useState({ show: false, activity: null, name: null });
 
   useEffect(() => {
     setActivitiesData(activities);
@@ -76,8 +78,12 @@ function Activities(props) {
   }
 
   const handleOpenViewer = (activity) => {
-    if (activity.type !== 'text' && activity.type !== 'link' && activity.content !== null) {
+    if (activity.type !== 'text' && activity.type !== 'link' && activity.type !== 'task' && activity.content !== null) {
       setShowFileViewer({ show: true, url: activity.content, name: activity.name });
+    }
+
+    if (activity.type === 'task') {
+      setShowDeliveryTaskModal({ show: true, activity: activity, name: activity.name });
     }
   }
 
@@ -164,6 +170,12 @@ function Activities(props) {
         url={showFileViewer.url}
         isShow={showFileViewer.show}
         handleCloseModal={() => setShowFileViewer({ show: false, url: null })}
+      />
+      <DeliveryTaskModal
+        modalName={showDeliveryTaskModal.name}
+        activity={showDeliveryTaskModal.activity}
+        isShow={showDeliveryTaskModal.show}
+        handleCloseModal={() => setShowDeliveryTaskModal({ show: false, activity: null })}
       />
     </div>
   )
