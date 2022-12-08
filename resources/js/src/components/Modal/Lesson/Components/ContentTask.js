@@ -5,6 +5,7 @@ import parse from 'html-react-parser';
 import { updateContentTask } from '../../../../store/Tasks/Reducer';
 import TextEditor from '../../../TextEditor/TextEditor';
 import Skeleton from 'react-loading-skeleton';
+import Avatar from '../../../Avatar/Avatar';
 
 function ContentTask(props) {
   const { activity, isLoading } = props;
@@ -57,10 +58,45 @@ function ContentTask(props) {
         <h4 className="title mb-2 text-info">
           <em class="icon ni ni-clipboad-check mr-1" style={{ top: '2px', position: 'relative' }}></em>
           Bài nộp của các nhóm
+          <span className='ml-3'>
+            <div className="btn btn-sm btn-primary">
+              <em className="icon ni ni-download-cloud" />
+              <span>Tải về tất cả</span>
+            </div>
+          </span>
         </h4>
       </div>
       <div className='ml-2'>
+        <div className="nk-block">
+          <table className="nk-tb-list is-separate nk-tb-ulist">
+            <tbody>
+              <tr className="nk-tb-item">
+                <td className="nk-tb-col">
+                  <a href="" className="project-title">
+                    <div className="user-avatar sq bg-purple"><span>ET</span></div>
+                    <div className="project-info">
+                      <h6 className="title">Elteam group</h6>
+                    </div>
+                  </a>
+                </td>
+                <td className="nk-tb-col tb-col-lg">
+                  <ul className="project-users g-1">
+                    <Avatar name="Tran Dang Khoa" size='sm' />
+                    <Avatar name="Tran Dang Khoa" size='sm' />
+                    <Avatar name="Tran Dang Khoa" size='sm' />
+                  </ul>
+                </td>
 
+                <td className="nk-tb-col tb-col-mb">
+                  <div className="btn btn-sm btn-primary">
+                    <em className="icon ni ni-download-cloud" />
+                    <span>Tải về</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   )

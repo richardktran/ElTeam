@@ -141,7 +141,7 @@ const MemberList = (props) => {
                 <a href={`/users/${member.id}`}>
                   <div className="user-card">
                     <Avatar user={member} size='sm' image={member.avatar} email={member.email} name={member.name ?? name} />
-                    <div className="user-info">
+                    <div className="user-info ml-2">
                       <span className="tb-lead">
                         {member.name ?? name}
                         <span className="dot dot-success d-md-none ml-1" />
