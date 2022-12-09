@@ -30,6 +30,8 @@ class Activity extends Model
         'topic_id',
     ];
 
+    protected $with = ['tasks'];
+
     public function topic()
     {
         return $this->belongsTo(Topic::class);

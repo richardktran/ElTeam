@@ -54,7 +54,7 @@ function ContentTask(props) {
         )}
       </div>
 
-      <div className="nk-msg-head-meta">
+      <div className="nk-msg-head-meta mt-2">
         <h4 className="title mb-2 text-info">
           <em class="icon ni ni-clipboad-check mr-1" style={{ top: '2px', position: 'relative' }}></em>
           Bài nộp của các nhóm

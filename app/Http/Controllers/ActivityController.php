@@ -26,22 +26,24 @@ class ActivityController extends Controller
 
         $activity = Activity::create($data);
 
-        //Get all group id of course
-        $groupIds = $activity->topic->course->groups->pluck('id')->toArray();
-        $sectionId = $activity->topic->course->sections->where('title', ' 📃 Cần làm')->first()->id;
+        if ($activity->type == Activity::TYPE_TASK) {
+            //Get all group id of course
+            $groupIds = $activity->topic->course->groups->pluck('id')->toArray();
+            $sectionId = $activity->topic->course->sections->where('title', ' 📃 Cần làm')->first()->id;
 
-
-        // Create new task for each group
-        foreach ($groupIds as $groupId) {
-            $group = $activity->topic->course->groups->where('id', $groupId)->first();
-            app(TaskService::class)->createTask([
-                'title' => $activity->name,
-                'content' => $activity->content,
-                'deadline' => $activity->end_date,
-                'section_id' => $sectionId,
-                'activity_id' => $activity->id,
-            ], $group);
+            // Create new task for each group
+            foreach ($groupIds as $groupId) {
+                $group = $activity->topic->course->groups->where('id', $groupId)->first();
+                app(TaskService::class)->createTask([
+                    'title' => $activity->name,
+                    'content' => $activity->content,
+                    'deadline' => $activity->end_date,
+                    'section_id' => $sectionId,
+                    'activity_id' => $activity->id,
+                ], $group);
+            }
         }
+
 
         return $this->response($activity);
     }
@@ -57,7 +59,7 @@ class ActivityController extends Controller
         $activity->delete();
         return $this->response($activity);
     }
-    
+
     public function updateActivities(Request $request)
     {
         $data = $request->all();
