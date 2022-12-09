@@ -28,6 +28,7 @@ class Activity extends Model
         'url',
         'content',
         'topic_id',
+        'tasks'
     ];
 
     protected $with = ['tasks'];
