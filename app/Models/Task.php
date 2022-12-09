@@ -17,6 +17,7 @@ class Task extends Model
         'assignees',
         'section_id',
         'group_id',
+        'activity_id'
     ];
 
     public function section()
@@ -27,6 +28,11 @@ class Task extends Model
     public function group()
     {
         return $this->belongsTo(Group::class);
+    }
+
+    public function activity()
+    {
+        return $this->belongsTo(Activity::class);
     }
 
     public function getAssigneesAttribute($value)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Services\TaskService;
 use Illuminate\Http\Request;
 
 class ActivityController extends Controller
@@ -23,8 +24,26 @@ class ActivityController extends Controller
 
         $data['position'] = $latestPosition ? $latestPosition->position + 1 : 0;
 
-        $topic = Activity::create($data);
-        return $this->response($topic);
+        $activity = Activity::create($data);
+
+        //Get all group id of course
+        $groupIds = $activity->topic->course->groups->pluck('id')->toArray();
+        $sectionId = $activity->topic->course->sections->where('title', ' 📃 Cần làm')->first()->id;
+
+
+        // Create new task for each group
+        foreach ($groupIds as $groupId) {
+            $group = $activity->topic->course->groups->where('id', $groupId)->first();
+            app(TaskService::class)->createTask([
+                'title' => $activity->name,
+                'content' => $activity->content,
+                'deadline' => $activity->end_date,
+                'section_id' => $sectionId,
+                'activity_id' => $activity->id,
+            ], $group);
+        }
+
+        return $this->response($activity);
     }
 
     public function update(Request $request, Activity $activity)

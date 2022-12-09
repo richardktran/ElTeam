@@ -34,4 +34,9 @@ class Activity extends Model
     {
         return $this->belongsTo(Topic::class);
     }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }

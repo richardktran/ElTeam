@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\Task;
+use App\Services\TaskService;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    protected TaskService $taskService;
+
+    public function __construct(TaskService $taskService)
+    {
+        $this->taskService = $taskService;
+    }
+
     public function getTask(Request $request, Task $task)
     {
         return $this->response($task);
@@ -49,20 +57,7 @@ class TaskController extends Controller
     {
         $params = $request->all();
 
-        $latestPosition = Task::where('group_id', $group->id)
-            ->where('section_id', $params['section_id'])
-            ->orderBy('position', 'desc')
-            ->first();
-
-        $position = $latestPosition ? $latestPosition->position + 1 : 0;
-        $task = Task::create([
-            'title' => $params['title'],
-            'content' => $params['content'],
-            'group_id' => $group->id,
-            'section_id' => $params['section_id'],
-            'deadline' => $params['deadline'],
-            'position' => $position,
-        ]);
+        $task = $this->taskService->createTask($params, $group);
 
         return $this->response($task);
     }
