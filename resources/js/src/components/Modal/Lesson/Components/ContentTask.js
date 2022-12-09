@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import parse from 'html-react-parser';
 import { updateContentTask } from '../../../../store/Tasks/Reducer';
 import TextEditor from '../../../TextEditor/TextEditor';
+import { db } from '../../../../services/firebase';
 import Skeleton from 'react-loading-skeleton';
 import Avatar from '../../../Avatar/Avatar';
+import { get, onValue, ref } from 'firebase/database';
+import { toast } from 'react-hot-toast';
+import { courseApi } from '../../../../api/courseApi';
+import { HTTP_OK } from '../../../../utils/constant';
 
 function ContentTask(props) {
   const { activity, isLoading } = props;
+
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [files, setFiles] = useState([]);
 
 
   const transformText = useCallback((text) => {
@@ -28,6 +36,47 @@ function ContentTask(props) {
     }
     return '';
   }
+
+
+  const downloadFiles = async (task) => {
+    setIsDownloading(true);
+    console.log("tasks/" + task.id + "/hand-in");
+    // Get urls from firebase 
+    const allFilesSubmit = ref(db, "tasks/" + task.id + "/hand-in");
+    let newFiles = [];
+    get(allFilesSubmit).then(async (snapshot) => {
+      const data = snapshot.val();
+      if (snapshot.exists()) {
+
+        Object.values(data.files).map((file) => {
+          newFiles.push(file);
+        });
+
+
+        if (newFiles.length > 0) {
+          const data = {
+            file_urls: newFiles,
+            group_name: task.group_info,
+            activity_id: activity.id
+          }
+
+          const response = await courseApi.download(task.id, data);
+          if (response.status === HTTP_OK) {
+            toast.success('Tải về thành công!');
+            //TODO: Download file
+          } else {
+            console.log(response);
+            toast.error("Tải về thất bại!!!");
+          }
+        }
+
+      }
+    });
+
+
+    setIsDownloading(false);
+  }
+
 
   return (
     <div>
@@ -138,11 +187,17 @@ function ContentTask(props) {
                       </td>
 
                       <td className="nk-tb-col tb-col-mb">
-                        {task.status === 'done' &&
-                          <div className="btn btn-sm btn-primary">
+                        {task.status === 'done' && !isDownloading &&
+                          <div className="btn btn-sm btn-primary" onClick={() => downloadFiles(task)}>
                             <em className="icon ni ni-download-cloud" />
                             <span>Tải về</span>
                           </div>
+                        }
+                        {isDownloading &&
+                          <button class="btn btn-primary" type="button" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            <span> Đang nén... </span>
+                          </button>
                         }
                         {task.status !== 'done' &&
                           <div className="btn btn-sm disabled">
