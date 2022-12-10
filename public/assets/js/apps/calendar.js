@@ -4,8 +4,8 @@
   "use strict"; // Variable
 
   var $win = $(window),
-      $body = $('body'),
-      breaks = NioApp.Break;
+    $body = $('body'),
+    breaks = NioApp.Break;
 
   NioApp.Calendar = function () {
     var today = new Date();
@@ -116,90 +116,104 @@
         previewEventPopup.modal('show');
         $('.popover').popover('hide');
       },
-      events: [{
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'Reader will be distracted',
-        start: YM + '-03T13:30:00',
-        className: "fc-event-danger",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'Rabfov va hezow.',
-        start: YM + '-14T13:30:00',
-        end: YM + '-14',
-        className: "fc-event-success",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'The leap into electronic',
-        start: YM + '-05',
-        end: YM + '-06',
-        className: "fc-event-primary",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'Lorem Ipsum passage - Product Release',
-        start: YM + '-02',
-        end: YM + '-04',
-        className: "fc-event-primary",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        title: 'Gibmuza viib hepobe.',
-        start: YM + '-12',
-        end: YM + '-10',
-        className: "fc-event-pink-dim",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'Jidehse gegoj fupelone.',
-        start: YM + '-07T16:00:00',
-        className: "fc-event-danger-dim",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'Ke uzipiz zip.',
-        start: YM + '-16T16:00:00',
-        end: YM + '-14',
-        className: "fc-event-info-dim",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'Piece of classical Latin literature',
-        start: TODAY,
-        end: TODAY + '-01',
-        className: "fc-event-primary",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'Nogok kewwib ezidbi.',
-        start: TODAY + 'T10:00:00',
-        className: "fc-event-info",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'Mifebi ik cumean.',
-        start: TODAY + 'T14:30:00',
-        className: "fc-event-warning-dim",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'Play Time',
-        start: TODAY + 'T17:30:00',
-        className: "fc-event-info",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'Rujfogve kabwih haznojuf.',
-        start: YESTERDAY + 'T05:00:00',
-        className: "fc-event-danger",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }, {
-        id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
-        title: 'simply dummy text of the printing',
-        start: YESTERDAY + 'T07:00:00',
-        className: "fc-event-primary-dim",
-        description: "Use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden."
-      }]
+      events: [
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Thiết kế structure cho Backend',
+          start: YM + '-03T13:30:00',
+          className: "fc-event-danger",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Thiết kế logo cho ứng dụng.',
+          start: YM + '-14T13:30:00',
+          end: YM + '-14',
+          className: "fc-event-success",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Thiết kế sơ bộ CSDL',
+          start: YM + '-05',
+          end: YM + '-06',
+          className: "fc-event-primary",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Làm template cho email',
+          start: YM + '-02',
+          end: YM + '-04',
+          className: "fc-event-primary",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          title: 'Xây dựng trang chủ.',
+          start: YM + '-12',
+          end: YM + '-10',
+          className: "fc-event-pink-dim",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Xây dựng giao diện trang giới thiệu.',
+          start: YM + '-07T16:00:00',
+          className: "fc-event-danger-dim",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Cài đặt Docker để chạy môi trường dưới Local.',
+          start: YM + '-16T16:00:00',
+          end: YM + '-14',
+          className: "fc-event-info-dim",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Thiết kế logo cho ứng dụng',
+          start: TODAY,
+          end: TODAY + '-01',
+          className: "fc-event-primary",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Bài tập chương 1.',
+          start: TODAY + 'T10:00:00',
+          className: "fc-event-info",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Tạo docker hub account.',
+          start: TODAY + 'T14:30:00',
+          className: "fc-event-warning-dim",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Tạo docker hub account',
+          start: TODAY + 'T17:30:00',
+          className: "fc-event-info",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Làm template cho email.',
+          start: YESTERDAY + 'T05:00:00',
+          className: "fc-event-danger",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        },
+        {
+          id: 'default-event-id-' + Math.floor(Math.random() * 9999999),
+          title: 'Viết dockerfile để combine các môi trường',
+          start: YESTERDAY + 'T07:00:00',
+          className: "fc-event-primary-dim",
+          description: "Backend cần phải sử dụng Laravel để tạo API, trong đó: API cần phải được định nghĩa rõ ràng cho Front end.",
+        }
+      ]
     });
     calendar.render(); //Add event
 
