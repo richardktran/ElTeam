@@ -130,12 +130,12 @@ function ContentTask(props) {
             <h4 className="title mb-2 text-info">
               <em class="icon ni ni-clipboad-check mr-1" style={{ top: '2px', position: 'relative' }}></em>
               Bài nộp của các nhóm
-              <span className='ml-3'>
+              {/* <span className='ml-3'>
                 <div className="btn btn-sm btn-primary">
                   <em className="icon ni ni-download-cloud" />
                   <span>Tải về tất cả</span>
                 </div>
-              </span>
+              </span> */}
             </h4>
           </div>
           <div className='ml-2'>

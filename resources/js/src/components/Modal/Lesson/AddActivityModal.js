@@ -118,6 +118,11 @@ function AddActivityModal(props) {
       const response = await lessonApi.createActivity(data);
       if (response.status === HTTP_OK) {
         toast.success('Thêm hoạt động thành công!');
+
+        if (newType === 'task') {
+          toast.success('Đã bàn giao công việc này cho tất cả các nhóm!');
+        }
+
         dispatch(requestTopics());
         setIsShow({ show: false, topicId: null });
         setName('');

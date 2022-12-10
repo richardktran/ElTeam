@@ -50,12 +50,32 @@ class ActivityController extends Controller
 
     public function update(Request $request, Activity $activity)
     {
-        $activity->update($request->all());
+        $data = $request->all();
+        $activity->update($data);
+
+        // In case update task activity type, we need to update all tasks of this activity too (title, content, deadline)
+        if ($activity->type == Activity::TYPE_TASK) {
+            $tasks = $activity->tasks;
+            foreach ($tasks as $task) {
+                $task->title = $activity->name;
+                $task->content = $activity->content;
+                $task->deadline = $activity->end_date;
+                $task->save();
+            }
+        }
+
         return $this->response($activity);
     }
 
     public function destroy(Activity $activity)
     {
+        // In case delete task activity type, we need to delete all tasks of this activity too
+        if ($activity->type == Activity::TYPE_TASK) {
+            $tasks = $activity->tasks;
+            foreach ($tasks as $task) {
+                $task->delete();
+            }
+        }
         $activity->delete();
         return $this->response($activity);
     }
