@@ -63,7 +63,18 @@ function ContentTask(props) {
           const response = await courseApi.download(task.id, data);
           if (response.status === HTTP_OK) {
             toast.success('Tải về thành công!');
-            //TODO: Download file
+            const { data } = response.data;
+
+            console.log(data.file_url);
+
+            const fileDownloadResponse = await fetch(data.file_url);
+            fileDownloadResponse.blob().then(blob => {
+              let url = window.URL.createObjectURL(blob);
+              let a = document.createElement('a');
+              a.href = url;
+              a.download = data.file_name;
+              a.click();
+            });
           } else {
             console.log(response);
             toast.error("Tải về thất bại!!!");

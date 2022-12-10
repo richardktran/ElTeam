@@ -123,7 +123,16 @@ class TaskController extends Controller
         $headers = array('Content-Type'=>'application/octet-stream',);
         $zip_new_name = "$groupName-$activityId.zip";
 
-        return response()->download($zip_file,$zip_new_name,$headers);
+        // Upload zip file to S3 with folder name is tasks/{task_id}/hand-in/{group_name}-{activity_id}.zip
+        $s3 = Storage::disk('s3');
+        $s3->put($folderPath.'/hand-in/'.$zip_new_name, file_get_contents($zip_file), 'private');
+        // Get url
+        $fileUrl = $s3->url($folderPath.'/hand-in/'.$zip_new_name);
+
+        // Delete all files in folder tasks/{task_id}
+        File::deleteDirectory(storage_path('app/'.$folderPath));
+
+        return $this->response(['file_url' => $fileUrl, 'file_name' => $zip_new_name]);
     }
 
     public function deleteTask(Request $request, Task $task)
