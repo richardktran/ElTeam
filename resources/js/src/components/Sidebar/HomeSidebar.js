@@ -25,7 +25,7 @@ function HomeSidebar({ pathname }) {
     {
       icon: "icon ni ni-calendar-booking-fill",
       pathPattern: '/calendar',
-      title: 'Lịch của bạn',
+      title: 'Lịch của tôi',
     },
   ]
 

@@ -130,13 +130,16 @@ const LoginForm = ({ onFinish, loginFailed, onFinishFailed, loadingButton }) => 
                                 <span>HOẶC</span>
                             </h6>
                         </div>
+
                         <ul className="nav justify-center gx-4">
-                            <li className="nav-item">
-                                <Link className="nav-link" to="#">Facebook</Link>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href={googleLoginUrl}>Google</a>
-                            </li>
+                            <a class="btn btn-lg" href={googleLoginUrl} style={{
+                                color: "#545454",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 1px 2px 1px #ddd"
+                            }}>
+                                <img src="https://img.icons8.com/color/16/000000/google-logo.png" className='mr-2' />
+                                Đăng nhập với Google
+                            </a>
                         </ul>
                         <div className="text-center mt-5">
                             <span className="fw-500">Bạn chưa có tài khoản?

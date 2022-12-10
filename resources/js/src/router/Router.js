@@ -2,6 +2,7 @@ import { createBrowserHistory } from 'history';
 import React from 'react';
 import { Route, Routes } from 'react-router-loading';
 import GoogleCallback from '../components/Form/GoogleCallback';
+import CalendarPage from '../pages/CalendarPage/CalendarPage';
 import Course from '../pages/CoursePage';
 import CourseDetailPage from '../pages/CoursePage/CourseDetailPage';
 import MemberPage from '../pages/CoursePage/MemberPage';
@@ -26,6 +27,7 @@ const Router = () => {
             <Route path="/users/*" element={<User />} />
             <Route path="/my-courses" element={<MyCoursesPage />} />
             <Route path="/notifications" element={<NotificationPage />} />
+            <Route path="/calendar" element={<CalendarPage />} />
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/register" element={<RegisterPage />} />
             <Route exact path="/auth/google" element={<GoogleCallback />} />
