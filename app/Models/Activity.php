@@ -28,10 +28,18 @@ class Activity extends Model
         'url',
         'content',
         'topic_id',
+        'tasks'
     ];
+
+    protected $with = ['tasks'];
 
     public function topic()
     {
         return $this->belongsTo(Topic::class);
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
     }
 }
