@@ -41,6 +41,8 @@
 
     <!-- Example code for sweetalert2 -->
     <script src="{{ asset('assets/js/example-sweetalert.js') }}"></script>
+    <script src="{{ asset('assets/js/libs/fullcalendar.js') }}"></script>
+    <script src="{{ asset('assets/js/apps/calendar.js') }}"></script>
 
 </body>
 
