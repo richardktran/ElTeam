@@ -10,6 +10,7 @@ import toast from 'react-hot-toast';
 import { requestTopics } from '../../../store/Course/Reducer';
 import { useDispatch } from 'react-redux';
 import { API_URL } from '../../../api/axiosInstance';
+import moment from 'moment';
 const { Dragger } = Upload;
 
 
@@ -23,6 +24,7 @@ function AddActivityModal(props) {
   const [type, setType] = useState('text');
   const [fileType, setFileType] = useState('pdf');
   const [content, setContent] = useState('');
+  const [deadline, setDeadline] = useState(null);
 
   const uploadProps = {
     name: 'file',
@@ -80,6 +82,10 @@ function AddActivityModal(props) {
     return 'text';
   }
 
+  const onDateChange = (date, dateString) => {
+    setDeadline(dateString + ' 23:59:59');
+  }
+
   const changeType = (name) => {
     const type = getTypes(name);
     setFileType(type);
@@ -95,16 +101,28 @@ function AddActivityModal(props) {
       if (type === 'file') {
         newType = fileType;
       }
-      const data = {
+      let data = {
         topic_id: topicId,
         name: name,
         type: newType,
         content: content,
       }
 
+      if (deadline) {
+        data = {
+          ...data,
+          end_date: deadline
+        }
+      }
+
       const response = await lessonApi.createActivity(data);
       if (response.status === HTTP_OK) {
         toast.success('Thêm hoạt động thành công!');
+
+        if (newType === 'task') {
+          toast.success('Đã bàn giao công việc này cho tất cả các nhóm!');
+        }
+
         dispatch(requestTopics());
         setIsShow({ show: false, topicId: null });
         setName('');
@@ -180,6 +198,10 @@ function AddActivityModal(props) {
                   value: 'link',
                   label: 'Liên kết đến trang web',
                 },
+                {
+                  value: 'task',
+                  label: 'Công việc cho nhóm',
+                },
               ]}
             />
           </div>
@@ -205,6 +227,27 @@ function AddActivityModal(props) {
 
           {type === 'link' &&
             <Input type="text" value={content} onChange={e => setContent(e.target.value)} placeholder='Nhập liên kết' className="form-control" id="content" />
+          }
+
+          {type === 'task' &&
+            <>
+              <TextEditor className="form-control" id="content" value={content} onChange={setContent} />
+              <label className="form-label mt-2" htmlFor="deadline">Hạn nộp bài</label>
+              <Form.Item
+                className="form-control-wrap"
+                name="deadline"
+              >
+                <DatePicker
+                  placeholder="Chọn ngày"
+                  id="deadline"
+                  onChange={onDateChange}
+                  className="form-control"
+                  disabledDate={(current) =>
+                    current.isBefore(moment().subtract(1, 'day'))
+                  }
+                />
+              </Form.Item>
+            </>
           }
         </Form.Item>
         <Form.Item className="form-group">

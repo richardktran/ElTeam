@@ -11,6 +11,7 @@ import { requestTopics } from '../../../store/Course/Reducer';
 import { useDispatch } from 'react-redux';
 import { API_URL } from '../../../api/axiosInstance';
 const { Dragger } = Upload;
+import moment from 'moment';
 
 
 
@@ -23,6 +24,7 @@ function EditActivityModal(props) {
   const [type, setType] = useState('text');
   const [fileType, setFileType] = useState('other');
   const [content, setContent] = useState('');
+  const [deadline, setDeadline] = useState(null);
 
 
 
@@ -36,6 +38,7 @@ function EditActivityModal(props) {
     setName(activity.name);
     setType(activity.type);
     setContent(activity.content);
+    setDeadline(activity.end_date);
     if (activity.type === 'file') {
       changeType(activity.content);
     }
@@ -126,6 +129,7 @@ function EditActivityModal(props) {
       const data = {
         name: name,
         content: content,
+        end_date: deadline
       }
 
       const response = await lessonApi.updateActivity(activity.id, data);
@@ -154,6 +158,10 @@ function EditActivityModal(props) {
     return filename.split('.').pop();
   }
 
+  const onDateChange = (date, dateString) => {
+    setDeadline(dateString + ' 23:59:59');
+  }
+
   return (
     <BaseModal modalName={modalName} handleCloseModal={handleCloseModal} isShow={isShow} modalSize='lg'>
       <Form action="#" className="form-validate is-alter">
@@ -179,7 +187,7 @@ function EditActivityModal(props) {
           {type === 'text' &&
             <TextEditor className="form-control" id="content" value={content} onChange={setContent} />
           }
-          {type !== 'text' && type !== 'link' &&
+          {type !== 'text' && type !== 'link' && type !== 'task' &&
             <Dragger {...uploadProps}>
               <p className="ant-upload-drag-icon">
                 <InboxOutlined />
@@ -193,6 +201,28 @@ function EditActivityModal(props) {
 
           {type === 'link' &&
             <Input type="text" value={content} onChange={e => setContent(e.target.value)} placeholder='Nhập liên kết' className="form-control" id="content" />
+          }
+
+          {type === 'task' &&
+            <>
+              <TextEditor className="form-control" id="content" value={content} onChange={setContent} />
+              <label className="form-label mt-2" htmlFor="deadline">Hạn nộp bài</label>
+              <Form.Item
+                className="form-control-wrap"
+                name="deadline"
+              >
+                <DatePicker
+                  placeholder="Chọn ngày"
+                  id="deadline"
+                  defaultValue={deadline ? moment(deadline, 'YYYY-MM-DD HH:mm:ss') : null}
+                  onChange={onDateChange}
+                  className="form-control"
+                  disabledDate={(current) =>
+                    current.isBefore(moment().subtract(1, 'day'))
+                  }
+                />
+              </Form.Item>
+            </>
           }
         </Form.Item>
         <Form.Item className="form-group">

@@ -77,5 +77,10 @@ export const courseApi = {
         const url = DEFAULT_URL + '/' + id + '/exit';
         const config = await bearerConfig();
         return axiosInstance.post(url, {}, config);
+    },
+    download: async (taskId, data) => {
+        const url = 'tasks' + '/' + taskId + '/archive';
+        const config = await bearerConfig();
+        return axiosInstance.post(url, data, config);
     }
 }

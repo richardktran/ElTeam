@@ -4,10 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\Task;
+use App\Services\TaskService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class TaskController extends Controller
 {
+    protected TaskService $taskService;
+
+    public function __construct(TaskService $taskService)
+    {
+        $this->taskService = $taskService;
+    }
+
     public function getTask(Request $request, Task $task)
     {
         return $this->response($task);
@@ -49,20 +59,7 @@ class TaskController extends Controller
     {
         $params = $request->all();
 
-        $latestPosition = Task::where('group_id', $group->id)
-            ->where('section_id', $params['section_id'])
-            ->orderBy('position', 'desc')
-            ->first();
-
-        $position = $latestPosition ? $latestPosition->position + 1 : 0;
-        $task = Task::create([
-            'title' => $params['title'],
-            'content' => $params['content'],
-            'group_id' => $group->id,
-            'section_id' => $params['section_id'],
-            'deadline' => $params['deadline'],
-            'position' => $position,
-        ]);
+        $task = $this->taskService->createTask($params, $group);
 
         return $this->response($task);
     }
@@ -85,6 +82,57 @@ class TaskController extends Controller
         $task = Task::find($task->id);
 
         return $this->response($task);
+    }
+
+    public function archiveSubmitFiles(Request $request, Task $task)
+    {
+        $params = $request->all();
+        $groupName = $params['group_name'];
+        $activityId = $params['activity_id'];
+
+        $folderPath = 'tasks/' . $task->id;
+        $fileUrls = $params['file_urls'];
+        foreach ($fileUrls as $fileUrl) {
+            $file = file_get_contents($fileUrl['url']);
+            $fileName = $fileUrl['name'];
+            
+            $filePath = $folderPath.'/' . $fileName;
+
+            if (!Storage::disk('local')->exists($folderPath)) {
+                Storage::disk('local')->makeDirectory($folderPath);
+            }
+            Storage::disk('local')->put($filePath, $file);
+        }
+
+        $zip_file=storage_path('app/'.$folderPath."/$groupName-$activityId.zip");
+        $zip = new \ZipArchive();
+        $zip->open($zip_file, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
+        $path = storage_path('app/'.$folderPath); // path to your pdf files
+        $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path));
+        foreach ($files as $name => $file)
+        {
+            // We're skipping all subfolders
+            if (!$file->isDir()) {
+                $filePath     = $file->getRealPath();
+                // extracting filename with substr/strlen
+                $relativePath = substr($filePath, strlen($path) + 1);
+                $zip->addFile($filePath, $relativePath);
+            }
+        }
+        $zip->close();
+        $headers = array('Content-Type'=>'application/octet-stream',);
+        $zip_new_name = "$groupName-$activityId.zip";
+
+        // Upload zip file to S3 with folder name is tasks/{task_id}/hand-in/{group_name}-{activity_id}.zip
+        $s3 = Storage::disk('s3');
+        $s3->put($folderPath.'/hand-in/'.$zip_new_name, file_get_contents($zip_file), 'private');
+        // Get url
+        $fileUrl = $s3->url($folderPath.'/hand-in/'.$zip_new_name);
+
+        // Delete all files in folder tasks/{task_id}
+        File::deleteDirectory(storage_path('app/'.$folderPath));
+
+        return $this->response(['file_url' => $fileUrl, 'file_name' => $zip_new_name]);
     }
 
     public function deleteTask(Request $request, Task $task)

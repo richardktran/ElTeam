@@ -76,11 +76,18 @@ function Avatar(props) {
 
   return (
     <>
-      <div ref={target} onMouseEnter={() => setShowPopup(true)} onMouseLeave={() => {
-        setTimeout(() => {
-          setShowPopup(false);
-        }, 500);
-      }}>
+      <div ref={target}
+        onMouseEnter={() => {
+          setTimeout(() => {
+            setShowPopup(true);
+          }, 500);
+        }}
+        onMouseLeave={() => {
+          setTimeout(() => {
+            setShowPopup(false);
+          }, 500);
+        }}
+      >
         {image ? (
           <div class={`user-avatar ${size} bg-blue`}>
             <img src={image} alt="" referrerpolicy="no-referrer" />
