@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactPlayer from 'react-player';
-import BaseModal from '../BaseModal'
+import BaseModal from '../BaseModal';
+import GoogleDocsViewer from 'react-google-docs-viewer';
 
 function FileViewerModal(props) {
   const { isShow, modalName, url, handleCloseModal } = props
@@ -55,7 +56,12 @@ function FileViewerModal(props) {
   return (
     <BaseModal modalName={modalName} handleCloseModal={handleCloseModal} isShow={isShow} modalSize='xl' >
       {(getTypes(content) !== 'movie' && getTypes(content) !== 'audio') && content !== null &&
-        <iframe id="file" src={`https://docs.google.com/viewer?url=${content}&embedded=true`} style={{ width: '100%', height: '500px' }} frameBorder={0} />
+        // <iframe id="file" src={`https://docs.google.com/viewer?url=${content}&embedded=true`} style={{ width: '100%', height: '500px' }} frameBorder={0} />
+        <GoogleDocsViewer
+          width="100%"
+          height="500px"
+          fileUrl={content}
+        />
       }
       {(getTypes(content) === 'movie' || getTypes(url) === 'audio') &&
         <ReactPlayer url={content} width="100%" height="500px" playing={true} controls={true} />
