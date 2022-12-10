@@ -11,11 +11,12 @@ import { get, onValue, ref } from 'firebase/database';
 import { toast } from 'react-hot-toast';
 import { courseApi } from '../../../../api/courseApi';
 import { HTTP_OK } from '../../../../utils/constant';
+import { useEffect } from 'react';
 
 function ContentTask(props) {
   const { activity, isLoading } = props;
 
-  const [isDownloading, setIsDownloading] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(null);
   const [files, setFiles] = useState([]);
 
 
@@ -37,10 +38,12 @@ function ContentTask(props) {
     return '';
   }
 
+  useEffect(() => {
+    console.log(isDownloading);
+  }, [isDownloading]);
 
-  const downloadFiles = async (task) => {
-    setIsDownloading(true);
-    console.log("tasks/" + task.id + "/hand-in");
+  const downloadFiles = (task) => {
+    setIsDownloading(task.id);
     // Get urls from firebase 
     const allFilesSubmit = ref(db, "tasks/" + task.id + "/hand-in");
     let newFiles = [];
@@ -65,8 +68,6 @@ function ContentTask(props) {
             toast.success('Tải về thành công!');
             const { data } = response.data;
 
-            console.log(data.file_url);
-
             const fileDownloadResponse = await fetch(data.file_url);
             fileDownloadResponse.blob().then(blob => {
               let url = window.URL.createObjectURL(blob);
@@ -79,13 +80,11 @@ function ContentTask(props) {
             console.log(response);
             toast.error("Tải về thất bại!!!");
           }
+          setIsDownloading(null);
         }
 
       }
     });
-
-
-    setIsDownloading(false);
   }
 
 
@@ -198,13 +197,13 @@ function ContentTask(props) {
                       </td>
 
                       <td className="nk-tb-col tb-col-mb">
-                        {task.status === 'done' && !isDownloading &&
+                        {task.status === 'done' && isDownloading === null &&
                           <div className="btn btn-sm btn-primary" onClick={() => downloadFiles(task)}>
                             <em className="icon ni ni-download-cloud" />
                             <span>Tải về</span>
                           </div>
                         }
-                        {isDownloading &&
+                        {isDownloading === task.id &&
                           <button class="btn btn-primary" type="button" disabled>
                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             <span> Đang nén... </span>
