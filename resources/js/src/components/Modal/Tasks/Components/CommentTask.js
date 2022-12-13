@@ -63,14 +63,13 @@ function CommentTask(props) {
     const membersList = members.map(member => {
       return {
         ...member,
-        display: member.name
+        display: member.name ?? member.email.split('@')[0],
       }
     });
     setMembersList(membersList);
   }, [members]);
 
   useEffect(() => {
-    console.log(id);
     if (id === undefined) {
       forceUpdate();
     }
@@ -147,7 +146,6 @@ function CommentTask(props) {
     set(oldComments, newComment);
 
     // Push notification to all mentionPeople except current user to firebase database 
-    console.log(course);
     mentionPeople.map(mention => {
       if (mention.id !== currentUser.id) {
         const newNotification = {
@@ -187,7 +185,6 @@ function CommentTask(props) {
 
   const downloadAll = async (e, files) => {
     e.preventDefault();
-    console.log(files);
     files.map(async (file) => {
       const response = await fetch(file);
       response.blob().then(blob => {

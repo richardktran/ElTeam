@@ -52,7 +52,6 @@ function Avatar(props) {
         const firstLetter = lastName.charAt(0).toUpperCase();
         return (firstName.charAt(0).toUpperCase() + firstLetter).toUpperCase();
       }
-      console.log(email);
       return email[0].toUpperCase() + email[1].toUpperCase();
     }
   }, [name, email]);
