@@ -65,7 +65,7 @@ function Members(props) {
                 </span>
               </div>
             </a>
-            <div class="dropdown-menu" style={{ minWidth: "200px" }}>
+            <div class="dropdown-menu" style={{ minWidth: "280px" }}>
               <div class="dropdown-head">
                 <span class="sub-title nk-dropdown-title">Chọn thành viên</span>
               </div>
