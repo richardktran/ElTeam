@@ -29,7 +29,6 @@ function SubmitTask(props) {
   const forceUpdate = React.useCallback(() => updateState({}), []);
 
   useEffect(() => {
-    console.log(id);
     if (id === undefined) {
       forceUpdate();
     }
