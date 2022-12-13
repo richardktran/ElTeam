@@ -77,7 +77,7 @@ function Members(props) {
                         <Avatar user={member} image={member.avatar} name={member.name} email={member.email} />
                         <div class="chat-info ml-2">
                           <div class="chat-from">
-                            <div class="name">{member.name}</div>
+                            <div class="name">{member.name ?? member.email.split("@")[0]}</div>
                           </div>
                         </div>
                       </a>
